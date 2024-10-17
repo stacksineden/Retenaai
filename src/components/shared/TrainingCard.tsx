@@ -2,13 +2,13 @@ import { Models } from "appwrite";
 import { format } from "date-fns";
 
 const TrainingCard = ({ data }: { data: Models.Document | undefined }) => {
-  // console.log(data?.images[0]);
+  console.log(data?.images[0]);
   return (
     <div className="group block w-full">
       <div className="bg-white rounded-2xl cursor-pointer overflow-hidden flex flex-col aspect-[270/340] gap-2 pb-4 transition-all duration-200 group-hover:-translate-y-2">
         <div className="relative aspect-[270/200] overflow-hidden bg-accent">
           <img
-            src={"/assets/psedo-generations/chibsky-style.jpg"}
+            src={data?.images[0] ?? "/assets/psedo-generations/chibsky-style.jpg"}
             alt="toolsimage"
             loading="lazy"
             className="w-full h-full object-cover rounded-t-2xl"
