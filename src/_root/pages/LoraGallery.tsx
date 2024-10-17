@@ -8,7 +8,7 @@ const LoraGallery = () => {
         <h2 className="text-primary-black text-2xl md:text-4xl font-semibold">
           Photoshoot Gallery
         </h2>
-        <p className="text-primary-blue3 text-sm md:text-base pl-2">
+        <p className="text-primary-blue3 text-base pl-2">
           Explore our diverse collection of photoshoot styles, each designed to
           offer a unique and personalized look.
         </p>

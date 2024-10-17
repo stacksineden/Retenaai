@@ -82,10 +82,10 @@ const Photoupscaling = () => {
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 mt-2 md:mt-[4rem]">
         <div className="w-full rounded-lg border-[1.5px] border-accent shadow-lg p-5 bg-white">
           <div className="flex flex-col my-4">
-            <p className="text-base md:text-lg font-medium text-primary-black">
+            <p className="text-lg font-medium text-primary-black">
               Upload Image
             </p>
-            <p className="text-xs md:text-sm text-primary-black opacity-50">
+            <p className="text-sm text-primary-black opacity-50">
               Select an image to upscale
             </p>
           </div>
@@ -149,15 +149,15 @@ const Photoupscaling = () => {
 
         <div className="w-full h-full rounded-lg border-[1.5px] border-accent shadow-lg p-5 flex flex-col gap-2 bg-white">
           <div className="flex flex-col my-4">
-            <p className="text-base md:text-lg font-medium text-primary-black">
+            <p className="text-lg font-medium text-primary-black">
               Generated Image
             </p>
             {loading ? (
-              <p className="text-xs md:text-sm text-primary-black opacity-50">
+              <p className="text-sm text-primary-black opacity-50">
                 Please wait for about 30 seconds while we generate your image...
               </p>
             ) : (
-              <p className="text-xs md:text-sm text-primary-black opacity-50">
+              <p className="text-sm text-primary-black opacity-50">
                 Image generation takes about 30 seconds
               </p>
             )}

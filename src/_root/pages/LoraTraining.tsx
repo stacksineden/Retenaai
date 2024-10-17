@@ -171,7 +171,7 @@ const LoraTraining = () => {
           <h2 className="text-primary-black text-2xl md:text-4xl font-semibold">
             {modeDetails?.title}
           </h2>
-          <p className="text-primary-blue3 text-sm md:text-base pl-2">
+          <p className="text-primary-blue3 text-base pl-2">
             Flux.1 AI Image Generator | Realism Style
           </p>
           <ExamplePhotoModal images={modeDetails?.images ?? []} />
@@ -183,10 +183,10 @@ const LoraTraining = () => {
           >
             <div className="w-full h-full rounded-lg border-[1.5px] border-accent shadow-lg p-5 flex flex-col gap-2 bg-white">
               <div className="flex flex-col my-4">
-                <p className="text-base md:text-lg font-medium text-primary-black">
+                <p className="text-lg font-medium text-primary-black">
                   Upload Your images
                 </p>
-                <p className="text-xs md:text-sm text-primary-black font-semibold">
+                <p className="text-sm text-primary-black font-semibold">
                   We recommend uploading your photos in supported formats such
                   as JPEG, JPG, PNG, or WebP. For optimal results, please share
                   15 to 30 images or more, if possible. Include a variety of
@@ -287,20 +287,20 @@ const LoraTraining = () => {
             </div>
             <div className="w-full rounded-lg border-[1.5px] border-accent shadow-lg p-5 bg-white">
               <div className="flex flex-col my-4">
-                <p className="text-base md:text-lg font-medium text-primary-black">
+                <p className="text-lg font-medium text-primary-black">
                   Training options
                 </p>
-                <p className="text-xs md:text-sm text-primary-black opacity-50">
+                <p className="text-sm text-primary-black opacity-50">
                   Select a style, type to get your own image
                 </p>
               </div>
 
               <div className="flex flex-col gap-1 w-full mt-1 pb-4">
                 <div className="flex flex-col gap-1 my-1">
-                  <p className="text-xs md:text-sm text-primary-black">
+                  <p className="text-sm text-primary-black">
                     Additional Prompts (Optional)
                   </p>
-                  <p className="text-[10px] md:text-xs text-primary-black opacity-50">
+                  <p className="text-xs text-primary-black opacity-50">
                     Do you have specific ideas for how you'd like your images to
                     look? Separate each prompt with a hyphen (-) if you have
                     more than one. Check out the{" "}
@@ -331,10 +331,10 @@ const LoraTraining = () => {
                 />
 
                 <div className="flex flex-col gap-1 my-1">
-                  <p className="text-xs md:text-sm text-primary-black">
+                  <p className="text-sm text-primary-black">
                     Complementary Photo Style (Optional)
                   </p>
-                  <p className="text-[10px] md:text-xs text-primary-black opacity-50">
+                  <p className="text-xs text-primary-black opacity-50">
                     {`Looking for more than just a ${
                       modeDetails?.title ?? ""
                     }? If you have any other photo styles in mind, please select one or explore the gallery for inspiration.`}
@@ -358,7 +358,7 @@ const LoraTraining = () => {
 
                 <div className="p-4 rounded-lg border border-accent my-4 flex flex-col gap-1">
                   <div className="flex items-center justify-between">
-                    <p className="text-sm md:text-base font-medium text-primary-black">
+                    <p className="text-base font-medium text-primary-black">
                       Display Public
                     </p>
                     <Switch
@@ -369,7 +369,7 @@ const LoraTraining = () => {
                       checked={form.watch("is_public")} // Bind checked state
                     />
                   </div>
-                  <p className="text-[10px] md:text-xs text-primary-black opacity-50">
+                  <p className="text-xs text-primary-black opacity-50">
                     Free Usage will be public, upgrade to make it private
                   </p>
                 </div>

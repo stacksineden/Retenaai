@@ -7,7 +7,7 @@ const ImageToPrompt = () => {
         <h2 className="text-primary-black text-2xl md:text-4xl font-semibold">
           Image to prompt
         </h2>
-        <p className="text-primary-blue3 text-sm md:text-base pl-2">
+        <p className="text-primary-blue3 text-base pl-2">
           Visualize your imagination with Flux AI.
         </p>
       </div>

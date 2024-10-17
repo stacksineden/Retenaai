@@ -279,7 +279,7 @@ const FluxProGenerate = () => {
               className="flex flex-col gap-1 w-full mt-1 pb-4"
             >
               <div className="flex flex-col gap-1 my-1">
-                <p className="text-xs md:text-sm text-primary-black">Prompt</p>
+                <p className="text-sm text-primary-black">Prompt</p>
                 <p className="text-[10px] md:text-xs text-primary-black opacity-50">
                   Describe your Flux.1 AI image, Default: a person
                 </p>
@@ -302,10 +302,10 @@ const FluxProGenerate = () => {
               />
 
               <div className="flex flex-col gap-1 my-1">
-                <p className="text-xs md:text-sm text-primary-black">
+                <p className="text-sm text-primary-black">
                   Image Dimensions
                 </p>
-                <p className="text-[10px] md:text-xs text-primary-black opacity-50">
+                <p className="text-xs text-primary-black opacity-50">
                   Select the aspect ratio for your image
                 </p>
               </div>
@@ -353,7 +353,7 @@ const FluxProGenerate = () => {
 
               <div className="p-4 rounded-lg border border-accent my-4 flex flex-col gap-1">
                 <div className="flex items-center justify-between">
-                  <p className="text-sm md:text-base font-medium text-primary-black">
+                  <p className="text-base font-medium text-primary-black">
                     Display Public
                   </p>
                   <Switch
@@ -391,12 +391,12 @@ const FluxProGenerate = () => {
                 Generated Image
               </p>
               {loading ? (
-                <p className="text-xs md:text-sm text-primary-black opacity-50">
+                <p className="text-sm text-primary-black opacity-50">
                   Please wait for about 30 seconds while we generate your
                   image...
                 </p>
               ) : (
-                <p className="text-xs md:text-sm text-primary-black opacity-50">
+                <p className="text-sm text-primary-black opacity-50">
                   Image generation takes about 30 seconds - click on images to
                   generate
                 </p>
@@ -428,16 +428,16 @@ const FluxProGenerate = () => {
         ) : (
           <div className="w-full h-full rounded-lg border-[1.5px] border-accent shadow-lg p-5 flex flex-col gap-2 bg-white">
             <div className="flex flex-col my-4">
-              <p className="text-base md:text-lg font-medium text-primary-black">
+              <p className="text-lg font-medium text-primary-black">
                 Generated Image
               </p>
               {loading ? (
-                <p className="text-xs md:text-sm text-primary-black opacity-50">
+                <p className="text-sm text-primary-black opacity-50">
                   Please wait for about 30 seconds while we generate your
                   image...
                 </p>
               ) : (
-                <p className="text-xs md:text-sm text-primary-black opacity-50">
+                <p className="text-sm text-primary-black opacity-50">
                   Image generation takes about 30 seconds
                 </p>
               )}
