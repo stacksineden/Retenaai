@@ -1,0 +1,316 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border list-none p-0 m-0 scroll-smooth;
+  }
+
+  body {
+    @apply bg-white text-primary-black font-jost;
+  }
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+/* TYPOGRAPHY */
+
+.h1-bold {
+  @apply text-[36px] font-bold leading-[140%];
+}
+
+.h1-semibold {
+  @apply text-[36px] font-semibold leading-[140%];
+}
+
+.h2-bold {
+  @apply text-[30px] font-bold leading-[140%];
+}
+
+.h3-bold {
+  @apply text-[24px] font-bold leading-[140%];
+}
+
+.base-semibold {
+  @apply text-[16px] font-semibold leading-[140%];
+}
+
+.base-medium {
+  @apply text-[16px] font-medium leading-[140%];
+}
+
+.base-regular {
+  @apply text-[16px] font-normal leading-[140%];
+}
+
+.body-bold {
+  @apply text-[18px] font-bold leading-[140%];
+}
+
+.body-medium {
+  @apply text-[18px] font-medium leading-[140%];
+}
+
+.small-semibold {
+  @apply text-[14px] font-semibold leading-[140%] tracking-tighter;
+}
+
+.small-medium {
+  @apply text-[14px] font-medium leading-[140%];
+}
+
+.small-regular {
+  @apply text-[14px] font-normal leading-[140%];
+}
+
+.subtle-semibold {
+  @apply text-[12px] font-semibold leading-[140%];
+}
+
+.tiny-medium {
+  @apply text-[10px] font-medium leading-[140%];
+}
+
+/* UTILITIES */
+.flex-center {
+  @apply flex justify-center items-center;
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
+}
+
+.flex-start {
+  @apply flex justify-start items-center;
+}
+
+@layer components {
+  /* SHADCN COMPONENTS */
+  /* Form */
+  .shad-form_label {
+    @apply text-primary-black !important;
+  }
+
+  .shad-form_message {
+    @apply text-primary-red !important;
+  }
+
+  .shad-input {
+    @apply h-14 text-primary-black bg-transparent border border-accent placeholder:text-primary-black focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-zinc-200 !important;
+  }
+
+  .shad-textarea {
+    @apply h-24 bg-transparent border border-accent rounded-xl text-primary-black  !important;
+  }
+
+  /* Button */
+  .shad-button_primary {
+    @apply bg-primary-black hover:opacity-90 text-white flex gap-2 !important;
+  }
+  .shad-button_zinc {
+    @apply bg-zinc-900 hover:opacity-90 text-zinc-100 flex gap-2 !important;
+  }
+
+  .shad-button_dark_4 {
+    @apply h-12 bg-primary-black px-5 flex gap-2 !important;
+  }
+
+  .shad-button_ghost {
+    @apply flex gap-4 items-center justify-start hover:bg-transparent hover:text-primary-black !important;
+  }
+  .video-carousel_container {
+    @apply relative sm:w-[70vw] w-[88vw] md:h-[70vh] sm:h-[50vh] h-[35vh];
+  }
+}
+
+.screen-max-width {
+  /* margin-inline-start: auto; */
+  margin-inline-end: auto;
+  position: relative;
+  max-width: 1120px;
+}
+
+/* hero */
+
+.hero_slider {
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.hero_items {
+  width: 100%;
+  height: 100%;
+  /* position: absolute; */
+  opacity: 0;
+  animation: slideimage 41s infinite;
+}
+
+.hero_items:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.hero_items:nth-child(2) {
+  animation-delay: 10s;
+}
+
+.hero_items:nth-child(3) {
+  animation-delay: 20s;
+}
+
+.hero_items:nth-child(4) {
+  animation-delay: 30s;
+}
+
+.hero_img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: zoom 41s infinite;
+  opacity: 0.6;
+}
+
+.hero_text {
+  max-width: 50%;
+  position: absolute;
+  top: 50%;
+  left: 3%;
+  border-radius: 10px;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 30px 10px;
+  text-align: center;
+  /* width: 35%;  */
+}
+
+@media screen and (max-width: 450px) {
+  .hero_text {
+    max-width: 90%;
+  }
+}
+
+.hero_text h5 {
+  font-size: 40px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 5px;
+  word-wrap: break-word;
+}
+
+.hero_text p {
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+@keyframes slideimage {
+  25% {
+    opacity: 1;
+  }
+
+  40% {
+    opacity: 0;
+  }
+}
+
+@keyframes zoom {
+  100% {
+    transform: scale(1.3);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .hero_text {
+    top: 30%;
+    /* background:transparent; */
+    padding: 8px;
+  }
+
+  .hero_text h5 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .hero_text p {
+    font-size: 12px;
+  }
+}
+
+
+
+.swiper-slide2 {
+  background: transparent;
+  /* height: calc((100% - 30px) / 2) !important; */
+}
+
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+
