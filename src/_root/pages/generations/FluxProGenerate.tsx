@@ -292,7 +292,7 @@ const FluxProGenerate = () => {
                     <FormControl>
                       <Textarea
                         placeholder="Enter your Prompt"
-                        className="shad-textarea text-[10px] md:text-xs"
+                        className="shad-textarea text-base"
                         {...field}
                       />
                     </FormControl>
