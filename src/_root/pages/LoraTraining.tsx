@@ -208,7 +208,7 @@ const LoraTraining = () => {
                     <FormControl>
                       <Input
                         placeholder="Enter your Trigger word eg 'DAVID'"
-                        className="shad-input text-[10px] md:text-xs"
+                        className="shad-input text-base"
                         {...field}
                       />
                     </FormControl>
