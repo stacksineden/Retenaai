@@ -280,7 +280,7 @@ const FluxProGenerate = () => {
             >
               <div className="flex flex-col gap-1 my-1">
                 <p className="text-sm text-primary-black">Prompt</p>
-                <p className="text-[10px] md:text-xs text-primary-black opacity-50">
+                <p className="text-xs text-primary-black opacity-50">
                   Describe your Flux.1 AI image, Default: a person
                 </p>
               </div>
