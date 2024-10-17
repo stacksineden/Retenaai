@@ -50,11 +50,11 @@ const FluxHighlight = () => {
           />
         </div>
 
-        <div className="md:max-w-[77%] md:ml-auto">
+        <div className="md:max-w-[77%] w-full md:ml-auto h-[20rem] md:h-full">
           <img
              src="/assets/demo5.png"
             alt="images"
-            className="w-ful h-full object-cover"
+            className="w-full h-full object-cover"
           />
         </div>
       </div>

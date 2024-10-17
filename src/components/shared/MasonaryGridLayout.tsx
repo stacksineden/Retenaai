@@ -39,6 +39,7 @@ const MasonaryGridLayout = ({ data }: LayoutProps) => {
               <img
                 src={item?.url}
                 alt={`Gallery image ${index + 1}`}
+                loading="lazy"
                 style={{
                   width: "100%",
                   display: "block",
