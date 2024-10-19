@@ -9,7 +9,6 @@ const TrainingDatasets = () => {
   const { user } = useUserContext();
   const { data: trainingDataset, isPending: isFetchingData } =
     useGetUserTrainingData(user?.id);
-  // console.log(trainingDataset);
   return (
     <div className="container py-4 mt-6 md:mt-0">
       <div className="w-full flex flex-col gap-2 my-3">
