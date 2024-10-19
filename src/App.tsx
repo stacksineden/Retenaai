@@ -51,11 +51,11 @@ const App = () => {
             <Loader2 className="h-10 md:h-20 w-10 md:w-20 text-primary-blue animate-spin" />
             <div className="text-center">
               {showFirstMessage ? (
-                <p className="text-base md:text-lg text-zinc-100">
+                <p className="text-base md:text-lg text-primary-black">
                   Hang tight! Our servers are doing some heavy lifting.
                 </p>
               ) : (
-                <p className="text-base md:text-lg text-zinc-100">
+                <p className="text-base md:text-lg text-primary-black">
                   In the meantime, why not practice your Jedi mind tricks? Try
                   to move the loading spinner with your mind... Almost there...
                 </p>
