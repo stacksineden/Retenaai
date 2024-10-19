@@ -62,6 +62,9 @@ const BgRemover = () => {
     }
   }
 
+  const isButtonDisabled =
+  loading || selectedFiles?.length === 0
+
   // Handler to delete selected image
   const handleDelete = (file: File) => {
     setSelectedFiles((prevFiles) => prevFiles.filter((f) => f !== file));
@@ -97,7 +100,7 @@ const BgRemover = () => {
             <Button
               type="submit"
               className="shad-button_primary w-full my-3"
-              // disabled={true}
+              disabled={isButtonDisabled} 
               onClick={handleBgRemover}
             >
               {`Generate (${credit_charge.IMAGEUPSCALING} credit)`}

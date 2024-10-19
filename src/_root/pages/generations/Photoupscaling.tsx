@@ -68,6 +68,9 @@ const Photoupscaling = () => {
     }
   }
 
+  const isButtonDisabled =
+    loading || selectedFiles?.length === 0
+
   return (
     <div className="container py-4 mt-6 md:mt-0">
       <div className="w-full flex flex-col gap-2 my-3">
@@ -97,7 +100,7 @@ const Photoupscaling = () => {
             <Button
               type="submit"
               className="shad-button_primary w-full my-3"
-              // disabled={true}
+              disabled={isButtonDisabled}
               onClick={handlePhotoUpscaling}
             >
                  {`Generate (${credit_charge.IMAGEUPSCALING} credit)`}
