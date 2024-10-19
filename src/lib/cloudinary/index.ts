@@ -17,7 +17,7 @@ export const uploadToCloudinary = async (file: File | Blob) => {
     const response = await axios.post(cloudinaryUrl, formData, {
       headers: { "Content-Type": "multipart/form-data" },
     });
-    return response.data.secure_url; // This is the Cloudinary URL for the uploaded file
+    return response.data.secure_url; 
   } catch (error) {
     alert("Error uploading to Cloudinary");
     return null;
