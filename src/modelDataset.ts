@@ -588,5 +588,4 @@ export const prompt_factory_photoshot = [
     ],
   },
 ];
-
-// const photostyle = ["high-fashion", "black and white"];
+ 
