@@ -7,7 +7,7 @@ export const flux_styles_data = [
       "/assets/psedo-generations/flux1.1-ultra-realistic1.webp",
     ],
     query_slug: "flux-ultra-realistic",
-    url:"/generations?mode=flux-ultra-realistic",
+    url: "/generations?mode=flux-ultra-realistic",
     credit_fee: 4,
   },
   {
@@ -15,7 +15,7 @@ export const flux_styles_data = [
     text: "Add Keywords and variability to your outputs.",
     images: ["/assets/psedo-generations/embed-text-flux.webp"],
     query_slug: "embed_text_flux",
-    url:"/generations?mode=embed_text_flux",
+    url: "/generations?mode=embed_text_flux",
     credit_fee: 4,
   },
   {
@@ -23,7 +23,7 @@ export const flux_styles_data = [
     text: "A flux lora creates half photo half illustrated elements.",
     images: ["/assets/psedo-generations/tok-style.jpg"],
     query_slug: "tok-style",
-    url:"/generations/flux/lora?mode=tok-style",
+    url: "/generations/flux/lora?mode=tok-style",
     credit_fee: 2,
   },
   {
@@ -31,7 +31,7 @@ export const flux_styles_data = [
     text: "Flux Ghibsky Illustration lora, use GHIBSKY style to trigger image generation.",
     images: ["/assets/psedo-generations/chibsky-style.jpg"],
     query_slug: "ghibsky-style",
-    url:"/generations/flux/lora?mode=ghibsky-style",
+    url: "/generations/flux/lora?mode=ghibsky-style",
     credit_fee: 2,
   },
   {
@@ -39,7 +39,7 @@ export const flux_styles_data = [
     text: "Get really good low-poly video game outputs.",
     images: ["/assets/psedo-generations/video-game-style.webp"],
     query_slug: "video_game_style",
-    url:"/generations?mode=video_game_style",
+    url: "/generations?mode=video_game_style",
     credit_fee: 2,
   },
   {
@@ -47,7 +47,7 @@ export const flux_styles_data = [
     text: "Flux Cinestill Illustration lora, use CNSTLL style to trigger image generation.",
     images: ["/assets/psedo-generations/cnstill-style.jpg"],
     query_slug: "cnstill-style",
-    url:"/generations/flux/lora?mode=cnstill-style",
+    url: "/generations/flux/lora?mode=cnstill-style",
     credit_fee: 2,
   },
   // {
@@ -466,7 +466,6 @@ export const photoshoot_plans = [
   },
 ];
 
-
 export const photo_credits_plan = [
   {
     id: "1",
@@ -474,11 +473,11 @@ export const photo_credits_plan = [
     feature: [
       "200 credits",
       "Includes high-quality, AI-generated photos",
-      "Instant photo generations"
+      "Instant photo generations",
     ],
     base_price: "$4",
     price_in_naira: "6000",
-    credits:200
+    credits: 200,
   },
   {
     id: "2",
@@ -487,11 +486,11 @@ export const photo_credits_plan = [
       "800 credits",
       "Includes high-quality, AI-generated photos",
       "Instant photo generations",
-      "Priority access"
+      "Priority access",
     ],
     base_price: "$14",
     price_in_naira: "22000",
-    credits:800
+    credits: 800,
   },
   {
     id: "3",
@@ -505,9 +504,9 @@ export const photo_credits_plan = [
     ],
     base_price: "$18",
     price_in_naira: "29000",
-    credits:1500
-  }
-]
+    credits: 1500,
+  },
+];
 
 export const ratios = [
   { label: "2:3", width: "w-4", height: "h-6" },
@@ -524,90 +523,70 @@ export const ratios = [
 ];
 
 export const credit_charge = {
-  FLUXPROCREDIT:5,
-  FLUXDEVREALISM:2,
-  IMAGEUPSCALING:1
-}
+  FLUXPROCREDIT: 5,
+  FLUXDEVREALISM: 2,
+  IMAGEUPSCALING: 1,
+};
 
 
-export const pricingItems = [
+
+export const prompt_factory_photoshot = [
   {
-    plan: "Basic",
-    tagline: "Unlock Pro features for a week",
-    base_price: 1.88,
-    strikethrough: 3.88,
-    frequency: "Per Week",
-    features: [
-      {
-        text: "168 hours of full access",
-      },
-      {
-        text: "Flexible payment options",
-      },
-      {
-        text: "No credit card required",
-      },
+    category: "Nightlife",
+    propmts: [
+      "a young african american woman in a yellow sweater and headband pointing up, inspired by Chinwe Chukwuogo-Roy, trending on shutterstock, african american young woman, black young woman, yellow clothes, photo of a black woman, beautiful yellow woman, young black woman",
+      "a young woman in a checkered skirt and black sweater posing for the camera, Nicolette Macnamara, a character portrait, behance, realistic portrait photography, editorial portrait, clothed non - nude portrait, perdita weeks!, colour portrait photograph, studio portrait, feminine portrait, portrait girl",
+      "a woman sitting on a wooden stool with her legs crossed and her hands on her, Natasha Tan, seated on wooden chair, very beautiful long slim legs, beautiful slim legs, woman model, seductive seated pose, sitting on a stool",
+      "a woman in a red dress posing in front of a chair and a dark background, by Alexey Merinov, a portrait, art photography, featured on cg society, young sexy elegant woman, dressed in velvet, elegant woman, woman in dress, sophisticated young woman, fashion portrait photo",
+      "an african american woman sitting at a table with her hand on her chin, a portrait, trending on unsplash, african american young woman, young black woman, photo of a black woman, photo in style of tyler mitchell, young business woman, portrait featured on unsplash",
+      "a black and white photo of a woman in a black hat with her hair blowing, by Ju Chao, a character portrait, behance, fashion portrait photo, fashion photography portrait, sensual gloomy style, dark portrait, fashion portrait, side portrait dark witch, emotive portrait",
+      "a woman with an afro wearing a red jacket and yellow pants standing in front, a portrait, afrofuturism, featured on unsplash, afro hair, afro, afro futuristic, long afro hair, photo of a black woman, big afro, black young woman",
+      "model at a pop-up food market at night, combining the love for street food with nightlife",
+      "model wearing mini skirt  in night club with neon lights",
+      "model , fit body in floral silk  swim shorts and shirtless at cocktail bar with neon lights",
+      "model wearing  smart casual in night club with neon lights",
+      "model wearing   black suit in a VIP box at a sporting event at night, capturing the thrill of live sports with nightlife",
+      "model wearing skimpy cut out dress  at an exclusive yacht party sunset, capturing the essence of luxury and opulence",
+      "model at a pop-up food market at night, combining the love for street food with nightlife",
+      "model wearing (red bodycon dress) with (black suspenders garter straps)  in night club neon lights",
+      "model wearing black cut out dress   in a VIP box at a sporting event at night, capturing the thrill of live sports with nightlife",
+      "model , fit body in floral silk  swim shorts and shirtless at cocktail bar with neon lights",
+      "model wearing skimpy cut out dress  at an exclusive yacht party sunset, capturing the essence of luxury and opulence",
+      "a model wearing  silk floral swim shorts in night club, instagram photo, instagram, , fit body",
+      "model wearing  smart casual in night club with neon lights",
+      "A photo of rike in a vibrant nightclub scene with a diverse crowd, centered on a striking young woman with olive skin, deep brown eyes, and long curly black hair. She wears a shimmering silver dress, her expression a mix of excitement and confidence. She stands near a sleek, modern bar, the neon lights casting a soft blue and pink glow on her face. The background is a blur of dancing silhouettes and pulsating lights, with a low-key, warm ambient light from overhead spots. The scene is inspired by the visual style of director Christopher Nolan, with a high-contrast, slightly desaturated color grading, and subtle film grain adding to the gritty, urban atmosphere.",
+      "headshot:8k professional headshot of rike a female, crisp details, studio backdrop, executive attire, confident posture, neutral expression, high-definition, corporate setting, sharp focus, ambient lighting, business professional, cityscape view",
+      "A young woman with fair skin and blue eyes, dressed in a stylish winter coat and fur hat, stands in front of the majestic Kremlin in Moscow. Her expression is one of awe and wonder as she gazes up at the iconic red walls and golden domes. The scene is bathed in the soft, warm light of a late afternoon sun, casting long shadows and creating a golden glow that highlights the intricate details of the Kremlin's architecture. The background is crisp and clear, with a slight film grain adding a nostalgic touch. The color grading enhances the warm tones, giving the image a timeless and romantic feel, reminiscent of a classic film by Sergei Eisenstein.",
+      "A photo of rike standing on a cobblestone street in Paris, the Eiffel Tower looming behind her. She wears a vintage blue dress, her straight white hair cascading down her back. Her expression is a mix of curiosity and joy, as she gazes up at the iconic tower. The scene is bathed in warm golden hour light, with soft shadows creating a gentle contrast. The background is slightly blurred, emphasizing her as the focal point. The image has a vintage film look, with subtle grain and a warm color grade, reminiscent of a Wes Anderson film.",
+      "a photo of rike as a female in Dubai with skyline in background",
+      "a photo of rike in a bikini as a female in Dubai with skyline in background",
+      "A photo of rike as a model in swimsuit  underwater, showcasing athletic ability"
     ],
   },
   {
-    plan: "Pro",
-    tagline: "For Optimum personal needs",
-    base_price: 14,
-    frequency: "Per Month",
-    features: [
-      {
-        text: "Unlimited Assistant Training",
-      },
-      {
-        text: "512MB file size limit",
-      },
-      {
-        text: "GPT-4",
-      },
-      {
-        text: "GPT-4o",
-      },
-      {
-        text: "Share Chat page",
-      },
-      {
-        text: "Priority support",
-      },
-    ],
-  },
-  {
-    plan: "Enterprise",
-    tagline: "For larger projects with a specific use case",
-    base_price: 140,
-    frequency: "Per Month",
-    features: [
-      {
-        text: "Unlimited Assistant Training",
-        footnote: "",
-      },
-      {
-        text: "512MB File size limit",
-        footnote: "",
-      },
-      {
-        text: "Custom Assistant creation",
-      },
-      {
-        text: "GPT-4",
-        footnote: "",
-        negative: true,
-      },
-      {
-        text: "GPT-4o",
-      },
-      {
-        text: "Share Chat page",
-        footnote: "",
-      },
-      {
-        text: "Priority support",
-        negative: true,
-      },
+    category: "Virtual Try On Clothes",
+    propmts: [
+      "model wearing  cream hoodie in try on fashion shoot for Zara Shein H&M",
+      "model wearing cropped cream hoodie  in try on fashion shoot for Zara Shein H&M",
+      "model wearing  floral silk shirt in try on fashion shoot for Zara Shein H&M",
+      "model wearing  nightclub outfit in try on fashion shoot for Zara Shein H&M",
+      "model wearing t-shirt and pants in try on fashion shoot for Zara Shein H&M",
+      "model wearing crop top and short pleated skirt  in try on fashion shoot for Zara Shein H&M",
+      "model wearing  white collar shirt in try on fashion shoot for Zara Shein H&M",
+      "model wearing white collar shirt in try on fashion shoot for Zara Shein H&M",
+      "model wearing bodycon dress  in try on fashion shoot for Zara Shein H&M",
+      "model wearing navy colopink pants suit  in try on fashion shoot for Zara Shein H&M",
+      "model wearing  t-shirt and gym shorts in try on fashion shoot for Zara Shein H&M",
+      "model wearing navy colopink pants suit  in try on fashion shoot for Zara Shein H&M",
+      "model wearing summer dress  in try on fashion shoot for Zara Shein H&M",
+      "model wearing white cropped blouse and denim jeans  in try on fashion shoot for Zara Shein H&M",
+      "model wearing  floral silk shirt in try on fashion shoot for Zara Shein H&M",
+      "model wearing  navy colored suit in try on fashion shoot for Zara Shein H&M",
+      "model wearing  t-shirt and pants in try on fashion shoot for Zara Shein H&M",
+      "a photo of rike, a striking young woman with deep caramel skin and lustrous dark hair stands confidently in a chic, modern cityscape. She wears a bold, form-fitting red dress that accentuates her curves, paired with sleek black heels. Her expression is one of determination and grace, with her lips curled into a subtle, knowing smile. The scene is bathed in the golden hour light, casting warm, soft shadows and highlighting the texture of her dress. The background features a blend of neon lights and urban architecture, creating a vibrant, cinematic atmosphere. The lighting setup includes a soft key light from the front, a warm fill light from the side, and a subtle rim light from behind to define her silhouette. The image has a slight film grain and a warm color grading, inspired by the visual style of Wes Anderson",
+      "a high-fashion photoshoot of rike in a sleek studio, featuring a tall, slender woman with fair skin and piercing blue eyes, her raven-black hair styled in loose waves. She wears a luxurious, form-fitting emerald green gown with intricate beadwork, standing confidently with one hand on her hip and a subtle, enigmatic smile. The background is a gradient of deep black to charcoal gray, emphasizing the richness of her attire. Soft, diffused key lighting from the front highlights her features, while a rim light from behind creates a subtle halo effect, enhancing the fabric's texture. The scene is reminiscent of a David Fincher film, with a cool, moody color grade and subtle film grain, capturing the elegance and drama of high fashion."
     ],
   },
 ];
+
+const photostyle = ["high-fashion", "black and white"];

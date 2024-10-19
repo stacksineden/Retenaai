@@ -25,8 +25,6 @@ const PhotoshootBillingModal = ({
 
   const { user } = useUserContext();
 
-  
-
   // Flutterwave configuration
   const config = {
     public_key: import.meta.env.VITE_FLUTTERWAVE_PUBLIC_KEY,
@@ -52,7 +50,7 @@ const PhotoshootBillingModal = ({
     <Dialog
       open={openPaymentModal}
       onOpenChange={(visible) => {
-        if (!visible) { 
+        if (!visible) {
           setOpenPaymentModal(visible);
         }
       }}
@@ -68,7 +66,7 @@ const PhotoshootBillingModal = ({
               <span className="opacity-70">- Pay in your local currency</span>
             </p>
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 h-[32rem] overflow-y-scroll scrollbar-hide">
             {photoshoot_plans?.map((item) => (
               <div
                 className={`w-full py-3 px-2 rounded-xl border-2 border-accent shadow cursor-pointer flex items-center justify-between ${
@@ -97,34 +95,36 @@ const PhotoshootBillingModal = ({
                 </div>
               </div>
             ))}
-            <Button
-              type="submit"
-              className="shad-button_primary mx-3"
-              disabled={!selectedPlan}
-              onClick={() => {
-                handleFlutterPayment({
-                  callback: async (response) => {
-                    // console.log(response);
-                    if (response) {
-                      //display a toast message to the user
-                      toast.success("Payment successful. Please provide details to start the photoshoot.");
-                      navigate(
-                        `/training?mode=${data?.query_slug}&ref=${response?.transaction_id}`
-                      );
-                    }
-                    if (!response) {
-                      //definetely and issue from flutterwave, we can still get their payment details and help them verify with flutterwave but definetly not on us
-                    }
-                    closePaymentModal();
-                  },
-                  onClose: () => {},
-                });
-              }}
-            >
-              <Sparkles className="text-white h-6 w-6" />
-              Pay NGN{selectedPlan?.price_in_naira}
-            </Button>
           </div>
+          <Button
+            type="submit"
+            className="shad-button_primary mx-3"
+            disabled={!selectedPlan}
+            onClick={() => {
+              handleFlutterPayment({
+                callback: async (response) => {
+                  // console.log(response);
+                  if (response) {
+                    //display a toast message to the user
+                    toast.success(
+                      "Payment successful. Please provide details to start the photoshoot."
+                    );
+                    navigate(
+                      `/training?mode=${data?.query_slug}&ref=${response?.transaction_id}`
+                    );
+                  }
+                  if (!response) {
+                    //definetely and issue from flutterwave, we can still get their payment details and help them verify with flutterwave but definetly not on us
+                  }
+                  closePaymentModal();
+                },
+                onClose: () => {},
+              });
+            }}
+          >
+            <Sparkles className="text-white h-6 w-6" />
+            Pay NGN{selectedPlan?.price_in_naira}
+          </Button>
         </div>
       </DialogContent>
     </Dialog>

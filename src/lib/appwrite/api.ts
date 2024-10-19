@@ -21,7 +21,7 @@ export async function createUserAccount(user: INewUser) {
 
     if (session) {
       const verifyUser = await account.createVerification(
-        `http://localhost:5173/verify-user`
+        `${import.meta.env.VITE_RETENAAI_BASE_URL}/verify-user`
       );
       if (verifyUser) {
         const avatarUrl = avatars.getInitials(user.name);
@@ -108,7 +108,7 @@ export async function forgotPassword(email: string) {
   try {
     const response = await account.createRecovery(
       email,
-      `http://localhost:5173/reset-password`
+      `${import.meta.env.VITE_RETENAAI_BASE_URL}/reset-password`
     );
     if (response) {
       return response;
@@ -148,8 +148,8 @@ export function googleOauth() {
   try {
     account.createOAuth2Session(
       "google",
-      "http://localhost:5173/",
-      "http://localhost:5173/sign-in"
+      `${import.meta.env.VITE_RETENAAI_BASE_URL}`,
+      `${import.meta.env.VITE_RETENAAI_BASE_URL}/sign-in`
     );
     getCurrentUser();
   } catch (err) {

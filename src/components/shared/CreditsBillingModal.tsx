@@ -56,7 +56,7 @@ const CreditsBillingModal = ({
         }
       }}
     >
-      <DialogContent>
+      <DialogContent className="">
         <div className="w-full flex flex-col gap-2">
           <div className="flex flex-col">
             <h2 className="text-primary-black text-2xl font-medium">
@@ -66,7 +66,7 @@ const CreditsBillingModal = ({
               Pay in your local currency
             </p>
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 h-[30rem] overflow-y-scroll scrollbar-hide">
             {photo_credits_plan?.map((item) => (
               <div
                 className={`w-full py-3 px-2 rounded-xl border-2 border-accent shadow cursor-pointer flex items-center justify-between ${
@@ -95,50 +95,50 @@ const CreditsBillingModal = ({
                 </div>
               </div>
             ))}
-            <Button
-              type="submit"
-              className="shad-button_primary mx-3"
-              disabled={!selectedPlan}
-              onClick={() => {
-                handleFlutterPayment({
-                  callback: async (response) => {
-                    //console.log(response);
+          </div>
+          <Button
+            type="submit"
+            className="shad-button_primary mx-3"
+            disabled={!selectedPlan}
+            onClick={() => {
+              handleFlutterPayment({
+                callback: async (response) => {
+                  //console.log(response);
+                  if (response) {
+                    const newBalance =
+                      user?.creditBalance + (selectedPlan?.credits ?? 0); 
+
+                    const updatePayload: IUpdateCredit = {
+                      userId: user.id,
+                      balance: newBalance,
+                    };
+
+                    const response = await updateBalance(updatePayload);
+                    //display a toast message to the user
                     if (response) {
-                      const newBalance =
-                        user?.creditBalance + (selectedPlan?.credits ?? 0);
-
-                      const updatePayload: IUpdateCredit = {
-                        userId: user.id,
-                        balance: newBalance,
-                      };
-
-                      const response = await updateBalance(updatePayload);
-                      //display a toast message to the user
-                      if (response) {
-                        toast.success(
-                          "Payment successful! Keep creating magic with your photos!"
-                        );
-                        navigate(`/generations/flux?mode=flux1.1-pro`);
-                      }
-                      if (!response) {
-                        toast.error(
-                          "Update Credits Failed. Please contact support"
-                        );
-                      }
+                      toast.success(
+                        "Payment successful! Keep creating magic with your photos!"
+                      );
+                      navigate(`/generations/flux?mode=flux1.1-pro`);
                     }
                     if (!response) {
-                      //definetely and issue from flutterwave, we can still get their payment details and help them verify with flutterwave but definetly not on us
+                      toast.error(
+                        "Update Credits Failed. Please contact support"
+                      );
                     }
-                    closePaymentModal();
-                  },
-                  onClose: () => {},
-                });
-              }}
-            >
-              <Sparkles className="text-white h-6 w-6" />
-              Pay NGN{selectedPlan?.price_in_naira}
-            </Button>
-          </div>
+                  }
+                  if (!response) {
+                    //definetely and issue from flutterwave, we can still get their payment details and help them verify with flutterwave but definetly not on us
+                  }
+                  closePaymentModal();
+                },
+                onClose: () => {},
+              });
+            }}
+          >
+            <Sparkles className="text-white h-6 w-6" />
+            Pay NGN{selectedPlan?.price_in_naira}
+          </Button>
         </div>
       </DialogContent>
     </Dialog>
