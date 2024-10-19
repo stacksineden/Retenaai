@@ -66,7 +66,7 @@ const PhotoshootBillingModal = ({
               <span className="opacity-70">- Pay in your local currency</span>
             </p>
           </div>
-          <div className="flex flex-col gap-2 h-[32rem] overflow-y-scroll scrollbar-hide">
+          <div className="flex flex-col gap-2 h-[31rem] overflow-y-scroll scrollbar-hide">
             {photoshoot_plans?.map((item) => (
               <div
                 className={`w-full py-3 px-2 rounded-xl border-2 border-accent shadow cursor-pointer flex items-center justify-between ${
