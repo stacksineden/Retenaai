@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { useEffect, lazy, Suspense, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import {
   BgRemover,
@@ -34,6 +34,15 @@ const ShowCase = lazy(() => import("./_root/ShowCase"));
 const Terms = lazy(() => import("./_root/Terms"));
 
 const App = () => {
+  const [showFirstMessage, setShowFirstMessage] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowFirstMessage(!showFirstMessage);
+    }, 5000); // Change interval (in milliseconds) as needed
+    return () => clearTimeout(timer);
+  }, [showFirstMessage]);
+
   return (
     <>
       <Suspense
@@ -41,10 +50,16 @@ const App = () => {
           <div className="w-[90%] mx-auto h-screen flex items-center justify-center flex-col gap-2">
             <Loader2 className="h-10 md:h-20 w-10 md:w-20 text-primary-blue animate-spin" />
             <div className="text-center">
-              <p className="text-base md:text-lg text-primary-black">
-                In the meantime, why not practice your Jedi mind tricks? Try to
-                move the loading spinner with your mind... Almost there...
-              </p>
+              {showFirstMessage ? (
+                <p className="text-base md:text-lg text-zinc-100">
+                  Hang tight! Our servers are doing some heavy lifting.
+                </p>
+              ) : (
+                <p className="text-base md:text-lg text-zinc-100">
+                  In the meantime, why not practice your Jedi mind tricks? Try
+                  to move the loading spinner with your mind... Almost there...
+                </p>
+              )}
             </div>
           </div>
         }
