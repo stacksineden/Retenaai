@@ -597,7 +597,7 @@ export const training_status = [
     color:"#ffb703"
    },
    {
-    name:"Training in progesss",
+    name:"Training in progress",
     value:"training_in_progress",
     color:"#22007C" 
    },

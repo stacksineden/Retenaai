@@ -267,6 +267,21 @@ export async function getUserGenerations(userId?: string) {
   }
 }
 
+export async function getUserPhotoshoot(userId?: string){
+  try {
+    if (!userId) return;
+    const generationgData = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.photoshootCollectionId,
+      [Query.equal("customerID", userId), Query.orderDesc("$createdAt")]
+    );
+    if (!generationgData) return;
+    return generationgData;
+  } catch (err) {
+    console.log(err, ""); 
+  }
+}
+
 export async function getAllGenerations() {
   try {
     const generationgData = await databases.listDocuments(

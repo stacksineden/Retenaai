@@ -47,7 +47,7 @@ const TrainingCard = ({ data }: { data: Models.Document | undefined }) => {
             {data?.trainingStatus === "photoshoot_ready" && (
               <div
                 className="bg-primary-blue text-white text-sm px-4 py-2 transform transition duration-300 hover:scale-90 rounded-md font-semibold"
-                onClick={() => (window.location.href = "/photo-gallery")}
+                onClick={() => (window.location.href = "/photoshoot-gallery")}
               >
                 See Photos
               </div>

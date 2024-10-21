@@ -135,7 +135,7 @@ const LoraTraining = () => {
       userId: user?.id,
       PrimaryStyle: modeDetails?.title ?? "",
       secondaryStyle: selectedStyle ?? "",
-      trainingStatus: "in-progress",
+      trainingStatus: "analysing_dataset",
       txRef: ref ?? "",
     };
     if (payload?.images && payload?.triggerWord && payload?.PrimaryStyle) {

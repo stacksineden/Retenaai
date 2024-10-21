@@ -3,6 +3,7 @@ export { default as FluxRealismGenerate } from "./generations/FluxRealismGenerat
 export { default as LoraTraining } from "./LoraTraining";
 export { default as LoraGallery } from "./LoraGallery";
 export { default as PhotoGallery } from "./PhotoGallery";
+export { default as PhotoshootGallery } from "./PhotoshootGallery";
 export { default as TrainingDatasets } from "./TrainingDatasets";
 export { default as Photoupscaling } from "./generations/Photoupscaling";
 export { default as BgRemover } from "./generations/BgRemover";

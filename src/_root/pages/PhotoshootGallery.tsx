@@ -1,25 +1,24 @@
 import CardSkeleton from "@/components/shared/CardSkeleton";
 import MasonaryGridLayout from "@/components/shared/MasonaryGridLayout";
-// import { ParallaxScroll } from "@/components/shared/ParallaxScroll";
 import { useUserContext } from "@/context/AuthContext";
-import { useGetUserGenerations } from "@/lib/tanstack-query/queriesAndMutation";
+import { useGetUserPhotoshoot } from "@/lib/tanstack-query/queriesAndMutation";
 import { Ghost } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const PhotoGallery = () => {
+const PhotoshootGallery = () => {
   const { user } = useUserContext();
 
   const { data: userGenerations, isPending: isImageLoading } =
-    useGetUserGenerations(user?.id);
+    useGetUserPhotoshoot(user?.id);
 
   return (
     <div className="container py-4 mt-6 md:mt-0">
       <div className="w-full flex flex-col gap-2 my-3">
         <h2 className="text-primary-black text-2xl md:text-4xl font-semibold">
-          My Photo Gallery
+          My Photoshoots
         </h2>
         <p className="text-primary-blue3 text-sm md:text-base pl-2">
-          Check out your uploaded and generated photos here
+          Check out your uploaded and generated photoshoots here
         </p>
       </div>
       <div className="bg-white">
@@ -46,4 +45,4 @@ const PhotoGallery = () => {
   );
 };
 
-export default PhotoGallery;
+export default PhotoshootGallery;

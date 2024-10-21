@@ -10,6 +10,7 @@ import {
   LoraGallery,
   LoraTraining,
   PhotoGallery,
+  PhotoshootGallery,
   Photoupscaling,
   TrainingDatasets,
 } from "./_root/pages";
@@ -86,6 +87,10 @@ const App = () => {
               <Route path="/training" element={<LoraTraining />} />
               <Route path="/lora-gallery" element={<LoraGallery />} />
               <Route path="/photo-gallery" element={<PhotoGallery />} />
+              <Route
+                path="/photoshoot-gallery"
+                element={<PhotoshootGallery />}
+              />
               <Route path="/training-dataset" element={<TrainingDatasets />} />
             </Route>
 

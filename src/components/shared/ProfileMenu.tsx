@@ -12,7 +12,7 @@ import {
   ChevronsDown,
   CreditCard,
   Images,
-  LogOut
+  LogOut,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -57,21 +57,34 @@ export function ProfileMenu({ user }: { user: IUser }) {
             {user?.creditBalance ?? 0}
           </div>
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() =>{
-          setMobileOpen(false)
-          Navigate("/photo-gallery")
-        } }>
+        <DropdownMenuItem
+          onClick={() => {
+            setMobileOpen(false);
+            Navigate("/photo-gallery");
+          }}
+        >
           <div className="flex items-center gap-1 cursor-pointer">
             <Images className="h-8" />
             My Photos
+          </div>
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          onClick={() => {
+            setMobileOpen(false);
+            Navigate("/photoshoot-gallery");
+          }}
+        >
+          <div className="flex items-center gap-1 cursor-pointer">
+            <Images className="h-8" />
+            My Photoshoots
           </div>
         </DropdownMenuItem>
         <DropdownMenuItem>
           <div
             className="flex items-center gap-1 cursor-pointer"
             onClick={() => {
-              setMobileOpen(false)
-              Navigate("/training-dataset")
+              setMobileOpen(false);
+              Navigate("/training-dataset");
             }}
           >
             <BrainCog className="h-8" />

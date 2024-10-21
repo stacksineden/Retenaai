@@ -8,6 +8,7 @@ export enum QUERY_KEYS {
   GET_USER_BY_ID = "getUserById",
   GET_TRAINING_DATA="getTrainingData",
   GET_USER_GENERATIONS="getUserGenerations",
-  GET_ALL_GENERATIONS="getAllGenerations"
+  GET_ALL_GENERATIONS="getAllGenerations",
+  GET_USER_PHOTOSHOT="getUserPhotoshoot"
 }
 

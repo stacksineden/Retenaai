@@ -12,6 +12,7 @@ import {
   getAllGenerations,
   getAllTrainingData,
   getUserGenerations,
+  getUserPhotoshoot,
   getUserTrainingData,
   signInAccount,
   signOutAccount,
@@ -88,6 +89,15 @@ export const useGetUserTrainingData = (userId?: string) => {
   });
 };
 
+export const useGetUserPhotoshoot = (userId?: string) => {
+  return useQuery({
+    queryKey: [QUERY_KEYS.GET_USER_PHOTOSHOT, userId],
+    queryFn: () => getUserPhotoshoot(userId),
+    enabled: !!userId,
+    refetchOnWindowFocus: false,
+  });
+};
+
 export const useGetUserGenerations = (userId?: string) => {
   return useQuery({
     queryKey: [QUERY_KEYS.GET_USER_GENERATIONS, userId],
@@ -96,11 +106,11 @@ export const useGetUserGenerations = (userId?: string) => {
     refetchOnWindowFocus: false,
   });
 };
- 
+
 export const useGetAllGenerations = () => {
   return useQuery({
     queryKey: [QUERY_KEYS.GET_ALL_GENERATIONS],
-    queryFn: () =>  getAllGenerations(),
+    queryFn: () => getAllGenerations(),
     refetchOnWindowFocus: false,
   });
-}
+};

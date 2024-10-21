@@ -8,7 +8,6 @@ const ShowCase = () => {
   const { data: userGenerations, isPending: isImageLoading } =
     useGetAllGenerations();
 
-  console.log(userGenerations);
 
   return (
     <WebLayoutWrapper>
