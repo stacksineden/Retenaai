@@ -1,10 +1,14 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { WobbleCard } from "./WobbleCard";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import { featuredShoots } from "@/modelDataset";
 
 const Features = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+
+
   return (
     <div className="container py-5 bg-white w-full">
       <motion.div
@@ -23,6 +27,37 @@ const Features = () => {
           everyone.
         </h2>
       </motion.div>
+
+      {/* masonary for shoots */}
+      <div className="w-full h-full p-2">
+        <ResponsiveMasonry
+          columnsCountBreakPoints={{ 350: 2, 750: 3, 900: 4, 1200: 6 }}
+        >
+          <Masonry gutter="7px">
+            {featuredShoots &&
+              featuredShoots?.map((image, index) => (
+                <div
+                  className="relative overflow-hidden rounded-lg group"
+                  key={index}
+                >
+                  <img
+                    src={image ?? "/assets/image-placeholder.png"}
+                    alt={`Gallery image ${index + 1}`}
+                    loading="lazy"
+                    style={{
+                      width: "100%",
+                      display: "block",
+                      borderRadius: "8px",
+                      cursor: "pointer",
+                    }}
+                    className="transition-transform duration-300 ease-in-out transform group-hover:scale-105"
+                    onClick={() => window.open(image, "_blank")}
+                  />
+                </div>
+              ))}
+          </Masonry>
+        </ResponsiveMasonry>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto w-full my-8">
         <WobbleCard containerClassName="col-span-1 lg:col-span-3 bg-accent min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]">

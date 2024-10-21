@@ -10,6 +10,7 @@ import {
   createUserAccount,
   createUserGeneration,
   getAllGenerations,
+  getAllPhotoshoots,
   getAllTrainingData,
   getUserGenerations,
   getUserPhotoshoot,
@@ -98,6 +99,7 @@ export const useGetUserPhotoshoot = (userId?: string) => {
   });
 };
 
+
 export const useGetUserGenerations = (userId?: string) => {
   return useQuery({
     queryKey: [QUERY_KEYS.GET_USER_GENERATIONS, userId],
@@ -114,3 +116,11 @@ export const useGetAllGenerations = () => {
     refetchOnWindowFocus: false,
   });
 };
+
+export const useGetAllPhotoshoots = () => {
+  return useQuery({
+    queryKey: [QUERY_KEYS.GET_ALL_PHOTOSHOOTS],
+    queryFn: () => getAllPhotoshoots(),
+    refetchOnWindowFocus: false,
+  });
+}

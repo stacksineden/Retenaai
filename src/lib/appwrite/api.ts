@@ -282,14 +282,27 @@ export async function getUserPhotoshoot(userId?: string){
   }
 }
 
+export async function getAllPhotoshoots(){
+   try{
+    const allPhotoshoots = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.photoshootCollectionId,
+    )
+   if(!allPhotoshoots) return;
+   return allPhotoshoots;
+   }catch (err) {
+    console.log(err, ""); 
+  }
+}
+
 export async function getAllGenerations() {
   try {
-    const generationgData = await databases.listDocuments(
+    const generatedData = await databases.listDocuments(
       appwriteConfig.databaseId,
       appwriteConfig.generationsCollectionId,
     );
-    if (!generationgData) return;
-    return generationgData;
+    if (!generatedData) return;
+    return generatedData;
   } catch (err) {
     console.log(err, "");
   }

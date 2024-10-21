@@ -528,8 +528,6 @@ export const credit_charge = {
   IMAGEUPSCALING: 1,
 };
 
-
-
 export const prompt_factory_photoshot = [
   {
     category: "Nightlife",
@@ -560,7 +558,7 @@ export const prompt_factory_photoshot = [
       "A photo of rike standing on a cobblestone street in Paris, the Eiffel Tower looming behind her. She wears a vintage blue dress, her straight white hair cascading down her back. Her expression is a mix of curiosity and joy, as she gazes up at the iconic tower. The scene is bathed in warm golden hour light, with soft shadows creating a gentle contrast. The background is slightly blurred, emphasizing her as the focal point. The image has a vintage film look, with subtle grain and a warm color grade, reminiscent of a Wes Anderson film.",
       "a photo of rike as a female in Dubai with skyline in background",
       "a photo of rike in a bikini as a female in Dubai with skyline in background",
-      "A photo of rike as a model in swimsuit  underwater, showcasing athletic ability"
+      "A photo of rike as a model in swimsuit  underwater, showcasing athletic ability",
     ],
   },
   {
@@ -584,38 +582,75 @@ export const prompt_factory_photoshot = [
       "model wearing  navy colored suit in try on fashion shoot for Zara Shein H&M",
       "model wearing  t-shirt and pants in try on fashion shoot for Zara Shein H&M",
       "a photo of rike, a striking young woman with deep caramel skin and lustrous dark hair stands confidently in a chic, modern cityscape. She wears a bold, form-fitting red dress that accentuates her curves, paired with sleek black heels. Her expression is one of determination and grace, with her lips curled into a subtle, knowing smile. The scene is bathed in the golden hour light, casting warm, soft shadows and highlighting the texture of her dress. The background features a blend of neon lights and urban architecture, creating a vibrant, cinematic atmosphere. The lighting setup includes a soft key light from the front, a warm fill light from the side, and a subtle rim light from behind to define her silhouette. The image has a slight film grain and a warm color grading, inspired by the visual style of Wes Anderson",
-      "a high-fashion photoshoot of rike in a sleek studio, featuring a tall, slender woman with fair skin and piercing blue eyes, her raven-black hair styled in loose waves. She wears a luxurious, form-fitting emerald green gown with intricate beadwork, standing confidently with one hand on her hip and a subtle, enigmatic smile. The background is a gradient of deep black to charcoal gray, emphasizing the richness of her attire. Soft, diffused key lighting from the front highlights her features, while a rim light from behind creates a subtle halo effect, enhancing the fabric's texture. The scene is reminiscent of a David Fincher film, with a cool, moody color grade and subtle film grain, capturing the elegance and drama of high fashion."
+      "a high-fashion photoshoot of rike in a sleek studio, featuring a tall, slender woman with fair skin and piercing blue eyes, her raven-black hair styled in loose waves. She wears a luxurious, form-fitting emerald green gown with intricate beadwork, standing confidently with one hand on her hip and a subtle, enigmatic smile. The background is a gradient of deep black to charcoal gray, emphasizing the richness of her attire. Soft, diffused key lighting from the front highlights her features, while a rim light from behind creates a subtle halo effect, enhancing the fabric's texture. The scene is reminiscent of a David Fincher film, with a cool, moody color grade and subtle film grain, capturing the elegance and drama of high fashion.",
     ],
   },
 ];
- 
 
 export const training_status = [
-   {
-    name:"Dataset analysis",
-    value:"analysing_dataset", 
-    color:"#ffb703"
-   },
-   {
-    name:"Training in progress",
-    value:"training_in_progress",
-    color:"#22007C" 
-   },
-   {
-    name:"Training successful",
-    value:"training_successful",
-    color: "#0ad6ff"
-   },
-   {
-    name:"Preparing Photoshoot",
-    value:'preparing_photoshoot',
-    color:"#3a86ff"
-   },
-   {
-    name:"Photoshoot ready",
-    value:"photoshoot_ready",
-    color:"#00a878"
-   }
-]
+  {
+    name: "Dataset analysis",
+    value: "analysing_dataset",
+    color: "#ffb703",
+  },
+  {
+    name: "Training in progress",
+    value: "training_in_progress",
+    color: "#22007C",
+  },
+  {
+    name: "Training successful",
+    value: "training_successful",
+    color: "#0ad6ff",
+  },
+  {
+    name: "Preparing Photoshoot",
+    value: "preparing_photoshoot",
+    color: "#3a86ff",
+  },
+  {
+    name: "Photoshoot ready",
+    value: "photoshoot_ready",
+    color: "#00a878",
+  },
+];
+
+export const featuredShoots = [
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491534/asxup8jtbefnfexru3yj.png",
+
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491532/yhlbypp71f9zck2pcozf.png",
+  "https://r2-us-west.photoai.com/1726225587-cbeb0d94c9b7809217e1b082f9f157ed-2.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491550/swyieaotudk3hrgna7rv.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491665/yckwxrkpjimpsz13rpkq.png",
+
+  "https://r2-us-west.photoai.com/1726225566-e10b396f8ba338973de4ffc6c961f476-3.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491921/swb09ib9soaylygquq0l.png",
+  "https://r2-us-west.photoai.com/1726221741-246033362f6620f615fd549c76147682-4.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491664/utyuyvzeeohzkigpvqbt.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729523876/zpqu5faqbmednfzoxcg8.webp",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491927/ddfh7spqs4ixn8drlo40.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491918/fzsc9lj6swmxaam6mu6o.png",
+  "https://r2-us-west.photoai.com/1725212295-f6b06d5a18a0dc06d192724e09576035-3.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491532/yhlbypp71f9zck2pcozf.png",
+  "https://r2-us-west.photoai.com/1725039720-ad365dd73f636497bf61a94a3f2dd4e3-1.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491374/u5xmgccrlttngeloyrdr.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729523247/niy9uo9rk9hym5lllrfx.webp",
+  "https://r2-us-west.photoai.com/1726226953-9f706cf3b25ab1e18272b1cd64ef6a5b-4.png",
+
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729523098/fynihid6rdprjf2hizfy.webp",
+  "https://r2-us-west.photoai.com/1725031102-cce576dc36b0eabdd875a96d0bda4ea3-1.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491888/vnvolismerfuhfeomebw.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729524829/ui4nacxvfsvckmtsczah.webp",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729043844/o9wctgtrmad5dbzqmvtk.webp",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729336203/p6z4jhr46czc1dfufdkr.webp",
+  "https://r2-us-west.photoai.com/1726175013-648e2794da2c21fdb252080560c7c3a8-3.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729523481/lextvxblshtufqltgzbk.webp",
+
+  "https://r2-us-west.photoai.com/1726227079-4780ec5cadfe8e4eecab7d8ccc00c35d-3.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729203310/z9yzq3tbyhn4v4kesrqt.webp",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491889/tdkxbt6kpts28jf91le5.png",
+  "https://r2-us-west.photoai.com/1726225608-81dc3efc0d24695f1dbbc57c3a67c57b-4.png",
 
 
+
+];
