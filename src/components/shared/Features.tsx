@@ -8,7 +8,6 @@ const Features = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-
   return (
     <div className="container py-5 bg-white w-full">
       <motion.div
@@ -57,6 +56,15 @@ const Features = () => {
               ))}
           </Masonry>
         </ResponsiveMasonry>
+      </div>
+
+      <div className="pl-4 mx-auto max-w-7xl">
+        <h2 className="text-2xl md:text-5xl font-bold text-primary-black">
+          Try AI photoshoot
+        </h2>
+        <p className="text-primary-blue text-base md:text-xl">
+          Upload your photos and start creating stunning, realistic images now!
+        </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto w-full my-8">

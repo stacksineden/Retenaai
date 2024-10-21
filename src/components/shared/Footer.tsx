@@ -17,7 +17,7 @@ const Footer = () => {
         </div>
         <div className="flex items-center space-x-3 md:space-x-4">
           <p
-            className="text-xs text-primary-black"
+            className="text-xs text-primary-black cursor-pointer"
             onClick={() => navigate("/terms")}
           >
             Privacy

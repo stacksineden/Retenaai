@@ -620,19 +620,23 @@ export const featuredShoots = [
 
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491532/yhlbypp71f9zck2pcozf.png",
   "https://r2-us-west.photoai.com/1726225587-cbeb0d94c9b7809217e1b082f9f157ed-2.png",
-  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491550/swyieaotudk3hrgna7rv.png",
+
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491665/yckwxrkpjimpsz13rpkq.png",
 
   "https://r2-us-west.photoai.com/1726225566-e10b396f8ba338973de4ffc6c961f476-3.png",
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491921/swb09ib9soaylygquq0l.png",
   "https://r2-us-west.photoai.com/1726221741-246033362f6620f615fd549c76147682-4.png",
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491664/utyuyvzeeohzkigpvqbt.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729531506/avma2rstdinstbk6hc2k.webp",
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1729523876/zpqu5faqbmednfzoxcg8.webp",
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491927/ddfh7spqs4ixn8drlo40.png",
+  "https://r2-us-west.photoai.com/1726231388-99afe54ff61cc44eb13fc95d87bec4ab-2.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491550/swyieaotudk3hrgna7rv.png",
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491918/fzsc9lj6swmxaam6mu6o.png",
   "https://r2-us-west.photoai.com/1725212295-f6b06d5a18a0dc06d192724e09576035-3.png",
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491532/yhlbypp71f9zck2pcozf.png",
   "https://r2-us-west.photoai.com/1725039720-ad365dd73f636497bf61a94a3f2dd4e3-1.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729531733/uhdybmho9gahg72hnsvj.webp",
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491374/u5xmgccrlttngeloyrdr.png",
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1729523247/niy9uo9rk9hym5lllrfx.webp",
   "https://r2-us-west.photoai.com/1726226953-9f706cf3b25ab1e18272b1cd64ef6a5b-4.png",
@@ -643,6 +647,7 @@ export const featuredShoots = [
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1729524829/ui4nacxvfsvckmtsczah.webp",
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1729043844/o9wctgtrmad5dbzqmvtk.webp",
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1729336203/p6z4jhr46czc1dfufdkr.webp",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1729531735/gtvf0z4vimpcjxoxtpu0.webp",
   "https://r2-us-west.photoai.com/1726175013-648e2794da2c21fdb252080560c7c3a8-3.png",
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1729523481/lextvxblshtufqltgzbk.webp",
 
@@ -650,7 +655,22 @@ export const featuredShoots = [
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1729203310/z9yzq3tbyhn4v4kesrqt.webp",
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1729491889/tdkxbt6kpts28jf91le5.png",
   "https://r2-us-west.photoai.com/1726225608-81dc3efc0d24695f1dbbc57c3a67c57b-4.png",
+];
 
-
-
+export const imageDataset = [
+  "/assets/dis1.webp",
+  "/assets/dis2.webp",
+  "/assets/dis3.webp",
+  "/assets/dis4.webp",
+  "/assets/dis5.webp",
+  "/assets/dis6.webp",
+  "/assets/dis7.webp",
+  "/assets/dis8.webp",
+  "/assets/dis9.webp",
+  "/assets/dis10.webp",
+  "/assets/dis11.webp",
+  "/assets/dis11.png",
+  "/assets/dis13.webp",
+  "/assets/dis14.webp",
+  "/assets/dis16.webp",
 ];
