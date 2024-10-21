@@ -18,7 +18,7 @@ const PhotoshootGallery = () => {
           My Photoshoots
         </h2>
         <p className="text-primary-blue3 text-sm md:text-base pl-2">
-          Check out your uploaded and generated photoshoots here
+          Check out your generated photoshoots here
         </p>
       </div>
       <div className="bg-white">
@@ -30,10 +30,10 @@ const PhotoshootGallery = () => {
             </h3>
             <p className="text-primary-black">
               Let&apos;s{" "}
-              <Link to={"/app"} className="text-primary-blue">
+              <Link to={"/lora-gallery"} className="text-primary-blue">
                 create
               </Link>{" "}
-              your first Image
+              your first photoshoot
             </p>
           </div>
         )}
