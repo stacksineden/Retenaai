@@ -186,12 +186,13 @@ const LoraTraining = () => {
                 <p className="text-lg font-medium text-primary-black">
                   Upload Your images
                 </p>
-                <p className="text-sm text-primary-black font-semibold">
+                <p className="text-base text-primary-black font-semibold">
                   We recommend uploading your photos in supported formats such
                   as JPEG, JPG, PNG, or WebP. For optimal results, please share
                   15 to 30 images or more, if possible. Include a variety of
                   close-ups, waist-up, and full-body shots with different facial
-                  expressions. You can drag and upload multiple photos at once.
+                  expressions. You can drag and upload multiple photos at
+                  once.
                   <span className="text-red-700">
                     {" "}
                     Note: A trigger word is an identifier we will use to

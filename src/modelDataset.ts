@@ -457,6 +457,7 @@ export const photoshoot_plans = [
       "Perfect for brands, social media influencers, and models",
       "Choose more than 1 photoshoot style",
       "Up to 50 professionally retouched photos",
+      "Complimentary revisions if images do not meet expectations.",
       "Priority access",
       "Free Photo Upscaling for images",
       "1hr 30mins to 2hr wait time",
