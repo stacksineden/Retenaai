@@ -191,8 +191,7 @@ const LoraTraining = () => {
                   as JPEG, JPG, PNG, or WebP. For optimal results, please share
                   15 to 30 images or more, if possible. Include a variety of
                   close-ups, waist-up, and full-body shots with different facial
-                  expressions. You can drag and upload multiple photos at
-                  once.
+                  expressions. You can drag and upload multiple photos at once.
                   <span className="text-red-700">
                     {" "}
                     Note: A trigger word is an identifier we will use to
@@ -407,6 +406,16 @@ const LoraTraining = () => {
                     `Start your ${modeDetails?.title} shoot now`
                   )}
                 </Button>
+              </div>
+              <div className="w-full my-3 text-center">
+                Got any questions? Feel free to{" "}
+                <a
+                  href="mailto:stacksineden@gmail.com"
+                  className="text-blue-500 underline"
+                >
+                  send us an email
+                </a>
+                . @stacksineden@gmail.com
               </div>
             </div>
           </form>
