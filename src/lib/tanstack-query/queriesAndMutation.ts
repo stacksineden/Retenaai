@@ -4,13 +4,19 @@ import {
   IUpdateCredit,
   TrainingPayload,
 } from "@/types";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import {
+  useMutation,
+  useQuery,
+  useQueryClient,
+  useInfiniteQuery,
+} from "@tanstack/react-query";
 import {
   createTraining,
   createUserAccount,
   createUserGeneration,
   getAllGenerations,
   getAllPhotoshoots,
+  // getAllPhotoshoots,
   getAllTrainingData,
   getUserGenerations,
   getUserPhotoshoot,
@@ -91,31 +97,51 @@ export const useGetUserTrainingData = (userId?: string) => {
 };
 
 export const useGetUserPhotoshoot = (userId?: string) => {
-  return useQuery({
+  return useInfiniteQuery({
     queryKey: [QUERY_KEYS.GET_USER_PHOTOSHOT, userId],
-    queryFn: () => getUserPhotoshoot(userId),
-    enabled: !!userId,
+    queryFn: ({ pageParam = undefined }: { pageParam?: string }) =>
+      getUserPhotoshoot({ userId, pageParam }),
+    getNextPageParam: (lastPage) => {
+      if (lastPage && lastPage.documents.length) {
+        return lastPage.documents[lastPage.documents.length - 1].$id;
+      }
+      return undefined; // Return undefined if there are no more pages
+    },
+    enabled: !!userId, // Only enable query if userId is provided
+    initialPageParam: undefined,
     refetchOnWindowFocus: false,
   });
 };
 
 
 export const useGetUserGenerations = (userId?: string) => {
-  return useQuery({
+  return useInfiniteQuery({
     queryKey: [QUERY_KEYS.GET_USER_GENERATIONS, userId],
-    queryFn: () => getUserGenerations(userId),
-    enabled: !!userId,
+    queryFn: ({ pageParam = undefined }: { pageParam?: string }) =>
+      getUserGenerations({ userId, pageParam }),
+    getNextPageParam: (lastPage) => {
+      if (lastPage && lastPage.documents.length) {
+        return lastPage.documents[lastPage.documents.length - 1].$id;
+      }
+      return undefined; // Return undefined if there are no more pages
+    },
+    enabled: !!userId, // Only enable query if userId is provided
+    initialPageParam: undefined,
     refetchOnWindowFocus: false,
   });
 };
 
 export const useGetAllGenerations = () => {
-  return useQuery({
-    queryKey: [QUERY_KEYS.GET_ALL_GENERATIONS],
-    queryFn: () => getAllGenerations(),
-    refetchOnWindowFocus: false,
+  return useInfiniteQuery({
+    queryKey: [QUERY_KEYS.GET_ALL_GENERATIONS], // Add your query key
+    queryFn: ({ pageParam = undefined }: { pageParam?: string }) =>
+      getAllGenerations({ pageParam }), // Pass pageParam to the fetch function
+    getNextPageParam: (lastPage) => lastPage.nextCursor, // Define how to get the next page's param
+    initialPageParam: undefined, // Set the initialPageParam (could be 0, undefined, etc., depending on your API)
+    refetchOnWindowFocus: false, // Optional: prevents refetching when the window is refocused
   });
 };
+
 
 export const useGetAllPhotoshoots = () => {
   return useQuery({

@@ -252,59 +252,106 @@ export async function createUserGeneration(payload: CreateGenerations) {
   }
 }
 
-export async function getUserGenerations(userId?: string) {
+export async function getUserGenerations({
+  userId,
+  pageParam = undefined,
+}: {
+  userId?: string;
+  pageParam?: string;
+}) {
   try {
     if (!userId) return;
+    // Create an array of queries
+    const queries: string[] = [
+      Query.limit(25),
+      Query.orderDesc("$createdAt"),
+      Query.equal("creator", userId),
+      pageParam ? Query.cursorAfter(pageParam) : null, // Add cursorAfter if available
+    ].filter((q): q is string => q !== null);
+
     const generationgData = await databases.listDocuments(
       appwriteConfig.databaseId,
       appwriteConfig.generationsCollectionId,
-      [Query.equal("creator", userId), Query.orderDesc("$createdAt")]
+      queries
     );
     if (!generationgData) return;
     return generationgData;
-  } catch (err) {
-    console.log(err, ""); 
-  }
-}
-
-export async function getUserPhotoshoot(userId?: string){
-  try {
-    if (!userId) return;
-    const generationgData = await databases.listDocuments(
-      appwriteConfig.databaseId,
-      appwriteConfig.photoshootCollectionId,
-      [Query.equal("customerID", userId), Query.orderDesc("$createdAt")]
-    );
-    if (!generationgData) return;
-    return generationgData;
-  } catch (err) {
-    console.log(err, ""); 
-  }
-}
-
-export async function getAllPhotoshoots(){
-   try{
-    const allPhotoshoots = await databases.listDocuments(
-      appwriteConfig.databaseId,
-      appwriteConfig.photoshootCollectionId,
-    )
-   if(!allPhotoshoots) return;
-   return allPhotoshoots;
-   }catch (err) {
-    console.log(err, ""); 
-  }
-}
-
-export async function getAllGenerations() {
-  try {
-    const generatedData = await databases.listDocuments(
-      appwriteConfig.databaseId,
-      appwriteConfig.generationsCollectionId,
-    );
-    if (!generatedData) return;
-    return generatedData;
   } catch (err) {
     console.log(err, "");
+  }
+}
+
+export async function getUserPhotoshoot({
+  userId,
+  pageParam = undefined,
+}: {
+  userId?: string;
+  pageParam?: string;
+}) {
+  try {
+    if (!userId) return;
+    // Create an array of queries
+    const queries: string[] = [
+      Query.limit(25),
+      Query.orderDesc("$createdAt"),
+      Query.equal("customerID", userId),
+      pageParam ? Query.cursorAfter(pageParam) : null, 
+    ].filter((q): q is string => q !== null);
+
+    const generationgData = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.photoshootCollectionId,
+      queries
+    );
+    if (!generationgData) return;
+    return generationgData;
+  } catch (err) {
+    console.log(err, "");
+  }
+}
+
+export async function getAllPhotoshoots() {
+  try {
+    const allPhotoshoots = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.photoshootCollectionId
+    );
+    if (!allPhotoshoots) return;
+    return allPhotoshoots;
+  } catch (err) {
+    console.log(err, "");
+  }
+}
+
+export async function getAllGenerations({
+  pageParam = undefined,
+}: {
+  pageParam?: string;
+}) {
+  try {
+    // Create an array of queries
+    const queries: string[] = [
+      Query.limit(25),
+      Query.orderDesc("$createdAt"),
+      pageParam ? Query.cursorAfter(pageParam) : null, // Add cursorAfter if available
+    ].filter((q): q is string => q !== null); // Explicitly filter out null values
+
+    // Make the API call
+    const response = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.generationsCollectionId,
+      queries // Pass the filtered array of strings
+    );
+
+    return {
+      documents: response.documents,
+      nextCursor: response.documents.length
+        ? response.documents[response.documents.length - 1].$id
+        : undefined,
+    };
+  } catch (error) {
+    console.error("Error fetching documents:", error);
+    throw new Error("Error fetching documents");
   }
 }
 

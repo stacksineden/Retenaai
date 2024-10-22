@@ -1,18 +1,57 @@
+import { useEffect, useRef } from "react";
 import CardSkeleton from "@/components/shared/CardSkeleton";
 // import Categories from "@/components/shared/Categories";
 import MasonaryGridLayout from "@/components/shared/MasonaryGridLayout";
 import WebLayoutWrapper from "@/components/shared/WebLayoutWrapper";
 import { useGetAllGenerations } from "@/lib/tanstack-query/queriesAndMutation";
+import { Loader2 } from "lucide-react";
 
 const ShowCase = () => {
-  const { data: userGenerations, isPending: isImageLoading } =
-    useGetAllGenerations();
+  const {
+    data: userGenerations,
+    isLoading: isImageLoading,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  } = useGetAllGenerations();
 
+  const allDocuments =
+    userGenerations?.pages.flatMap((page) => page.documents) ?? [];
+
+  const observerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!hasNextPage || isFetchingNextPage) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          fetchNextPage();
+        }
+      },
+      {
+        root: null, // Use the viewport as the root
+        rootMargin: "100px", // Load before reaching the bottom
+        threshold: 0.1, // Trigger when 10% of the element is visible
+      }
+    );
+
+    const currentObserverRef = observerRef.current;
+    if (currentObserverRef) {
+      observer.observe(currentObserverRef);
+    }
+
+    return () => {
+      if (currentObserverRef) {
+        observer.unobserve(currentObserverRef);
+      }
+    };
+  }, [fetchNextPage, hasNextPage, isFetchingNextPage]);
 
   return (
     <WebLayoutWrapper>
       <div className="container py-4">
-        {/* <div className="w-[95%] md:w-[99%] mx-auto">
+        {/* <div className="w-[95%] md:w-[99%] mx-auto"> 
           <Categories />
         </div> */}
         <div className="w-full flex flex-col gap-2 my-3">
@@ -24,8 +63,14 @@ const ShowCase = () => {
             next inspiration.
           </p>
         </div>
-        <MasonaryGridLayout data={userGenerations?.documents ?? []} />
+        <MasonaryGridLayout data={allDocuments} />
         {isImageLoading && <CardSkeleton card_number={10} />}
+        {isFetchingNextPage && (
+         <div className="w-full my-1 flex justify-center items-center">
+           <Loader2 className="h-8 w-8 text-primary-black"/>
+         </div>
+        )}
+        <div ref={observerRef} style={{ height: "1px" }} />
       </div>
     </WebLayoutWrapper>
   );
