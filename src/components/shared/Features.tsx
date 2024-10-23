@@ -21,7 +21,7 @@ const Features = () => {
         transition={{ duration: 1, delay: 0.5 }}
       >
         <h2 className="text-4xl md:text-5xl text-primary-black tracking-wide font-semibold">
-          Retina.AI is revolutionizing the photoshoot industry by leveraging AI
+          Retena.AI is revolutionizing the photoshoot industry by leveraging AI
           to make professional photography more affordable and accessible to
           everyone.
         </h2>
