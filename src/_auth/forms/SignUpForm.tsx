@@ -81,7 +81,7 @@ const SignUpForm = () => {
           Create a new account
         </h2>
         <p className="text-primary-blue font-light small-medium md:base-regular">
-          To use Retina.AI, Please enter your details
+          To use Retena.AI, Please enter your details
         </p>
         {/* <Oauth /> */}
 

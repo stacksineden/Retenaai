@@ -38,9 +38,9 @@ export default Faqs;
 export const faqs = [
   {
     key: "question_1",
-    question: "What is Retina.AI, and how does it work?",
+    question: "What is Retena.ai, and how does it work?",
     answer:
-      "Retina.AI is an advanced AI-powered application designed to create stunning, professional-grade photos with ease. It allows you to elevate your online presence without the hassle of hiring a photographer, buying expensive outfits, or traveling to photoshoots—all from the comfort of your home. How it works: Simply upload your photos—whether selfies, close-ups, or full-body shots—and Retina.AI’s cutting-edge technology will train a model based on your images. Once the model is trained, the AI generates photorealistic images of you tailored for any scenario, delivering extraordinary results that highlight your style and personality effortlessly.",
+      "Retena.ai is an advanced AI-powered application designed to create stunning, professional-grade photos with ease. It allows you to elevate your online presence without the hassle of hiring a photographer, buying expensive outfits, or traveling to photoshoots—all from the comfort of your home. How it works: Simply upload your photos—whether selfies, close-ups, or full-body shots—and Retena.ai’s cutting-edge technology will train a model based on your images. Once the model is trained, the AI generates photorealistic images of you tailored for any scenario, delivering extraordinary results that highlight your style and personality effortlessly.",
   },
   {
     key: "question_2",

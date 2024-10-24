@@ -8,7 +8,7 @@ export function HighLights() {
   return (
     <div className="w-full h-full py-4">
       <h2 className="max-w-7xl pl-4 mx-auto text-2xl md:text-5xl font-bold text-primary-black">
-        Do more with Retina.AI
+        Do more with Retena.ai
       </h2>
       <AppleStyleCarousel items={cards} />
     </div>
@@ -26,7 +26,7 @@ const DummyContent = () => {
           >
             <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl max-w-3xl mx-auto">
               <span className="font-bold text-neutral-700 dark:text-neutral-200">
-                Do more with Retina.AI
+                Do more with Retena.ai
               </span>
               Say goodbye to costly photographers and complicated setups. Create
               stunning, professional-quality photos effortlessly with AI, right
@@ -60,7 +60,7 @@ const data = [
     content: <DummyContent />,
   },
   {
-    category: "Retina.AI",
+    category: "Retena.ai",
     title: "Upscale Images",
     src: "/assets/psedo-generations/upscaler.webp",
     content: <DummyContent />,
@@ -79,7 +79,7 @@ const data = [
     content: <DummyContent />,
   },
   {
-    category: "Retina.AI",
+    category: "Retena.ai",
     title: "Remove Background from images",
     src: "/assets/psedo-generations/fashion4.png",
     content: <DummyContent />,

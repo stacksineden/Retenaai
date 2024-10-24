@@ -40,7 +40,7 @@ const CreditsBillingModal = ({
     },
     customizations: {
       title: `Payment for ${selectedPlan?.plan}`,
-      description: `Payment for Retina.AI photoshoot`,
+      description: `Payment for Retena.ai photoshoot`,
       logo: "",
     },
   };

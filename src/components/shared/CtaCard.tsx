@@ -12,7 +12,7 @@ const CtaCard = () => {
             <div className="flex flex-col gap-4 px-7">
               <h2 className="text-[48px] font-semibold text-primary-black leading-[3.5rem]">
                 Start taking AI photos now
-                <span className="text-primary-blue"> with Retina.AI</span>
+                <span className="text-primary-blue"> with Retena.ai</span>
               </h2>
               <p className="text-lg font-normal tracking-wide text-primary-black">
                 Generate photorealistic images of people using AI. Capture
@@ -72,7 +72,7 @@ const CtaCard = () => {
               <div className="flex flex-col gap-2">
                 <h2 className="text-[18px] font-semibold">
                   Start taking AI photos now{" "}
-                  <span className="text-primary-blue"> with Retina.AI</span>
+                  <span className="text-primary-blue"> with Retena.ai</span>
                 </h2>
                 <p className="text-[12px] tracking-wide">
                   Generate photorealistic images of people using AI. Capture
