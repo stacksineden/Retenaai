@@ -25,12 +25,18 @@ const PhotoshootBillingModal = ({
 
   const { user } = useUserContext();
 
+  const user_country_code = localStorage.getItem("user_country_code");
+
   // Flutterwave configuration
   const config = {
     public_key: import.meta.env.VITE_FLUTTERWAVE_PUBLIC_KEY,
     tx_ref: Date.now().toString(),
-    amount: Number(selectedPlan?.price_in_naira),
-    currency: "NGN",
+    amount: Number(
+      user_country_code && user_country_code === "ng"
+        ? selectedPlan?.price_in_naira
+        : selectedPlan?.base_price
+    ),
+    currency: user_country_code && user_country_code === "ng" ? "NGN" : "USD",
     payment_options: "card, banktransfer, ussd card",
     customer: {
       email: user?.email!,
@@ -63,7 +69,14 @@ const PhotoshootBillingModal = ({
             </h2>
             <p className="text-primary-black text-lg opacity-80 ml-1">
               {data?.title ?? "-- --"}{" "}
-              <span className="opacity-70">- Pay in your local currency</span>
+              <span className="opacity-70">
+                -{" "}
+                {`Pay in your local currency ${
+                  user_country_code && user_country_code === "ng"
+                    ? "NGN"
+                    : "USD"
+                }`}
+              </span>
             </p>
           </div>
           <div className="flex flex-col gap-2 h-[31rem] overflow-y-scroll scrollbar-hide">
@@ -90,7 +103,11 @@ const PhotoshootBillingModal = ({
                 </div>
                 <div className="h-full flex items-center justify-center">
                   <h1 className="text-primary-blue font-bold text-4xl p-4 rounded-full bg-accent">
-                    {item?.base_price}
+                    {user_country_code && user_country_code === "ng" ? (
+                      <span className="text-xl">NGN{item?.price_in_naira}</span>
+                    ) : (
+                      `$${item?.base_price}`
+                    )}
                   </h1>
                 </div>
               </div>
@@ -123,7 +140,12 @@ const PhotoshootBillingModal = ({
             }}
           >
             <Sparkles className="text-white h-6 w-6" />
-            Pay NGN{selectedPlan?.price_in_naira}
+            Pay{" "}
+            {selectedPlan
+              ? user_country_code === "ng"
+                ? `NGN${selectedPlan?.price_in_naira}`
+                : `$${selectedPlan?.base_price}`
+              : ""}
           </Button>
         </div>
       </DialogContent>

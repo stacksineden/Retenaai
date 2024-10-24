@@ -97,6 +97,7 @@ export async function updateUserCreditBalance(payload: IUpdateCredit) {
 export async function signInAccount(user: { email: string; password: string }) {
   try {
     const session = await account.createEmailSession(user.email, user.password);
+    localStorage.setItem("user_country_code", session?.countryCode);
     return session;
   } catch (err) {
     console.log(err);
@@ -295,7 +296,7 @@ export async function getUserPhotoshoot({
       Query.limit(25),
       Query.orderDesc("$createdAt"),
       Query.equal("customerID", userId),
-      pageParam ? Query.cursorAfter(pageParam) : null, 
+      pageParam ? Query.cursorAfter(pageParam) : null,
     ].filter((q): q is string => q !== null);
 
     const generationgData = await databases.listDocuments(
