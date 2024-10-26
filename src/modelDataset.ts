@@ -675,3 +675,19 @@ export const imageDataset = [
   "/assets/dis14.webp",
   "/assets/dis16.webp",
 ];
+
+export const business_solutions = [
+  { name: "Content Creation", value: "content_creation" },
+  { name: "Brand influencing", value: "brand_influencing" },
+  { name: "Fashion", value: "fashion" },
+  { name: "Model", value: "model" },
+  { name: "SMEs", value: "smes" },
+];
+
+export const budgetOptions = [
+  { name: "less than $5000", value: "< $5000" },
+  { name: "$5,000 - $10,000", value: "$5,000 - $10,000" },
+  { name: "$10,000 - $20,000", value: "$10,000 - $20,000" },
+  { name: "$20,000 - $40,000", value: "$20,000 - $40,000" },
+  { name: "$40,000 +", value: "$40,000 +" },
+];

@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [currentSet, setCurrentSet] = useState(0);
   const [direction, setDirection] = useState(0); // Track direction
 
@@ -51,8 +51,9 @@ const Hero = () => {
               from your device in minutes.
             </p>
             <div className="mt-4 flex items-center gap-2 flex-col md:flex-row">
-              <Button className="bg-primary-black hover:bg-primary-blue text-white text-base px-4 py-7 transform transition duration-300 hover:scale-90"
-              onClick={()=> navigate('/sign-up')}
+              <Button
+                className="bg-primary-black hover:bg-primary-blue text-white text-base px-4 py-7 transform transition duration-300 hover:scale-90"
+                onClick={() => navigate("/sign-up")}
               >
                 Start Your Photoshoot Today!
                 <ArrowRight className="text-white h-5" />

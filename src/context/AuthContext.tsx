@@ -71,7 +71,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         "/sign-in",
         "/pricing",
         "/terms",
-        "/showcase"
+        "/showcase",
+        "/enterprise",
+        "/contact"
       ];
       if (!currentAccount && !excludedPaths.includes(location.pathname)) {
         navigate("/sign-in");
@@ -96,6 +98,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         location.pathname.includes("/pricing") ||
         location.pathname.includes("/terms") ||
         location.pathname.includes("/showcase") ||
+        location.pathname.includes("/enterprise") ||
+        location.pathname.includes("/contact") ||
         location.pathname === "/"
       ) &&
       (cookieFallback === "[]" ||

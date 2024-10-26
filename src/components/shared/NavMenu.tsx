@@ -114,16 +114,7 @@ export function NavMenu() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        <NavigationMenuItem>
-          {/* <Link href="/docs" legacyBehavior passHref> */}
-          <NavigationMenuLink
-            className={navigationMenuTriggerStyle()}
-            onClick={() => Navigate("/sign-in")}
-          >
-            Generate
-          </NavigationMenuLink>
-          {/* </Link> */}
-        </NavigationMenuItem>
+
         <NavigationMenuItem>
           {/* <Link href="/docs" legacyBehavior passHref> */}
           <NavigationMenuLink
@@ -141,6 +132,16 @@ export function NavMenu() {
             onClick={() => Navigate("/showcase")}
           >
             Showcase
+          </NavigationMenuLink>
+          {/* </Link> */}
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          {/* <Link href="/docs" legacyBehavior passHref> */}
+          <NavigationMenuLink
+            className={navigationMenuTriggerStyle()}
+            onClick={() => Navigate("/enterprise")}
+          >
+            Enterprise
           </NavigationMenuLink>
           {/* </Link> */}
         </NavigationMenuItem>

@@ -10,6 +10,7 @@ export enum QUERY_KEYS {
   GET_USER_GENERATIONS="getUserGenerations",
   GET_ALL_GENERATIONS="getAllGenerations",
   GET_USER_PHOTOSHOT="getUserPhotoshoot",
-  GET_ALL_PHOTOSHOOTS="getAllPhotoshoots"
+  GET_ALL_PHOTOSHOOTS="getAllPhotoshoots",
+  GET_CONTRACTS="getContracts"
 }
 

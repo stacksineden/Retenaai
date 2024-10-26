@@ -75,6 +75,13 @@ export type TrainingPayload = {
   txRef:string;
 }
 
+export type ContractPayload = {
+  subject:string;
+  email:string;
+  AdditionalInfo:string;
+  BusinessType:string;
+  Budget:string
+}
 
 export type PhotoshootPlan = {
   id: string;

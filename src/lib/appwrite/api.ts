@@ -1,4 +1,5 @@
 import {
+  ContractPayload,
   CreateGenerations,
   INewUser,
   IUpdateCredit,
@@ -200,6 +201,30 @@ export async function createTraining(payload: TrainingPayload) {
     return training;
   } catch (err) {
     console.log(err, "");
+  }
+}
+
+//create contract
+
+export async function createContract(payload: ContractPayload) {
+  try {
+    const contract = await databases.createDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.contractsCollectionId,
+      ID.unique(),
+      {
+        subject: payload.subject,
+        AdditionalInfo: payload.AdditionalInfo,
+        BusinessType: payload.BusinessType,
+        Budget: payload.Budget,
+        email: payload.email,
+      }
+    );
+
+    if (!contract) throw new Error();
+    return contract;
+  } catch (err) {
+    console.log(err, "err");
   }
 }
 

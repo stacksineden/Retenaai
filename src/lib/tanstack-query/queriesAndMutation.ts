@@ -1,4 +1,5 @@
 import {
+  ContractPayload,
   CreateGenerations,
   INewUser,
   IUpdateCredit,
@@ -11,6 +12,7 @@ import {
   useInfiniteQuery,
 } from "@tanstack/react-query";
 import {
+  createContract,
   createTraining,
   createUserAccount,
   createUserGeneration,
@@ -67,6 +69,17 @@ export const useCreateTraining = () => {
       }),
   });
 };
+
+export const useCreateContract = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (data: ContractPayload) => createContract(data),
+    onSuccess: () =>
+      queryClient.invalidateQueries({
+        queryKey: [QUERY_KEYS.GET_CONTRACTS],
+      }), 
+  });
+}
 
 export const useCreateUserGeneration = () => {
   const queryClient = useQueryClient();

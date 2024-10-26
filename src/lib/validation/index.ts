@@ -44,3 +44,11 @@ export const ResetPasswordValidationSchema = z
   .refine((data) => data.newPassword === data.confirmPassword, {
     message: "Passwords do not match",
   });
+
+
+  export const BusinessRequestSchema = z.object({
+    subject: z.string(),
+    email: z.string(),
+    additonal_info:z.string().optional(),
+  });
+  

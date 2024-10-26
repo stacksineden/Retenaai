@@ -139,6 +139,9 @@ const MobileMenu = ({
                   <Link to="/showcase">
                     <li className="block py-2 font-medium">Showcase</li>
                   </Link>
+                  <Link to="/enterprise">
+                    <li className="block py-2 font-medium">Enterprise</li>
+                  </Link>
                 </ul>
 
                 <div className="flex items-center justify-center gap-2">

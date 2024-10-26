@@ -33,6 +33,8 @@ const SignUpForm = lazy(() => import("./_auth/forms/SignUpForm"));
 const Pricing = lazy(() => import("./_root/Pricing"));
 const ShowCase = lazy(() => import("./_root/ShowCase"));
 const Terms = lazy(() => import("./_root/Terms"));
+const Enterprise = lazy(() => import("./_root/Enterprise"));
+const BrandingRequest = lazy(() => import("./_root/BrandingRequest"));
 
 const App = () => {
   const [showFirstMessage, setShowFirstMessage] = useState(true);
@@ -105,6 +107,8 @@ const App = () => {
             <Route path="/showcase" element={<ShowCase />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/terms" element={<Terms />} />
+            <Route path="/enterprise" element={<Enterprise />} /> 
+            <Route path="/contact" element={<BrandingRequest />} /> 
             <Route path="*" element={<NotFound />} />
           </Routes>
         </SkeletonTheme>
@@ -113,5 +117,5 @@ const App = () => {
     </>
   );
 };
-
+ 
 export default App;
