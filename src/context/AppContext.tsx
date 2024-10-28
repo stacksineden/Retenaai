@@ -1,3 +1,4 @@
+import { GalleryStylesData } from "@/types";
 import { createContext, useContext, useState } from "react";
 
 const INITIAL_STATE = {
@@ -11,6 +12,13 @@ const INITIAL_STATE = {
   setChatOpen: () => {},
   chatMobileOpen: false,
   setChatMobileOpen: () => {},
+  shootData: {
+    title: "",
+    text: "",
+    images: [],
+    query_slug: "",
+  },
+  setShootData: () => {},
 };
 
 type IContextType = {
@@ -24,6 +32,8 @@ type IContextType = {
   setChatOpen: (chatOpen: boolean) => void;
   chatMobileOpen: boolean;
   setChatMobileOpen: (chatMobileOpen: boolean) => void;
+  shootData: GalleryStylesData;
+  setShootData: (shootData: GalleryStylesData) => void;
 };
 
 const AppContext = createContext<IContextType>(INITIAL_STATE);
@@ -38,6 +48,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [chatMobileOpen, setChatMobileOpen] = useState(
     INITIAL_STATE.chatMobileOpen
   );
+  const [shootData, setShootData] = useState<GalleryStylesData>(
+    INITIAL_STATE.shootData
+  );
 
   const value = {
     open,
@@ -49,7 +62,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     chatOpen,
     setChatOpen,
     chatMobileOpen,
-    setChatMobileOpen
+    setChatMobileOpen,
+    shootData,
+    setShootData,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

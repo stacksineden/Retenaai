@@ -1,13 +1,15 @@
 import { Sparkles } from "lucide-react";
 import { Button } from "../ui/button";
 import { GalleryStylesData } from "@/types";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PhotoshootBillingModal from "./PhotoshootBillingModal";
 import { useState } from "react";
+import { useAppContext } from "@/context/AppContext";
 
 const GalleryCard = ({ data }: { data: GalleryStylesData }) => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [openPaymentModal, setOpenPaymentModal] = useState(false);
+  const { setShootData } = useAppContext();
 
   //open billing modal
   return (
@@ -42,7 +44,11 @@ const GalleryCard = ({ data }: { data: GalleryStylesData }) => {
           className="shad-button_primary mx-3"
           // disabled={true}
           // onClick={() => navigate(`/training?mode=${data?.query_slug}`)}
-          onClick={() => setOpenPaymentModal(true)}
+          // onClick={() => setOpenPaymentModal(true)}
+          onClick={() => {
+            setShootData(data)
+            navigate(`/billing`)
+          }}
         >
           <Sparkles className="text-white h-6 w-6" />
           Try it out

@@ -12,7 +12,7 @@ import toast from "react-hot-toast";
 type BillingModalProps = {
   openPaymentModal: boolean;
   setOpenPaymentModal: (openPaymentModal: boolean) => void;
-  data: GalleryStylesData;
+  data: GalleryStylesData; 
 };
 
 const PhotoshootBillingModal = ({

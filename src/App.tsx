@@ -2,6 +2,7 @@ import { useEffect, lazy, Suspense, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import {
   BgRemover,
+  Billing,
   FluxLoraGenerate,
   FluxProGenerate,
   FluxRealismGenerate,
@@ -94,6 +95,7 @@ const App = () => {
                 element={<PhotoshootGallery />}
               />
               <Route path="/training-dataset" element={<TrainingDatasets />} />
+              <Route path="/billing" element={<Billing />} />
             </Route>
 
             <Route element={<AuthLayout />}>
@@ -107,8 +109,8 @@ const App = () => {
             <Route path="/showcase" element={<ShowCase />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/terms" element={<Terms />} />
-            <Route path="/enterprise" element={<Enterprise />} /> 
-            <Route path="/contact" element={<BrandingRequest />} /> 
+            <Route path="/enterprise" element={<Enterprise />} />
+            <Route path="/contact" element={<BrandingRequest />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </SkeletonTheme>
@@ -117,5 +119,5 @@ const App = () => {
     </>
   );
 };
- 
+
 export default App;

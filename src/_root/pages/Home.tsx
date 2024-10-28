@@ -1,24 +1,24 @@
-import { useState } from "react";
+// import { useState } from "react";
 import MiniAppsCard from "@/components/shared/MiniAppsCard";
 import Slider from "@/components/shared/Slider";
 import { useUserContext } from "@/context/AuthContext";
 import { flux_styles_data, mini_apps_data } from "@/modelDataset";
 import { Diamond } from "lucide-react";
 import { FreeMode, Mousewheel } from "swiper/modules";
-import CreditsBillingModal from "@/components/shared/CreditsBillingModal";
+// import CreditsBillingModal from "@/components/shared/CreditsBillingModal";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate()
   const { user } = useUserContext();
-  const [openPaymentModal, setOpenPaymentModal] = useState(false);
+  // const [openPaymentModal, setOpenPaymentModal] = useState(false);
 
   return (
     <>
-      <CreditsBillingModal
+      {/* <CreditsBillingModal
         openPaymentModal={openPaymentModal}
         setOpenPaymentModal={setOpenPaymentModal}
-      />
+      /> */}
       <div className="h-full">
         <div className="flex h-full w-full flex-col justify-between px-4 md:px-1 pt-9 md:pt-6">
           <div className="max-w-7xl self-center w-full">
@@ -44,7 +44,7 @@ const Home = () => {
                   </div>
                   <div
                     className="bg-primary-blue py-2 px-3 rounded-lg font-semibold text-white text-sm md:text-base"
-                    onClick={() => setOpenPaymentModal(true)}
+                    // onClick={() => setOpenPaymentModal(true)}
                   >
                     Buy credits
                   </div>
