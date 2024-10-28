@@ -2,13 +2,10 @@ import { Sparkles } from "lucide-react";
 import { Button } from "../ui/button";
 import { GalleryStylesData } from "@/types";
 import { useNavigate } from "react-router-dom";
-import PhotoshootBillingModal from "./PhotoshootBillingModal";
-import { useState } from "react";
 import { useAppContext } from "@/context/AppContext";
 
 const GalleryCard = ({ data }: { data: GalleryStylesData }) => {
   const navigate = useNavigate();
-  const [openPaymentModal, setOpenPaymentModal] = useState(false);
   const { setShootData } = useAppContext();
 
   //open billing modal
@@ -54,11 +51,6 @@ const GalleryCard = ({ data }: { data: GalleryStylesData }) => {
           Try it out
         </Button>
       </div>
-      <PhotoshootBillingModal
-        data={data}
-        openPaymentModal={openPaymentModal}
-        setOpenPaymentModal={setOpenPaymentModal}
-      />
     </>
   );
 };
