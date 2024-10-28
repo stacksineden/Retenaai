@@ -63,7 +63,7 @@ const CreditsBillingModal = ({
       }}
     >
       <DialogContent className="">
-        <div className="w-full flex flex-col gap-2">
+      <div className="w-full flex flex-col gap-2">
           <div className="flex flex-col">
             <h2 className="text-primary-black text-2xl font-medium">
               Buy Photo Credits
@@ -74,10 +74,10 @@ const CreditsBillingModal = ({
               }`}
             </p>
           </div>
-          <div className="flex flex-col gap-2 h-[30rem] overflow-y-scroll scrollbar-hide">
+          <div className="flex flex-col gap-2 h-[30rem] overflow-y-scroll scrollbar-hide md:max-w-[80%]">
             {photo_credits_plan?.map((item) => (
               <div
-                className={`w-full py-3 px-2 rounded-xl border-2 border-accent shadow cursor-pointer flex items-center justify-between ${
+                className={`w-full py-3 px-2 rounded-xl border-2 border-zinc-200 shadow-md cursor-pointer flex items-center justify-between ${
                   selectedPlan?.plan === item?.plan ? " bg-zinc-200" : ""
                 }`}
                 key={item?.id}

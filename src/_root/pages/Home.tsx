@@ -44,7 +44,7 @@ const Home = () => {
                   </div>
                   <div
                     className="bg-primary-blue py-2 px-3 rounded-lg font-semibold text-white text-sm md:text-base"
-                    // onClick={() => setOpenPaymentModal(true)}
+                    onClick={() => navigate('/credits-billing')}
                   >
                     Buy credits
                   </div>

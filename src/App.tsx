@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import {
   BgRemover,
   Billing,
+  CreditsBilling,
   FluxLoraGenerate,
   FluxProGenerate,
   FluxRealismGenerate,
@@ -96,6 +97,7 @@ const App = () => {
               />
               <Route path="/training-dataset" element={<TrainingDatasets />} />
               <Route path="/billing" element={<Billing />} />
+              <Route path="/credits-billing" element={<CreditsBilling />}/>
             </Route>
 
             <Route element={<AuthLayout />}>
