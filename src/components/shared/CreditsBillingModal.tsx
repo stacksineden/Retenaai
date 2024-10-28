@@ -41,7 +41,7 @@ const CreditsBillingModal = ({
     payment_options: "card, banktransfer, ussd card",
     customer: {
       email: user?.email!,
-      phone_number: "",
+      phonenumber: "",
       name: user?.name!,
     },
     customizations: {
