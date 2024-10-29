@@ -67,10 +67,10 @@ const Billing = () => {
             </p>
           </div>
           <ExamplePhotoModal images={shootData?.images ?? []} />
-          <div className="flex flex-col gap-2 h-[31rem] overflow-y-scroll scrollbar-hide md:max-w-[80%]">
+          <div className="flex flex-col gap-2 h-[30rem] overflow-y-scroll scrollbar-hide md:max-w-[80%]">
             {photoshoot_plans?.map((item) => (
               <div
-                className={`w-full py-3 px-2 mt-3 rounded-xl border-2 border-zinc-200 shadow-md cursor-pointer flex flex-col md:flex-row items-center justify-between ${
+                className={`w-full py-3 px-2 rounded-xl border-2 border-zinc-200 shadow-md cursor-pointer flex flex-col md:flex-row items-center justify-between ${
                   selectedPlan?.plan === item?.plan ? " bg-zinc-200" : ""
                 }`}
                 key={item?.id}
