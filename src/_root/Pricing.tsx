@@ -39,7 +39,7 @@ const Pricing = () => {
                   {item?.tagline}
                 </p> */}
                 <p className="my-2 text-5xl font-semibold text-primary-black">
-                  {item?.base_price}
+                  ${item?.base_price}
                 </p>
               </div>
               <ul className="my-10 space-y-5 px-8">
