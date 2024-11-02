@@ -16,7 +16,7 @@ const TrainingDatasets = () => {
           My Trainings
         </h2>
         <p className="text-primary-blue3 text-sm md:text-base pl-2">
-          Check out the status of your lora trainings here
+          Check out the status of your photoshoots here
         </p>
       </div>
 
