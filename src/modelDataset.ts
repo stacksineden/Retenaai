@@ -445,6 +445,8 @@ export const photo_shoot_ideas_options = [
   { name: "Music Festival", value: "music_festival" },
   { name: "Y2K Aesthetic Photoshoot", value: "y2k_aesthetic_photoshoot" },
   { name: "Makeup Try-On", value: "makeup_try_on" },
+  { name: "Christmas Photoshoot", value: "xmas_shoot" },
+  { name: "High Fashion Studio", value: "high_fashion" },
   {
     name: "Retro 1950s Diner Photoshoot",
     value: "retro_1950s_diner_photoshoot",
