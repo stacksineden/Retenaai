@@ -103,6 +103,12 @@ const imageSets = [
     "/assets/psedo-generations/pro-headshhot4.png",
   ],
   [
+    "/assets/psedo-generations/xmashoot1.webp",
+    "/assets/psedo-generations/xmashoot2.webp",
+    "/assets/psedo-generations/xmashoot3.webp",
+    "/assets/psedo-generations/xmashoot4.webp",
+  ],
+  [
     "/assets/psedo-generations/fashion1.webp",
     "/assets/psedo-generations/fashion2.png",
     "/assets/psedo-generations/fashion3.png",
