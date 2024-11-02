@@ -115,6 +115,28 @@ export const photo_shoot_ideas_data = [
     ],
   },
   {
+    title: "Christmas Photoshoot",
+    text: "Capture the magic of the holiday season with our enchanting Christmas photoshoots! Whether you’re looking to create cherished memories with family, showcase festive outfits, or send personalized holiday cards, our AI-generated images will bring your vision to life. Enjoy a unique and joyful experience that perfectly reflects the spirit of Christmas. Create stunning visuals that you can treasure for years to come!",
+    query_slug: "xmas_shoot",
+    images: [
+      "/assets/psedo-generations/xmashoot1.webp",
+      "/assets/psedo-generations/xmashoot2.webp",
+      "/assets/psedo-generations/xmashoot3.webp",
+      "/assets/psedo-generations/xmashoot4.webp",
+    ],
+  },
+  {
+    title: "High Fashion Studio",
+    text: "Step into the world of high fashion with our exclusive studio photoshoots! Designed for trendsetters and style enthusiasts, our AI-generated imagery captures the essence of contemporary fashion in striking detail. Showcase your unique style, express your creativity, and elevate your portfolio with stunning visuals that stand out. Perfect for models, designers, and anyone wanting to make a bold statement in the fashion scene!",
+    query_slug: "high_fashion",
+    images: [
+      "/assets/psedo-generations/studio1.png",
+      "/assets/psedo-generations/studio2.webp",
+      "/assets/psedo-generations/studio3.webp",
+      "/assets/psedo-generations/studio4.webp",
+    ],
+  },
+  {
     title: "Street Photography",
     text: "Capture trendy outfits in vibrant city streets with dynamic urban backdrops that highlight your style. First, create an AI model of yourself, then take AI photos with it!",
     query_slug: "street_photography",
