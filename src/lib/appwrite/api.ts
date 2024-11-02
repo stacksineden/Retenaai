@@ -349,6 +349,37 @@ export async function getAllPhotoshoots() {
   }
 }
 
+export async function getAllCodes() {
+  try {
+    const allCodes = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.bonusesCollectionId
+    );
+    if (!allCodes) return;
+    return allCodes;
+  } catch (err) {
+    console.log(err, "");
+  }
+}
+
+export async function verifyCode(code: string) {
+  try {
+    const result = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.bonusesCollectionId,
+      [
+        Query.equal("code", code),
+        Query.equal("isValid", true), 
+      ]
+    );
+    if (result.documents.length === 0)
+      throw new Error("Invalid or expired code.");
+    return result.documents[0]; 
+  } catch (err) {
+    console.log(err, "");
+  }
+}
+
 export async function getAllGenerations({
   pageParam = undefined,
 }: {

@@ -16,6 +16,7 @@ import {
   createTraining,
   createUserAccount,
   createUserGeneration,
+  getAllCodes,
   getAllGenerations,
   getAllPhotoshoots,
   // getAllPhotoshoots,
@@ -26,6 +27,7 @@ import {
   signInAccount,
   signOutAccount,
   updateUserCreditBalance,
+  verifyCode,
 } from "../appwrite/api";
 import { QUERY_KEYS } from "./queryKeys";
 
@@ -77,9 +79,9 @@ export const useCreateContract = () => {
     onSuccess: () =>
       queryClient.invalidateQueries({
         queryKey: [QUERY_KEYS.GET_CONTRACTS],
-      }), 
+      }),
   });
-}
+};
 
 export const useCreateUserGeneration = () => {
   const queryClient = useQueryClient();
@@ -126,7 +128,6 @@ export const useGetUserPhotoshoot = (userId?: string) => {
   });
 };
 
-
 export const useGetUserGenerations = (userId?: string) => {
   return useInfiniteQuery({
     queryKey: [QUERY_KEYS.GET_USER_GENERATIONS, userId],
@@ -155,11 +156,24 @@ export const useGetAllGenerations = () => {
   });
 };
 
-
 export const useGetAllPhotoshoots = () => {
   return useQuery({
     queryKey: [QUERY_KEYS.GET_ALL_PHOTOSHOOTS],
     queryFn: () => getAllPhotoshoots(),
     refetchOnWindowFocus: false,
   });
-}
+};
+
+export const useGetAllCodes = () => {
+  return useQuery({
+    queryKey: [QUERY_KEYS.GET_ALL_CODES],
+    queryFn: () => getAllCodes(),
+    refetchOnWindowFocus: false,
+  });
+};
+
+export const useVerifyCode = () => {
+  return useMutation({
+    mutationFn: (code: string) => verifyCode(code),
+  });
+};

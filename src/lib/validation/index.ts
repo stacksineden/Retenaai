@@ -12,6 +12,11 @@ export const TrainingLoraSchema = z.object({
   trigger_word: z.string(),
 });
 
+export const PromoValidationSchema = z.object({
+  code: z.string()
+});
+
+
 export const ImageUpscalingSchema = z.object({
   image: z.array(z.string()),
 });

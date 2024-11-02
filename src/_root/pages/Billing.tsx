@@ -10,6 +10,7 @@ import toast from "react-hot-toast";
 import { Button } from "@/components/ui/button";
 import { useAppContext } from "@/context/AppContext";
 import ExamplePhotoModal from "@/components/shared/ExamplePhotoModal";
+import PromoVerifyModal from "@/components/shared/PromoVerifyModal";
 
 const Billing = () => {
   const navigate = useNavigate();
@@ -63,10 +64,14 @@ const Billing = () => {
                     ? "NGN"
                     : "USD"
                 }`}
-              </span> 
+              </span>
             </p>
           </div>
-          <ExamplePhotoModal images={shootData?.images ?? []} />
+          <div className="flex items-center gap-2 md:gap-7 flex-col md:flex-row">
+            <ExamplePhotoModal images={shootData?.images ?? []} />
+            <PromoVerifyModal />
+          </div>
+
           <div className="flex flex-col gap-2 h-[27rem] md:h-[30rem] overflow-y-scroll scrollbar-hide md:max-w-[80%]">
             {photoshoot_plans?.map((item) => (
               <div
@@ -87,7 +92,7 @@ const Billing = () => {
                         <p className="text-base">{data}</p>
                       </li>
                     ))}
-                  </ul> 
+                  </ul>
                 </div>
                 <div className="h-full flex items-center justify-center bg-white rounded-lg px-2 py-2">
                   <h1 className="text-primary-blue font-bold text-4xl p-4 rounded-full bg-accent">
