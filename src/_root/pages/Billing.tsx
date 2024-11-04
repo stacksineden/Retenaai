@@ -21,6 +21,7 @@ const Billing = () => {
 
   const user_country_code = localStorage.getItem("user_country_code");
 
+
   // Flutterwave configuration
   const config = {
     public_key: import.meta.env.VITE_FLUTTERWAVE_PUBLIC_KEY,

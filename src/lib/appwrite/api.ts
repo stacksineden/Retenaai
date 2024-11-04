@@ -367,14 +367,11 @@ export async function verifyCode(code: string) {
     const result = await databases.listDocuments(
       appwriteConfig.databaseId,
       appwriteConfig.bonusesCollectionId,
-      [
-        Query.equal("code", code),
-        Query.equal("isValid", true), 
-      ]
+      [Query.equal("code", code), Query.equal("isValid", true)]
     );
     if (result.documents.length === 0)
       throw new Error("Invalid or expired code.");
-    return result.documents[0]; 
+    return result.documents[0];
   } catch (err) {
     console.log(err, "");
   }
@@ -415,6 +412,7 @@ export async function getAllGenerations({
 export async function signOutAccount() {
   try {
     const session = await account.deleteSession("current");
+    localStorage.clear();
     return session;
   } catch (error) {
     return error;
