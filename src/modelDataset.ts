@@ -462,12 +462,24 @@ export const photo_shoot_ideas_options = [
 export const photoshoot_plans = [
   {
     id: "1",
+    plan: "Mini Professional Package",
+    feature: [
+      "Perfect for quick, everyday photoshoots",
+      "1 photoshoot style",
+      "Affordable and budget-friendly option",
+      "Includes 5 high-quality, AI-generated photos",
+      "20 to 30mins wait time",
+    ],
+    base_price: "4",
+    price_in_naira: "6500",
+  },
+  {
+    id: "2",
     plan: "Standard Professional Package",
     feature: [
       "Perfect for casual and everyday shoots",
       "Choose more than 1 photoshoot style",
-      "Affordable and budget-friendly option",
-      "Includes 30 high-quality, AI-generated photos",
+      "Includes 10 high-quality, AI-generated photos",
       "Free Photo Upscaling for images",
       "30mins to 1hr wait time",
     ],
@@ -475,12 +487,12 @@ export const photoshoot_plans = [
     price_in_naira: "13000",
   },
   {
-    id: "2",
+    id: "3",
     plan: "Premium Professional Package",
     feature: [
       "Perfect for brands, social media influencers, and models",
       "Choose more than 1 photoshoot style",
-      "Up to 50 professionally retouched photos",
+      "Up to 20 professionally retouched photos",
       "Complimentary revisions if images do not meet expectations.",
       "Priority access",
       "Free Photo Upscaling for images",
@@ -607,7 +619,7 @@ export const prompt_factory_photoshot = [
       "model wearing  navy colored suit in try on fashion shoot for Zara Shein H&M",
       "model wearing  t-shirt and pants in try on fashion shoot for Zara Shein H&M",
       "a photo of rike, a striking young woman with deep caramel skin and lustrous dark hair stands confidently in a chic, modern cityscape. She wears a bold, form-fitting red dress that accentuates her curves, paired with sleek black heels. Her expression is one of determination and grace, with her lips curled into a subtle, knowing smile. The scene is bathed in the golden hour light, casting warm, soft shadows and highlighting the texture of her dress. The background features a blend of neon lights and urban architecture, creating a vibrant, cinematic atmosphere. The lighting setup includes a soft key light from the front, a warm fill light from the side, and a subtle rim light from behind to define her silhouette. The image has a slight film grain and a warm color grading, inspired by the visual style of Wes Anderson",
-      "a high-fashion photoshoot of rike in a sleek studio, featuring a tall, slender woman with fair skin and piercing blue eyes, her raven-black hair styled in loose waves. She wears a luxurious, form-fitting emerald green gown with intricate beadwork, standing confidently with one hand on her hip and a subtle, enigmatic smile. The background is a gradient of deep black to charcoal gray, emphasizing the richness of her attire. Soft, diffused key lighting from the front highlights her features, while a rim light from behind creates a subtle halo effect, enhancing the fabric's texture. The scene is reminiscent of a David Fincher film, with a cool, moody color grade and subtle film grain, capturing the elegance and drama of high fashion.",
+      "",
     ],
   },
 ];

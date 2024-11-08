@@ -20,7 +20,7 @@ const Pricing = () => {
           </p>
         </div>
 
-        <div className="pt-12 grid grid-cols-1 lg:grid-cols-2 gap-5 md:max-w-[60rem] mx-auto">
+        <div className="pt-12 grid grid-cols-1 lg:grid-cols-3 gap-5 md:max-w-[80rem] mx-auto">
           {photoshoot_plans?.map((item, _i) => (
             <div
               key={_i}
