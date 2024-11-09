@@ -41,7 +41,7 @@ const Hero = () => {
     <section className="bg-accent">
       <div className="container grid grid-cols-1 md:grid-cols-2 min-h-[650px] relative">
         <div className="flex flex-col justify-center py-14 md:py-0">
-          <div className="border border-accent p-2 rounded-full bg-white text-base font-medium shadow-md w-[20em] text-center my-2 text-primary-blue flex items-center gap-1 justify-center">
+          <div className="border border-accent p-2 rounded-full bg-white text-sm md:text-base font-medium shadow-md w-full md:w-[20em] text-center my-2 text-primary-blue flex items-center gap-1 justify-center">
           <Star className="text-yellow-400 h-7 w-7"/>
             1.3K+ Photoshoots generated
           </div>
