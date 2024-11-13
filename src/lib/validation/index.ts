@@ -4,6 +4,7 @@ export const GenerateImageSchema = z.object({
   prompt: z.string().min(2, { message: "Prompt too short" }),
   dimension: z.string(),
   is_public: z.boolean(),
+  is_raw: z.boolean().optional(),
 });
 
 export const TrainingLoraSchema = z.object({
@@ -13,9 +14,8 @@ export const TrainingLoraSchema = z.object({
 });
 
 export const PromoValidationSchema = z.object({
-  code: z.string()
+  code: z.string(),
 });
-
 
 export const ImageUpscalingSchema = z.object({
   image: z.array(z.string()),
@@ -50,10 +50,8 @@ export const ResetPasswordValidationSchema = z
     message: "Passwords do not match",
   });
 
-
-  export const BusinessRequestSchema = z.object({
-    subject: z.string(),
-    email: z.string(),
-    additonal_info:z.string().optional(),
-  });
-  
+export const BusinessRequestSchema = z.object({
+  subject: z.string(),
+  email: z.string(),
+  additonal_info: z.string().optional(),
+});

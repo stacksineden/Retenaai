@@ -98,6 +98,13 @@ export type ImageGenFluxProRequest = {
    output_format:string;
 }
 
+export type ImageGenFluxUltraRequest = {
+  prompt: string;
+  aspect_ratio: string;
+  output_format: string;
+  raw: boolean;
+}
+
 export type ImageGenFluxChibskyRequest = {
   prompt:string;
   aspect_ratio:string;

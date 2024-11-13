@@ -61,12 +61,20 @@ export const flux_styles_data = [
 
 export const mini_apps_data = [
   {
+    title: "Flux 1.1 Ultra AI Image Generator",
+    text: "Create ultra-detailed images in both ultra and raw modes. Capture up to 4MP for clarity, and select raw mode for unmatched realism.",
+    images: ["/assets/psedo-generations/flux1.1ultra1.png"],
+    query_slug: "flux1.1-ultra",
+    url: "/generations/flux?mode=flux1.1-ultra",
+    credit_fee: 5,
+  },
+  {
     title: "Flux 1.1Pro AI Image Generator",
     text: "Create stunning, high-quality images with the power of the most advanced AI model.",
     images: ["/assets/psedo-generations/flux1.1pro1.webp"],
     query_slug: "flux1.1-pro",
     url: "/generations/flux?mode=flux1.1-pro",
-    credit_fee: 4,
+    credit_fee: 5,
   },
   {
     title: "Flux-dev Realism",

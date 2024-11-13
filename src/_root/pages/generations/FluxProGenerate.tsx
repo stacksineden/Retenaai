@@ -17,7 +17,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { Fullscreen } from "lucide-react";
-import { imageGenFluxDevRealism, imageGenFluxpro } from "@/lib/replicate/api";
+import {
+  imageGenFluxDevRealism,
+  imageGenFluxUltra,
+  imageGenFluxpro,
+} from "@/lib/replicate/api";
 import toast from "react-hot-toast";
 import { useUserContext } from "@/context/AuthContext";
 import { IUpdateCredit } from "@/types";
@@ -59,6 +63,7 @@ const FluxProGenerate = () => {
       prompt: "",
       dimension: "",
       is_public: false,
+      is_raw: false,
     },
   });
 
@@ -200,6 +205,52 @@ const FluxProGenerate = () => {
         setLoading(false);
         toast.error("image generation falled");
       }
+    } else if (mode === "flux1.1-ultra") {
+      const payload = {
+        prompt: values?.prompt,
+        aspect_ratio: values?.dimension,
+        output_format: "png",
+        raw: values?.is_raw!,
+      };
+      const response = await imageGenFluxUltra(payload);
+      if (response) {
+        setLoading(false);
+        toast.success(response?.message ?? "");
+        setImagePrev(response?.data);
+        const newBalance = user?.creditBalance - credit_charge.FLUXPROCREDIT;
+        const updatePayload: IUpdateCredit = {
+          userId: user.id,
+          balance: newBalance,
+        };
+        const creditsUpdate = await updateBalance(updatePayload);
+        if (creditsUpdate) {
+          // send to generations database and add the public flag if is public is true
+          const cloudurl = await uploadImageFromUrl(response?.data);
+          if (cloudurl) {
+            toast.success("Image Uploaded succesfully");
+            const generationPayload = {
+              prompt: values?.prompt,
+              catergory: "flux",
+              url: cloudurl,
+              creator: user.id,
+            };
+            const imageSaved = await createGeneration(generationPayload);
+            if (imageSaved) {
+              toast.success("Images saved successfully");
+            }
+            if (!imageSaved) {
+              toast.error("unable to save image");
+            }
+          }
+          if (!cloudurl) {
+            toast.error("Image Upload failed");
+          }
+        }
+      }
+      if (!response) {
+        setLoading(false);
+        toast.error("image generation falled");
+      }
     } else {
       const payload = {
         prompt: values?.prompt,
@@ -302,9 +353,7 @@ const FluxProGenerate = () => {
               />
 
               <div className="flex flex-col gap-1 my-1">
-                <p className="text-sm text-primary-black">
-                  Image Dimensions
-                </p>
+                <p className="text-sm text-primary-black">Image Dimensions</p>
                 <p className="text-xs text-primary-black opacity-50">
                   Select the aspect ratio for your image
                 </p>
@@ -351,6 +400,26 @@ const FluxProGenerate = () => {
                 </div>
               )}
 
+              {mode === "flux1.1-ultra" && (
+                <div className="p-4 rounded-lg border border-accent flex flex-col gap-1">
+                  <div className="flex items-center justify-between">
+                    <p className="text-base font-medium text-primary-black">
+                      Raw Mode
+                    </p>
+                    <Switch
+                      className="bg-primary-blue"
+                      onCheckedChange={(checked) =>
+                        form.setValue("is_raw", checked)
+                      } // Update is_public value
+                      checked={form.watch("is_raw")} // Bind checked state
+                    />
+                  </div>
+                  <p className="text-[10px] md:text-xs text-primary-black opacity-50">
+                    Make your images more natural
+                  </p>
+                </div>
+              )}
+
               <div className="p-4 rounded-lg border border-accent my-4 flex flex-col gap-1">
                 <div className="flex items-center justify-between">
                   <p className="text-base font-medium text-primary-black">
@@ -368,7 +437,6 @@ const FluxProGenerate = () => {
                   Free Usage will be public, upgrade to make it private
                 </p>
               </div>
-
               <Button
                 type="submit"
                 className="shad-button_primary"

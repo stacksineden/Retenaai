@@ -1,6 +1,7 @@
 import {
   ImageGenFluxChibskyRequest,
   ImageGenFluxProRequest,
+  ImageGenFluxUltraRequest,
   ImageUpscalingRequest,
 } from "@/types";
 import axios from "axios";
@@ -9,6 +10,16 @@ import { replicate_base_url } from "./config";
 export async function imageGenFluxpro(payload: ImageGenFluxProRequest) {
   try {
     const url = `${replicate_base_url}/image-gen-with-flux-1.1`;
+    const response = await axios.post(url, payload);
+    return response?.data;
+  } catch (err) { 
+    console.log(err);
+  }
+}
+
+export async function imageGenFluxUltra(payload:ImageGenFluxUltraRequest){
+  try {
+    const url = `${replicate_base_url}/image-gen-with-flux-1.1-ultra`;
     const response = await axios.post(url, payload);
     return response?.data;
   } catch (err) { 
