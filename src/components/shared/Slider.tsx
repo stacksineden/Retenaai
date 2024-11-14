@@ -3,8 +3,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/mousewheel";
 import CarouselButtons from "./CarouselButtons";
-import ToolsCard from "./ToolsCard";
-import { FluxStylesData, GalleryStylesData } from "@/types";
+import { GalleryStylesData } from "@/types";
 import GalleryCard from "./GalleryCard";
 
 type SliderProps = {

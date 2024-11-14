@@ -17,6 +17,7 @@ const INITIAL_STATE = {
     text: "",
     images: [],
     query_slug: "",
+    is_trending:false,
   },
   setShootData: () => {},
 };
