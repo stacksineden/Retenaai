@@ -100,65 +100,22 @@ export const mini_apps_data = [
     url: "/generations/bg-remover",
     credit_fee: 1,
   },
-  {
-    title: "Image generation with DALL.E-3",
-    text: "Easily remove backgrounds from your photos with precision using advanced AI tools.",
-    images: ["/assets/psedo-generations/dalle3.webp"],
-    query_slug: "dalle3",
-    url: "/generations/flux?mode=dalle3",
-    credit_fee: 2,
-  },
+  // {
+  //   title: "Image generation with DALL.E-3",
+  //   text: "Easily remove backgrounds from your photos with precision using advanced AI tools.",
+  //   images: ["/assets/psedo-generations/dalle3.webp"],
+  //   query_slug: "dalle3",
+  //   url: "/generations/flux?mode=dalle3",
+  //   credit_fee: 2,
+  // },
 ];
 
 export const photo_shoot_ideas_data = [
   {
-    title: "Professional Headshoot",
-    text: "Get a polished, professional look with AI headshots perfect for LinkedIn. Stand out, increase visibility, and attract job offers with a strong first impression. First, create an AI model of yourself, then take AI photos with it!",
-    query_slug: "professional_headshoot",
-    images: [
-      "/assets/psedo-generations/pro-headshhot1.webp",
-      "/assets/psedo-generations/pro-headshhot2.png",
-      "/assets/psedo-generations/pro-headshhot3.png",
-      "/assets/psedo-generations/pro-headshhot4.png",
-    ],
-  },
-  {
-    title: "Christmas Photoshoot",
-    text: "Capture the magic of the holiday season with our enchanting Christmas photoshoots! Whether you’re looking to create cherished memories with family, showcase festive outfits, or send personalized holiday cards, our AI-generated images will bring your vision to life. Enjoy a unique and joyful experience that perfectly reflects the spirit of Christmas. Create stunning visuals that you can treasure for years to come!",
-    query_slug: "xmas_shoot",
-    images: [
-      "/assets/psedo-generations/xmashoot1.webp",
-      "/assets/psedo-generations/xmashoot2.webp",
-      "/assets/psedo-generations/xmashoot3.webp",
-      "/assets/psedo-generations/xmashoot4.webp",
-    ],
-  },
-  {
-    title: "High Fashion Studio",
-    text: "Step into the world of high fashion with our exclusive studio photoshoots! Designed for trendsetters and style enthusiasts, our AI-generated imagery captures the essence of contemporary fashion in striking detail. Showcase your unique style, express your creativity, and elevate your portfolio with stunning visuals that stand out. Perfect for models, designers, and anyone wanting to make a bold statement in the fashion scene!",
-    query_slug: "high_fashion",
-    images: [
-      "/assets/psedo-generations/studio1.png",
-      "/assets/psedo-generations/studio2.webp",
-      "/assets/psedo-generations/studio3.webp",
-      "/assets/psedo-generations/studio4.webp",
-    ],
-  },
-  {
-    title: "Street Photography",
-    text: "Capture trendy outfits in vibrant city streets with dynamic urban backdrops that highlight your style. First, create an AI model of yourself, then take AI photos with it!",
-    query_slug: "street_photography",
-    images: [
-      "/assets/psedo-generations/street-photo1.webp",
-      "/assets/psedo-generations/street-photo2.png",
-      "/assets/psedo-generations/street-photo3.png",
-      "/assets/psedo-generations/street-photo4.png",
-    ],
-  },
-  {
     title: "Night life",
     text: "Take photos in cocktail bars, nightclubs, and nightlife venues, showcasing stylish outfits. Capture the vibrant nightlife while experimenting with dynamic looks. First, create an AI model of yourself, then take AI photos with it!",
     query_slug: "night_life",
+    is_trending:false,
     images: [
       "/assets/psedo-generations/night_life_shoot1.webp",
       "/assets/psedo-generations/night_life_shoot2.png",
@@ -170,6 +127,7 @@ export const photo_shoot_ideas_data = [
     title: "Travel Photoshoot",
     text: "Travel the world and capture stunning photos from Paris to Tokyo. Showcase your global adventures with vibrant images of iconic cities and diverse cultures. First, create an AI model of yourself, then take AI photos with it!",
     query_slug: "travel_photoshoot",
+    is_trending:false,
     images: [
       "/assets/psedo-generations/travel1.webp",
       "/assets/psedo-generations/travel2.png",
@@ -178,20 +136,10 @@ export const photo_shoot_ideas_data = [
     ],
   },
   {
-    title: "Instagram",
-    text: "Capture engaging, visually stunning photos that showcase your personality as an Instagram influencer. Boost your confidence, likes, and followers with captivating images that reflect your unique style and charisma. First, create an AI model of yourself, then take AI photos with it!",
-    query_slug: "instagram",
-    images: [
-      "/assets/psedo-generations/instagram1.png",
-      "/assets/psedo-generations/instagram2.jpeg",
-      "/assets/psedo-generations/instagram3.png",
-      "/assets/psedo-generations/instagram4.png",
-    ],
-  },
-  {
     title: "A Night in Las Vagas",
     text: "Experience a thrilling night in Las Vegas, from dazzling casinos and the vibrant Strip to lively dive bars and nightclubs. Capture the essence of this iconic nightlife destination. First, create an AI model of yourself, then take AI photos with it!",
     query_slug: "night_vagas",
+    is_trending:false,
     images: [
       "/assets/psedo-generations/vagas1.webp",
       "/assets/psedo-generations/vagas2.png",
@@ -203,6 +151,7 @@ export const photo_shoot_ideas_data = [
     title: "Keynote speakers",
     text: "Capture compelling photos of yourself speaking with authority on stage at a conference. Showcase your leadership and confidence in powerful, professional moments. First, create an AI model of yourself, then take AI photos with it!",
     query_slug: "keynote_speakers",
+    is_trending:false,
     images: [
       "/assets/psedo-generations/speaker1.webp",
       "/assets/psedo-generations/speaker2.png",
@@ -211,20 +160,10 @@ export const photo_shoot_ideas_data = [
     ],
   },
   {
-    title: "Sexy Xmas",
-    text: "Embrace the festive spirit with a seductive twist by transforming into captivating Christmas characters. Blend holiday cheer with enchanting styles for a unique, festive look. First, create an AI model of yourself, then take AI photos with it!",
-    query_slug: "xmas_photoshoot",
-    images: [
-      "/assets/psedo-generations/xmas1.png",
-      "/assets/psedo-generations/xmas2.png",
-      "/assets/psedo-generations/xmas3.webp",
-      "/assets/psedo-generations/xmas4.png",
-    ],
-  },
-  {
     title: "Fitness Photoshoot",
     text: "Showcase your hard work and dedication with our fitness photo shoot. Capture your journey with powerful, motivating images that highlight your progress and achievements. First, create an AI model of yourself, then take AI photos with it!",
     query_slug: "fitness_photoshoot",
+    is_trending:false,
     images: [
       "/assets/psedo-generations/fitness1.png",
       "/assets/psedo-generations/fitness2.png",
@@ -236,6 +175,7 @@ export const photo_shoot_ideas_data = [
     title: "Polaroid",
     text: "Capture polaroid photographs with a classic analog camera for a vintage, timeless look. Create authentic, nostalgic moments that stand out in a digital age. First, create an AI model of yourself, then take AI photos with it!",
     query_slug: "polaroid",
+    is_trending:false,
     images: [
       "/assets/psedo-generations/polaroid1.webp",
       "/assets/psedo-generations/polaroid2.png",
@@ -247,6 +187,7 @@ export const photo_shoot_ideas_data = [
     title: "Digital Nomad",
     text: "Transform into a digital nomad, living and working remotely from anywhere in the world. This official pack by Nomads.com™ captures the essence of the nomadic lifestyle, showcasing dynamic locations, workspaces, and the freedom to work on your own terms while exploring the globe. First, create an AI model of yourself, then take AI photos with it!",
     query_slug: "digital_nomad",
+    is_trending:false,
     images: [
       "/assets/psedo-generations/nomad1.webp",
       "/assets/psedo-generations/nomad2.png",
@@ -258,6 +199,7 @@ export const photo_shoot_ideas_data = [
     title: "Cyberpunk Photoshoot",
     text: "Explore a futuristic catalog of digital clothes inspired by Vaporwave and Cyberpunk aesthetics. Try on cutting-edge styles with vibrant colors and neon details for a modern, edgy look. First, create an AI model of yourself, then take AI photos with it!",
     query_slug: "cyberpunk",
+    is_trending:false,
     images: [
       "/assets/psedo-generations/cyberpunk1.png",
       "/assets/psedo-generations/cyberpunk2.png",
@@ -269,6 +211,7 @@ export const photo_shoot_ideas_data = [
     title: "Berlin Nightlife",
     text: "Dive into Berlin's underground techno club scene, from dimly lit basements to neon-lit dance floors, where the party continues past sunrise. Capture the gritty, electrifying essence of this nightlife. First, create an AI model of yourself, then take AI photos with it!",
     query_slug: "berlin_nightlife",
+    is_trending:false,
     images: [
       "/assets/psedo-generations/berlin1.webp",
       "/assets/psedo-generations/berlin2.png",
@@ -277,20 +220,10 @@ export const photo_shoot_ideas_data = [
     ],
   },
   {
-    title: "Try on Cloths",
-    text: "Explore a catalog of outfits and try on different styles to see what suits you best. Use AI to visualize how various clothes look on you before making a choice. First, create an AI model of yourself, then take AI photos with it!",
-    query_slug: "try_cloths",
-    images: [
-      "/assets/psedo-generations/fashion1.webp",
-      "/assets/psedo-generations/fashion2.png",
-      "/assets/psedo-generations/fashion3.png",
-      "/assets/psedo-generations/fashion4.png",
-    ],
-  },
-  {
     title: "Swimsuits",
     text: "Capture stunning swimsuit photos with ease and style. Highlight your confidence and elegance in beautiful, flattering beach images. First, create an AI model of yourself, then take AI photos with it!",
     query_slug: "swimsuits",
+    is_trending:false,
     images: [
       "/assets/psedo-generations/swimsuit1.webp",
       "/assets/psedo-generations/swimsuit2.png",
@@ -302,6 +235,7 @@ export const photo_shoot_ideas_data = [
     title: "Fitness Influencer shoot",
     text: "Showcase your power and strength by capturing your muscular physique and dedication to fitness. Highlight your commitment to building an extraordinary body with dynamic, impressive images. First, create an AI model of yourself, then take AI photos with it!",
     query_slug: "fitness_influencer_shot",
+    is_trending:false,
     images: [
       "/assets/psedo-generations/influencer1.png",
       "/assets/psedo-generations/influencer2.png",
@@ -313,6 +247,7 @@ export const photo_shoot_ideas_data = [
     title: "Nature photoshoot",
     text: "model outside in nature in forest or jungle or a field of wheat enjoying the natural world",
     query_slug: "nature",
+    is_trending:false,
     images: [
       "/assets/psedo-generations/nature1.png",
       "/assets/psedo-generations/nature2.png",
@@ -324,6 +259,7 @@ export const photo_shoot_ideas_data = [
     title: "Music Festival",
     text: "Capture the beauty and harmony of nature as you immerse yourself in serene forests, majestic mountains, lush jungles, and more, creating a profound connection with the natural world. First, create an AI model of yourself, then take AI photos with it!",
     query_slug: "music_festival",
+    is_trending:false,
     images: [
       "/assets/psedo-generations/music1.webp",
       "/assets/psedo-generations/music2.png",
@@ -332,9 +268,22 @@ export const photo_shoot_ideas_data = [
     ],
   },
   {
+    title: "Professional Headshoot",
+    text: "Get a polished, professional look with AI headshots perfect for LinkedIn. Stand out, increase visibility, and attract job offers with a strong first impression. First, create an AI model of yourself, then take AI photos with it!",
+    query_slug: "professional_headshoot",
+    is_trending:true,
+    images: [
+      "/assets/psedo-generations/pro-headshhot1.webp",
+      "/assets/psedo-generations/pro-headshhot2.png",
+      "/assets/psedo-generations/pro-headshhot3.png",
+      "/assets/psedo-generations/pro-headshhot4.png",
+    ],
+  },
+  {
     title: "Y2K Aesthetic Photoshoot",
     text: "Transform yourself into the Y2K aesthetic, also known as Kaybug or Cybercore, a style that dominated pop culture from 1997 to 2004. See how you'd look in this nostalgic, futuristic era. First, create an AI model of yourself, then take AI photos with it!",
     query_slug: "y2k_asthetic",
+    is_trending:false,
     images: [
       "/assets/psedo-generations/y2k1.webp",
       "/assets/psedo-generations/y2k2.png",
@@ -343,9 +292,34 @@ export const photo_shoot_ideas_data = [
     ],
   },
   {
+    title: "Christmas Photoshoot",
+    text: "Capture the magic of the holiday season with our enchanting Christmas photoshoots! Whether you’re looking to create cherished memories with family, showcase festive outfits, or send personalized holiday cards, our AI-generated images will bring your vision to life. Enjoy a unique and joyful experience that perfectly reflects the spirit of Christmas. Create stunning visuals that you can treasure for years to come!",
+    query_slug: "xmas_shoot",
+    is_trending:true,
+    images: [
+      "/assets/psedo-generations/xmashoot1.webp",
+      "/assets/psedo-generations/xmashoot2.webp",
+      "/assets/psedo-generations/xmashoot3.webp",
+      "/assets/psedo-generations/xmashoot4.webp",
+    ],
+  },
+  {
+    title: "Instagram",
+    text: "Capture engaging, visually stunning photos that showcase your personality as an Instagram influencer. Boost your confidence, likes, and followers with captivating images that reflect your unique style and charisma. First, create an AI model of yourself, then take AI photos with it!",
+    query_slug: "instagram",
+    is_trending:true,
+    images: [
+      "/assets/psedo-generations/instagram1.png",
+      "/assets/psedo-generations/instagram2.jpeg",
+      "/assets/psedo-generations/instagram3.png",
+      "/assets/psedo-generations/instagram4.png",
+    ],
+  },
+  {
     title: "Makeup Try-On",
     text: "Experiment with countless makeup ideas using AI, without applying anything in real life. Discover the makeup that best suits your face. First, create an AI model of yourself, then take AI photos with it!",
     query_slug: "make_up",
+    is_trending:false,
     images: [
       "/assets/psedo-generations/makeup1.webp",
       "/assets/psedo-generations/makeup2.png",
@@ -357,6 +331,7 @@ export const photo_shoot_ideas_data = [
     title: "Retro 1950s Diner Photoshoot",
     text: "Do a pin-up inspired photo shoot in a 1950s diner, featuring pancakes, milkshakes, and cheeseburgers for a classic retro vibe. First, create an AI model of yourself, then take AI photos with it!",
     query_slug: "retro_diner",
+    is_trending:false,
     images: [
       "/assets/psedo-generations/diner1.webp",
       "/assets/psedo-generations/diner2.png",
@@ -368,6 +343,7 @@ export const photo_shoot_ideas_data = [
     title: "Pink fever",
     text: "Generate images of yourself in different styles and transform into a pink blonde doll. Embrace bold, vibrant pink themes for eye-catching, unique looks. First, create an AI model of yourself, then take AI photos with it!",
     query_slug: "pink_fever",
+    is_trending:false,
     images: [
       "/assets/psedo-generations/pink1.webp",
       "/assets/psedo-generations/pink2.png",
@@ -379,6 +355,7 @@ export const photo_shoot_ideas_data = [
     title: "Latex",
     text: "Try on premium latex and leather dresses, lingerie, and fashion. Experience bold, high-end styles that make a statement with sleek, edgy designs. First, create an AI model of yourself, then take AI photos with it!",
     query_slug: "latex",
+    is_trending:false,
     images: [
       "/assets/psedo-generations/latex1.webp",
       "/assets/psedo-generations/latex2.jpeg",
@@ -390,6 +367,7 @@ export const photo_shoot_ideas_data = [
     title: "Korean profile photo",
     text: "Curious how you'd look as a Korean K-Pop idol? We'll transform you into one, styled in the latest Seoul fashion for a striking, glamorous appearance. First, create an AI model of yourself, then take AI photos with it!",
     query_slug: "korean_dp",
+    is_trending:false,
     images: [
       "/assets/psedo-generations/korean1.webp",
       "/assets/psedo-generations/korean2.png",
@@ -401,6 +379,7 @@ export const photo_shoot_ideas_data = [
     title: "Cosplay photoshoot",
     text: "Capture exciting, visually stunning photos that showcase your unique cosplay characters. Bring your favorite characters to life with dynamic, high-quality images. First, create an AI model of yourself, then take AI photos with it!",
     query_slug: "cosplay",
+    is_trending:false,
     images: [
       "/assets/psedo-generations/cosplay1.webp",
       "/assets/psedo-generations/cosplay2.png",
@@ -409,9 +388,22 @@ export const photo_shoot_ideas_data = [
     ],
   },
   {
+    title: "High Fashion Studio",
+    text: "Step into the world of high fashion with our exclusive studio photoshoots! Designed for trendsetters and style enthusiasts, our AI-generated imagery captures the essence of contemporary fashion in striking detail. Showcase your unique style, express your creativity, and elevate your portfolio with stunning visuals that stand out. Perfect for models, designers, and anyone wanting to make a bold statement in the fashion scene!",
+    query_slug: "high_fashion",
+    is_trending:true,
+    images: [
+      "/assets/psedo-generations/studio1.png",
+      "/assets/psedo-generations/studio2.webp",
+      "/assets/psedo-generations/studio3.webp",
+      "/assets/psedo-generations/studio4.webp",
+    ],
+  },
+  {
     title: "Mobster photoshoot",
     text: "Transform into a classic mobster, wearing sharp tailored suits, stylish fedoras, and bold, flashy jewelry. Channel the timeless swagger and power of the underworld with this iconic look. First, create an AI model of yourself, then take AI photos with it!",
     query_slug: "mobster",
+    is_trending:false,
     images: [
       "/assets/psedo-generations/mobster1.webp",
       "/assets/psedo-generations/mobster2.png",
@@ -420,14 +412,51 @@ export const photo_shoot_ideas_data = [
     ],
   },
   {
+    title: "Street Photography",
+    text: "Capture trendy outfits in vibrant city streets with dynamic urban backdrops that highlight your style. First, create an AI model of yourself, then take AI photos with it!",
+    query_slug: "street_photography",
+    is_trending:false,
+    images: [
+      "/assets/psedo-generations/street-photo1.webp",
+      "/assets/psedo-generations/street-photo2.png",
+      "/assets/psedo-generations/street-photo3.png",
+      "/assets/psedo-generations/street-photo4.png",
+    ],
+  },
+  {
+    title: "Sexy Xmas",
+    text: "Embrace the festive spirit with a seductive twist by transforming into captivating Christmas characters. Blend holiday cheer with enchanting styles for a unique, festive look. First, create an AI model of yourself, then take AI photos with it!",
+    query_slug: "xmas_photoshoot",
+    is_trending:false,
+    images: [
+      "/assets/psedo-generations/xmas1.png",
+      "/assets/psedo-generations/xmas2.png",
+      "/assets/psedo-generations/xmas3.webp",
+      "/assets/psedo-generations/xmas4.png",
+    ],
+  },
+  {
     title: "Selfies",
     text: "Create AI-generated selfies that capture your best angles and expressions. Personalize your look with unique styles and settings, ensuring perfect selfies every time without the hassle. First, create an AI model of yourself, then take AI photos with it!",
     query_slug: "selfies",
+    is_trending:false,
     images: [
       "/assets/psedo-generations/selfies1.png",
       "/assets/psedo-generations/selfies2.png",
       "/assets/psedo-generations/selfies3.png",
       "/assets/psedo-generations/selfies4.png",
+    ],
+  },
+  {
+    title: "Try on Cloths",
+    text: "Explore a catalog of outfits and try on different styles to see what suits you best. Use AI to visualize how various clothes look on you before making a choice. First, create an AI model of yourself, then take AI photos with it!",
+    query_slug: "try_cloths",
+    is_trending:true,
+    images: [
+      "/assets/psedo-generations/fashion1.webp",
+      "/assets/psedo-generations/fashion2.png",
+      "/assets/psedo-generations/fashion3.png",
+      "/assets/psedo-generations/fashion4.png",
     ],
   },
 ];

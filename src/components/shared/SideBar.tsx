@@ -82,43 +82,32 @@ const SideBar = () => {
                     <div className="mt-6 flex flex-col gap-3">
                       <div
                         className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
-                        onClick={() =>
-                          navigate("/generations/flux?mode=flux1.1-pro")
-                        }
+                        onClick={() => navigate("/lora-gallery")}
                       >
                         <Image className="h-6 w-6 text-primary-black" />
                         <p className="text-sm text-primary-black font-medium">
                           Image Generation with Flux
                         </p>
                       </div>
-                      {/* <div className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
-                       onClick={() =>
-                        navigate("/training")
-                      }>
-                        <Bot className="h-6 w-6 text-primary-black" />
-
-                        <p className="text-sm text-primary-black font-medium">
-                          Flux Lora Training
-                        </p>
-                      </div> */}
-                      <div
-                        className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
-                        onClick={() => navigate("/lora-gallery")}
-                      >
-                        <Focus className="h-6 w-6 text-primary-black" />
-                        <p className="text-sm text-primary-black font-medium">
-                          AI Photoshoot
-                        </p>
-                      </div>
                       <div
                         className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
                         onClick={() =>
-                          navigate("/generations/flux?mode=flux-dev-realism")
+                          navigate("/generations/flux?mode=flux1.1-ultra")
                         }
                       >
                         <Cat className="h-6 w-6 text-primary-black" />
                         <p className="text-sm text-primary-black font-medium">
-                          Flux-dev Realism
+                          Try Flux Ultra
+                        </p>
+                        <div className="py-1 px-2 bg-red-500 text-white text-sm rounded-md">new</div>
+                      </div>
+                      <div
+                        className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
+                        onClick={() => navigate("/app")}
+                      >
+                        <Focus className="h-6 w-6 text-primary-black" />
+                        <p className="text-sm text-primary-black font-medium">
+                          AI Photoshoot
                         </p>
                       </div>
                     </div>
@@ -260,7 +249,7 @@ const SideBar = () => {
                             className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
                             onClick={() => {
                               setMobileOpen(false);
-                              navigate("/generations/flux?mode=flux1.1-pro");
+                              navigate("/lora-gallery");
                             }}
                           >
                             <Image className="h-6 w-6 text-primary-black" />
@@ -272,27 +261,26 @@ const SideBar = () => {
                             className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
                             onClick={() => {
                               setMobileOpen(false);
-                              navigate("/lora-gallery");
+                              navigate("/generations/flux?mode=flux1.1-ultra");
+                            }}
+                          >
+                            <Cat className="h-6 w-6 text-primary-black" />
+                            <p className="text-sm text-primary-black font-medium">
+                              Try Flux Ultra
+                            </p>
+                            <div className="py-1 px-2 bg-red-500 text-white text-sm rounded-md">new</div>
+                          </div>
+                          <div
+                            className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
+                            onClick={() => {
+                              setMobileOpen(false);
+                              navigate("/app");
                             }}
                           >
                             <Focus className="h-6 w-6 text-primary-black" />
 
                             <p className="text-sm text-primary-black font-medium">
                               AI Photoshoot
-                            </p>
-                          </div>
-                          <div
-                            className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
-                            onClick={() => {
-                              setMobileOpen(false);
-                              navigate(
-                                "/generations/flux?mode=flux-dev-realism"
-                              );
-                            }}
-                          >
-                            <Cat className="h-6 w-6 text-primary-black" />
-                            <p className="text-sm text-primary-black font-medium">
-                              Flux-dev Realism
                             </p>
                           </div>
                         </div>

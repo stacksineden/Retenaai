@@ -1,19 +1,19 @@
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/mousewheel";
 import CarouselButtons from "./CarouselButtons";
 import ToolsCard from "./ToolsCard";
-import { FluxStylesData, GalleryStylesData } from "@/types";
-import GalleryCard from "./GalleryCard";
+import { FluxStylesData } from "@/types";
 
 type SliderProps = {
   key: string;
   modules: any[];
-  data: GalleryStylesData[];
+  data: FluxStylesData[];
 };
 
-const Slider = ({ key, modules, data }: SliderProps) => {
+const LoraSlider = ({ key, modules, data }: SliderProps) => {
   return (
     <Swiper
       modules={modules}
@@ -33,7 +33,7 @@ const Slider = ({ key, modules, data }: SliderProps) => {
           spaceBetween: 10,
         },
         1024: {
-          slidesPerView: 3,
+          slidesPerView: 4,
           spaceBetween: 10,
         },
       }}
@@ -43,7 +43,7 @@ const Slider = ({ key, modules, data }: SliderProps) => {
       {data &&
         data?.map((card, _i) => (
           <SwiperSlide className="swiper-slide" key={_i}>
-            <GalleryCard data={card} />
+            <ToolsCard data={card} />
           </SwiperSlide>
         ))}
       <CarouselButtons />
@@ -51,4 +51,4 @@ const Slider = ({ key, modules, data }: SliderProps) => {
   );
 };
 
-export default Slider;
+export default LoraSlider;

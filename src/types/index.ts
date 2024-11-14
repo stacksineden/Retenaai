@@ -54,6 +54,7 @@ export type GalleryStylesData = {
   text: string;
   images: string[];
   query_slug: string;
+  is_trending:boolean;
 }
 
 export type TrainingDatasetResponse = {

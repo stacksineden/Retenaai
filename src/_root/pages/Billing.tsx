@@ -3,7 +3,7 @@ import { photoshoot_plans } from "@/modelDataset";
 import { PhotoshootPlan } from "@/types";
 import { closePaymentModal, useFlutterwave } from "flutterwave-react-v3";
 import { BadgeCheck, Sparkles } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import toast from "react-hot-toast";
@@ -18,9 +18,15 @@ const Billing = () => {
 
   const { user } = useUserContext();
   const { shootData } = useAppContext();
+  console.log(shootData);
 
   const user_country_code = localStorage.getItem("user_country_code");
 
+  useEffect(() => {
+    if (shootData?.title === "") {
+      navigate("/app");
+    }
+  }, [shootData]);
 
   // Flutterwave configuration
   const config = {
