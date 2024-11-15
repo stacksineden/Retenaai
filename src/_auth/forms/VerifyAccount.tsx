@@ -29,7 +29,7 @@ const VerifyAccount = () => {
     <div className="w-[85%] md:w-[60%] flex-center flex-col text-center">
       <Link to="/" className="w-[150px] md:w-[170px]">
         <img
-          src="/assets/images/text-brand.png"
+          src="/assets/logo.png"
           alt="brand"
           className="w-full object-contain"
         />
