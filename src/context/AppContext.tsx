@@ -17,9 +17,11 @@ const INITIAL_STATE = {
     text: "",
     images: [],
     query_slug: "",
-    is_trending:false,
+    is_trending: false,
   },
   setShootData: () => {},
+  promoValue: 0,
+  setPromoValue: () => {},
 };
 
 type IContextType = {
@@ -35,6 +37,8 @@ type IContextType = {
   setChatMobileOpen: (chatMobileOpen: boolean) => void;
   shootData: GalleryStylesData;
   setShootData: (shootData: GalleryStylesData) => void;
+  promoValue: number;
+  setPromoValue: (promoValue: number) => void;
 };
 
 const AppContext = createContext<IContextType>(INITIAL_STATE);
@@ -52,6 +56,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [shootData, setShootData] = useState<GalleryStylesData>(
     INITIAL_STATE.shootData
   );
+  const [promoValue, setPromoValue] = useState(INITIAL_STATE.promoValue)
 
   const value = {
     open,
@@ -66,6 +71,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     setChatMobileOpen,
     shootData,
     setShootData,
+    promoValue,
+    setPromoValue
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

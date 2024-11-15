@@ -11,7 +11,7 @@ export type IUser = {
   name: string;
   email: string;
   imageUrl: string;
-  creditBalance:number
+  creditBalance: number;
 };
 
 export type ISubscription = {
@@ -29,16 +29,16 @@ export type INewUser = {
 };
 
 export type IUpdateCredit = {
-  userId:string;
-  balance:number;
-}
+  userId: string;
+  balance: number;
+};
 
 export type FluxStylesData = {
   title: string;
   text: string;
   images: string[];
   query_slug: string;
-  url?:string;
+  url?: string;
 };
 
 export type AppStylesData = {
@@ -46,43 +46,43 @@ export type AppStylesData = {
   text: string;
   images: string[];
   query_slug: string;
-  url:string;
-}
+  url: string;
+};
 
 export type GalleryStylesData = {
   title: string;
   text: string;
   images: string[];
   query_slug: string;
-  is_trending:boolean;
-}
+  is_trending: boolean;
+};
 
 export type TrainingDatasetResponse = {
   name: string;
-  date_created:string;
+  date_created: string;
   image: string;
   status: string;
-}
+};
 
 export type TrainingPayload = {
-  userId:string;
-  prompt:string;
-  PrimaryStyle:string;
-  secondaryStyle:string;
-  images:string[];
-  triggerWord:string;
-  isPublic:boolean;
-  trainingStatus:string;
-  txRef:string;
-}
+  userId: string;
+  prompt: string;
+  PrimaryStyle: string;
+  secondaryStyle: string;
+  images: string[];
+  triggerWord: string;
+  isPublic: boolean;
+  trainingStatus: string;
+  txRef: string;
+};
 
 export type ContractPayload = {
-  subject:string;
-  email:string;
-  AdditionalInfo:string;
-  BusinessType:string;
-  Budget:string
-}
+  subject: string;
+  email: string;
+  AdditionalInfo: string;
+  BusinessType: string;
+  Budget: string;
+};
 
 export type PhotoshootPlan = {
   id: string;
@@ -90,40 +90,43 @@ export type PhotoshootPlan = {
   feature: string[];
   base_price: string;
   price_in_naira: string;
-  credits?:number
+  discount_base_price: string;
+  dicount_price_in_naira: string;
+  credits?: number;
+  is_promo: boolean;
 };
 
 export type ImageGenFluxProRequest = {
-   prompt:string;
-   aspect_ratio:string;
-   output_format:string;
-}
+  prompt: string;
+  aspect_ratio: string;
+  output_format: string;
+};
 
 export type ImageGenFluxUltraRequest = {
   prompt: string;
   aspect_ratio: string;
   output_format: string;
   raw: boolean;
-}
+};
 
 export type ImageGenFluxChibskyRequest = {
-  prompt:string;
-  aspect_ratio:string;
-   output_format:string;
+  prompt: string;
+  aspect_ratio: string;
+  output_format: string;
   num_outputs: number;
-}
+};
 
 export type ImageUpscalingRequest = {
-  image:string;
-}
+  image: string;
+};
 
 export type OpenAIRequest = {
-  prompt:string
-}
+  prompt: string;
+};
 
 export type CreateGenerations = {
-  prompt:string;
-  catergory:string;
-  url:string;
-  creator:string;
-}
+  prompt: string;
+  catergory: string;
+  url: string;
+  creator: string;
+};

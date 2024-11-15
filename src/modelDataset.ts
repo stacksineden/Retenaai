@@ -507,8 +507,11 @@ export const photoshoot_plans = [
       "Includes 5 high-quality, AI-generated photos",
       "20 to 30mins wait time",
     ],
-    base_price: "4",
-    price_in_naira: "6500",
+    base_price: "5",
+    price_in_naira: "7000",
+    discount_base_price:"4",
+    dicount_price_in_naira:"6600",
+    is_promo:true
   },
   {
     id: "2",
@@ -522,6 +525,9 @@ export const photoshoot_plans = [
     ],
     base_price: "8",
     price_in_naira: "13000",
+    discount_base_price:"8",
+    dicount_price_in_naira:"13000",
+    is_promo:false
   },
   {
     id: "3",
@@ -537,6 +543,9 @@ export const photoshoot_plans = [
     ],
     base_price: "10",
     price_in_naira: "16000",
+    discount_base_price:"10",
+    dicount_price_in_naira:"16000",
+    is_promo:false
   },
 ];
 

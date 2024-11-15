@@ -39,7 +39,7 @@ const TrainingDatasets = () => {
               Pretty empty around here
             </h3>
             <p className="text-primary-black">
-              Let&apos;s create your first Lora.
+              Let&apos;s create your first photoshoot.
             </p>
           </div>
         )}

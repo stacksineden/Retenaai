@@ -18,7 +18,6 @@ const Billing = () => {
 
   const { user } = useUserContext();
   const { shootData } = useAppContext();
-  console.log(shootData);
 
   const user_country_code = localStorage.getItem("user_country_code");
 
@@ -34,8 +33,8 @@ const Billing = () => {
     tx_ref: Date.now().toString(),
     amount: Number(
       user_country_code && user_country_code === "ng"
-        ? selectedPlan?.price_in_naira
-        : selectedPlan?.base_price
+        ? selectedPlan?.dicount_price_in_naira
+        : selectedPlan?.discount_base_price
     ),
     currency: user_country_code && user_country_code === "ng" ? "NGN" : "USD",
     payment_options: "card, banktransfer, ussd card",
@@ -91,7 +90,14 @@ const Billing = () => {
                 }}
               >
                 <div className="flex flex-col gap-1">
-                  <h3 className="text-lg font-bold">{item?.plan}</h3>
+                  <h3 className="text-lg font-bold flex flex-col md:flex-row items-center gap-2">
+                    {item?.plan}{" "}
+                    {item?.is_promo && (
+                      <div className="p-2 text-white bg-primary-blue rounded-md text-sm">
+                        Black Friday Deals
+                      </div>
+                    )}
+                  </h3>
                   <ul className="">
                     {item?.feature?.map((data, _i) => (
                       <li className="flex items-center gap-1" key={_i}>
@@ -102,13 +108,31 @@ const Billing = () => {
                   </ul>
                 </div>
                 <div className="h-full flex items-center justify-center bg-white rounded-lg px-2 py-2">
-                  <h1 className="text-primary-blue font-bold text-4xl p-4 rounded-full bg-accent">
+                  <div className="text-primary-blue font-bold text-4xl p-4 rounded-full bg-accent flex flex-col">
                     {user_country_code && user_country_code === "ng" ? (
-                      <span className="text-xl">NGN{item?.price_in_naira}</span>
+                      <span
+                        className={`${
+                          item?.is_promo && "text-zinc-500 line-through"
+                        } text-lg`}
+                      >
+                        NGN{item?.price_in_naira}
+                      </span>
                     ) : (
-                      `$${item?.base_price}`
+                      <span
+                        className={`${
+                          item?.is_promo && "text-zinc-500 line-through"
+                        } text-lg`}
+                      >{`$${item?.base_price}`}</span>
                     )}
-                  </h1>
+                    {item?.is_promo &&
+                      (user_country_code === "ng" ? (
+                        <span className="text-xl text-primary-blue">
+                          NGN{item?.dicount_price_in_naira}
+                        </span>
+                      ) : (
+                        <span>{`$${item?.discount_base_price}`}</span>
+                      ))}
+                  </div>
                 </div>
               </div>
             ))}
@@ -143,8 +167,16 @@ const Billing = () => {
             Pay{" "}
             {selectedPlan
               ? user_country_code === "ng"
-                ? `NGN${selectedPlan?.price_in_naira}`
-                : `$${selectedPlan?.base_price}`
+                ? `NGN${
+                    selectedPlan?.is_promo
+                      ? selectedPlan?.dicount_price_in_naira
+                      : selectedPlan?.price_in_naira
+                  }`
+                : `$${
+                    selectedPlan?.is_promo
+                      ? selectedPlan?.discount_base_price
+                      : selectedPlan?.base_price
+                  }`
               : ""}
           </Button>
         </div>
