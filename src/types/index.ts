@@ -90,10 +90,10 @@ export type PhotoshootPlan = {
   feature: string[];
   base_price: string;
   price_in_naira: string;
-  discount_base_price: string;
-  dicount_price_in_naira: string;
+  discount_base_price?: string;
+  dicount_price_in_naira?: string;
   credits?: number;
-  is_promo: boolean;
+  is_promo?: boolean;
 };
 
 export type ImageGenFluxProRequest = {
