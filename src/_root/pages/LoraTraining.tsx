@@ -40,6 +40,7 @@ import toast from "react-hot-toast";
 import Loader from "@/components/shared/Loader";
 import { useQueryClient } from "@tanstack/react-query";
 import { QUERY_KEYS } from "@/lib/tanstack-query/queryKeys";
+import PhotoGuideModal from "@/components/shared/PhotoGuideModal";
 
 const LoraTraining = () => {
   // const [useTrainingset, setUseTrainingSet] = useState(false);
@@ -174,7 +175,10 @@ const LoraTraining = () => {
           <p className="text-primary-blue3 text-base pl-2">
             Flux.1 AI Image Generator | Realism Style
           </p>
-          <ExamplePhotoModal images={modeDetails?.images ?? []} />
+          <div className="flex items-center gap-2 md:gap-7 flex-col md:flex-row">
+            <ExamplePhotoModal images={modeDetails?.images ?? []} />
+            <PhotoGuideModal />
+          </div>
         </div>
         <Form {...form}>
           <form
@@ -188,8 +192,8 @@ const LoraTraining = () => {
                 </p>
                 <p className="text-base text-primary-black font-semibold">
                   We recommend uploading your photos in supported formats such
-                  as JPEG, JPG, PNG, or WebP. For optimal results, please share
-                  15 to 30 images or more, if possible. Include a variety of
+                  as JPEG, JPG, or PNG For optimal results, please share
+                  15 to 20 images or more, if possible. Include a variety of
                   close-ups, waist-up, and full-body shots with different facial
                   expressions. You can drag and upload multiple photos at once.
                   <span className="text-red-700">
