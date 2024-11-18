@@ -419,7 +419,7 @@ const LoraTraining = () => {
                 >
                   send us an email
                 </a>
-                . @stacksineden@gmail.com
+                . @retenaaistacksineden@gmail.com
               </div>
             </div>
           </form>

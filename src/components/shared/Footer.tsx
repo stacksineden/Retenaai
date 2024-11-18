@@ -41,7 +41,7 @@ const Footer = () => {
             href="mailto:stacksineden@gmail.com"
             className="text-sm text-primary-black font-bold cursor-pointer"
           >
-            Email@ stacksineden@gmail.com
+            Email@ retenaaistacksineden@gmail.com
           </a>
           <p className="text-xs font-semibold text-primary-black">
             &copy; {new Date().getFullYear()} StacksinEden inc

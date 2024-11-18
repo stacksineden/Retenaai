@@ -55,7 +55,7 @@ const PhotoGuideModal = () => {
               </li>
               <li className="text-base text ml-1 flex my-1 text-red-500 font-semibold">
                 Note: You should keep in mind that the kind of photos you upload
-                will determind the quality of your photoshoot.
+                will determine the quality of your photoshoot.
               </li>
             </ul>
 
