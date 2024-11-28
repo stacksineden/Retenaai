@@ -1,3 +1,4 @@
+import { Instagram } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
@@ -11,7 +12,7 @@ const Footer = () => {
           <div className="flex items-center space-x-1">
             <div className="w-7 h-7 cursor-pointer">
               <a
-                href="https://www.tiktok.com/@retina.ai?_t=8qlQZ2rTMeM&_r=1"
+                href="https://www.tiktok.com/@retena.ai"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -23,6 +24,14 @@ const Footer = () => {
               </a>
             </div>
           </div>
+
+          <a
+            href="https://www.instagram.com/retenaai/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Instagram className="text-primary-black h-4 w-4" />
+          </a>
         </div>
         <div className="flex flex-col md:flex-row items-center space-x-3 md:space-x-4">
           <p
