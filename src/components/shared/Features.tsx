@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { WobbleCard } from "./WobbleCard";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import { featuredShoots } from "@/modelDataset";
+import { photoshotDataset } from "@/modelDataset";
 
 const Features = () => {
   const ref = useRef(null);
@@ -33,8 +33,8 @@ const Features = () => {
           columnsCountBreakPoints={{ 350: 2, 750: 3, 900: 4, 1200: 6 }}
         >
           <Masonry gutter="7px">
-            {featuredShoots &&
-              featuredShoots?.map((image, index) => (
+            {photoshotDataset &&
+              photoshotDataset?.map((image, index) => (
                 <div
                   className="relative overflow-hidden rounded-lg group"
                   key={index}
@@ -50,7 +50,7 @@ const Features = () => {
                       cursor: "pointer",
                     }}
                     className="transition-transform duration-300 ease-in-out transform group-hover:scale-105"
-                    onClick={() => window.open(image, "_blank")}
+                    // onClick={() => window.open(image, "_blank")}
                   />
                 </div>
               ))}

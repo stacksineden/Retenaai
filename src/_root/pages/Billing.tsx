@@ -33,8 +33,8 @@ const Billing = () => {
     tx_ref: Date.now().toString(),
     amount: Number(
       user_country_code && user_country_code === "ng"
-        ? selectedPlan?.dicount_price_in_naira
-        : selectedPlan?.discount_base_price
+        ? selectedPlan?.price_in_naira
+        : selectedPlan?.base_price
     ),
     currency: user_country_code && user_country_code === "ng" ? "NGN" : "USD",
     payment_options: "card, banktransfer, ussd card",
@@ -92,9 +92,18 @@ const Billing = () => {
                 <div className="flex flex-col gap-1">
                   <h3 className="text-lg font-bold flex flex-col md:flex-row items-center gap-2">
                     {item?.plan}{" "}
-                    {item?.is_promo && (
-                      <div className="p-2 text-white bg-primary-blue rounded-md text-sm">
-                        Black Friday Deals
+                    {item?.plan === "Mini Professional Package" && (
+                      <div className="flex items-center gap-1 p-2 border-2 border-red-500 rounded-md bg-red-600 shadow-md">
+                        <div className="w-10 h-10 rounded-full">
+                          <img
+                            src="/assets/xmasLogo.png"
+                            alt="xmaxlogo"
+                            className="w-full h-full object-cover rounded-full"
+                          />
+                        </div>
+                        <p className="text-white text-base">
+                          Xmas special!!
+                        </p>
                       </div>
                     )}
                   </h3>

@@ -6,7 +6,7 @@ import Hero from "@/components/shared/Hero";
 import { HighLights } from "@/components/shared/HighLights";
 import { HomeGallery } from "@/components/shared/HomeGallery";
 import WebLayoutWrapper from "@/components/shared/WebLayoutWrapper";
-import { imageDataset } from "@/modelDataset";
+import { imageDataset, photoshotDataset } from "@/modelDataset";
 
 const Home = () => {
   return (
@@ -14,6 +14,11 @@ const Home = () => {
       <div>
         <Hero />
         <DemoVideo />
+        <section className="py-4">
+          <div className="rounded-md flex flex-col antialiased  items-center justify-center relative overflow-hidden">
+            <HomeGallery items={photoshotDataset} direction="right" speed="slow" />
+          </div>
+        </section>
         <HighLights />
         <div className="rounded-md flex flex-col antialiased  items-center justify-center relative overflow-hidden">
           <HomeGallery items={imageDataset} direction="right" speed="slow" />

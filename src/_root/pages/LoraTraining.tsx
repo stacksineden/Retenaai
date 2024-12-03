@@ -103,7 +103,7 @@ const LoraTraining = () => {
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof TrainingLoraSchema>) {
-    if (selectedFiles.length < 1) {
+    if (selectedFiles.length < 10) {
       toast.error("Please upload at least 15 images.");
       return;
     }
@@ -173,7 +173,7 @@ const LoraTraining = () => {
             {modeDetails?.title}
           </h2>
           <p className="text-primary-blue3 text-base pl-2">
-            Flux.1 AI Image Generator | Realism Style
+            
           </p>
           <div className="flex items-center gap-2 md:gap-7 flex-col md:flex-row">
             <ExamplePhotoModal images={modeDetails?.images ?? []} />

@@ -14,13 +14,13 @@ const Pricing = () => {
             Pricing
           </h2>
           <p className="text-primary-blue3 text-sm md:text-base pl-2 w-full md:w-1/2">
-            Whether for personal or client use, RetinaAI offers tailored
+            Whether for personal or client use, Retena.AI offers tailored
             packages. Choose the perfect plan to unlock the full potential of
             our AI-powered photoshoot services.
           </p>
         </div>
 
-        <div className="pt-12 grid grid-cols-1 lg:grid-cols-3 gap-5 md:max-w-[80rem] mx-auto">
+        <div className="pt-12 grid grid-cols-1 lg:grid-cols-3 gap-5 md:max-w-[80rem] mx-auto"> 
           {photoshoot_plans?.map((item, _i) => (
             <div
               key={_i}
