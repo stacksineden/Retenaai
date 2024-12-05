@@ -31,7 +31,10 @@ const TrainingCard = ({ data }: { data: Models.Document | undefined }) => {
               </p>
               <div
                 className={`h-4 w-4 bg-black rounded-full ${
-                  data?.trainingStatus !== "photoshoot_ready" && "animate-pulse"
+                  data?.trainingStatus === "photoshoot_ready" ||
+                  data?.trainingStatus === "invalid_ref_code"
+                    ? ""
+                    : "animate-pulse"
                 }`}
                 style={{ backgroundColor: statusDetails?.color }}
               ></div>

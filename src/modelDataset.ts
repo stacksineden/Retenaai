@@ -698,6 +698,11 @@ export const training_status = [
     value: "photoshoot_ready",
     color: "#00a878",
   },
+  {
+    name: "Invalid Ref Code",
+    value: "invalid_ref_code",
+    color: "#d90429",
+  },
 ];
 
 export const featuredShoots = [

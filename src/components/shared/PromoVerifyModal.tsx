@@ -37,6 +37,11 @@ const PromoVerifyModal = () => {
   const codeValue = form.watch("code");
 
   async function onSubmit(values: z.infer<typeof PromoValidationSchema>) {
+    //users from kreatesell
+    if (values.code?.startsWith("KFP")) {
+      navigate(`/training?mode=${shootData?.query_slug}&ref=${values?.code}`);
+      return;
+    }
     const verifiedCode = await verifyCode(values?.code.toUpperCase() ?? "");
     if (verifiedCode instanceof Error) {
       return toast.error(verifiedCode?.message || "Invalid or expired code.");
