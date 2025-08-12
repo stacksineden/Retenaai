@@ -76,19 +76,11 @@ const SignInForm = () => {
 
   return (
     <Form {...form}>
-      <div className="w-[85%] md:w-[60%] flex-center flex-col">
-        <Link to="/" className="w-[150px] md:w-[170px]">
-          <img
-            src="/assets/logo.png"
-            alt="brand"
-            className="w-full object-contain"
-          />
-        </Link>
-        <h2 className="h3-bold md:h2-bold pt-5 text-primary-black">
-          Log in to your account
-        </h2>
+      <div className="w-[85%] md:w-[65%] flex-col">
+        <h2 className="h3-bold md:h2-bold pt-5 text-[#FCA311]">Sign In</h2>
         <p className="text-primary-blue font-light small-medium md:base-regular">
-          Welcome back, Please enter your details
+          Enter your email and password to log in to RetenaAI Academy Student
+          Portal.
         </p>
         {/* <Oauth /> */}
         {/* <p className="text-primary-black text-sm font-medium">or</p> */}
@@ -142,13 +134,13 @@ const SignInForm = () => {
           >
             Forgot password
           </Link>
-          <p className="text-small-regular text-primary-black text-center mt-2">
-            First time user?
+          <p className="text-small-regular text-[#FCA311] text-center mt-2">
+            Not a retenan yet?
             <Link
               to="/sign-up"
               className="text-primary-blue text-small-semibold ml-1"
             >
-              Sign up
+              Join now
             </Link>
           </p>
         </form>

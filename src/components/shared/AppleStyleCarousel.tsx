@@ -1,12 +1,10 @@
-import React, {
-  useEffect,
-  useState,
-  createContext,
-} from "react";
+import React, { useEffect, useState, createContext } from "react";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "../ui/button";
+import { useNavigate } from "react-router-dom";
 
 interface CarouselProps {
   items: JSX.Element[];
@@ -18,6 +16,7 @@ type Card = {
   title: string;
   category: string;
   content: React.ReactNode;
+  slug: string;
 };
 
 export const CarouselContext = createContext<{
@@ -152,12 +151,14 @@ export const Card = ({
   card,
   // index,
   layout = false,
+  identifier = "",
 }: {
   card: Card;
   index: number;
   layout?: boolean;
+  identifier?: string;
 }) => {
-  
+  const navigate = useNavigate();
 
   return (
     <>
@@ -166,7 +167,7 @@ export const Card = ({
         className="rounded-3xl bg-gray-100 dark:bg-neutral-900 h-80 w-56 md:h-[40rem] md:w-96 overflow-hidden flex flex-col items-start justify-start relative z-10"
       >
         <div className="absolute h-full top-0 inset-x-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-30 pointer-events-none" />
-        <div className="relative z-40 p-8">
+        <div className="relative z-40 p-5 md:p-8">
           <motion.p
             layoutId={layout ? `category-${card.category}` : undefined}
             className="text-white text-sm md:text-base font-medium  text-left"
@@ -175,10 +176,23 @@ export const Card = ({
           </motion.p>
           <motion.p
             layoutId={layout ? `title-${card.title}` : undefined}
-            className="text-white text-xl md:text-3xl font-semibold max-w-xs text-left [text-wrap:balance]  mt-2"
+            className="text-white text-lg md:text-3xl font-semibold max-w-xs text-left [text-wrap:balance] mt-4 md:mt-2"
           >
             {card.title}
           </motion.p>
+          <Button
+            className="bg-primary-black hover:bg-primary-blue text-white text-sm px-2 md:px-4 py-2 md:py-4 transform transition duration-300 hover:scale-90 mt-2 md:mt-4"
+            onClick={() =>
+              navigate(
+                identifier === "academy"
+                  ? `/retenaai-academy/program?mode=${card.slug}`
+                  : `/case-study?system=${card.slug}`
+              )
+            }
+          >
+            Learn More
+            <ArrowRight className="text-white h-4" />
+          </Button>
         </div>
         <BlurImage
           src={card.src}

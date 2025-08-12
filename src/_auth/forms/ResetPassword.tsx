@@ -13,7 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { ResetPasswordValidationSchema } from "@/lib/validation";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { resetPassword } from "@/lib/appwrite/api";
 
 const ResetPassword = () => {
@@ -56,15 +56,8 @@ const ResetPassword = () => {
 
   return (
     <Form {...form}>
-      <div className="w-[85%] md:w-[60%] flex-center flex-col">
-        <Link to="/" className="w-[150px] md:w-[170px]">
-          <img
-            src="/assets/logo.png"
-            alt="brand"
-            className="w-full object-contain"
-          />
-        </Link>
-        <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12 text-primary-black">
+      <div className="w-[85%] md:w-[65%] flex-col">
+        <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12 text-[#FCA311]">
           Reset Password
         </h2>
         <p className="text-primary-black font-light small-medium md:base-regular">

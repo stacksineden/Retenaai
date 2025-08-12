@@ -32,6 +32,7 @@
     "framer-motion": "^11.9.0",
     "lucide-react": "^0.446.0",
     "react": "^18.3.1",
+    "react-calendly": "^4.4.0",
     "react-dom": "^18.3.1",
     "react-dropzone": "^14.2.3",
     "react-hook-form": "^7.53.0",
@@ -40,10 +41,12 @@
     "react-paystack": "^6.0.0",
     "react-responsive-masonry": "^2.3.0",
     "react-router-dom": "6.18.0",
+    "react-simple-typewriter": "^5.0.1",
     "swiper": "^11.1.14",
     "tailwind-merge": "^2.5.2",
     "tailwind-scrollbar-hide": "^1.1.7",
     "tailwindcss-animate": "^1.0.7",
+    "uuid": "^11.0.3",
     "zod": "^3.23.8"
   },
   "devDependencies": {

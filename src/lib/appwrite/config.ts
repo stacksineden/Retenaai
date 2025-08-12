@@ -5,12 +5,15 @@ export const appwriteConfig = {
   projectId: import.meta.env.VITE_APPWRITE_PROJECT_ID,
   databaseId: import.meta.env.VITE_APPWRITE_DATABASE_ID,
   storageId: import.meta.env.VITE_APPWRITE_STORAGE_ID,
+  retenansCollectionId: import.meta.env.VITE_APPWRITE_RETENANS_COLLECTION_ID,
   userCollectionId: import.meta.env.VITE_APPWRITE_USER_COLLECTION_ID,
-  trainingCollectionId:import.meta.env.VITE_APPWRITE_TRAINING_COLLECTION_ID,
-  generationsCollectionId:import.meta.env.VITE_APPWRITE_GENERATIONS_COLLECTION_ID,
-  photoshootCollectionId:import.meta.env.VITE_APPWRITE_PHOTOSHOOT_COLLECTION_ID,
-  contractsCollectionId:import.meta.env.VITE_APPWRITE_CONTRACT_COLLECTION_ID,
-  bonusesCollectionId:import.meta.env.VITE_APPWRITE_BONUSES_COLLECTION_ID
+  trainingCollectionId: import.meta.env.VITE_APPWRITE_TRAINING_COLLECTION_ID,
+  generationsCollectionId: import.meta.env
+    .VITE_APPWRITE_GENERATIONS_COLLECTION_ID,
+  photoshootCollectionId: import.meta.env
+    .VITE_APPWRITE_PHOTOSHOOT_COLLECTION_ID,
+  contractsCollectionId: import.meta.env.VITE_APPWRITE_CONTRACT_COLLECTION_ID,
+  bonusesCollectionId: import.meta.env.VITE_APPWRITE_BONUSES_COLLECTION_ID,
 };
 
 export const client = new Client();

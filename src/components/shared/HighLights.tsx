@@ -2,14 +2,20 @@ import { AppleStyleCarousel, Card } from "./AppleStyleCarousel";
 
 export function HighLights() {
   const cards = data.map((card, index) => (
-    <Card key={card.src} card={card} index={index} />
+    <Card key={card.src} card={card} index={index} identifier="agency"/>
   ));
 
   return (
     <div className="w-full h-full py-4">
-      <h2 className="max-w-7xl pl-4 mx-auto text-2xl md:text-5xl font-bold text-primary-black">
-        Do more with Retena.ai
-      </h2>
+      <div className="max-w-7xl pl-4 mx-auto flex flex-col gap-2">
+        <h2 className=" text-2xl md:text-5xl font-bold text-primary-black">
+          RetenaAI Systems
+        </h2>
+        <p className="text-base md:text-xl">
+          Ready-to-use AI systems that plug directly into your business — no
+          developers, no complexity. Just subscribe, connect, and grow.
+        </p>
+      </div>
       <AppleStyleCarousel items={cards} />
     </div>
   );
@@ -26,11 +32,10 @@ const DummyContent = () => {
           >
             <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl max-w-3xl mx-auto">
               <span className="font-bold text-neutral-700 dark:text-neutral-200">
-                Do more with Retena.ai
+                RetenaAI Systems
               </span>
-              Say goodbye to costly photographers and complicated setups. Create
-              stunning, professional-quality photos effortlessly with AI, right
-              from your device in minutes.
+              Ready-to-use AI systems that plug directly into your business — no
+              developers, no complexity. Just subscribe, connect, and grow.
             </p>
             <img
               src="/assets/psedo-generations/selfies1.png"
@@ -48,40 +53,39 @@ const DummyContent = () => {
 
 const data = [
   {
-    category: "Flux.AI 1.1 Pro",
-    title: "Photorealistic Image generation",
+    category: "Retena LeadPilot",
+    title: "Personalized Deep Outreach System",  
+    src: "/assets/outreach.webp",
+    content: <DummyContent />,
+    slug: "leadpilot",
+  },
+  {
+    category: "Retena StudioGen",
+    title: "AI Product Photography System",
     src: "/assets/highlights1.webp",
     content: <DummyContent />,
+    slug: "studiogen",
   },
   {
-    category: "Flux.AI",
-    title: "Embed Text into images",
-    src: "/assets/highlights2.webp",
+    category: "Retena CloneCast",
+    title: "Content Automation & Deployment System",
+    src: "/assets/content.webp",
     content: <DummyContent />,
-  },
-  {
-    category: "Retena.ai",
-    title: "Upscale Images",
-    src: "/assets/psedo-generations/upscaler.webp",
-    content: <DummyContent />,
+    slug: "clonecast",
   },
 
   {
-    category: "DALL.E 3",
-    title: "Image generation with Dall.e 3",
-    src: "/assets/psedo-generations/dalle3.webp",
+    category: "Retena UGCPro",
+    title: "AI UGC Ad Creation & Deployment System",
+    src: "/assets/ugc.webp",
     content: <DummyContent />,
+    slug: "ugcpro",
   },
   {
-    category: "Flux Dev realism",
-    title: "Image generation with Flux Dev",
-    src: "/assets/psedo-generations/flux-dev-realism.webp",
+    category: "Retena ConvertFlow",
+    title: "AI Lead Conversion System",
+    src: "/assets/lead.webp",
     content: <DummyContent />,
-  },
-  {
-    category: "Retena.ai",
-    title: "Remove Background from images",
-    src: "/assets/psedo-generations/fashion4.png",
-    content: <DummyContent />,
+    slug: "convertflow",
   },
 ];

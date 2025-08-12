@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import CardSkeleton from "@/components/shared/CardSkeleton";
-// import Categories from "@/components/shared/Categories";
 import MasonaryGridLayout from "@/components/shared/MasonaryGridLayout";
 import WebLayoutWrapper from "@/components/shared/WebLayoutWrapper";
 import { useGetAllGenerations } from "@/lib/tanstack-query/queriesAndMutation";

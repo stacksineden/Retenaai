@@ -35,9 +35,6 @@ const Pricing = () => {
                 <h3 className="my-3 text-center text-3xl font-bold text-primary-black">
                   {item?.plan}
                 </h3>
-                {/* <p className="text-zinc-100 opacity-70 text-base">
-                  {item?.tagline}
-                </p> */}
                 <p className="my-2 text-5xl font-semibold text-primary-black">
                   ${item?.base_price}
                 </p>

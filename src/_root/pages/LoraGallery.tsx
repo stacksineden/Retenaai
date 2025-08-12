@@ -1,20 +1,14 @@
-import {
-  flux_styles_data,
-  mini_apps_data,
-} from "@/modelDataset";
+import { flux_styles_data } from "@/modelDataset";
 import { FreeMode, Mousewheel } from "swiper/modules";
 import { useNavigate } from "react-router-dom";
-import { useUserContext } from "@/context/AuthContext";
 import { Diamond } from "lucide-react";
 
-import MiniAppsCard from "@/components/shared/MiniAppsCard";
 import LoraSlider from "@/components/shared/LoraSlider";
 
 const LoraGallery = () => {
   const navigate = useNavigate();
-  const { user } = useUserContext();
 
-  return ( 
+  return (
     <>
       <div className="h-full">
         <div className="flex h-full w-full flex-col justify-between px-4 md:px-1 pt-9 md:pt-6">
@@ -37,9 +31,6 @@ const LoraGallery = () => {
                 </div>
                 <div className="p-2 rounded-lg bg-white cursor-pointer flex items-center gap-3">
                   <div className="p-2 bg-accent flex items-center gap-1">
-                    <p className="font-bold text-sm md:text-base">
-                      {user?.creditBalance ?? 0}
-                    </p>
                     <Diamond className="h-4 w-4 text-primary-blue3" />
                   </div>
                   <div
@@ -70,12 +61,7 @@ const LoraGallery = () => {
                 </p>
               </div>
 
-              <div className="w-full grid grid-cols-1 md:grid-cols-4 md:gap-5 px-1 md:px-3 space-y-4 md:space-y-0">
-                {mini_apps_data &&
-                  mini_apps_data?.map((item, _i) => (
-                    <MiniAppsCard data={item} />
-                  ))}
-              </div>
+              <div className="w-full grid grid-cols-1 md:grid-cols-4 md:gap-5 px-1 md:px-3 space-y-4 md:space-y-0"></div>
             </div>
           </div>
         </div>

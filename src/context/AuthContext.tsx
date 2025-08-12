@@ -8,7 +8,10 @@ export const INITIAL_USER = {
   name: "",
   email: "",
   imageUrl: "",
-  creditBalance: 0,
+  stage: "",
+  cohort: "",
+  program: "",
+  programId: "",
 };
 
 const INITIAL_STATE = {
@@ -48,6 +51,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const checkAuthUser = async () => {
     try {
       const currentAccount = await getCurrentUser();
+      console.log("Current Account:", currentAccount);
       if (!currentAccount) {
         console.log("user not found");
       }
@@ -57,7 +61,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           name: currentAccount?.currentUser?.name,
           email: currentAccount?.currentUser?.email,
           imageUrl: currentAccount?.currentUser?.imageUrl,
-          creditBalance: currentAccount?.currentUser?.creditBalance,
+          stage: currentAccount?.currentUser?.stage,
+          cohort: currentAccount?.currentUser?.cohort,
+          program: currentAccount?.currentUser?.program,
+          programId: currentAccount?.currentUser?.programId,
         });
         setIsAuthenticated(true);
         setIsEmailVerified(currentAccount?.currentAccount?.emailVerification);
@@ -73,14 +80,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         "/terms",
         "/showcase",
         "/enterprise",
-        "/contact"
+        "/solutions",
+        "/contact",
+        "/case-study",
+        "/retenaai-academy",
+        "/retenaai-academy/programs",
+        "/retenaai-academy/program",
+        "/careers",
       ];
       if (!currentAccount && !excludedPaths.includes(location.pathname)) {
         navigate("/sign-in");
       }
       return false;
     } catch (err) {
-      navigate("/sign-in"); 
+      navigate("/sign-in");
       return false;
     } finally {
       setIsLoading(false);
@@ -100,6 +113,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         location.pathname.includes("/showcase") ||
         location.pathname.includes("/enterprise") ||
         location.pathname.includes("/contact") ||
+        location.pathname.includes("/solutions") ||
+        location.pathname.includes("/case-study") ||
+        location.pathname.includes("/retenaai-academy") ||
+        location.pathname.includes("/retenaai-academy/programs") ||
+        location.pathname.includes("/retenaai-academy/program") ||
+        location.pathname.includes("/careers") ||
         location.pathname === "/"
       ) &&
       (cookieFallback === "[]" ||

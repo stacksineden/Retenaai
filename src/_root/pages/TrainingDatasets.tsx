@@ -1,9 +1,8 @@
 import CardSkeleton from "@/components/shared/CardSkeleton";
-import TrainingCard from "@/components/shared/TrainingCard";
+import MiniAppsCard from "@/components/shared/MiniAppsCard";
 import { useUserContext } from "@/context/AuthContext";
 import { useGetUserTrainingData } from "@/lib/tanstack-query/queriesAndMutation";
 import { Ghost } from "lucide-react";
-
 
 const TrainingDatasets = () => {
   const { user } = useUserContext();
@@ -13,7 +12,7 @@ const TrainingDatasets = () => {
     <div className="container py-4 mt-6 md:mt-0">
       <div className="w-full flex flex-col gap-2 my-3">
         <h2 className="text-primary-black text-2xl md:text-4xl font-semibold">
-          My Trainings
+          My Models
         </h2>
         <p className="text-primary-blue3 text-sm md:text-base pl-2">
           Check out the status of your photoshoots here
@@ -29,7 +28,7 @@ const TrainingDatasets = () => {
                 new Date(b.$createdAt).getTime() -
                 new Date(a.$createdAt).getTime()
             )
-            .map((data, _i) => <TrainingCard data={data} key={_i} />)
+            .map((data, _i) => <MiniAppsCard data={data} key={_i} />) 
         ) : isFetchingData ? (
           <CardSkeleton card_number={10} />
         ) : (

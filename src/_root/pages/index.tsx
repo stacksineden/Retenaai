@@ -12,3 +12,7 @@ export { default as FluxLoraGenerate } from "./generations/FluxLoraGenerate";
 export { default as ImageToPrompt } from "./generations/ImageToPrompt";
 export { default as Billing } from "./Billing";
 export { default as CreditsBilling } from "./CreditsBilling";
+export { default as ImageGenerate } from "./generations/ImageGenerate";
+export { default as DemoTraining } from "./demos/DemoTraining";
+export { default as DemoGenerate } from "./demos/DemoGenerate";
+export { default as StudyKits } from "./StudyKits";

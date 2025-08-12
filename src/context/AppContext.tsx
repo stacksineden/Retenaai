@@ -13,15 +13,24 @@ const INITIAL_STATE = {
   chatMobileOpen: false,
   setChatMobileOpen: () => {},
   shootData: {
-    title: "",
+    name: "",
+    slug: "",
+    category: "",
+    images: [""],
     text: "",
-    images: [],
-    query_slug: "",
+    templates: [
+      {
+        image: "",
+        prompt: "",
+      },
+    ],
     is_trending: false,
   },
   setShootData: () => {},
   promoValue: 0,
   setPromoValue: () => {},
+  trainingUrl: "",
+  setTrainingUrl: () => {},
 };
 
 type IContextType = {
@@ -39,6 +48,8 @@ type IContextType = {
   setShootData: (shootData: GalleryStylesData) => void;
   promoValue: number;
   setPromoValue: (promoValue: number) => void;
+  trainingUrl:string;
+  setTrainingUrl: (trainingUrl:string) => void;
 };
 
 const AppContext = createContext<IContextType>(INITIAL_STATE);
@@ -56,7 +67,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [shootData, setShootData] = useState<GalleryStylesData>(
     INITIAL_STATE.shootData
   );
-  const [promoValue, setPromoValue] = useState(INITIAL_STATE.promoValue)
+  const [promoValue, setPromoValue] = useState(INITIAL_STATE.promoValue);
+  const [trainingUrl, setTrainingUrl] = useState(INITIAL_STATE.trainingUrl)
 
   const value = {
     open,
@@ -72,7 +84,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     shootData,
     setShootData,
     promoValue,
-    setPromoValue
+    setPromoValue,
+    trainingUrl,
+    setTrainingUrl
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

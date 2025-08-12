@@ -102,7 +102,8 @@ module.exports = {
         },
       },
       backgroundImage: {
-        "auth-bg":"url('/assets/auth-bg.png')", 
+        "auth-bg":"url('/assets/authimg.webp')", 
+        "hero-bg":"url('/heroretena.webp')",
       },
       screens: {
         xs: "480px",

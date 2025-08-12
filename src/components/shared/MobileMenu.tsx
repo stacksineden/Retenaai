@@ -64,42 +64,11 @@ const MobileMenu = ({
                 <ul
                   className={`my-2 divide-y text-sm divide-zinc-200 text-primary-black`}
                 >
+
                   <Accordion type="single" collapsible className="w-full">
-                    <AccordionItem value="item-1">
-                      <AccordionTrigger className="font-semibold">
-                        Magic Tools
-                      </AccordionTrigger>
-                      <AccordionContent>
-                        <ul
-                          className={`divide-y text-sm divide-zinc-200 text-primary-black`}
-                        >
-                          <li
-                            className="block py-2"
-                            onClick={() => Navigate("/sign-in")}
-                          >
-                            Photo upscaling
-                          </li>
-                          <li
-                            className="block py-2"
-                            onClick={() => Navigate("/sign-in")}
-                          >
-                            Background remover
-                          </li>
-                          <li className="block py-2">
-                            Flux AI prompt generator
-                          </li>
-                          <li
-                            className="block py-2"
-                            onClick={() => Navigate("/sign-in")}
-                          >
-                            Image to prompt
-                          </li>
-                        </ul>
-                      </AccordionContent>
-                    </AccordionItem>
                     <AccordionItem value="item-2">
                       <AccordionTrigger className="font-semibold">
-                        Flux AI
+                       Solutions
                       </AccordionTrigger>
                       <AccordionContent>
                         <ul
@@ -107,55 +76,52 @@ const MobileMenu = ({
                         >
                           <li
                             className="block py-2"
-                            onClick={() => Navigate("/sign-in")}
+                            onClick={() => Navigate("/solutions")}
                           >
-                            AI photoshoot
+                             Client aquisition systems
                           </li>
                           <li
                             className="block py-2"
-                            onClick={() => Navigate("/sign-in")}
+                            onClick={() => Navigate("/case-study?system=leadpilot")}
                           >
-                            Flux 1.1 pro
+                            Cold Outreach Engine
                           </li>
                           <li
                             className="block py-2"
-                            onClick={() => Navigate("/sign-in")}
+                            onClick={() => Navigate("/solutions")}
                           >
-                            Flux dev realism
+                            Modular AI Infrastructure
                           </li>
                           <li
                             className="block py-2"
-                            onClick={() => Navigate("/sign-in")}
+                            onClick={() => Navigate("/case-study?system=studiogen")}
                           >
-                            Flux Embed text
+                           AI photoshoot
                           </li>
                         </ul>
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>
-                  <Link to="/pricing">
-                    <li className="block py-2 font-medium">Pricing</li>
-                  </Link>
-                  <Link to="/showcase">
-                    <li className="block py-2 font-medium">Showcase</li>
+                  <Link to="/retenaai-academy">
+                    <li className="block py-2 font-medium">Academy</li> 
                   </Link>
                   <Link to="/enterprise">
-                    <li className="block py-2 font-medium">Enterprise</li>
+                    <li className="block py-2 font-medium">Pilot Program</li>
+                  </Link>
+                  <Link to="/solutions">
+                    <li className="block py-2 font-medium">Case Studies</li>
+                  </Link>
+                   <Link to="/careers">
+                    <li className="block py-2 font-medium">Careers</li>
                   </Link>
                 </ul>
 
                 <div className="flex items-center justify-center gap-2">
                   <Button
-                    className="bg-transparent hover:bg-accent text-primary-blue3 font-semibold text-sm"
-                    onClick={() => Navigate("/sign-up")}
-                  >
-                    Get Started
-                  </Button>
-                  <Button
                     className="bg-primary-blue2 hover:bg-primary-black font-semibold text-white flex items-center gap-2"
-                    onClick={() => Navigate("/sign-in")}
+                    onClick={() => Navigate("/contact")}
                   >
-                    Log in
+                     Book A Call
                     <ArrowRight className="text-white h-4" />
                   </Button>
                 </div>
@@ -188,3 +154,39 @@ export default MobileMenu;
       )}
     </AnimatePresence> */
 }
+
+
+
+
+{/* <AccordionItem value="item-1">
+<AccordionTrigger className="font-semibold">
+  Magic Tools
+</AccordionTrigger>
+<AccordionContent>
+  <ul
+    className={`divide-y text-sm divide-zinc-200 text-primary-black`}
+  >
+    <li
+      className="block py-2"
+      onClick={() => Navigate("/sign-in")}
+    >
+      Photo upscaling
+    </li>
+    <li
+      className="block py-2"
+      onClick={() => Navigate("/sign-in")}
+    >
+      Background remover
+    </li>
+    <li className="block py-2">
+      Flux AI prompt generator
+    </li>
+    <li
+      className="block py-2"
+      onClick={() => Navigate("/sign-in")}
+    >
+      Image to prompt
+    </li>
+  </ul>
+</AccordionContent>
+</AccordionItem> */}

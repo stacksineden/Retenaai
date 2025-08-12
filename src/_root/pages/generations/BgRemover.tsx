@@ -4,29 +4,19 @@ import UploadFile from "@/components/shared/UploadFile";
 import { Button } from "@/components/ui/button";
 import { Fullscreen, Trash } from "lucide-react";
 import { credit_charge } from "@/modelDataset";
-import { useUserContext } from "@/context/AuthContext";
-import { useUpdateUserCreditBalance } from "@/lib/tanstack-query/queriesAndMutation";
 import toast from "react-hot-toast";
 import { uploadToCloudinary } from "@/lib/cloudinary";
 import { bgRemover } from "@/lib/replicate/api";
-import { IUpdateCredit } from "@/types";
+
 
 const BgRemover = () => {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [loading, setLoading] = useState(false);
   const [imagePrev, setImagePrev] = useState("");
 
-  const { user } = useUserContext();
-
-  const { mutateAsync: updateBalance } = useUpdateUserCreditBalance();
 
   async function handleBgRemover() {
-    if (user?.creditBalance < credit_charge.IMAGEUPSCALING) {
-      toast.error(
-        "You don't have enough credits to complete this action. Please purchase more credits to proceed."
-      );
-    }
-
+ 
     if (selectedFiles.length !== 1) {
       toast.error("Please upload at least 1 images.");
       return;
@@ -45,15 +35,12 @@ const BgRemover = () => {
         setLoading(false);
         toast.success(response?.message ?? "");
         setImagePrev(response?.data);
-        const newBalance = user?.creditBalance - credit_charge.IMAGEUPSCALING;
-        const updatePayload: IUpdateCredit = {
-          userId: user.id,
-          balance: newBalance,
-        };
-        const creditsUpdate = await updateBalance(updatePayload);
-        if (creditsUpdate) {
-          // send to generations database and add the public flag if is public is true
-        }
+        // const newBalance = user?.creditBalance - credit_charge.IMAGEUPSCALING;
+        // const updatePayload: IUpdateCredit = {
+        //   userId: user.id,
+        //   balance: newBalance,
+        // };
+        // const creditsUpdate = await updateBalance(updatePayload);
       }
       if (!response) {
         setLoading(false);

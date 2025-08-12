@@ -8,10 +8,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { IUser } from "@/types";
 import {
-  BrainCog,
   ChevronsDown,
-  CreditCard,
-  Images,
   LogOut,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -28,7 +25,7 @@ export function ProfileMenu({ user }: { user: IUser }) {
     const response = await signOut();
     if (response) {
       toast.success("Logout successful!");
-      Navigate("/");
+      Navigate("/retenaai-academy");
     }
     if (response instanceof Error) {
       // Assuming err.message contains the API error message
@@ -51,12 +48,6 @@ export function ProfileMenu({ user }: { user: IUser }) {
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <div className="flex items-center gap-1 text-primary-blue4 font-semibold">
-            <CreditCard className="h-8" />
-            {user?.creditBalance ?? 0}
-          </div>
-        </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => {
             setMobileOpen(false);
@@ -64,33 +55,15 @@ export function ProfileMenu({ user }: { user: IUser }) {
           }}
         >
           <div className="flex items-center gap-1 cursor-pointer">
-            <Images className="h-8" />
-            My Photos
+            <p className="text-xs md:text-sm text-primary-black">
+              Stage:{" "}
+              <span className="text-[#FCA311] font-semibold uppercase">
+                {user?.stage ?? "__ __"}
+              </span>
+            </p>
           </div>
         </DropdownMenuItem>
-        <DropdownMenuItem
-          onClick={() => {
-            setMobileOpen(false);
-            Navigate("/photoshoot-gallery");
-          }}
-        >
-          <div className="flex items-center gap-1 cursor-pointer">
-            <Images className="h-8" />
-            My Photoshoots
-          </div>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <div
-            className="flex items-center gap-1 cursor-pointer"
-            onClick={() => {
-              setMobileOpen(false);
-              Navigate("/training-dataset");
-            }}
-          >
-            <BrainCog className="h-8" />
-            My Trainings
-          </div>
-        </DropdownMenuItem>
+
         <DropdownMenuItem>
           <div
             className="flex items-center gap-1 cursor-pointer"

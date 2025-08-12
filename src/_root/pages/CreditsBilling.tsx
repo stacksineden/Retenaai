@@ -2,8 +2,7 @@ import { useState } from "react";
 import { photo_credits_plan } from "@/modelDataset";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "@/context/AuthContext";
-import { useUpdateUserCreditBalance } from "@/lib/tanstack-query/queriesAndMutation";
-import { IUpdateCredit, PhotoshootPlan } from "@/types";
+import {  PhotoshootPlan } from "@/types";
 import { closePaymentModal, useFlutterwave } from "flutterwave-react-v3";
 import { BadgeCheck, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -11,8 +10,6 @@ import toast from "react-hot-toast";
 
 const CreditsBilling = () => {
   const navigate = useNavigate();
-
-  const { mutateAsync: updateBalance } = useUpdateUserCreditBalance();
 
   const [selectedPlan, setSelectedPlan] = useState<PhotoshootPlan | null>(null);
   const { user } = useUserContext();
@@ -98,30 +95,12 @@ const CreditsBilling = () => {
           onClick={() => {
             handleFlutterPayment({
               callback: async (response) => {
-                //console.log(response);
-                if (response) {
-                  const newBalance =
-                    user?.creditBalance + (selectedPlan?.credits ?? 0);
-
-                  const updatePayload: IUpdateCredit = {
-                    userId: user.id,
-                    balance: newBalance,
-                  };
-
-                  const response = await updateBalance(updatePayload);
-                  //display a toast message to the user
-                  if (response) {
+                 if (response) {
                     toast.success(
                       "Payment successful! Keep creating magic with your photos!"
                     );
                     navigate(`/generations/flux?mode=flux1.1-pro`);
                   }
-                  if (!response) {
-                    toast.error(
-                      "Update Credits Failed. Please contact support"
-                    );
-                  }
-                }
                 if (!response) {
                   //definetely and issue from flutterwave, we can still get their payment details and help them verify with flutterwave but definetly not on us
                 }

@@ -1,42 +1,35 @@
 import { useUserContext } from "@/context/AuthContext";
-import { photoshoot_plans } from "@/modelDataset";
-import { PhotoshootPlan } from "@/types";
+import { available_programs } from "@/modelDataset";
 import { closePaymentModal, useFlutterwave } from "flutterwave-react-v3";
 import { BadgeCheck, Sparkles } from "lucide-react";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 import toast from "react-hot-toast";
 import { Button } from "@/components/ui/button";
-import { useAppContext } from "@/context/AppContext";
-import ExamplePhotoModal from "@/components/shared/ExamplePhotoModal";
-import PromoVerifyModal from "@/components/shared/PromoVerifyModal";
+
+import { useUpdateUserStageStatus } from "@/lib/tanstack-query/queriesAndMutation";
+
 
 const Billing = () => {
-  const navigate = useNavigate();
-  const [selectedPlan, setSelectedPlan] = useState<PhotoshootPlan | null>(null);
+  const urlParams = new URLSearchParams(window.location.search);
+  const programSlug = urlParams.get("program");
 
   const { user } = useUserContext();
-  const { shootData } = useAppContext();
 
-  const user_country_code = localStorage.getItem("user_country_code");
+  const application_fee = "10000";
 
-  useEffect(() => {
-    if (shootData?.title === "") {
-      navigate("/app");
-    }
-  }, [shootData]);
+  const { mutateAsync: updateUserStage } = useUpdateUserStageStatus();
+
+  const programDetais = available_programs?.find(
+    (item) => item?.slug === programSlug
+  );
+
 
   // Flutterwave configuration
   const config = {
     public_key: import.meta.env.VITE_FLUTTERWAVE_PUBLIC_KEY,
     tx_ref: Date.now().toString(),
-    amount: Number(
-      user_country_code && user_country_code === "ng"
-        ? selectedPlan?.price_in_naira
-        : selectedPlan?.base_price
-    ),
-    currency: user_country_code && user_country_code === "ng" ? "NGN" : "USD",
+    amount: Number(application_fee),
+    currency: "NGN",
     payment_options: "card, banktransfer, ussd card",
     customer: {
       email: user?.email!,
@@ -44,7 +37,9 @@ const Billing = () => {
       name: user?.name!,
     },
     customizations: {
-      title: `Payment for ${selectedPlan?.plan}`,
+      title: `Payment for ${
+        programDetais?.program_name ?? "Retena AI"
+      } Application Fee`,
       description: `Payment for Retena.ai photoshoot`,
       logo: "",
     },
@@ -55,139 +50,193 @@ const Billing = () => {
   return (
     <>
       <div className="container py-4 mt-7 md:mt-4">
-        <div className="w-full flex flex-col gap-2">
-          <div className="flex flex-col">
-            <h2 className="text-primary-black text-2xl font-medium">
-              Select Package
-            </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-2">
+          <div className="w-full flex flex-col gap-2">
+            <div className="flex flex-col">
+              <h2 className="text-[#FCA311] text-2xl font-medium">
+                Begin Your AI Learning Journey
+              </h2>
 
-            <p className="text-primary-black text-lg opacity-80 ml-1">
-              {shootData?.title ?? "-- --"}{" "}
-              <span className="opacity-70">
-                -{" "}
-                {`Pay in your local currency ${
-                  user_country_code && user_country_code === "ng"
-                    ? "NGN"
-                    : "USD"
-                }`}
-              </span>
-            </p>
-          </div>
-          <div className="flex items-center gap-2 md:gap-7 flex-col md:flex-row">
-            <ExamplePhotoModal images={shootData?.images ?? []} />
-            <PromoVerifyModal />
-          </div>
+              <p className="text-primary-black text-base opacity-80 ml-1">
+                You're just one step away from unlocking access to RetenaAI’s
+                immersive training programs. Pay your application fee to confirm
+                your interest and get started.
+              </p>
+            </div>
 
-          <div className="flex flex-col gap-2 h-[27rem] md:h-[30rem] overflow-y-scroll scrollbar-hide md:max-w-[80%]">
-            {photoshoot_plans?.map((item) => (
-              <div
-                className={`w-full py-3 px-2 rounded-xl border-2 border-zinc-200 shadow-md cursor-pointer flex flex-col md:flex-row items-center justify-between ${
-                  selectedPlan?.plan === item?.plan ? " bg-zinc-200" : ""
-                }`}
-                key={item?.id}
-                onClick={() => {
-                  setSelectedPlan(item);
-                }}
-              >
-                <div className="flex flex-col gap-1">
-                  <h3 className="text-lg font-bold flex flex-col md:flex-row items-center gap-2">
-                    {item?.plan}{" "}
-                    {item?.plan === "Mini Professional Package" && (
-                      <div className="flex items-center gap-1 p-2 border-2 border-red-500 rounded-md bg-red-600 shadow-md">
-                        <div className="w-10 h-10 rounded-full">
-                          <img
-                            src="/assets/xmasLogo.png"
-                            alt="xmaxlogo"
-                            className="w-full h-full object-cover rounded-full"
-                          />
-                        </div>
-                        <p className="text-white text-base">
-                          Xmas special!!
-                        </p>
-                      </div>
-                    )}
-                  </h3>
-                  <ul className="">
-                    {item?.feature?.map((data, _i) => (
-                      <li className="flex items-center gap-1" key={_i}>
-                        <BadgeCheck className="h-3 w-3 text-primary-blue3" />
-                        <p className="text-base">{data}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="h-full flex items-center justify-center bg-white rounded-lg px-2 py-2">
-                  <div className="text-primary-blue font-bold text-4xl p-4 rounded-full bg-accent flex flex-col">
-                    {user_country_code && user_country_code === "ng" ? (
-                      <span
-                        className={`${
-                          item?.is_promo && "text-zinc-500 line-through"
-                        } text-lg`}
-                      >
-                        NGN{item?.price_in_naira}
-                      </span>
-                    ) : (
-                      <span
-                        className={`${
-                          item?.is_promo && "text-zinc-500 line-through"
-                        } text-lg`}
-                      >{`$${item?.base_price}`}</span>
-                    )}
-                    {item?.is_promo &&
-                      (user_country_code === "ng" ? (
-                        <span className="text-xl text-primary-blue">
-                          NGN{item?.dicount_price_in_naira}
-                        </span>
-                      ) : (
-                        <span>{`$${item?.discount_base_price}`}</span>
-                      ))}
+            <div className="flex flex-col gap-2 overflow-y-scroll scrollbar-hide w-[100%]">
+              <div className="flex flex-col gap-1 bg-white p-3">
+                <h3 className="text-xl font-bold flex flex-col">
+                  <p className="font-semibold text-lg opacity-70">
+                    Application Fee
+                  </p>
+                  <p className="text-3xl font-semibold">&#x20A6;10,000</p>
+                </h3>
+
+                <ul className="">
+                  <li className="flex items-center gap-1 my-2">
+                    <BadgeCheck className="h-4 w-4 text-primary-blue3" />
+                    <p className="text-lg">
+                      Onboarding, access setup, training support
+                    </p>
+                  </li>
+                  <li className="flex items-center gap-1 my-2">
+                    <BadgeCheck className="h-4 w-4 text-primary-blue3" />
+                    <p className="text-lg">Non-refundable</p>
+                  </li>
+                  <li className="flex items-center gap-1 my-2">
+                    <BadgeCheck className="h-4 w-4 text-primary-blue3" />
+                    <p className="text-lg">Pay once per application</p>
+                  </li>
+                </ul>
+
+                <section className="bg-red-50 border border-red-200 rounded-xl p-6 md:p-8 my-8">
+                  <div className="flex items-start gap-3">
+                    <span className="text-red-500 text-xl font-bold">❗</span>
+                    <div>
+                      <h3 className="text-lg md:text-xl font-semibold text-red-700 mb-2">
+                        Important Notes / Disclaimer
+                      </h3>
+                      <ul className="list-disc list-inside text-red-600 space-y-2">
+                        <li>Application fee is non-refundable.</li>
+                        <li>
+                          Payment confirms your interest and locks your seat.
+                        </li>
+                        <li>
+                          You will receive a confirmation email immediately.
+                        </li>
+                        <li>
+                          If payment fails, please try again or contact support.
+                        </li>
+                      </ul>
+                    </div>
                   </div>
+                </section>
+              </div>
+            </div>
+            <Button
+              type="submit"
+              className="shad-button_primary md:w-[100%] mt-3"
+              disabled={!programSlug}
+              onClick={() => {
+                handleFlutterPayment({
+                  callback: async (response) => {
+                    // console.log(response);
+                    if (response) {
+                      //display a toast message to the user
+                      toast.success(
+                        "Payment successful. Please provide details to start the photoshoot."
+                      );
+                      const updatePayload = {
+                        userId: user?.id,
+                        stage: "applied",
+                        program: programDetais?.program_name!,
+                        ProgamId: programDetais?.slug!,
+                      };
+                      await updateUserStage(updatePayload);
+
+                      window.location.replace("/app");
+                    }
+                    if (!response) {
+                      //definetely and issue from flutterwave, we can still get their payment details and help them verify with flutterwave but definetly not on us
+                    }
+                    closePaymentModal();
+                  },
+                  onClose: () => {},
+                });
+              }}
+            >
+              <Sparkles className="text-white h-6 w-6" />
+              Pay &#x20A6;{application_fee}
+            </Button>
+          </div>
+
+          <div className="w-full h-[45rem] bg-white overflow-y-scroll scrollbar-hide">
+            <section className="w-full bg-white px-6 md:px-12 py-10 rounded-lg shadow-md space-y-8">
+              {/* Program Overview Header */}
+              <div className="space-y-1">
+                <h2 className="text-2xl font-bold text-gray-900">
+                  Program Overview
+                </h2>
+                <p className="text-gray-600 text-sm">
+                  Everything you need to know at a glance
+                </p>
+              </div>
+
+              {/* Overview Details */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm md:text-base text-gray-800">
+                <div>
+                  <strong>Program:</strong>{" "}
+                  {programDetais?.program_name ?? "__ __"}
+                </div>
+                <div>
+                  <strong>Application Fee:</strong> ₦10,000.00
+                </div>
+                <div>
+                  <strong>Program Length:</strong>{" "}
+                  {programDetais?.cohort_duration ?? "__ __"}/ 3 Phases
+                </div>
+                <div>
+                  <strong>Start Date:</strong>{" "}
+                  {programDetais?.cohort_start_date ?? "__ __"}
+                </div>
+                <div>
+                  <strong>Location:</strong> Online
+                </div>
+                <div>
+                  <strong>Live Classes:</strong> Yes
+                </div>
+                <div>
+                  <strong>Skill Level:</strong> Beginner
                 </div>
               </div>
-            ))}
+
+              <h3 className="text-xl font-bold mb-2">Tuition</h3>
+              {/* Pricing Plans */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Quarterly Plan */}
+                <div className="border border-gray-200 rounded-lg p-5 shadow-sm bg-[#f9fafb]">
+                  <p className="text-sm text-primary-blue3 font-semibold">
+                    Installments
+                  </p>
+                  <p className="text-green-600 text-xs mb-2">
+                    Payable in 3 installments
+                  </p>
+                  <h3 className="text-xl font-bold mb-2">
+                    {programDetais?.payment?.first_tranche ?? "__ __"}
+                  </h3>
+                  {/* <p className="text-sm mb-4">per </p> */}
+                  <ul className="text-sm text-gray-700 space-y-1 list-disc list-inside">
+                    <li>Access to LMS</li>
+                    <li>Live classes</li>
+                    <li>Community access</li>
+                    <li>Internship/job placement assistance</li>
+                    <li>Exclusive events</li>
+                  </ul>
+                </div>
+
+                {/* Upfront Plan */}
+                <div className="border border-gray-200 rounded-lg p-5 shadow-sm bg-[#fef9f4]">
+                  <p className="text-sm text-primary-blue3 font-semibold">
+                    Upfront
+                  </p>
+                  <p className="text-green-600 text-xs mb-2">Pay once</p>
+                  <h3 className="text-xl font-bold mb-2">
+                    {" "}
+                    {programDetais?.payment?.total ?? "__ __"}
+                  </h3>
+                  {/* <p className="text-sm mb-4">once</p> */}
+                  <ul className="text-sm text-gray-700 space-y-1 list-disc list-inside">
+                    <li>Access to LMS</li>
+                    <li>Live classes</li>
+                    <li>Community access</li>
+                    <li>Internship/job placement assistance</li>
+                    <li>Exclusive events</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
           </div>
-          <Button
-            type="submit"
-            className="shad-button_primary md:w-[80%] mt-3"
-            disabled={!selectedPlan}
-            onClick={() => {
-              handleFlutterPayment({
-                callback: async (response) => {
-                  // console.log(response);
-                  if (response) {
-                    //display a toast message to the user
-                    toast.success(
-                      "Payment successful. Please provide details to start the photoshoot."
-                    );
-                    navigate(
-                      `/training?mode=${shootData?.query_slug}&ref=${response?.transaction_id}`
-                    );
-                  }
-                  if (!response) {
-                    //definetely and issue from flutterwave, we can still get their payment details and help them verify with flutterwave but definetly not on us
-                  }
-                  closePaymentModal();
-                },
-                onClose: () => {},
-              });
-            }}
-          >
-            <Sparkles className="text-white h-6 w-6" />
-            Pay{" "}
-            {selectedPlan
-              ? user_country_code === "ng"
-                ? `NGN${
-                    selectedPlan?.is_promo
-                      ? selectedPlan?.dicount_price_in_naira
-                      : selectedPlan?.price_in_naira
-                  }`
-                : `$${
-                    selectedPlan?.is_promo
-                      ? selectedPlan?.discount_base_price
-                      : selectedPlan?.base_price
-                  }`
-              : ""}
-          </Button>
         </div>
       </div>
     </>
@@ -195,3 +244,4 @@ const Billing = () => {
 };
 
 export default Billing;
+

@@ -23,12 +23,6 @@ import {
   imageGenFluxpro,
 } from "@/lib/replicate/api";
 import toast from "react-hot-toast";
-import { useUserContext } from "@/context/AuthContext";
-import { IUpdateCredit } from "@/types";
-import {
-  useCreateUserGeneration,
-  useUpdateUserCreditBalance,
-} from "@/lib/tanstack-query/queriesAndMutation";
 import {
   Select,
   SelectContent,
@@ -37,7 +31,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { generateImageOpenAI } from "@/lib/openAI/api";
-import { uploadImageFromUrl } from "@/lib/cloudinary";
+
 
 const FluxProGenerate = () => {
   const [selectedRatio, setSelectedRatio] = useState<string>("");
@@ -45,12 +39,8 @@ const FluxProGenerate = () => {
   const [selectedNumber, setSelectedNumber] = useState<string>("");
   const [imagePrev, setImagePrev] = useState("");
   const [images, setImages] = useState<string[]>([]);
-  // console.log(imagePrev, "imagePrev");
 
-  const { user } = useUserContext();
 
-  const { mutateAsync: updateBalance } = useUpdateUserCreditBalance();
-  const { mutateAsync: createGeneration } = useCreateUserGeneration();
 
   const handleSelect = (label: string) => {
     setSelectedRatio(label);
@@ -96,15 +86,15 @@ const FluxProGenerate = () => {
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof GenerateImageSchema>) {
-    if (
-      user?.creditBalance < credit_charge.FLUXPROCREDIT ||
-      user?.creditBalance < credit_charge.FLUXDEVREALISM
-    ) {
-      toast.error(
-        "You don't have enough credits to complete this action. Please purchase more credits to proceed."
-      );
-      return;
-    }
+    // if (
+    //   user?.creditBalance < credit_charge.FLUXPROCREDIT ||
+    //   user?.creditBalance < credit_charge.FLUXDEVREALISM
+    // ) {
+    //   toast.error(
+    //     "You don't have enough credits to complete this action. Please purchase more credits to proceed."
+    //   );
+    //   return;
+    // }
 
     if (!values.prompt || !values.dimension) {
       toast.error("Please provide both a prompt and dimension for your image.");
@@ -125,37 +115,37 @@ const FluxProGenerate = () => {
         toast.success(response?.message ?? "");
         // console.log(response, "res-data");
         setImages([...response?.data]);
-        const newBalance =
-          user?.creditBalance -
-          credit_charge.FLUXDEVREALISM * Number(selectedNumber);
-        const updatePayload: IUpdateCredit = {
-          userId: user.id,
-          balance: newBalance,
-        };
-        const creditsUpdate = await updateBalance(updatePayload);
-        if (creditsUpdate) {
-          // send to generations database and add the public flag if is public is true
-          for (const image of response?.data) {
-            const cloudurl = await uploadImageFromUrl(image);
-            if (cloudurl) {
-              toast.success("Image Uploaded succesfully");
-              const generationPayload = {
-                prompt: values?.prompt,
-                catergory: "flux",
-                url: cloudurl,
-                creator: user.id,
-              };
-              const imageSaved = await createGeneration(generationPayload);
-              if (imageSaved) {
-                toast.success("Images saved successfully");
-              }
-              if (!imageSaved) {
-                toast.error("unable to save image");
-              }
-            }
-          }
-          toast.success("Images saved successfully");
-        }
+        // const newBalance =
+        //   user?.creditBalance -
+        //   credit_charge.FLUXDEVREALISM * Number(selectedNumber);
+        // const updatePayload: IUpdateCredit = {
+        //   userId: user.id,
+        //   balance: newBalance,
+        // };
+        // const creditsUpdate = await updateBalance(updatePayload);
+        // if (creditsUpdate) {
+        //   // send to generations database and add the public flag if is public is true
+        //   for (const image of response?.data) {
+        //     const cloudurl = await uploadImageFromUrl(image);
+        //     if (cloudurl) {
+        //       toast.success("Image Uploaded succesfully");
+        //       const generationPayload = {
+        //         prompt: values?.prompt,
+        //         catergory: "flux",
+        //         url: cloudurl,
+        //         creator: user.id,
+        //       };
+        //       const imageSaved = await createGeneration(generationPayload);
+        //       if (imageSaved) {
+        //         toast.success("Images saved successfully");
+        //       }
+        //       if (!imageSaved) {
+        //         toast.error("unable to save image");
+        //       }
+        //     }
+        //   }
+        //   toast.success("Images saved successfully");
+        // }
       }
       if (!response) {
         setLoading(false);
@@ -170,36 +160,36 @@ const FluxProGenerate = () => {
         setLoading(false);
         toast.success("Image generated successfully");
         setImagePrev(response);
-        const newBalance = user?.creditBalance - credit_charge.FLUXPROCREDIT;
-        const updatePayload: IUpdateCredit = {
-          userId: user.id,
-          balance: newBalance,
-        };
-        const creditsUpdate = await updateBalance(updatePayload);
-        if (creditsUpdate) {
-          // send to generations database and add the public flag if is public is true
+        // const newBalance = user?.creditBalance - credit_charge.FLUXPROCREDIT;
+        // const updatePayload: IUpdateCredit = {
+        //   userId: user.id,
+        //   balance: newBalance,
+        // };
+        // const creditsUpdate = await updateBalance(updatePayload);
+        // if (creditsUpdate) {
+        //   // send to generations database and add the public flag if is public is true
 
-          const cloudurl = await uploadImageFromUrl(response?.data);
-          if (cloudurl) {
-            toast.success("Image Uploaded succesfully");
-            const generationPayload = {
-              prompt: values?.prompt,
-              catergory: "flux",
-              url: cloudurl,
-              creator: user.id,
-            };
-            const imageSaved = await createGeneration(generationPayload);
-            if (imageSaved) {
-              toast.success("Images saved successfully");
-            }
-            if (!imageSaved) {
-              toast.error("unable to save image");
-            }
-          }
-          if (!cloudurl) {
-            toast.error("Image Upload failed");
-          }
-        }
+        //   const cloudurl = await uploadImageFromUrl(response?.data);
+        //   if (cloudurl) {
+        //     toast.success("Image Uploaded succesfully");
+        //     const generationPayload = {
+        //       prompt: values?.prompt,
+        //       catergory: "flux",
+        //       url: cloudurl,
+        //       creator: user.id,
+        //     };
+        //     const imageSaved = await createGeneration(generationPayload);
+        //     if (imageSaved) {
+        //       toast.success("Images saved successfully");
+        //     }
+        //     if (!imageSaved) {
+        //       toast.error("unable to save image");
+        //     }
+        //   }
+        //   if (!cloudurl) {
+        //     toast.error("Image Upload failed");
+        //   }
+        // }
       }
       if (!response) {
         setLoading(false);
@@ -217,35 +207,35 @@ const FluxProGenerate = () => {
         setLoading(false);
         toast.success(response?.message ?? "");
         setImagePrev(response?.data);
-        const newBalance = user?.creditBalance - credit_charge.FLUXPROCREDIT;
-        const updatePayload: IUpdateCredit = {
-          userId: user.id,
-          balance: newBalance,
-        };
-        const creditsUpdate = await updateBalance(updatePayload);
-        if (creditsUpdate) {
-          // send to generations database and add the public flag if is public is true
-          const cloudurl = await uploadImageFromUrl(response?.data);
-          if (cloudurl) {
-            toast.success("Image Uploaded succesfully");
-            const generationPayload = {
-              prompt: values?.prompt,
-              catergory: "flux",
-              url: cloudurl,
-              creator: user.id,
-            };
-            const imageSaved = await createGeneration(generationPayload);
-            if (imageSaved) {
-              toast.success("Images saved successfully");
-            }
-            if (!imageSaved) {
-              toast.error("unable to save image");
-            }
-          }
-          if (!cloudurl) {
-            toast.error("Image Upload failed");
-          }
-        }
+        // const newBalance = user?.creditBalance - credit_charge.FLUXPROCREDIT;
+        // const updatePayload: IUpdateCredit = {
+        //   userId: user.id,
+        //   balance: newBalance,
+        // };
+        // const creditsUpdate = await updateBalance(updatePayload);
+        // if (creditsUpdate) {
+        //   // send to generations database and add the public flag if is public is true
+        //   const cloudurl = await uploadImageFromUrl(response?.data);
+        //   if (cloudurl) {
+        //     toast.success("Image Uploaded succesfully");
+        //     const generationPayload = {
+        //       prompt: values?.prompt,
+        //       catergory: "flux",
+        //       url: cloudurl,
+        //       creator: user.id,
+        //     };
+        //     const imageSaved = await createGeneration(generationPayload);
+        //     if (imageSaved) {
+        //       toast.success("Images saved successfully");
+        //     }
+        //     if (!imageSaved) {
+        //       toast.error("unable to save image");
+        //     }
+        //   }
+        //   if (!cloudurl) {
+        //     toast.error("Image Upload failed");
+        //   }
+        // }
       }
       if (!response) {
         setLoading(false);
@@ -262,35 +252,35 @@ const FluxProGenerate = () => {
         setLoading(false);
         toast.success(response?.message ?? "");
         setImagePrev(response?.data);
-        const newBalance = user?.creditBalance - credit_charge.FLUXPROCREDIT;
-        const updatePayload: IUpdateCredit = {
-          userId: user.id,
-          balance: newBalance,
-        };
-        const creditsUpdate = await updateBalance(updatePayload);
-        if (creditsUpdate) {
-          // send to generations database and add the public flag if is public is true
-          const cloudurl = await uploadImageFromUrl(response?.data);
-          if (cloudurl) {
-            toast.success("Image Uploaded succesfully");
-            const generationPayload = {
-              prompt: values?.prompt,
-              catergory: "flux",
-              url: cloudurl,
-              creator: user.id,
-            };
-            const imageSaved = await createGeneration(generationPayload);
-            if (imageSaved) {
-              toast.success("Images saved successfully");
-            }
-            if (!imageSaved) {
-              toast.error("unable to save image");
-            }
-          }
-          if (!cloudurl) {
-            toast.error("Image Upload failed");
-          }
-        }
+        // const newBalance = user?.creditBalance - credit_charge.FLUXPROCREDIT;
+        // const updatePayload: IUpdateCredit = {
+        //   userId: user.id,
+        //   balance: newBalance,
+        // };
+        // const creditsUpdate = await updateBalance(updatePayload);
+        // if (creditsUpdate) {
+        //   // send to generations database and add the public flag if is public is true
+        //   const cloudurl = await uploadImageFromUrl(response?.data);
+        //   if (cloudurl) {
+        //     toast.success("Image Uploaded succesfully");
+        //     const generationPayload = {
+        //       prompt: values?.prompt,
+        //       catergory: "flux",
+        //       url: cloudurl,
+        //       creator: user.id,
+        //     };
+        //     const imageSaved = await createGeneration(generationPayload);
+        //     if (imageSaved) {
+        //       toast.success("Images saved successfully");
+        //     }
+        //     if (!imageSaved) {
+        //       toast.error("unable to save image");
+        //     }
+        //   }
+        //   if (!cloudurl) {
+        //     toast.error("Image Upload failed");
+        //   }
+        // }
       }
       if (!response) {
         setLoading(false);

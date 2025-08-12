@@ -3,6 +3,7 @@ import {
   CreateGenerations,
   INewUser,
   IUpdateCredit,
+  IUpdateStage,
   TrainingPayload,
 } from "@/types";
 import { account, appwriteConfig, avatars, databases } from "./config";
@@ -14,7 +15,7 @@ export async function createUserAccount(user: INewUser) {
       ID.unique(),
       user.email,
       user.password,
-      user.name
+      user.firstName + " " + user.lastName
     );
     if (!newAccount) throw Error;
     //create session to verify user
@@ -25,13 +26,20 @@ export async function createUserAccount(user: INewUser) {
         `${import.meta.env.VITE_RETENAAI_BASE_URL}/verify-user`
       );
       if (verifyUser) {
-        const avatarUrl = avatars.getInitials(user.name);
+        const avatarUrl = avatars.getInitials(
+          user.firstName + " " + user.lastName
+        );
         const newUser = await saveUserToDB({
           accountId: newAccount.$id,
           email: newAccount.email,
           name: newAccount.name,
           imageUrl: avatarUrl,
-          creditBalance: 5,
+          cohort: "2",
+          country: user.country,
+          state: user.state,
+          phoneNumber: user.phoneNumber,
+          stage: "prospect",
+          isActivated: false,
         });
         return newUser;
       }
@@ -62,17 +70,43 @@ export async function saveUserToDB(user: {
   email: string;
   name: string;
   imageUrl: URL;
-  creditBalance: number;
+  cohort: string;
+  country: string;
+  state: string;
+  phoneNumber: string;
+  stage: string;
+  isActivated: boolean;
 }) {
   try {
     const newUser = await databases.createDocument(
       appwriteConfig.databaseId,
-      appwriteConfig.userCollectionId,
+      appwriteConfig.retenansCollectionId,
       ID.unique(),
       user
     );
     return newUser;
   } catch (err) {
+    return err;
+  }
+}
+
+export async function updateUserStageStatus(payload: IUpdateStage) {
+  try {
+    const userStage = await databases.updateDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.retenansCollectionId,
+      payload?.userId,
+      {
+        stage: payload.stage,
+        program: payload.program,
+        programId: payload.ProgamId,
+      }
+    );
+    if (!userStage) throw new Error();
+    console.log("user stage updated", userStage);
+    return userStage;
+  } catch (err) {
+    console.log(err);
     return err;
   }
 }
@@ -165,7 +199,7 @@ export async function getCurrentUser() {
     if (!currentAccount) throw Error;
     const currentUser = await databases.listDocuments(
       appwriteConfig.databaseId,
-      appwriteConfig.userCollectionId,
+      appwriteConfig.retenansCollectionId,
       [Query.equal("accountId", currentAccount.$id)]
     );
     const userObject = {

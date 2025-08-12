@@ -39,7 +39,7 @@ const PromoVerifyModal = () => {
   async function onSubmit(values: z.infer<typeof PromoValidationSchema>) {
     //users from kreatesell
     if (values.code?.startsWith("KFP")) {
-      navigate(`/training?mode=${shootData?.query_slug}&ref=${values?.code}`);
+      navigate(`/training?mode=${shootData?.slug}&ref=${values?.code}`);
       return;
     }
     const verifiedCode = await verifyCode(values?.code.toUpperCase() ?? "");
@@ -52,7 +52,7 @@ const PromoVerifyModal = () => {
         `Success! Discount applied: ${verifiedCode.discountPercentage}%`
       );
       navigate(
-        `/training?mode=${shootData?.query_slug}&ref=${verifiedCode?.code}`
+        `/training?mode=${shootData?.slug}&ref=${verifiedCode?.code}`
       );
       form.reset();
     }

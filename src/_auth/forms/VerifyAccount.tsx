@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import toast from "react-hot-toast";
 import { updateUserVerification } from "@/lib/appwrite/api";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const VerifyAccount = () => {
   const navigate = useNavigate();
@@ -26,15 +26,8 @@ const VerifyAccount = () => {
   };
 
   return (
-    <div className="w-[85%] md:w-[60%] flex-center flex-col text-center">
-      <Link to="/" className="w-[150px] md:w-[170px]">
-        <img
-          src="/assets/logo.png"
-          alt="brand"
-          className="w-full object-contain"
-        />
-      </Link>
-      <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12 text-primary-black">
+    <div className="w-[85%] md:w-[65%] flex-center flex-col">
+      <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12 text-[#FCA311]">
         Account Verification.
       </h2>
       <p className="text-primary-blue font-light small-medium md:base-regular">

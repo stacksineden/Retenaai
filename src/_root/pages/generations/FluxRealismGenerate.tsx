@@ -17,30 +17,17 @@ import { Fullscreen } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { credit_charge, flux_styles_data, ratios } from "@/modelDataset";
 import ExamplePhotoModal from "@/components/shared/ExamplePhotoModal";
-import {
-  useCreateUserGeneration,
-  useUpdateUserCreditBalance,
-} from "@/lib/tanstack-query/queriesAndMutation";
-import { useUserContext } from "@/context/AuthContext";
 import { imageGenFluxpro } from "@/lib/replicate/api";
-import { IUpdateCredit } from "@/types";
 import toast from "react-hot-toast";
-import { uploadImageFromUrl } from "@/lib/cloudinary";
 
 const FluxRealismGenerate = () => {
   const [selectedRatio, setSelectedRatio] = useState<string>("");
   const [loading, setLoading] = useState(false);
   const [imagePrev, setImagePrev] = useState("");
 
-  const { user } = useUserContext();
-
-  const { mutateAsync: updateBalance } = useUpdateUserCreditBalance();
-  const { mutateAsync: createGeneration } = useCreateUserGeneration();
-
   const [searchParams] = useSearchParams();
   const mode = searchParams.get("mode");
 
-  // console.log(mode, "....");
 
   const handleSelect = (label: string) => {
     setSelectedRatio(label);
@@ -87,12 +74,7 @@ const FluxRealismGenerate = () => {
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof GenerateImageSchema>) {
-    if (user?.creditBalance < credit_charge.FLUXPROCREDIT) {
-      toast.error(
-        "You don't have enough credits to complete this action. Please purchase more credits to proceed."
-      );
-    }
-
+   
     if (!values.prompt || !values.dimension) {
       toast.error("Please provide both a prompt and dimension for your image.");
       return;
@@ -114,35 +96,35 @@ const FluxRealismGenerate = () => {
         setLoading(false);
         toast.success(response?.message ?? "");
         setImagePrev(response?.data);
-        const newBalance = user?.creditBalance - credit_charge.FLUXPROCREDIT;
-        const updatePayload: IUpdateCredit = {
-          userId: user.id,
-          balance: newBalance,
-        };
-        const creditsUpdate = await updateBalance(updatePayload);
-        if (creditsUpdate) {
-          // send to generations database and add the public flag if is public is true
-          const cloudurl = await uploadImageFromUrl(response?.data);
-          if (cloudurl) {
-            toast.success("Image Uploaded succesfully");
-            const generationPayload = {
-              prompt: values?.prompt,
-              catergory: "flux",
-              url: cloudurl,
-              creator: user.id,
-            };
-            const imageSaved = await createGeneration(generationPayload);
-            if (imageSaved) {
-              toast.success("Images saved successfully");
-            }
-            if (!imageSaved) {
-              toast.error("unable to save image");
-            }
-          }
-          if (!cloudurl) {
-            toast.error("Image Upload failed");
-          }
-        }
+        // const newBalance = user?.creditBalance - credit_charge.FLUXPROCREDIT;
+        // const updatePayload: IUpdateCredit = {
+        //   userId: user.id,
+        //   balance: newBalance,
+        // };
+        // const creditsUpdate = await updateBalance(updatePayload);
+        // if (creditsUpdate) {
+        //   // send to generations database and add the public flag if is public is true
+        //   const cloudurl = await uploadImageFromUrl(response?.data);
+        //   if (cloudurl) {
+        //     toast.success("Image Uploaded succesfully");
+        //     const generationPayload = {
+        //       prompt: values?.prompt,
+        //       catergory: "flux",
+        //       url: cloudurl,
+        //       creator: user.id,
+        //     };
+        //     const imageSaved = await createGeneration(generationPayload);
+        //     if (imageSaved) {
+        //       toast.success("Images saved successfully");
+        //     }
+        //     if (!imageSaved) {
+        //       toast.error("unable to save image");
+        //     }
+        //   }
+        //   if (!cloudurl) {
+        //     toast.error("Image Upload failed");
+        //   }
+        // }
       }
       if (!response) {
         setLoading(false);

@@ -3,6 +3,7 @@ import { Models } from "appwrite";
 import { format } from "date-fns";
 
 const TrainingCard = ({ data }: { data: Models.Document | undefined }) => {
+
   const statusDetails = getTrainingDetails(data?.trainingStatus ?? "");
 
   return (

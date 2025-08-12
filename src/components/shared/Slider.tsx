@@ -3,13 +3,13 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/mousewheel";
 import CarouselButtons from "./CarouselButtons";
-import { GalleryStylesData } from "@/types";
+import { ProgramTypeData } from "@/types";
 import GalleryCard from "./GalleryCard";
 
 type SliderProps = {
   key: string;
   modules: any[];
-  data: GalleryStylesData[];
+  data: ProgramTypeData[]; 
 };
 
 const Slider = ({ key, modules, data }: SliderProps) => {
@@ -42,10 +42,10 @@ const Slider = ({ key, modules, data }: SliderProps) => {
       {data &&
         data?.map((card, _i) => (
           <SwiperSlide className="swiper-slide" key={_i}>
-            <GalleryCard data={card} />
+            <GalleryCard data={card} /> 
           </SwiperSlide>
         ))}
-      <CarouselButtons />
+      <CarouselButtons /> 
     </Swiper>
   );
 };

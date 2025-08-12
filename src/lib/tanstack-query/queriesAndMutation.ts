@@ -3,6 +3,7 @@ import {
   CreateGenerations,
   INewUser,
   IUpdateCredit,
+  IUpdateStage,
   TrainingPayload,
 } from "@/types";
 import {
@@ -27,6 +28,7 @@ import {
   signInAccount,
   signOutAccount,
   updateUserCreditBalance,
+  updateUserStageStatus,
   verifyCode,
 } from "../appwrite/api";
 import { QUERY_KEYS } from "./queryKeys";
@@ -48,6 +50,13 @@ export const useUpdateUserCreditBalance = () => {
     mutationFn: (payload: IUpdateCredit) => updateUserCreditBalance(payload),
   });
 };
+
+export const useUpdateUserStageStatus = () => {
+  return useMutation({
+    mutationFn: (payload: IUpdateStage) => updateUserStageStatus(payload),
+  });
+};
+
 export const useSignInAccount = () => {
   return useMutation({
     mutationFn: (user: { email: string; password: string }) =>
@@ -72,7 +81,7 @@ export const useCreateTraining = () => {
   });
 };
 
-export const useCreateContract = () => {
+export const useCreateContract = () => { 
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (data: ContractPayload) => createContract(data),

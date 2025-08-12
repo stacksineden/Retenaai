@@ -4,10 +4,13 @@ import {
   BgRemover,
   Billing,
   CreditsBilling,
+  DemoGenerate,
+  DemoTraining,
   FluxLoraGenerate,
   FluxProGenerate,
   FluxRealismGenerate,
   Home,
+  ImageGenerate,
   ImageToPrompt,
   LoraGallery,
   LoraTraining,
@@ -15,6 +18,7 @@ import {
   PhotoshootGallery,
   Photoupscaling,
   TrainingDatasets,
+  StudyKits
 } from "./_root/pages";
 import "./globals.css";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -29,6 +33,7 @@ import { Loader2 } from "lucide-react";
 import NotFound from "./_root/NotFound";
 
 const Landing = lazy(() => import("./_root/Landing"));
+const SolutionPage = lazy(() => import("./_root/Solutions"));
 const RootLayout = lazy(() => import("./_root/RootLayout"));
 const AuthLayout = lazy(() => import("./_auth/AuthLayout"));
 const SignUpForm = lazy(() => import("./_auth/forms/SignUpForm"));
@@ -37,6 +42,12 @@ const ShowCase = lazy(() => import("./_root/ShowCase"));
 const Terms = lazy(() => import("./_root/Terms"));
 const Enterprise = lazy(() => import("./_root/Enterprise"));
 const BrandingRequest = lazy(() => import("./_root/BrandingRequest"));
+const CaseStudyPage = lazy(() => import("./_root/CaseStudy"));
+const AcademyPage = lazy(() => import("./_root/Academy"));
+const ProgramsPage = lazy(() => import("./_root/Programs"));
+const ProgramPage = lazy(() => import("./_root/Program"));
+const CareerPage = lazy(() => import("./_root/Careers"));
+
 
 const App = () => {
   const [showFirstMessage, setShowFirstMessage] = useState(true);
@@ -83,6 +94,9 @@ const App = () => {
                 path="/generations/flux/lora"
                 element={<FluxLoraGenerate />}
               />
+              <Route path="/demotraining" element={<DemoTraining />} />
+              <Route path="/demogenerate" element={<DemoGenerate />} />
+              <Route path="/generations-image" element={<ImageGenerate />} />
               <Route path="/generations/bg-remover" element={<BgRemover />} />
               <Route
                 path="/generations/image-to-prompt"
@@ -97,7 +111,8 @@ const App = () => {
               />
               <Route path="/training-dataset" element={<TrainingDatasets />} />
               <Route path="/billing" element={<Billing />} />
-              <Route path="/credits-billing" element={<CreditsBilling />}/>
+              <Route path="/credits-billing" element={<CreditsBilling />} />
+              <Route path="/study-kits" element={<StudyKits />} />
             </Route>
 
             <Route element={<AuthLayout />}>
@@ -107,12 +122,22 @@ const App = () => {
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/reset-password" element={<ResetPassword />} />
             </Route>
+
             <Route index element={<Landing />} />
             <Route path="/showcase" element={<ShowCase />} />
+            <Route path="/solutions" element={<SolutionPage />} />
+            <Route path="/case-study" element={<CaseStudyPage />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/enterprise" element={<Enterprise />} />
             <Route path="/contact" element={<BrandingRequest />} />
+            <Route path="/retenaai-academy" element={<AcademyPage />} />
+            <Route
+              path="/retenaai-academy/programs"
+              element={<ProgramsPage />}
+            />
+            <Route path="/retenaai-academy/program" element={<ProgramPage />} />
+            <Route path="/careers" element={<CareerPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </SkeletonTheme>

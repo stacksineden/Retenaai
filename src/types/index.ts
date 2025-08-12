@@ -11,7 +11,10 @@ export type IUser = {
   name: string;
   email: string;
   imageUrl: string;
-  creditBalance: number;
+  stage: string;
+  cohort: string;
+  program: string;
+  programId: string;
 };
 
 export type ISubscription = {
@@ -23,15 +26,26 @@ export type ISubscription = {
 };
 
 export type INewUser = {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
+  phoneNumber: string;
+  country: string;
+  state: string;
 };
 
 export type IUpdateCredit = {
   userId: string;
   balance: number;
 };
+
+export type IUpdateStage = {
+  stage: string;
+  program: string;
+  ProgamId: string;
+  userId: string;
+}
 
 export type FluxStylesData = {
   title: string;
@@ -42,19 +56,44 @@ export type FluxStylesData = {
 };
 
 export type AppStylesData = {
-  title: string;
-  text: string;
-  images: string[];
-  query_slug: string;
-  url: string;
+  name: string;
+  training_status: string;
+  data_created: string;
+  shoot_type: string;
+  api_url: string;
+  image: string;
 };
 
+export type TemplateObj = {
+  image: string;
+  prompt: string;
+};
 export type GalleryStylesData = {
-  title: string;
-  text: string;
+  name: string;
+  slug: string;
+  category: string;
   images: string[];
-  query_slug: string;
+  text: string;
+  templates: TemplateObj[];
   is_trending: boolean;
+};
+
+export type ProgramTypeData = {
+  name: string;
+  description: string;
+  image: string;
+  linkText: string;
+  href: string;
+  slug: string;
+  disabled: boolean;
+};
+
+export type ProductDemoCardData = {
+  name: string;
+  trigger_word: string;
+  training_dataset: string[];
+  image_generated: string[];
+  prompt: string;
 };
 
 export type TrainingDatasetResponse = {
@@ -80,7 +119,7 @@ export type ContractPayload = {
   subject: string;
   email: string;
   AdditionalInfo: string;
-  BusinessType: string;
+  BusinessType?: string;
   Budget: string;
 };
 

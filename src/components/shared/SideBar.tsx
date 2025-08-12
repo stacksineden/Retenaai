@@ -5,13 +5,13 @@ import {
   ChevronsLeft,
   House,
   Image,
-  Cat,
   Blend,
   FlipVertical2,
   Focus,
   UserRound,
   ScanText,
   Terminal,
+  LockKeyhole,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
@@ -22,6 +22,9 @@ const SideBar = () => {
   const navigate = useNavigate();
 
   const { user } = useUserContext();
+
+  const isProspect = user?.stage === "prospect" && !user?.program;
+  const isApplied = user?.stage === "applied" && user?.program;
 
   return (
     <aside className="h-[100dvh] overflow-hidden">
@@ -77,38 +80,49 @@ const SideBar = () => {
                   {/* tools 1 */}
                   <div className="mx-auto flex flex-col w-[90%] bg-white p-4 rounded-xl">
                     <p className="font-semibold text-base text-primary-black">
-                      Flux AI
+                      Learning
                     </p>
                     <div className="mt-6 flex flex-col gap-3">
                       <div
-                        className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
-                        onClick={() => navigate("/lora-gallery")}
+                        className={`flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
+                        onClick={() => navigate("/app")}
                       >
                         <Image className="h-6 w-6 text-primary-black" />
                         <p className="text-sm text-primary-black font-medium">
-                          Image Generation with Flux
+                          {isProspect ? "Programs" : "Program"}
                         </p>
                       </div>
                       <div
-                        className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
-                        onClick={() =>
-                          navigate("/generations/flux?mode=flux1.1-ultra")
-                        }
-                      >
-                        <Cat className="h-6 w-6 text-primary-black" />
-                        <p className="text-sm text-primary-black font-medium">
-                          Try Flux Ultra
-                        </p>
-                        <div className="py-1 px-2 bg-red-500 text-white text-sm rounded-md">new</div>
-                      </div>
-                      <div
-                        className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
-                        onClick={() => navigate("/app")}
+                        className={`flex items-center gap-2 ${
+                          isProspect || isApplied ? "bg-accent" : ""
+                        } hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
+                        onClick={() => {
+                          if (!isProspect && !isApplied) navigate("/app");
+                        }}
                       >
                         <Focus className="h-6 w-6 text-primary-black" />
                         <p className="text-sm text-primary-black font-medium">
-                          AI Photoshoot
+                          Interactive Sessions
                         </p>
+                        {(isProspect || isApplied) && (
+                          <LockKeyhole className="h-6 w-6 text-[#14213D]" />
+                        )}
+                      </div>
+                      <div
+                        className={`flex items-center gap-2  ${
+                          isProspect || isApplied ? "bg-accent" : ""
+                        }  hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
+                        onClick={() => {
+                          if (!isProspect && !isApplied) navigate("/app");
+                        }}
+                      >
+                        <Image className="h-6 w-6 text-primary-black" />
+                        <p className="text-sm text-primary-black font-medium">
+                          Modules
+                        </p>
+                        {(isProspect || isApplied) && (
+                          <LockKeyhole className="h-6 w-6 text-[#14213D]" />
+                        )}
                       </div>
                     </div>
                   </div>
@@ -116,45 +130,72 @@ const SideBar = () => {
                   {/* tools 2 */}
                   <div className="mx-auto flex flex-col w-[90%] bg-white p-4 rounded-xl">
                     <p className="font-semibold text-base text-primary-black">
-                      Magic Tools
+                      Resources
                     </p>
                     <div className="mt-6 flex flex-col gap-3">
                       <div
-                        className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
-                        onClick={() => navigate("/generations/image-to-prompt")}
+                        className={`flex items-center gap-2 ${
+                          isProspect && "bg-accent"
+                        } hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
+                        onClick={() => {
+                          isProspect ? {} : navigate("/study-kits");
+                        }}
                       >
                         <ScanText className="h-6 w-6 text-primary-black" />
                         <p className="text-sm text-primary-black font-medium">
-                          Image to prompt
+                          Study Kit
                         </p>
+                        {isProspect && (
+                          <LockKeyhole className="h-6 w-6 text-[#14213D]" />
+                        )}
                       </div>
-                      <a
-                        className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
-                        href="https://huggingface.co/spaces/gokaygokay/FLUX-Prompt-Generator"
-                        target="_blank"
+                      <div
+                        className={`flex items-center gap-2 ${
+                          isProspect || isApplied ? "bg-accent" : ""
+                        } hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
+                        onClick={() => {
+                          if (!isProspect && !isApplied) navigate("/app");
+                        }}
                       >
                         <Terminal className="h-6 w-6 text-primary-black" />
                         <p className="text-sm text-primary-black font-medium">
-                          Flux.AI prompt generator
+                          Course Materials
                         </p>
-                      </a>
+                        {(isProspect || isApplied) && (
+                          <LockKeyhole className="h-6 w-6 text-[#14213D]" />
+                        )}
+                      </div>
                       <div
-                        className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
-                        onClick={() => navigate("/generations/photo-upscaling")}
+                        className={`flex items-center gap-2 ${
+                          isProspect || isApplied ? "bg-accent" : ""
+                        } hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
+                        onClick={() => {
+                          if (!isProspect && !isApplied) navigate("/app");
+                        }}
                       >
                         <Blend className="h-6 w-6 text-primary-black" />
                         <p className="text-sm text-primary-black font-medium">
-                          Photo upscaling
+                          Assessments
                         </p>
+                        {(isProspect || isApplied) && (
+                          <LockKeyhole className="h-6 w-6 text-[#14213D]" />
+                        )}
                       </div>
                       <div
-                        className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
-                        onClick={() => navigate("/generations/bg-remover")}
+                        className={`flex items-center gap-2  ${
+                          isProspect || isApplied ? "bg-accent" : ""
+                        } hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
+                        onClick={() => {
+                          if (!isProspect && !isApplied) navigate("/app");
+                        }}
                       >
                         <FlipVertical2 className="h-6 w-6 text-primary-black" />
                         <p className="text-sm text-primary-black font-medium">
-                          Background remover
+                          Tasks
                         </p>
+                        {(isProspect || isApplied) && (
+                          <LockKeyhole className="h-6 w-6 text-[#14213D]" />
+                        )}
                       </div>
                     </div>
                   </div>
@@ -242,46 +283,54 @@ const SideBar = () => {
                       {/* tools 1 */}
                       <div className="mx-auto flex flex-col w-[90%] bg-white p-4 rounded-xl">
                         <p className="font-semibold text-base text-primary-black">
-                          Flux AI
+                          Learning
                         </p>
                         <div className="mt-6 flex flex-col gap-3">
                           <div
-                            className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
-                            onClick={() => {
-                              setMobileOpen(false);
-                              navigate("/lora-gallery");
-                            }}
-                          >
-                            <Image className="h-6 w-6 text-primary-black" />
-                            <p className="text-sm text-primary-black font-medium">
-                              Image Generation with Flux
-                            </p>
-                          </div>
-                          <div
-                            className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
+                            className={`flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
                             onClick={() => {
                               setMobileOpen(false);
                               navigate("/generations/flux?mode=flux1.1-ultra");
                             }}
                           >
-                            <Cat className="h-6 w-6 text-primary-black" />
+                            <Image className="h-6 w-6 text-primary-black" />
                             <p className="text-sm text-primary-black font-medium">
-                              Try Flux Ultra
+                              {isProspect ? "Programs" : "Program"}
                             </p>
-                            <div className="py-1 px-2 bg-red-500 text-white text-sm rounded-md">new</div>
                           </div>
                           <div
-                            className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
+                            className={`flex items-center gap-2 ${
+                              isProspect || isApplied ? "bg-accent" : ""
+                            } hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
                             onClick={() => {
                               setMobileOpen(false);
-                              navigate("/app");
+                              if (!isProspect && !isApplied) navigate("/app");
                             }}
                           >
                             <Focus className="h-6 w-6 text-primary-black" />
-
                             <p className="text-sm text-primary-black font-medium">
-                              AI Photoshoot
+                              Interactive Sessions
                             </p>
+                            {(isProspect || isApplied) && (
+                              <LockKeyhole className="h-6 w-6 text-[#14213D]" />
+                            )}
+                          </div>
+                          <div
+                            className={`flex items-center gap-2 ${
+                              isProspect || isApplied ? "bg-accent" : ""
+                            } hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
+                            onClick={() => {
+                              setMobileOpen(false);
+                              if (!isProspect && !isApplied) navigate("/app");
+                            }}
+                          >
+                            <Image className="h-6 w-6 text-primary-black" />
+                            <p className="text-sm text-primary-black font-medium">
+                              Modules
+                            </p>
+                            {(isProspect || isApplied) && (
+                              <LockKeyhole className="h-6 w-6 text-[#14213D]" />
+                            )}
                           </div>
                         </div>
                       </div>
@@ -289,54 +338,76 @@ const SideBar = () => {
                       {/* tools 2 */}
                       <div className="mx-auto flex flex-col w-[90%] bg-white p-4 rounded-xl">
                         <p className="font-semibold text-base text-primary-black">
-                          Magic Tools
+                          Resources
                         </p>
                         <div className="mt-6 flex flex-col gap-3">
                           <div
-                            className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
+                            className={`flex items-center gap-2 ${
+                              isProspect && "bg-accent"
+                            } hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
                             onClick={() => {
                               setMobileOpen(false);
-                              navigate("/generations/image-to-prompt");
+                              isProspect ? {} : navigate("/study-kits");
                             }}
                           >
                             <ScanText className="h-6 w-6 text-primary-black" />
                             <p className="text-sm text-primary-black font-medium">
-                              Image to prompt
+                              Study Kit
                             </p>
+                            {isProspect && (
+                              <LockKeyhole className="h-6 w-6 text-[#14213D]" />
+                            )}
                           </div>
-                          <a
-                            className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
-                            href="https://huggingface.co/spaces/gokaygokay/FLUX-Prompt-Generator"
-                            target="_blank"
+                          <div
+                            className={`flex items-center gap-2 ${
+                              isProspect || isApplied ? "bg-accent" : ""
+                            } hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
+                            onClick={() => {
+                              setMobileOpen(false);
+                              if (!isProspect && !isApplied) navigate("/app");
+                            }}
                           >
                             <Terminal className="h-6 w-6 text-primary-black" />
                             <p className="text-sm text-primary-black font-medium">
-                              Flux.AI prompt generator
+                              Course Materials
                             </p>
-                          </a>
+                            {(isProspect || isApplied) && (
+                              <LockKeyhole className="h-6 w-6 text-[#14213D]" />
+                            )}
+                          </div>
                           <div
-                            className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
+                            className={`flex items-center gap-2 ${
+                              isProspect || isApplied ? "bg-accent" : ""
+                            } hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
                             onClick={() => {
                               setMobileOpen(false);
-                              navigate("/generations/photo-upscaling");
+                              if (!isProspect && !isApplied) navigate("/app");
                             }}
                           >
                             <Blend className="h-6 w-6 text-primary-black" />
                             <p className="text-sm text-primary-black font-medium">
-                              Photo upscaling
+                              Assessments
                             </p>
+                            {(isProspect || isApplied) && (
+                              <LockKeyhole className="h-6 w-6 text-[#14213D]" />
+                            )}
                           </div>
                           <div
-                            className="flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer"
+                            className={`flex items-center gap-2 ${
+                              isProspect || isApplied ? "bg-accent" : ""
+                            } hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
                             onClick={() => {
                               setMobileOpen(false);
-                              navigate("/generations/bg-remover");
+                              if (!isProspect && !isApplied) navigate("/app");
                             }}
                           >
                             <FlipVertical2 className="h-6 w-6 text-primary-black" />
                             <p className="text-sm text-primary-black font-medium">
-                              Background remover
+                              Tasks
                             </p>
+                            {(isProspect || isApplied) && (
+                              <LockKeyhole className="h-6 w-6 text-[#14213D]" />
+                            )}
                           </div>
                         </div>
                       </div>

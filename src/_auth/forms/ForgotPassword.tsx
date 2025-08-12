@@ -14,7 +14,7 @@ import { ForgetPasswordValidationSchema } from "@/lib/validation";
 import { Button } from "@/components/ui/button";
 import { forgotPassword } from "@/lib/appwrite/api";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+
 
 const ForgotPassword = () => {
   // 1. Define your form.
@@ -43,15 +43,8 @@ const ForgotPassword = () => {
 
   return (
     <Form {...form}>
-      <div className="w-[85%] md:w-[60%] flex-center flex-col">
-      <Link to="/" className="w-[150px] md:w-[170px]">
-      <img
-            src="/assets/logo.png"
-            alt="brand"
-            className="w-full object-contain"
-          />
-        </Link>
-        <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12 text-primary-black">
+      <div className="w-[85%] md:w-[65%] flex-col">
+        <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12 text-[#FCA311]">
           Forgot Password
         </h2>
         <p className="text-primary-black font-light small-medium md:base-regular">
