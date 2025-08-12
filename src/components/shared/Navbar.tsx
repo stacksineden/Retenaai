@@ -79,7 +79,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center gap-1">
             <Button
               className="bg-accent text-primary-blue3 hover:bg-accent font-semibold text-sm"
-              onClick={() => Navigate("/contact")}
+              onClick={() => Navigate("/sign-up")}
             >
               Apply Now
             </Button>
