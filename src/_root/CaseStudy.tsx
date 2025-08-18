@@ -34,7 +34,7 @@ const CaseStudy = () => {
             <ArrowRight className="text-white h-4" />
           </Button>
         </div>
-        {caseStudyData?.slug === "studiogen" && <DemoVideo />}
+        {caseStudyData?.slug === "studiogen" && <DemoVideo url="https://www.youtube.com/watch?v=rGDPsrP18Go&t=18s"/>}
 
         <div className="py-8 flex flex-col gap-6">
           <div className="flex flex-col gap-2">

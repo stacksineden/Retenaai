@@ -6,13 +6,12 @@ import Hero from "@/components/shared/Hero";
 import { HighLights } from "@/components/shared/HighLights";
 import WebLayoutWrapper from "@/components/shared/WebLayoutWrapper";
 
-
 const Home = () => {
   return (
     <WebLayoutWrapper>
-      <Hero /> 
-      <DemoVideo />
-      <Features />  
+      <Hero />
+      <DemoVideo url="https://youtu.be/6dvnHG6UnPI" />
+      <Features />
       <CtaCard
         title={
           <>
@@ -23,7 +22,7 @@ const Home = () => {
         description="We&#8217;re backing a select group of founders with AI SaaS, or agency ideas — helping them go from concept to MVP with hands-on support, infrastructure, and funding. Build it fast, launch it right, and grow with us."
         buttonText="Learn More"
         imageSrc="/assets/pilot.webp"
-          ctaUrl="/enterprise"
+        ctaUrl="/enterprise"
       />
       <section className="py-4">
         <HighLights />
@@ -56,4 +55,3 @@ const Home = () => {
 };
 
 export default Home;
-
