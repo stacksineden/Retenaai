@@ -609,14 +609,17 @@ const Program = () => {
           {/* Left: Text Content */}
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold text-[#14213D] leading-tight">
-              Choose a <span className="text-[#FCA311]">Payment Plan</span> That
-              Fits Your Goals
+              Enjoy a{" "}
+              <span className="text-[#FCA311]">50% Tuition Discount</span> for a
+              Limited Time!
             </h2>
             <p className="text-lg text-gray-700">
-              Invest in your future with a payment plan that works for you.
+              Invest in your AI career now and take advantage of this special
+              limited-time tuition slash. Secure your spot today.
             </p>
 
             <ul className="space-y-6">
+              {/* One-Time Payment */}
               <li className="flex items-start gap-4">
                 <CreditCard className="text-[#FCA311] w-6 h-6 mt-1" />
                 <div>
@@ -625,13 +628,18 @@ const Program = () => {
                   </h4>
                   <p className="text-gray-600">
                     Make a single payment of{" "}
-                    <span className="font-semibold text-[#c1121f]">
+                    <span className="font-semibold text-[#c1121f] line-through">
                       {programData?.payment?.total ?? "__ __"}
+                    </span>{" "}
+                    <span className="font-semibold text-green-600">
+                      {programData?.payment?.discounted_total ?? "__ __"}
                     </span>{" "}
                     and secure your seat instantly.
                   </p>
                 </div>
               </li>
+
+              {/* Flexible Installments */}
               <li className="flex items-start gap-4">
                 <CalendarClock className="text-[#FCA311] w-6 h-6 mt-1" />
                 <div>
@@ -639,35 +647,40 @@ const Program = () => {
                     Flexible Installments
                   </h4>
                   <p className="text-gray-600">
-                    Spread your investment across 3 easy payments:
+                    Spread your discounted tuition across 3 easy payments:
                   </p>
                   <ul className="list-disc list-inside text-gray-600 mt-2 ml-4 space-y-1">
                     <li>
-                      <strong className="text-[#c1121f]">
-                        {programData?.payment?.first_tranche ?? "__ __"}
-                      </strong>
+                      <strong className="text-green-600">
+                        {programData?.payment?.discounted_first_tranche ??
+                          "__ __"}
+                      </strong>{" "}
                       – Before program start
                     </li>
                     <li>
-                      <strong className="text-[#c1121f]">
-                        {programData?.payment?.second_tranche ?? "__ __"}
+                      <strong className="text-green-600">
+                        {programData?.payment?.discounted_second_tranche ??
+                          "__ __"}
                       </strong>{" "}
                       – End of Month 1
                     </li>
                     <li>
-                      <strong className="text-[#c1121f]">
-                        {programData?.payment?.third_tranche ?? "__ __"}
+                      <strong className="text-green-600">
+                        {programData?.payment?.discounted_third_tranche ??
+                          "__ __"}
                       </strong>{" "}
                       – End of Month 2
                     </li>
                   </ul>
                 </div>
               </li>
+
+              {/* No Hidden Fees */}
               <li className="flex items-start gap-4">
                 <Banknote className="text-[#FCA311] w-6 h-6 mt-1" />
                 <p className="text-gray-600">
-                  No hidden fees. No extra charges. Just a clear path to
-                  launching your AI integration career.
+                  No hidden fees. No extra charges. Just a clear, discounted
+                  path to launching your AI integration career.
                 </p>
               </li>
             </ul>

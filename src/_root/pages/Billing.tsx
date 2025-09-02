@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 
 import { useUpdateUserStageStatus } from "@/lib/tanstack-query/queriesAndMutation";
 
-
 const Billing = () => {
   const urlParams = new URLSearchParams(window.location.search);
   const programSlug = urlParams.get("program");
@@ -22,7 +21,6 @@ const Billing = () => {
   const programDetais = available_programs?.find(
     (item) => item?.slug === programSlug
   );
-
 
   // Flutterwave configuration
   const config = {
@@ -194,18 +192,26 @@ const Billing = () => {
               <h3 className="text-xl font-bold mb-2">Tuition</h3>
               {/* Pricing Plans */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Quarterly Plan */}
-                <div className="border border-gray-200 rounded-lg p-5 shadow-sm bg-[#f9fafb]">
+                {/* Installments Plan */}
+                <div className="border border-gray-200 rounded-lg p-5 shadow-sm bg-[#f9fafb] relative overflow-hidden">
+                  <div className="absolute top-2 right-2 bg-[#FCA311] text-white text-xs font-semibold px-2 py-1 rounded">
+                    50% OFF
+                  </div>
                   <p className="text-sm text-primary-blue3 font-semibold">
                     Installments
                   </p>
                   <p className="text-green-600 text-xs mb-2">
                     Payable in 3 installments
                   </p>
-                  <h3 className="text-xl font-bold mb-2">
-                    {programDetais?.payment?.first_tranche ?? "__ __"}
+                  <h3 className="text-xl font-bold mb-2 flex flex-col">
+                    <span className="line-through text-gray-400 text-base mr-2">
+                      {programDetais?.payment?.first_tranche ?? "__ __"}
+                    </span>
+                    <span className="text-green-600">
+                      {programDetais?.payment?.discounted_first_tranche ??
+                        "__ __"}
+                    </span>
                   </h3>
-                  {/* <p className="text-sm mb-4">per </p> */}
                   <ul className="text-sm text-gray-700 space-y-1 list-disc list-inside">
                     <li>Access to LMS</li>
                     <li>Live classes</li>
@@ -216,16 +222,22 @@ const Billing = () => {
                 </div>
 
                 {/* Upfront Plan */}
-                <div className="border border-gray-200 rounded-lg p-5 shadow-sm bg-[#fef9f4]">
+                <div className="border border-gray-200 rounded-lg p-5 shadow-sm bg-[#fef9f4] relative overflow-hidden">
+                  <div className="absolute top-2 right-2 bg-[#FCA311] text-white text-xs font-semibold px-2 py-1 rounded">
+                    50% OFF
+                  </div>
                   <p className="text-sm text-primary-blue3 font-semibold">
                     Upfront
                   </p>
                   <p className="text-green-600 text-xs mb-2">Pay once</p>
-                  <h3 className="text-xl font-bold mb-2">
-                    {" "}
-                    {programDetais?.payment?.total ?? "__ __"}
+                  <h3 className="text-xl font-bold mb-2 flex flex-col">
+                    <span className="line-through text-gray-400 text-base mr-2">
+                      {programDetais?.payment?.total ?? "__ __"}
+                    </span>
+                    <span className="text-green-600">
+                      {programDetais?.payment?.discounted_total ?? "__ __"}
+                    </span>
                   </h3>
-                  {/* <p className="text-sm mb-4">once</p> */}
                   <ul className="text-sm text-gray-700 space-y-1 list-disc list-inside">
                     <li>Access to LMS</li>
                     <li>Live classes</li>
@@ -244,4 +256,3 @@ const Billing = () => {
 };
 
 export default Billing;
-

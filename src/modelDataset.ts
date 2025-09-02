@@ -1787,7 +1787,7 @@ export const case_studies = [
 
 export const available_programs = [
   {
-    program_name: "AI System Integration Bootcamp",
+    program_name: "AI Systems Integration Bootcamp",
     needed_by: "For AI Enthusiasts",
     card_descpription_text:
       "Gain practical expertise in deploying AI-powered systems using no-code and low-code tools to help businesses automate processes and achieve strategic goals.",
@@ -1923,9 +1923,13 @@ export const available_programs = [
       "You won't just know how AI works—you'll prove it by delivering business value with it.",
     payment: {
       total: "₦440,000",
+      discounted_total: "220,000",
       first_tranche: "₦160,000",
+      discounted_first_tranche: "₦100,000",
       second_tranche: "₦150,000",
+      discounted_second_tranche: "₦60,000",
       third_tranche: "₦150,000",
+      discounted_third_tranche: "₦60,000",
     },
     faqs: [
       {
@@ -2143,9 +2147,13 @@ export const available_programs = [
       "Become a certified AI Consultant & Strategist, equipped to advise businesses, craft AI adoption roadmaps, and lead AI-driven transformation without deep technical builds.",
     payment: {
       total: "₦350,000",
+      discounted_total: "175,000",
       first_tranche: "₦130,000",
+      discounted_first_tranche: "₦80,000",
       second_tranche: "₦110,000",
+      discounted_second_tranche: "₦47,500",
       third_tranche: "₦110,000",
+      discounted_third_tranche: "₦47,500",
     },
     faqs: [
       {

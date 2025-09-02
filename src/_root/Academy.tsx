@@ -8,6 +8,7 @@ import WebLayoutWrapper from "@/components/shared/WebLayoutWrapper";
 import { academyfaqs } from "@/modelDataset";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useLocation } from "react-router-dom";
+import TuitionDiscountBanner from "@/components/shared/TutionDiscountBanner";
 
 const Academy = () => {
   const [activeIndex, setActiveIndex] = React.useState<number | null>(null);
@@ -28,6 +29,7 @@ const Academy = () => {
 
   return (
     <WebLayoutWrapper>
+      <TuitionDiscountBanner />
       <section className="bg-accent">
         <AcademyHero
           title={
