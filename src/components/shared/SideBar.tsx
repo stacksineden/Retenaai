@@ -25,6 +25,7 @@ const SideBar = () => {
 
   const isProspect = user?.stage === "prospect" && !user?.program;
   const isApplied = user?.stage === "applied" && user?.program;
+  // const isFusion = user?.stage === "fusion" && user?.program;
 
   return (
     <aside className="h-[100dvh] overflow-hidden">
@@ -154,12 +155,12 @@ const SideBar = () => {
                           isProspect || isApplied ? "bg-accent" : ""
                         } hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
                         onClick={() => {
-                          if (!isProspect && !isApplied) navigate("/app");
+                          if (!isProspect && !isApplied) navigate("/program-resources");
                         }}
                       >
                         <Terminal className="h-6 w-6 text-primary-black" />
                         <p className="text-sm text-primary-black font-medium">
-                          Course Materials
+                          Program Materials
                         </p>
                         {(isProspect || isApplied) && (
                           <LockKeyhole className="h-6 w-6 text-[#14213D]" />
@@ -364,12 +365,12 @@ const SideBar = () => {
                             } hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
                             onClick={() => {
                               setMobileOpen(false);
-                              if (!isProspect && !isApplied) navigate("/app");
+                              if (!isProspect && !isApplied) navigate("/program-resources");
                             }}
                           >
                             <Terminal className="h-6 w-6 text-primary-black" />
                             <p className="text-sm text-primary-black font-medium">
-                              Course Materials
+                              Program Materials
                             </p>
                             {(isProspect || isApplied) && (
                               <LockKeyhole className="h-6 w-6 text-[#14213D]" />

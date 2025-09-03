@@ -36,7 +36,7 @@ const Billing = () => {
     },
     customizations: {
       title: `Payment for ${
-        programDetais?.program_name ?? "Retena AI"
+        programDetais?.program_name ?? "RetenaAI"
       } Application Fee`,
       description: `Payment for Retena.ai photoshoot`,
       logo: "",

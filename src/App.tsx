@@ -18,7 +18,7 @@ import {
   PhotoshootGallery,
   Photoupscaling,
   TrainingDatasets,
-  StudyKits
+  StudyKits,
 } from "./_root/pages";
 import "./globals.css";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -31,6 +31,7 @@ import ForgotPassword from "./_auth/forms/ForgotPassword";
 import ResetPassword from "./_auth/forms/ResetPassword";
 import { Loader2 } from "lucide-react";
 import NotFound from "./_root/NotFound";
+import ProgramResources from "./_root/pages/ProgramResources";
 
 const Landing = lazy(() => import("./_root/Landing"));
 const SolutionPage = lazy(() => import("./_root/Solutions"));
@@ -47,7 +48,6 @@ const AcademyPage = lazy(() => import("./_root/Academy"));
 const ProgramsPage = lazy(() => import("./_root/Programs"));
 const ProgramPage = lazy(() => import("./_root/Program"));
 const CareerPage = lazy(() => import("./_root/Careers"));
-
 
 const App = () => {
   const [showFirstMessage, setShowFirstMessage] = useState(true);
@@ -113,6 +113,7 @@ const App = () => {
               <Route path="/billing" element={<Billing />} />
               <Route path="/credits-billing" element={<CreditsBilling />} />
               <Route path="/study-kits" element={<StudyKits />} />
+              <Route path="/program-resources" element={<ProgramResources />} />
             </Route>
 
             <Route element={<AuthLayout />}>

@@ -14,7 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { SigninValidationSchema } from "@/lib/validation";
 import Loader from "@/components/shared/Loader";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useUserContext } from "@/context/AuthContext";
 import { useSignInAccount } from "@/lib/tanstack-query/queriesAndMutation";
@@ -23,6 +23,9 @@ import { useSignInAccount } from "@/lib/tanstack-query/queriesAndMutation";
 const SignInForm = () => {
   const { checkAuthUser } = useUserContext();
   const navigate = useNavigate();
+
+  const [searchParams] = useSearchParams();
+  const stage = searchParams.get("ref");
 
   const [isCheckingAuth, setIsCheckingAuth] = useState(false);
 
@@ -67,7 +70,7 @@ const SignInForm = () => {
     if (isLoggedIn) {
       form.reset();
       setIsCheckingAuth(false);
-      navigate("/app");
+      navigate(`/app${stage ? `?ref=${stage}` : ""}`);
     } else {
       setIsCheckingAuth(false);
       return toast.error("Sign up failed, please try again.");
