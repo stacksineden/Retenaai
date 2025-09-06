@@ -86,6 +86,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         "/retenaai-academy",
         "/retenaai-academy/programs",
         "/retenaai-academy/program",
+        "/retenaai-academy/masterclass",
+        "/retenaai-academy/masterclass-billing",
+        "/retenaai-academy/thank-you",
         "/careers",
       ];
       if (!currentAccount && !excludedPaths.includes(location.pathname)) {
@@ -118,7 +121,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         location.pathname.includes("/retenaai-academy") ||
         location.pathname.includes("/retenaai-academy/programs") ||
         location.pathname.includes("/retenaai-academy/program") ||
-        location.pathname.includes("/careers") ||
+        location.pathname.includes("/retenaai-academy/masterclass") ||
+        location.pathname.includes("/retenaai-academy/masterclass-billing") ||
+        location.pathname.includes("/retenaai-academy/masterclass-billing") ||
+        location.pathname.includes("/retenaai-academy/thank-you") ||
         location.pathname === "/"
       ) &&
       (cookieFallback === "[]" ||

@@ -2211,6 +2211,110 @@ export const available_programs = [
   },
 ];
 
+export const available_masterclasses = [
+  {
+    program_name:
+      "AI Product Photography & Business Transformation Masterclass",
+    needed_by: "For Founders, Creatives & AI Enthusiasts",
+    card_descpription_text:
+      "Master the new wave of AI photography tools to create stunning visuals, solve real business pain points, and package transformation-driven services that clients will pay for. Go beyond images—learn to build a profitable agency or service around them.",
+    slug: "masterclass_ai_product_photography",
+    card_image: "/assets/masterclass.webp",
+    is_disabled: false,
+    hero_subtext:
+      "This 4-session intensive masterclass goes beyond simple photo generation. You’ll learn how to identify business pain points, package AI-powered transformation services, and launch your own profitable agency or solution. Done-with-you, step by step.",
+    brochure_link: "masterclassbrochure",
+    cohort: "1",
+    cohort_start_date: "September 13, 2025",
+    cohort_duration: "4 Weeks (12 Hours Total)",
+    testimonials: [],
+    course_outline: [
+      {
+        topic: "Week 1 – The AI Advantage & Early Monetization",
+        description:
+          "Lay the foundation by understanding the NanoBanana tool, why early adoption matters, and how to quickly monetize AI-generated product photography before the market saturates.",
+        outcomes: [
+          "Grasp the economics of being early in AI adoption",
+          "Identify fast monetization opportunities",
+          "Spot high-value niches for AI product photography",
+        ],
+        is_elective: false,
+      },
+      {
+        topic: "Week 2 – Packaging Transformation Services",
+        description:
+          "Go beyond generating images. Learn to identify business pain points and package AI solutions that deliver real transformation (content posting, ads, social media management).",
+        outcomes: [
+          "Identify pain points within SMEs",
+          "Bundle product photography into larger services",
+          "Create transformation-driven offers SMEs will pay for",
+        ],
+        is_elective: false,
+      },
+      {
+        topic: "Week 3 – Finding the Right Prospects & Positioning",
+        description:
+          "Understand what makes a strong client. Learn to target problem-aware and solution-aware businesses with budgets, while positioning yourself as a transformation partner, not just a photo generator.",
+        outcomes: [
+          "Define what makes a good prospect",
+          "Differentiate between problem- and solution-aware clients",
+          "Position your service to attract SMEs with budget",
+        ],
+        is_elective: false,
+      },
+      {
+        topic: "Week 4 – Outreach, Sales & Launching Your Service",
+        description:
+          "Turn your offer into revenue. From referrals and networks to warming leads and cold outreach, learn actionable ways to land your first clients and build momentum.",
+        outcomes: [
+          "Leverage your network and word-of-mouth",
+          "Apply lead-warming strategies before outreach",
+          "Use tested templates and frameworks for cold outreach",
+          "Launch your branded AI service by the end of the program",
+        ],
+        is_elective: false,
+      },
+    ],
+    outcome:
+      "By the end of 4 weeks, you’ll have a branded service, online presence, and client-ready offer—positioned to start making money immediately.",
+    payment: {
+      total: "₦175,000",
+      discounted_total: "₦55,000",
+      first_tranche: "",
+      discounted_first_tranche: "",
+      second_tranche: "",
+      discounted_second_tranche: "₦55,000",
+    },
+    faqs: [
+      {
+        question: "What is the duration of the Masterclass?",
+        answer:
+          "The program runs for 4 weeks (12 hours total) across 4 intensive sessions.",
+      },
+      {
+        question: "What happens after the Masterclass ends?",
+        answer:
+          "You’ll have a ready-made service and brand presence. You’ll also gain access to our exclusive community, support, and eligibility for the Pilot Program.",
+      },
+      {
+        question: "Do I need prior technical experience?",
+        answer:
+          "No. This masterclass is beginner-friendly, designed for entrepreneurs, creatives, and SMEs who want to monetize AI immediately.",
+      },
+      {
+        question: "How is the Masterclass delivered?",
+        answer:
+          "Interactive live sessions with practical walk-throughs. You’ll build as you learn, with recordings and templates provided.",
+      },
+    ],
+    call_to_action: {
+      heading: "Ready to Launch Your AI Service?",
+      description:
+        "Don’t just learn AI tools—turn them into revenue. Join the AI Product Photography & Transformation Masterclass and launch your service in 4 weeks.",
+    },
+  },
+];
+
 export const academyfaqs = [
   {
     question: "What is RetenaAI Academy?",
