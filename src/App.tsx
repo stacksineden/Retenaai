@@ -50,7 +50,8 @@ const ProgramPage = lazy(() => import("./_root/Program"));
 const CareerPage = lazy(() => import("./_root/Careers"));
 const MasterclassPage = lazy(() => import("./_root/Masterclass"));
 const MasterclassBillingPage = lazy(() => import("./_root/Masterclassbilling"));
-const ThankYouPage = lazy(() => import("./_root/Thankyou"));
+const ConfirmedPage = lazy(() => import("./_root/Confirmed"));
+
 
 const App = () => {
   const [showFirstMessage, setShowFirstMessage] = useState(true);
@@ -147,7 +148,7 @@ const App = () => {
             />
             <Route
               path="/retenaai-academy/thank-you"
-              element={<ThankYouPage />}
+              element={<ConfirmedPage />}
             />
 
             <Route
