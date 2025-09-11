@@ -1,5 +1,6 @@
 import interbro from "./resources/RetenaAI AI SYSTEM INTEGRATION CURRICULUM.pdf";
 import strbro from "./resources/RetenaAI AI AI STRATEGY AND CONSULTING CURRICULUM.pdf";
+import genaibro from "./resources/GEN AI PROGRAM CURRICULUM.pdf";
 
 export const flux_styles_data = [
   {
@@ -2207,6 +2208,225 @@ export const available_programs = [
       heading: "Ready to Shape the Future of AI in Business?",
       description:
         "Join the next wave of AI consultants and strategists transforming industries with insight-driven, high-impact solutions.",
+    },
+  },
+];
+
+export const genai_program = [
+  {
+    program_name: "Generative AI Engineering Bootcamp",
+    needed_by: "For Ambitious Professionals, Creators & Career Switchers",
+    card_descprition_text:
+      "A 12-week immersive program that equips you with the mindset, tools, and skills to design, build, and deploy AI-powered systems — with five specialisation tracks to match your career goals.",
+    slug: "generative_ai_engineering",
+    card_image: "/assets/genai.webp",
+    is_disabled: false,
+    hero_subtext:
+      "The Generative AI Engineering Program blends foundational literacy, specialised training, and real-world projects. By the end, you’ll graduate with portfolio-ready expertise and clear career pathways as an AI systems integrator, consultant, agent developer, programmer, or product builder.",
+    brochure_link: genaibro,
+    cohort: "2",
+    cohort_start_date: "September 1st, 2025",
+    cohort_duration: "3 Months",
+    testimonials: [
+      {
+        name: "Olayinka Moyosore",
+        designation: "Cohort 1 Fellow",
+        text: "Being a student at Retena AI has been nothing short of life-changing. This program has redefined the way I think about technology, intelligence, and the future of innovation. I’ve been equipped with world-class knowledge and hands-on experience that rivals any global standard. Each lecture challenges my mindset, fuels my creativity, and sharpens my ability to integrate powerful AI systems seamlessly. I no longer see AI as just a tool — I see it as a limitless frontier. Retena AI is not just teaching me to build systems; it’s shaping me into a visionary leader in automation and AI integration. I walk with confidence, speak with insight, and build with precision. I’m not just learning — I’m evolving. My goal isn’t just to be one of the best AI system integrators in the world — it’s to define what that means.",
+        image: "/assets/moyo.jpg",
+      },
+      {
+        name: "Elizabeth Jacob",
+        designation: "Cohort 1 Fellow",
+        text: "RetenaAI didn't just teach me how systems talk to each other, it showed me the why behind it all. Now, I can confidently connect tools, automate workflows, and build smarter systems that actually work together , all from scratch. I came in curious. I’m leaving empowered. RetenaAI didn’t just teach me integration, it taught me transformation.",
+        image: "/assets/liz.jpg",
+      },
+    ],
+    course_outline: [
+      {
+        phase: "Fusion Phase",
+        week: "1",
+        topic: "Introduction to Generative AI",
+        description:
+          "Learners gain a foundational understanding of generative AI, large language models, and responsible AI practices.",
+        topics_covered: [
+          "What is Generative AI?",
+          "How LLMs work (transformers, tokens, embeddings)",
+          "Differences in language models",
+          "Responsible AI: ethics, safety, governance",
+        ],
+        outcomes: [
+          "Explain how Gen-AI works",
+          "Evaluate risks and responsible use",
+          "Articulate its business value",
+        ],
+        is_elective: false,
+      },
+      {
+        phase: "Fusion Phase",
+        week: "2",
+        topic: "Prompt Engineering",
+        description:
+          "Learners explore structured frameworks to design effective prompts for reliable, high-quality outputs.",
+        topics_covered: [
+          "RETENA Prompting Framework (Context → Persona → Output Goal)",
+          "Role-based, Few-shot, and Chain-of-Thought prompting",
+          "Custom instructions & role assignments",
+          "Prompt testing & evaluation",
+        ],
+        outcomes: [
+          "Design structured prompts",
+          "Solve business-related tasks using LLMs",
+        ],
+        is_elective: false,
+      },
+      {
+        phase: "Fusion Phase",
+        week: "3",
+        topic: "Workflow & Systems Thinking",
+        description:
+          "Learners understand how AI fits into workflows, automation, and business systems.",
+        topics_covered: [
+          "AI vs. Automation vs. Analytics",
+          "Business process intelligence & friction mapping",
+          "Systems mindset (Input → Tool → Output → Value)",
+          "Intro to APIs & JSON (conceptual, Postman/no-code tools)",
+          "Automation demo (n8n/Make)",
+        ],
+        outcomes: [
+          "Map business processes",
+          "Identify automation opportunities",
+          "Design simple AI-powered workflows",
+        ],
+        is_elective: false,
+      },
+      {
+        phase: "Fusion Phase",
+        week: "4",
+        topic: "Specialisation Previews",
+        description:
+          "Learners explore each track through mini-projects before committing to their specialisation.",
+        topics_covered: [
+          "Integration: Build a simple automation (email → Google Sheets)",
+          "Consulting: Diagnose a fictional business problem",
+          "Agents: Deploy a one-task agent with memory",
+          "Programming: RAG demo with embeddings + vector DB",
+          "Product Dev: Wireframe an AI SaaS MVP with OpenAI API",
+        ],
+        outcomes: [
+          "Preview all 5 specialisations",
+          "Select a specialisation for Phase 2",
+        ],
+        is_elective: false,
+      },
+      {
+        phase: "Specialisation Phase",
+        weeks: "5–8",
+        topic: "Specialisation Tracks",
+        description:
+          "Learners dive into one of five specialisation tracks: Systems Integration & Automation, AI Strategy & Consulting, AI Agent Development, Generative AI Programming, or AI Product Development. This phase covers Modules 5–8 and equips learners with hands-on, track-specific skills to build applied AI solutions.",
+        topics_covered: [
+          "Track-specific deep dives (workflow automation, consulting frameworks, agent development, RAG programming, or SaaS product design)",
+          "Hands-on projects tailored to chosen track",
+          "Progressive CADA challenges (Levels 4 → 2)",
+        ],
+        outcomes: [
+          "Develop specialised expertise in chosen track",
+          "Complete applied projects and portfolio-ready deliverables",
+          "Advance through CADA challenges towards capstone readiness",
+        ],
+        is_elective: true,
+      },
+      {
+        phase: "Capstone Phase",
+        weeks: "9–12",
+        topic: "Capstone Project & Portfolio",
+        description:
+          "In the final phase, learners apply their specialisation to a real-world project. Spanning Modules 9–12, this phase integrates scoping, implementation, pitching, and final portfolio packaging. The experience culminates in Demo Day presentations.",
+        topics_covered: [
+          "Capstone project scoping & design",
+          "Build, test, and refine solutions with mentor support",
+          "Presentation & pitching workshops",
+          "Portfolio documentation and Demo Day showcase",
+        ],
+        outcomes: [
+          "Deliver a real-world capstone project",
+          "Showcase skills to peers, mentors, and industry experts",
+          "Graduate with a portfolio-ready specialisation project",
+        ],
+        is_elective: true,
+      },
+    ],
+    track_phase: {
+      heading: "Choose Your Specialisation, Build Your Future",
+      description:
+        "In this phase, you’ll dive deep into one of five specialisation tracks — from systems integration to AI consulting, agent development, programming, or product design. Each track equips you with industry-relevant skills and challenges that mirror real-world AI workflows.",
+      tracks: [
+        "Systems Integration & Automation",
+        "AI Strategy & Consulting",
+        "AI Agent Development",
+        "Generative AI Programming",
+        "AI Product Development – No Code SaaS",
+      ],
+      points: [
+        "Work through progressive CADA challenges — from guided exercises to near real-world projects — leading into your final capstone.",
+        "Receive 1:1 mentorship, expert reviews, and weekly syncs tailored to your chosen track.",
+        "Graduate with a portfolio-ready project, real-world case study, and a demonstrable skillset to position you for freelance, product-building, or career placement opportunities.",
+      ],
+    },
+    outcome:
+      "Graduate as a certified Generative AI Engineer, ready to design, integrate, and deploy AI-powered systems or products — with a capstone project to showcase your expertise.",
+    payment: {
+      total: "₦300,000",
+      discounted_total: "150,000",
+      first_tranche: "₦180,000",
+      discounted_first_tranche: "₦70,000",
+      second_tranche: "₦60,000",
+      discounted_second_tranche: "₦40,000",
+      third_tranche: "₦60,000",
+      discounted_third_tranche: "₦40,000",
+    },
+    faqs: [
+      {
+        question:
+          "What is the duration of the Generative AI Engineering program?",
+        answer:
+          "The program runs for 12 weeks of structured learning, followed by optional post-training pathways such as Accelerator, Pilot, or Career Placement.",
+      },
+      {
+        question: "Can I pay in installments?",
+        answer:
+          "Yes. You can either pay a one-time fee of ₦300,000 or opt for a flexible 3-month installment plan.",
+      },
+      {
+        question: "What happens after the training ends?",
+        answer:
+          "You’ll have access to three post-training opportunities: join our Accelerator Program, test solutions with partners through the Pilot Program, or get matched through Career Placement.",
+      },
+      {
+        question: "Do I need a technical background?",
+        answer:
+          "No. The program is designed to take learners from non-technical or beginner level to industry-ready AI engineers.",
+      },
+      {
+        question: "How will I learn during the program?",
+        answer:
+          "You'll learn through live sessions, project-based challenges, mentor feedback, and a capstone project. All materials are available via our learning portal.",
+      },
+      {
+        question: "Will I build real projects?",
+        answer:
+          "Yes. Every learner completes progressive challenges and a capstone project aligned with their specialization, resulting in a portfolio-ready showcase.",
+      },
+      {
+        question: "How do I get started?",
+        answer:
+          "First, pay an application fee of ₦10,000, receive your home study kit, and complete an onboarding assessment. Once onboarded, you’ll gain access to the LMS.",
+      },
+    ],
+    call_to_action: {
+      heading: "Ready to Become a Generative AI Engineer?",
+      description:
+        "Join the program designed to turn ambitious learners into industry-ready AI builders, consultants, and product creators — equipped with the skills, projects, and pathways to thrive in the AI economy.",
     },
   },
 ];

@@ -57,8 +57,8 @@ const AcademyMobileMenu = ({
                 <ul
                   className={`my-2 divide-y text-sm divide-zinc-200 text-primary-black`}
                 >
-                  <Link to="/retenaai-academy/programs">
-                    <li className="block py-2 font-medium">Programs</li>
+                  <Link to="/retenaai-academy/program?mode=generative_ai_engineering">
+                    <li className="block py-2 font-medium">Program</li>
                   </Link>
 
                   <Link

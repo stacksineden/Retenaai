@@ -34,15 +34,15 @@ const Academy = () => {
         <AcademyHero
           title={
             <>
-              🧠 Master AI. <br />
-              Transform Your Career. Build What Matters.
+              🧠 Learn AI. <br />
+              Get Paid. It&#8217;s That Simple
             </>
           }
-          description="Join the next wave of Africa&#8217;s top AI professionals, engineers, and founders. Get hands-on training, real-world projects, career support, and exclusive access to the AI tools we use to build scalable systems every day."
+          description="We train Africa&#8217;s next generation of AI engineers, consultants, and builders through hands-on learning, real-world projects, and career pathways that turn skills into income."
           buttonTextA="Apply Now"
-          buttonTextB="View Programs"
+          buttonTextB="View Program"
           imageSrc="/assets/acaher.webp"
-          ctaUrl="/retenaai-academy/programs"
+          ctaUrl={`/retenaai-academy/program?mode=generative_ai_engineering`}
           ctaAltUrl="/sign-up"
         />
       </section>
@@ -124,11 +124,12 @@ const data = [
             Step 1: Build Your Foundations
           </span>{" "}
           <br />
-          In the Fusion Phase (i.e 6 weeks), you&#8217;ll develop a rock-solid
-          foundation in AI literacy. From prompt engineering to generative AI,
-          you&#8217;ll learn the core concepts, tools, and thinking patterns
-          that shape the AI space today—regardless of your technical background.
-          Think of this as your launchpad.
+          In the Fusion Phase, which runs for four weeks, you&#8217;ll develop a
+          rock-solid foundation in AI literacy. From generative AI basics to
+          prompt engineering and workflow thinking, you&#8217;ll learn the core
+          concepts, tools, and mental models shaping the AI space
+          today—regardless of your technical background. Think of this as your
+          launchpad into the world of applied AI.
         </p>
         {/* <div className="grid grid-cols-2 gap-4">
           <img
@@ -169,17 +170,18 @@ const data = [
       <div>
         <p className="mb-8 text-base md:text-lg text-white">
           <span className="font-semibold text-[#FCA311]">
-            Step 2: Get Track-Ready
+            Step 2: Choose Your Specialisation
           </span>{" "}
           <br />
-          This phase is designed to prepare you for specialization, no matter
-          your chosen path—be it System Integration, AI Engineering, Product
-          Design, or any of our other focus areas. Over six intensive weeks,
-          you&#8217;ll engage in hands-on, challenge-driven learning experiences
-          that simulate real-world AI workflows and problem-solving scenarios.
-          From automation logic to applied AI systems thinking, you'll move
-          beyond theory into practice—developing the mindset, skills, and
-          confidence required to succeed in your next stage of learning.
+          The next four weeks are all about focus. This is where you choose a
+          path that aligns with your career goals and dive deep into it. Whether
+          you&#8217;re drawn to systems integration, AI consulting and strategy,
+          agent development, light-code programming, or no-code product
+          development, this phase is designed to give you hands-on,
+          challenge-driven learning experiences that mirror real-world AI
+          projects. You&#8217;ll move beyond theory into practice, guided by
+          mentors and structured mastery tasks that help you gain the
+          confidence, skills, and mindset needed to excel.
         </p>
         {/* <div className="grid grid-cols-2 gap-4">
           <img
@@ -220,16 +222,20 @@ const data = [
       <div>
         <p className="mb-8 text-base md:text-lg text-white">
           <span className="font-semibold text-[#FCA311]">
-            Step 3: Specialize & Launch
+            Step 3: Capstone and Career Pathways
           </span>{" "}
           <br />
-          The Track Phase is your moment of specialization. Whether you&#8217;re
-          focused on AI Engineering, No-Code AI Systems, or Product Strategy,
-          this is where you dive deep. You&#8217;ll build real projects,
-          collaborate with mentors, and gain advanced skills that prepare you
-          for the industry. After this? Choose your path: 🚀 Launch your own AI
-          pilot project 💼 Join an internal team within the agency 🎯 Get
-          matched with hiring partners through our career placement support.
+          The final four weeks bring everything together. Here, you&#8217;ll
+          work on a portfolio-ready capstone project that allows you to showcase
+          your expertise in solving real-world business challenges with AI.
+          Alongside the build, you&#8217;ll sharpen your ability to pitch,
+          present, and document your work so it&#8217;s industry-ready. By the
+          time you graduate, you&#8217;ll not only have a strong portfolio but
+          also a clear pathway forward. You can take your project further in our
+          accelerator program, test your ideas with industry partners through a
+          pilot program, or step directly into consulting, freelancing, or
+          employment opportunities with the support of our career placement
+          team.
         </p>
         {/* <div className="grid grid-cols-2 gap-4">
           <img

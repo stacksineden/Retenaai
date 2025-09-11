@@ -3,14 +3,12 @@ import { Download, FileText, Link, Info } from "lucide-react";
 import { useUserContext } from "@/context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import Handbook from "../../resources/RetenaAI COHORT 2 Trainee Handbook .pdf";
-import BrochureIntergration from "../../resources/RetenaAI AI SYSTEM INTEGRATION CURRICULUM.pdf";
-import BrochureStrategy from "../../resources/RetenaAI AI AI STRATEGY AND CONSULTING CURRICULUM.pdf";
+import BrochureIntergration from "../../resources/GEN AI PROGRAM CURRICULUM.pdf";
 
 const ProgramResources = () => {
   const { user } = useUserContext();
   const navigate = useNavigate();
   type ResourceType = "pdf" | "link";
-
 
   const orientationItems: {
     title: string;
@@ -30,17 +28,14 @@ const ProgramResources = () => {
       description:
         "A comprehensive overview of your program structure and key milestones.",
       type: "pdf",
-      link:
-        user?.programId === "systems_intergration"
-          ? BrochureIntergration
-          : BrochureStrategy,
+      link: BrochureIntergration,
     },
     {
       title: "Scrum Fundamentals Access",
       description:
         "Start your Scrum Fundamentals course — a prerequisite for your interactive sessions.",
       type: "link",
-      link: "https://www.scrumstudy.com/account/register", 
+      link: "https://www.scrumstudy.com/account/register",
     },
   ];
 

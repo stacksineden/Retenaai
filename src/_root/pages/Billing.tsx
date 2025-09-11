@@ -1,5 +1,6 @@
+import React from "react";
 import { useUserContext } from "@/context/AuthContext";
-import { available_programs } from "@/modelDataset";
+import { genai_program } from "@/modelDataset";
 import { closePaymentModal, useFlutterwave } from "flutterwave-react-v3";
 import { BadgeCheck, Sparkles } from "lucide-react";
 
@@ -7,8 +8,10 @@ import toast from "react-hot-toast";
 import { Button } from "@/components/ui/button";
 
 import { useUpdateUserStageStatus } from "@/lib/tanstack-query/queriesAndMutation";
+import { useNavigate } from "react-router-dom";
 
 const Billing = () => {
+  const Navigate = useNavigate();
   const urlParams = new URLSearchParams(window.location.search);
   const programSlug = urlParams.get("program");
 
@@ -16,11 +19,22 @@ const Billing = () => {
 
   const application_fee = "10000";
 
+
+
   const { mutateAsync: updateUserStage } = useUpdateUserStageStatus();
 
-  const programDetais = available_programs?.find(
+  const programDetais = genai_program?.find(
     (item) => item?.slug === programSlug
   );
+
+    // Redirect if no mode param
+  React.useEffect(() => {
+    if (!programSlug) {
+      Navigate(`/app`, {
+        replace: true,
+      });
+    }
+  }, [programSlug, Navigate]);
 
   // Flutterwave configuration
   const config = {

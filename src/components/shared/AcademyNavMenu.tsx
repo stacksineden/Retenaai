@@ -23,9 +23,9 @@ export function AcademyNavMenu() {
           {/* <Link href="/docs" legacyBehavior passHref> */}
           <NavigationMenuLink
             className={navigationMenuTriggerStyle()}
-            onClick={() => Navigate("/retenaai-academy/programs")}
+            onClick={() => Navigate("/retenaai-academy/program?mode=generative_ai_engineering")}
           >
-            Programs
+            Program
           </NavigationMenuLink>
           {/* </Link> */}
         </NavigationMenuItem>

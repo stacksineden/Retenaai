@@ -185,7 +185,7 @@ export const Card = ({
             onClick={() =>
               navigate(
                 identifier === "academy"
-                  ? `/retenaai-academy/program?mode=${card.slug}`
+                  ? `/retenaai-academy/program?mode=generative_ai_engineering`
                   : `/case-study?system=${card.slug}`
               )
             }

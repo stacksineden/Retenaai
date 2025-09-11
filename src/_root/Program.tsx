@@ -30,13 +30,13 @@ import {
 import { motion } from "framer-motion";
 import CtaCard from "@/components/shared/CtaCard";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { available_programs } from "@/modelDataset";
+import { genai_program } from "@/modelDataset";
 
 const Program = () => {
   const Navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const progid = searchParams.get("mode");
-  const programData = available_programs?.filter(
+  const programData = genai_program?.filter(
     (program) => program.slug === progid
   )[0];
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -48,7 +48,7 @@ const Program = () => {
   // Redirect if no mode param
   React.useEffect(() => {
     if (!progid) {
-      Navigate("/retenaai-academy/programs", { replace: true });
+      Navigate("/retenaai-academy/program?mode=generative_ai_engineering", { replace: true });
     }
   }, [progid, Navigate]);
 
@@ -58,22 +58,22 @@ const Program = () => {
       title: "Learning Model",
       text: `A ${
         programData?.cohort_duration ?? "__ __"
-      } immersive journey that blends strategic thinking with hands-on system building. You’ll learn how to integrate AI into real-world operations through guided practice, not just theory.`,
+      } immersive journey that blends foundational literacy with hands-on system building. You’ll move from core concepts like generative AI and prompt engineering into specialisation tracks where you apply skills in real-world contexts.`,
     },
     {
       icon: <BookOpen className="h-14 w-14 text-[#FCA311]" />,
       title: "Access to Materials",
-      text: `Self-paced + Live: Access rich course content, templates, and videos on your own schedule (50%) while joining high-impact, live interactive sessions (50%) led by experienced system integrators.`,
+      text: `A mix of self-paced and live learning. Explore course content, templates, and video resources at your own pace, while joining high-impact, live interactive sessions led by experienced AI builders, consultants, and system integrators.`,
     },
     {
       icon: <Waypoints className="h-14 w-14 text-[#FCA311]" />,
       title: "Training Methodology",
-      text: `Every lesson is built around business process breakdowns, workflow analysis, and automation strategy. You’ll learn by solving actual system integration problems from real businesses.`,
+      text: `Every module is designed around real-world problem solving. You’ll break down business processes, map workflows, and apply AI tools to deliver measurable results. The focus is not theory for theory’s sake, but guided practice that mirrors actual business challenges.`,
     },
     {
       icon: <BriefcaseBusiness className="h-14 w-14 text-[#FCA311]" />,
-      title: "Portfolio Development",
-      text: `Work on 6 practical system integration projects across multiple use cases—from automation to AI agent design. These become the cornerstone of your portfolio, showing that you can actually build, not just talk tech.`,
+      title: "Portfolio Development & CADA",
+      text: `Your growth is guided by the CADA progression (Capstone-Aligned Development Assessments) — a four-level challenge system designed to move you from structured practice to independent mastery. You’ll start with Level 4 entry challenges, progress through scenario-based and client-simulated tasks (Levels 3 and 2), and culminate in Level 1 — your final capstone project. These challenges, completed across your specialisation track, form a portfolio of real-world AI solutions that demonstrate not just what you know, but what you can build, launch, and deliver.`,
     },
   ];
 
@@ -326,14 +326,16 @@ const Program = () => {
                   {mod.topic}
                   {mod.is_elective && (
                     <span className="ml-2 text-sm px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full">
-                      Elective
+                      Track-specific
                     </span>
                   )}
                 </h3>
-                <span className="flex items-center text-sm text-[#FCA311] font-semibold gap-1">
-                  <Calendar className="w-4 h-4" />
-                  Module {index + 1}
-                </span>
+                {!mod.is_elective && (
+                  <span className="flex items-center text-sm text-[#FCA311] font-semibold gap-1">
+                    <Calendar className="w-4 h-4" />
+                    Module {index + 1}
+                  </span>
+                )}
               </div>
 
               <p className="text-[#14213D] mb-4 flex items-start gap-2 text-base">
@@ -354,7 +356,7 @@ const Program = () => {
         </div>
       </section>
 
-      {programData?.track_phase && (
+       {programData?.track_phase && (
         <section className="w-full bg-[#000000] py-20 px-6 md:px-12 lg:px-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: Text Content */}
@@ -420,7 +422,7 @@ const Program = () => {
               >
                 <ClipboardList className="text-[#FCA311] w-5 h-5 mt-1 shrink-0" />
                 <span className="text-gray-300 text-sm sm:text-base">
-                  Choose one of three specialization tracks:
+                  Choose one of five specialization tracks:
                   <ul className="list-disc list-inside mt-2 ml-4 text-gray-400">
                     {programData?.track_phase?.tracks?.map((track, index) => (
                       <motion.li

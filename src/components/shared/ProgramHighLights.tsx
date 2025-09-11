@@ -2,18 +2,18 @@ import { AppleStyleCarousel, Card } from "./AppleStyleCarousel";
 
 export function ProgramHighLights() {
   const cards = data.map((card, index) => (
-    <Card key={card.src} card={card} index={index} identifier="academy"/> 
+    <Card key={card.src} card={card} index={index} identifier="academy" />
   ));
 
   return (
     <div className="w-full h-full py-4">
       <div className="max-w-7xl pl-4 mx-auto flex flex-col gap-2">
         <h2 className=" text-2xl md:text-5xl font-bold text-primary-black">
-          Find Your Ideal AI Journey
+          Find Your Path in Generative AI
         </h2>
         <p className="text-base md:text-xl">
-          Explore hands-on programs designed to equip you with future-ready
-          skills—one project at a time.
+          One world-class program, five specialisations. Choose the track that
+          matches your goals and build the future with AI.
         </p>
       </div>
       <AppleStyleCarousel items={cards} />
@@ -54,12 +54,12 @@ const DummyContent = () => {
 const data = [
   {
     category: "",
-    title: "AI Systems Integration", 
+    title: "Systems Integration & Automation",
     src: "/assets/int.webp",
     content: <DummyContent />,
     slug: "systems_intergration",
   },
-   {
+  {
     category: "",
     title: "AI Strategy & Consulting",
     src: "/assets/strategy.webp",
@@ -68,14 +68,14 @@ const data = [
   },
   {
     category: "",
-    title: "Generative AI Engineering",
+    title: "Generative AI Programming",
     src: "/assets/genai.webp",
     content: <DummyContent />,
     slug: "",
   },
   {
     category: "",
-    title: "AI Automations",
+    title: "AI Product Developments",
     src: "/assets/auto.webp",
     content: <DummyContent />,
     slug: "",
