@@ -527,10 +527,10 @@ const Masterclass = () => {
                   <p className="text-gray-600">
                     Make a single payment of{" "}
                     <span className="font-semibold text-[#c1121f] line-through">
-                      ₦170,000
+                      ₦55,000
                     </span>{" "}
                     <span className="font-semibold text-green-600">
-                      ₦55,000
+                      ₦15,000
                     </span>{" "}
                     and secure your seat instantly.
                   </p>

@@ -27,7 +27,8 @@ const BillingFormSchema = z.object({
 const Billing = () => {
   const urlParams = new URLSearchParams(window.location.search);
   const programSlug = urlParams.get("program");
-  const application_fee = "55000";
+  const ref = urlParams.get("ref");
+  const application_fee = "15000";
 
   const programDetais = available_masterclasses?.find(
     (item) => item?.slug === programSlug
@@ -78,17 +79,21 @@ const Billing = () => {
         }
       );
 
-      // ✅ Start payment after successful webhook submission
-      handleFlutterPayment({
-        callback: async (response) => {
-          if (response.status === "successful") {
+      if (ref && ref === "cohort") {
+        window.location.replace("/retenaai-academy/thank-you");
+      } else {
+        // ✅ Start payment after successful webhook submission
+        handleFlutterPayment({
+          callback: async (response) => {
+            if (response.status === "successful") {
+              window.location.replace("/retenaai-academy/thank-you");
+            }
             window.location.replace("/retenaai-academy/thank-you");
-          }
-          window.location.replace("/retenaai-academy/thank-you");
-          closePaymentModal();
-        },
-        onClose: () => {},
-      });
+            closePaymentModal();
+          },
+          onClose: () => {},
+        });
+      }
     } catch (error) {
       console.error("Webhook error:", error);
       alert("Failed to submit details. Please try again.");
@@ -184,7 +189,7 @@ const Billing = () => {
                 disabled={isButtonDisabled}
               >
                 <Sparkles className="text-white h-6 w-6" />
-                Pay &#x20A6;{application_fee}
+                Register {!ref && `Pay \u20A6${application_fee}`}
               </Button>
             </form>
           </Form>
@@ -209,7 +214,7 @@ const Billing = () => {
                 {programDetais?.program_name ?? "AI Photography Masterclass"}
               </div>
               <div>
-                <strong>Application Fee:</strong> ₦10,000.00
+                <strong>Training Fee:</strong> ₦15,000.00
               </div>
               <div>
                 <strong>Program Length:</strong> 4 Weeks
@@ -232,7 +237,7 @@ const Billing = () => {
             <h3 className="text-xl font-bold mb-2">Tuition</h3>
             <div className="border border-gray-200 rounded-lg p-5 shadow-sm bg-[#fef9f4] relative overflow-hidden">
               <div className="absolute top-2 right-2 bg-[#FCA311] text-white text-xs font-semibold px-2 py-1 rounded">
-                68% OFF
+                73% OFF
               </div>
               <p className="text-sm text-primary-blue3 font-semibold">
                 One-Time Payment
@@ -240,9 +245,9 @@ const Billing = () => {
               <p className="text-green-600 text-xs mb-2">Pay once</p>
               <h3 className="text-xl font-bold mb-2 flex flex-col">
                 <span className="line-through text-gray-400 text-base mr-2">
-                  ₦170,000
+                  ₦55,000
                 </span>
-                <span className="text-green-600">₦55,000</span>
+                <span className="text-green-600">₦15,000</span>
               </h3>
               <ul className="text-sm text-gray-700 space-y-1 list-disc list-inside">
                 <li>Access to Masterclass recordings</li>
