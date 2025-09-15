@@ -2635,3 +2635,63 @@ export const retenaPrograms = [
     disabled: true,
   },
 ];
+
+
+
+// modulesData.js
+export const modules = [
+  {
+    id: 1,
+    title: "Module 1: Introduction to Generative AI",
+    description: "Learn the fundamentals of LLMs, embeddings, and responsible AI.",
+    pdf: "https://docs.google.com/document/d/1y_ekHDzIt0zl91BzRsYF68XjRg6o5zg7ZIr8iYxnZjE/edit?usp=drive_link",
+    disabled: false,
+  },
+  {
+    id: 2,
+    title: "Module 2: Prompt Engineering Essentials",
+    description: "Master prompting techniques, frameworks, and evaluation.",
+    pdf: "",
+    disabled: true,
+  },
+  {
+    id: 3,
+    title: "Module 3: Workflow & Systems Thinking",
+    description: "Understand how AI fits into business workflows and automations.",
+    pdf: "",
+    disabled: true, 
+  },
+  {
+    id: 4,
+    title: "Module 4: Specialisation Preview",
+    description: "Explore mini-projects across all tracks before choosing yours.",
+    pdf: "",
+    disabled: true,
+  }
+];
+
+
+// sessionsData.js
+export const sessions = [
+  {
+    id: 1,
+    title: "Module 1 - Session 1: Kickoff & Orientation",
+    description: "Overview of the Generative AI Engineering bootcamp.",
+    video: "",
+    locked: true,
+  },
+  {
+    id: 2,
+    title: "Module 1 - Session 2: Intro to Large Language Models",
+    description: "Exploring LLMs, embeddings, and ethical AI.",
+    video: "",
+    locked: true,
+  },
+  {
+    id: 3,
+    title: "Module 1 - Session 3: Prompt Engineering Deep Dive",
+    description: "Advanced prompting patterns and evaluation methods.",
+    video: "",
+    locked: true,
+  },
+];

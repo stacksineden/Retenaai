@@ -16,3 +16,6 @@ export { default as ImageGenerate } from "./generations/ImageGenerate";
 export { default as DemoTraining } from "./demos/DemoTraining";
 export { default as DemoGenerate } from "./demos/DemoGenerate";
 export { default as StudyKits } from "./StudyKits";
+export { default as CourseOverview } from "./CourseOverview";
+export { default as Modules } from "./Modules";
+export { default as Sessions } from "./Sessions";

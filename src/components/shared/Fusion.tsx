@@ -1,9 +1,13 @@
 import { useUserContext } from "@/context/AuthContext";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { Calendar, BookOpen, CheckCircle, Link } from "lucide-react";
+import {
+  Calendar,
+  BookOpen,
+  CheckCircle,
+  PlayCircle,
+} from "lucide-react";
 import { Button } from "../ui/button";
-
 
 const Fusion = () => {
   const navigate = useNavigate();
@@ -57,75 +61,88 @@ const Fusion = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              {/* Image */}
-              <div className="md:w-1/2 w-full hidden md:inline-block">
+              {/* Illustration */}
+              <div className="md:w-1/2 w-full hidden md:block">
                 <img
-                  src="/assets/congrats.webp"
-                  alt="Fusion Stage"
+                  src="/assets/fusion.webp"
+                  alt="Fusion Phase"
                   className="w-full h-full object-cover"
                 />
               </div>
 
               {/* Text */}
-              <div className="md:w-1/2 w-full p-4 md:p-8">
+              <div className="md:w-1/2 w-full p-6 md:p-10">
                 <h1 className="text-3xl font-bold text-primary-black mb-2">
-                  Congratulations 🎉
+                  Welcome to the Bootcamp 🎉
                 </h1>
-                <p className="text-gray-700 text-lg mb-6">
-                  You’ve been officially admitted into the{" "}
+                <p className="text-gray-700 text-lg mb-6 leading-relaxed">
+                  You’re officially kicking off the{" "}
                   <span className="font-semibold">
-                    {user?.program ?? "__ __"}
+                    {user?.program ?? "Generative AI Engineering"}
                   </span>{" "}
-                  program. Let’s get you started with your learning journey!
+                  journey! Today you start the <strong>Fusion Phase</strong> —
+                  your launchpad into Generative AI, prompt engineering, and
+                  workflow thinking.
                 </p>
+               <div className="flex flex-col md:flex-row gap-4">
+                 <Button
+                  className="bg-primary-blue hover:bg-primary-blue2 text-white px-6 py-3 rounded-xl font-semibold transition"
+                  onClick={() => navigate("/modules")}
+                >
+                  Start Learning
+                </Button>
                 <Button
                   className="bg-primary-blue hover:bg-primary-blue2 text-white px-6 py-3 rounded-xl font-semibold transition"
                   onClick={() => navigate("/program-resources")}
                 >
                   Access Orientation Pack
                 </Button>
+               </div>
               </div>
             </motion.div>
 
-            {/* Next Steps */}
+            {/* Getting Started */}
             <motion.section
               className="mt-12"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
             >
               <h2 className="text-2xl font-bold text-primary-black mb-6">
-                Your Next Steps
+                Let’s Get Started 🚀
               </h2>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-white shadow-md rounded-xl p-6 flex flex-col items-center text-center">
-                  <Link className="h-10 w-10 text-primary-blue mb-3" />
+                  <PlayCircle className="h-10 w-10 text-primary-blue mb-3" />
                   <h3 className="font-semibold text-lg mb-2">
-                    1. Access Scrum Fundamentals
+                    1. Begin Your Fusion Phase
                   </h3>
                   <p className="text-gray-600">
-                    Start your Scrum Fundamentals course now to prepare for
-                    collaborative sessions.
+                    Start with <strong>Module 1</strong>: Introduction to
+                    Generative AI. Learn the fundamentals that power today’s AI
+                    systems.
                   </p>
                 </div>
+
                 <div className="bg-white shadow-md rounded-xl p-6 flex flex-col items-center text-center">
                   <BookOpen className="h-10 w-10 text-primary-blue mb-3" />
                   <h3 className="font-semibold text-lg mb-2">
-                    2. Explore Program Modules
+                    2. Review Your Orientation Pack
                   </h3>
                   <p className="text-gray-600">
-                    Check out your first module learning material in the Modules
-                    section of your dashboard.
+                    Open your Orientation Pack to explore the curriculum,
+                    deadlines, and all you need for a smooth start.
                   </p>
                 </div>
+
                 <div className="bg-white shadow-md rounded-xl p-6 flex flex-col items-center text-center">
                   <Calendar className="h-10 w-10 text-primary-blue mb-3" />
                   <h3 className="font-semibold text-lg mb-2">
-                    3. Prepare for Interactive Sessions
+                    3. Prep for Live Sessions
                   </h3>
                   <p className="text-gray-600">
-                    Review the program handbook and get ready for upcoming live
-                    interactive sessions.
+                    Mark your calendar for workshops and interactive labs — they
+                    begin soon after you complete your first modules.
                   </p>
                 </div>
               </div>
@@ -138,15 +155,12 @@ const Fusion = () => {
               </h2>
               <ul className="space-y-3 text-gray-700 pl-0">
                 {[
-                  "Ensure you complete the Scrum Fundamentals course before the sessions begin.",
-                  "Your program handbook contains your course structure and timelines.",
-                  "Module materials will be updated regularly in your dashboard.",
-                  "Contact support if you encounter any issues accessing your materials.",
-                ].map((text, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-2 font-medium"
-                  >
+                  "Complete the Scrum Fundamentals course before attending collaborative sessions.",
+                  "Follow the Fusion Phase roadmap in your dashboard; modules unlock as you progress.",
+                  "Check announcements regularly for updates and live session links.",
+                  "Contact support anytime you face access or content issues.",
+                ].map((text, i) => (
+                  <li key={i} className="flex items-start gap-2 font-medium">
                     <CheckCircle className="text-[#FCA311] h-5 w-5 mt-0.5 shrink-0" />
                     <span>{text}</span>
                   </li>

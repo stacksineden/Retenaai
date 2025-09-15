@@ -1,24 +1,13 @@
 import { useEffect, lazy, Suspense, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import {
-  BgRemover,
   Billing,
   CreditsBilling,
-  DemoGenerate,
-  DemoTraining,
-  FluxLoraGenerate,
-  FluxProGenerate,
-  FluxRealismGenerate,
   Home,
-  ImageGenerate,
-  ImageToPrompt,
-  LoraGallery,
-  LoraTraining,
-  PhotoGallery,
-  PhotoshootGallery,
-  Photoupscaling,
-  TrainingDatasets,
   StudyKits,
+  CourseOverview,
+  Modules,
+  Sessions,
 } from "./_root/pages";
 import "./globals.css";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -51,7 +40,6 @@ const CareerPage = lazy(() => import("./_root/Careers"));
 const MasterclassPage = lazy(() => import("./_root/Masterclass"));
 const MasterclassBillingPage = lazy(() => import("./_root/Masterclassbilling"));
 const ConfirmedPage = lazy(() => import("./_root/Confirmed"));
-
 
 const App = () => {
   const [showFirstMessage, setShowFirstMessage] = useState(true);
@@ -88,17 +76,21 @@ const App = () => {
           <Routes>
             <Route element={<RootLayout />}>
               <Route path="/app" element={<Home />} />
-              <Route path="/generations" element={<FluxRealismGenerate />} />
-              <Route
+              <Route path="/course-overview" element={<CourseOverview />} />
+              <Route path="/modules" element={<Modules />} />
+              <Route path="/interactive-sessions" element={<Sessions />} />
+
+              {/* <Route path="/generations" element={<FluxRealismGenerate />} /> */}
+              {/* <Route
                 path="/generations/photo-upscaling"
                 element={<Photoupscaling />}
-              />
-              <Route path="/generations/flux" element={<FluxProGenerate />} />
-              <Route
+              /> */}
+              {/* <Route path="/generations/flux" element={<FluxProGenerate />} /> */}
+              {/* <Route
                 path="/generations/flux/lora"
                 element={<FluxLoraGenerate />}
-              />
-              <Route path="/demotraining" element={<DemoTraining />} />
+              /> */}
+              {/* <Route path="/demotraining" element={<DemoTraining />} />
               <Route path="/demogenerate" element={<DemoGenerate />} />
               <Route path="/generations-image" element={<ImageGenerate />} />
               <Route path="/generations/bg-remover" element={<BgRemover />} />
@@ -113,7 +105,7 @@ const App = () => {
                 path="/photoshoot-gallery"
                 element={<PhotoshootGallery />}
               />
-              <Route path="/training-dataset" element={<TrainingDatasets />} />
+              <Route path="/training-dataset" element={<TrainingDatasets />} /> */}
               <Route path="/billing" element={<Billing />} />
               <Route path="/credits-billing" element={<CreditsBilling />} />
               <Route path="/study-kits" element={<StudyKits />} />

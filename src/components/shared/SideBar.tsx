@@ -25,7 +25,7 @@ const SideBar = () => {
 
   const isProspect = user?.stage === "prospect" && !user?.program;
   const isApplied = user?.stage === "applied" && user?.program;
-  // const isFusion = user?.stage === "fusion" && user?.program;
+  const isFusion = user?.stage === "fusion" && user?.program;
 
   return (
     <aside className="h-[100dvh] overflow-hidden">
@@ -86,7 +86,11 @@ const SideBar = () => {
                     <div className="mt-6 flex flex-col gap-3">
                       <div
                         className={`flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
-                        onClick={() => navigate("/app")}
+                        onClick={() =>
+                          isProspect
+                            ? navigate("/app")
+                            : navigate("/course-overview ")
+                        }
                       >
                         <Image className="h-6 w-6 text-primary-black" />
                         <p className="text-sm text-primary-black font-medium">
@@ -98,7 +102,15 @@ const SideBar = () => {
                           isProspect || isApplied ? "bg-accent" : ""
                         } hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
                         onClick={() => {
-                          if (!isProspect && !isApplied) navigate("/app");
+                          if (isFusion) {
+                            // user is in Fusion Phase
+                            navigate("/interactive-sessions");
+                          } else if (!isProspect && !isApplied) {
+                            // default: not a prospect or applied
+                            navigate("/app");
+                          } else {
+                            // optional: handle prospect/applied (or do nothing)
+                          }
                         }}
                       >
                         <Focus className="h-6 w-6 text-primary-black" />
@@ -114,7 +126,15 @@ const SideBar = () => {
                           isProspect || isApplied ? "bg-accent" : ""
                         }  hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
                         onClick={() => {
-                          if (!isProspect && !isApplied) navigate("/app");
+                          if (isFusion) {
+                            // user is in Fusion Phase
+                            navigate("/modules");
+                          } else if (!isProspect && !isApplied) {
+                            // default: not a prospect or applied
+                            navigate("/app");
+                          } else {
+                            // optional: handle prospect/applied (or do nothing)
+                          }
                         }}
                       >
                         <Image className="h-6 w-6 text-primary-black" />
@@ -155,7 +175,8 @@ const SideBar = () => {
                           isProspect || isApplied ? "bg-accent" : ""
                         } hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
                         onClick={() => {
-                          if (!isProspect && !isApplied) navigate("/program-resources");
+                          if (!isProspect && !isApplied)
+                            navigate("/program-resources");
                         }}
                       >
                         <Terminal className="h-6 w-6 text-primary-black" />
@@ -290,8 +311,12 @@ const SideBar = () => {
                           <div
                             className={`flex items-center gap-2 hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
                             onClick={() => {
+                              if (isProspect) {
+                                navigate("/app");
+                              } else {
+                                navigate("/course-overview");
+                              }
                               setMobileOpen(false);
-                              navigate("/generations/flux?mode=flux1.1-ultra");
                             }}
                           >
                             <Image className="h-6 w-6 text-primary-black" />
@@ -304,8 +329,16 @@ const SideBar = () => {
                               isProspect || isApplied ? "bg-accent" : ""
                             } hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
                             onClick={() => {
+                              if (isFusion) {
+                                // user is in Fusion Phase
+                                navigate("/interactive-sessions");
+                              } else if (!isProspect && !isApplied) {
+                                // default: not a prospect or applied
+                                navigate("/app");
+                              } else {
+                                // optional: handle prospect/applied (or do nothing)
+                              }
                               setMobileOpen(false);
-                              if (!isProspect && !isApplied) navigate("/app");
                             }}
                           >
                             <Focus className="h-6 w-6 text-primary-black" />
@@ -321,8 +354,16 @@ const SideBar = () => {
                               isProspect || isApplied ? "bg-accent" : ""
                             } hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
                             onClick={() => {
+                              if (isFusion) {
+                                // user is in Fusion Phase
+                                navigate("/modules");
+                              } else if (!isProspect && !isApplied) {
+                                // default: not a prospect or applied
+                                navigate("/app");
+                              } else {
+                                // optional: handle prospect/applied (or do nothing)
+                              }
                               setMobileOpen(false);
-                              if (!isProspect && !isApplied) navigate("/app");
                             }}
                           >
                             <Image className="h-6 w-6 text-primary-black" />
@@ -365,7 +406,8 @@ const SideBar = () => {
                             } hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
                             onClick={() => {
                               setMobileOpen(false);
-                              if (!isProspect && !isApplied) navigate("/program-resources");
+                              if (!isProspect && !isApplied)
+                                navigate("/program-resources");
                             }}
                           >
                             <Terminal className="h-6 w-6 text-primary-black" />
