@@ -8,6 +8,7 @@ import {
   CourseOverview,
   Modules,
   Sessions,
+  Assessments,
 } from "./_root/pages";
 import "./globals.css";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -79,7 +80,7 @@ const App = () => {
               <Route path="/course-overview" element={<CourseOverview />} />
               <Route path="/modules" element={<Modules />} />
               <Route path="/interactive-sessions" element={<Sessions />} />
-
+              <Route path="/assessment" element={<Assessments />} />
               {/* <Route path="/generations" element={<FluxRealismGenerate />} /> */}
               {/* <Route
                 path="/generations/photo-upscaling"

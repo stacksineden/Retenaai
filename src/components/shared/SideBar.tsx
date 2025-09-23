@@ -192,7 +192,7 @@ const SideBar = () => {
                           isProspect || isApplied ? "bg-accent" : ""
                         } hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
                         onClick={() => {
-                          if (!isProspect && !isApplied) navigate("/app");
+                          if (!isProspect && !isApplied) navigate("/assessment");
                         }}
                       >
                         <Blend className="h-6 w-6 text-primary-black" />
@@ -424,7 +424,7 @@ const SideBar = () => {
                             } hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
                             onClick={() => {
                               setMobileOpen(false);
-                              if (!isProspect && !isApplied) navigate("/app");
+                              if (!isProspect && !isApplied) navigate("/assessment");
                             }}
                           >
                             <Blend className="h-6 w-6 text-primary-black" />

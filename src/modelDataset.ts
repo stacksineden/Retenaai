@@ -2651,8 +2651,8 @@ export const modules = [
     id: 2,
     title: "Module 2: Prompt Engineering Essentials",
     description: "Master prompting techniques, frameworks, and evaluation.",
-    pdf: "",
-    disabled: true,
+    pdf: "https://docs.google.com/document/d/1LEL_NcIva9TULdvmj0hgce-CO1Yv0-GXcmT5WYnN2pE/edit?usp=drive_link",
+    disabled: false,
   },
   {
     id: 3,
@@ -2693,5 +2693,37 @@ export const sessions = [
     description: "Advanced prompting patterns and evaluation methods.",
     video: "",
     locked: true,
+  },
+];
+
+
+export const assessments = [
+  {
+    id: 1,
+    title: "Assessment 1: Introduction to Generative AI",
+    description: "Test your knowledge of LLMs, embeddings, and AI safety.",
+    link: "/assessments/module-1", // route to take assessment
+    disabled: true,
+  },
+  {
+    id: 2,
+    title: "Assessment 2: Prompt Engineering",
+    description: "Apply prompting strategies and frameworks in practice.",
+    link: "/assessments/module-2",
+    disabled: true,
+  },
+  {
+    id: 3,
+    title: "Assessment 3: Workflow & Systems Thinking",
+    description: "Evaluate AI’s role in workflows and automation.",
+    link: "/assessments/module-3",
+    disabled: true,
+  },
+  {
+    id: 4,
+    title: "Assessment 4: Specialisation Preview",
+    description: "Mini-project based assessment before track selection.",
+    link: "/assessments/module-4",
+    disabled: true,
   },
 ];

@@ -19,3 +19,4 @@ export { default as StudyKits } from "./StudyKits";
 export { default as CourseOverview } from "./CourseOverview";
 export { default as Modules } from "./Modules";
 export { default as Sessions } from "./Sessions";
+export { default as Assessments } from "./Assement";
