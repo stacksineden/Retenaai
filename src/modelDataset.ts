@@ -2702,8 +2702,8 @@ export const assessments = [
     id: 1,
     title: "Assessment 1: Introduction to Generative AI",
     description: "Test your knowledge of LLMs, embeddings, and AI safety.",
-    link: "/assessments/module-1", // route to take assessment
-    disabled: true,
+    link: "https://forms.gle/SGFgY7h2o8Hj2SYv8", // route to take assessment
+    disabled: false,
   },
   {
     id: 2,

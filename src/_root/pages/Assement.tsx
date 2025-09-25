@@ -10,8 +10,15 @@ const Assessments = () => {
 
   const handleOpenAssessment = (link: string, disabled: boolean) => {
     if (!disabled) {
-      navigate(link); // redirect to assessment page/route
+    if (link.startsWith("http")) {
+      // external link (Google Form etc.)
+      window.open(link, "_blank"); // opens in new tab
+      // or use window.location.href = link; // if you want same tab
+    } else {
+      // internal app route
+      navigate(link);
     }
+  }
   };
 
   return (
