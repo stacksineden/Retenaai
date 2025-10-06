@@ -2689,10 +2689,17 @@ export const sessions = [
   },
   {
     id: 3,
-    title: "Module 1 - Session 3: Prompt Engineering Deep Dive Intro to Large Language Models",
+    title: "Module 2 - Session 1: Prompt Engineering Deep Dive Intro to Large Language Models",
     description: "Advanced prompting patterns and evaluation methods.",
-    video: "",
-    locked: true,
+    video: "https://www.loom.com/share/9345ca4da4bc4ec7bcdde46d6bcaacb2?sid=04d5d9a5-7321-46ce-956a-eab3c5c4aa92",
+    locked: false,
+  },
+   {
+    id: 4,
+    title: "Module 2 - Session 2: Prompt Engineering Deep Dive into RetenaAI Framework and strategies",
+    description: "Advanced prompting patterns and evaluation methods.",
+    video: "https://www.loom.com/share/9345ca4da4bc4ec7bcdde46d6bcaacb2?sid=e830901d-43aa-4c3a-9d54-93aa88eddaec",
+    locked: false,
   },
 ];
 
