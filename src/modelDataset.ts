@@ -2716,8 +2716,8 @@ export const assessments = [
     id: 2,
     title: "Assessment 2: Prompt Engineering",
     description: "Apply prompting strategies and frameworks in practice.",
-    link: "/assessments/module-2",
-    disabled: true,
+    link: "https://forms.gle/etCwX8bBNexCCMoj7",
+    disabled: false,
   },
   {
     id: 3,
