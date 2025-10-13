@@ -2658,8 +2658,8 @@ export const modules = [
     id: 3,
     title: "Module 3: Workflow & Systems Thinking",
     description: "Understand how AI fits into business workflows and automations.",
-    pdf: "",
-    disabled: true, 
+    pdf: "https://docs.google.com/document/d/1BE9-sJfZJmhzVkZiusN9XSWYSUmjl9V5fX2gowUvfuA/edit?usp=drive_link",
+    disabled: false, 
   },
   {
     id: 4,
