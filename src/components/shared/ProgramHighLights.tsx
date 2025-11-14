@@ -8,10 +8,10 @@ export function ProgramHighLights() {
   return (
     <div className="w-full h-full py-4">
       <div className="max-w-7xl pl-4 mx-auto flex flex-col gap-2">
-        <h2 className=" text-2xl md:text-5xl font-bold text-primary-black">
+        <h2 className=" text-2xl md:text-5xl font-bold text-accent">
           Find Your Path in Generative AI
         </h2>
-        <p className="text-base md:text-xl">
+        <p className="text-base md:text-xl text-white">
           One world-class program, five specialisations. Choose the track that
           matches your goals and build the future with AI.
         </p>

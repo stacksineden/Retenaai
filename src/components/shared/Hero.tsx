@@ -1,119 +1,107 @@
-// import { motion } from "framer-motion";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="bg-accent">
-      <div className="container min-h-[500px] md:min-h-[700px] relative flex items-center justify-center bg-hero-bg bg-no-repeat bg-left bg-contain">
-        <div className="flex flex-col gap-1 justify-center py-14 md:py-0">
-          <div className="text-left">
-            <motion.h2
-              className="text-primary-black text-4xl lg:text-6xl font-bold"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-              <span className="text-[#FCA311]">We Make It</span> Unreasonable{" "}
-              For<span className="text-[#FCA311]"> Businesses </span>in Africa &
-              Beyond to Operate Without Scalable{" "}
-              <span className="text-[#FCA311]">AI Infrastructure.</span>
-            </motion.h2>
-          </div>
+    <section
+      className="bg-black relative overflow-hidden flex items-center justify-center min-h-[35vh] md:min-h-[50vh]"
+      // style={{ minHeight: "50vh" }}
+    >
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-[#14213D]/30 via-[#000000]/60 to-[#FCA311]/20 blur-3xl opacity-50"
+        animate={{
+          backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        style={{
+          backgroundSize: "200% 200%",
+        }}
+      />
+
+      <motion.div
+        className="absolute bottom-10 left-1/4 w-40 h-40 bg-[#FCA311]/10 rounded-full blur-3xl"
+        animate={{ y: [0, -15, 0], x: [0, 10, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute top-20 right-1/3 w-52 h-52 bg-[#14213D]/20 rounded-full blur-3xl"
+        animate={{ y: [0, 20, 0], x: [0, -10, 0] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute top-1/3 left-1/2 w-32 h-32 bg-[#E5E5E5]/5 rounded-full blur-2xl"
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      {/* === Content === */}
+      <div className="relative z-10 flex flex-col items-center text-center w-full h-full">
+        <motion.div
+          className="pt-28 pb-10 w-[90%] md:w-[80%]"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+        >
+          <motion.h1
+            className="text-white/80 text-4xl md:text-6xl font-extrabold tracking-tight mb-6"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 1 }}
+          >
+            You&apos;re Still Paying for{" "}
+            <span className="text-[#FCA311]">Fashion Shoots?</span>
+            <span className="italic text-white block mt-4">
+              That&apos;s 2020 Thinking
+            </span>
+          </motion.h1>
+
           <motion.p
-            className="text-base md:text-lg text-primary-black font-medium"
+            className="text-white/60 mb-8 text-center w-[100%] md:w-[90%] text-lg font-semibold"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
+            transition={{ delay: 0.6, duration: 1 }}
           >
-            Let Us Build the AI System That Books Clients for You — Daily,
-            Automatically, and at Scale.
+            RetenaAI creates{" "}
+            <span className="text-white">high-performing ad creatives,</span>{" "}
+            studio-quality visuals, and product videos for fashion brands —{" "}
+            <span className="text-white">
+              no models, no studio, no editing crew
+            </span>
+            . If your brand isn’t using AI to create content yet, your
+            competitors soon will.
           </motion.p>
 
-          <div className="mt-4 flex items-center gap-2 flex-row">
+          <motion.div
+            className="flex flex-col md:flex-row gap-4 mt-5 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+          >
             <Button
-              className="bg-primary-black hover:bg-primary-blue text-white text-base px-4 py-6 transform transition duration-300 hover:scale-90"
-              onClick={() => navigate("/contact")}
+              className="bg-[#FCA311] text-black hover:text-black hover:bg-[#E5E5E5] text-lg px-4 py-5 transform transition duration-300 hover:scale-95 border border-black font-semibold"
+              onClick={() => navigate("/packages-billing?mode=starter_pack")}
             >
-              Get a price
-              <ArrowRight className="text-white h-4" />
+              🔥 Get 10 AI Studio Visuals for ₦5,500
             </Button>
+
             <Button
-              className="bg-transparent text-black hover:text-black hover:bg-transparent text-base px-4 py-5 transform transition duration-300 hover:scale-90 border border-black"
-              onClick={() => navigate("/solutions")}
+              className="bg-[#E5E5E5] text-black hover:text-black hover:bg-[#E5E5E5] text-lg px-4 py-5 transform transition duration-300 hover:scale-95 border border-black w-full md:w-[200px]"
+              onClick={() => navigate("/packages")}
             >
-              Case studies
+              View Packages
             </Button>
-          </div>
-
-          <div className="py-7 mt-2 w-full flex justify-center px-2">
-            <div className="flex flex-col gap-1">
-              <div className="rounded-full w-12 md:w-16 h-12 md:h-16 bg-black">
-                <img
-                  src="/founderimg.PNG"
-                  alt="picture"
-                  className="w-12 md:w-16 h-12 md:h-16 object-cover rounded-full"
-                />
-              </div>
-              <div className="flex flex-col gap-1">
-                <h4 className="text-black font-semibold text-lg md:text-xl">
-                  Samuel A Adebisi
-                </h4>
-                <p className="text-base text-black font-normal max-w-xs md:max-w-sm leading-snug whitespace-normal">
-                  Hi, I'm Samuel — founder of RetenaAI. We build AI systems
-                  that help businesses grow faster, work smarter, and close more
-                  deals — even in their sleep.
-                </p>
-                <div className="flex items-center gap-4 mt-6">
-                  {/* Avatar group */}
-                  <div className="flex -space-x-3">
-                    <img
-                      src="/assets/shootDemo/shoot1.webp"
-                      alt="User 1"
-                      className="w-8 md:w-10 h-8 md:h-10 rounded-full border-2 border-white"
-                    />
-                    <img
-                      src="/assets/shootDemo/shoot13.webp"
-                      alt="User 2"
-                      className="w-8 md:w-10 h-8 md:h-10 rounded-full border-2 border-white"
-                    />
-                    <img
-                      src="/assets/shootDemo/shoot7.png"
-                      alt="User 3"
-                      className="w-8 md:w-10 h-8 md:h-10 rounded-full border-2 border-white"
-                    />
-                    <img
-                      src="/assets/shootDemo/shoot30.webp"
-                      alt="User 4"
-                      className="w-8 md:w-10 h-8 md:h-10 rounded-full border-2 border-white"
-                    />
-                    <div className="w-8 md:w-10 h-8 md:h-10 rounded-full bg-black text-white flex items-center justify-center text-sm font-semibold border-2 border-white">
-                      +9
-                    </div>
-                  </div>
-
-                  {/* Trust text */}
-                  <div>
-                    <p className="text-sm text-black font-medium">
-                      Trusted by Founders, Coaches, and Service Providers
-                    </p>
-                    <p className="text-xs text-gray-600">
-                      — from Africa to the Rest of the World. 🌍
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
 };
 
 export default Hero;
-

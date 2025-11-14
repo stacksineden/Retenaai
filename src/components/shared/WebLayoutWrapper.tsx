@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 const WebLayoutWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
-      <div className="h-full">
+      <div className="h-full bg-black">
         <Navbar />
         <main className="h-[100dvh] overflow-x-hidden">
           {children}

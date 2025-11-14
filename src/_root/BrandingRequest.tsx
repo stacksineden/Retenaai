@@ -5,91 +5,94 @@ import { Link } from "react-router-dom";
 const BrandingRequest = () => {
   return (
     <>
-      <div className="max-w-[99%] md:max-w-[98%] lg:max-w-[98%] xl:max-w-[98%] w-full bg-white flex justify-center items-center py-4">
-        {/* form */}
-        <div className="w-full md:w-[80%] md:shadow-lg rounded-lg grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-0">
-          <div className="h-full w-full p-4 md:p-7 flex flex-col gap-4 bg-accent">
-            {/* logo */}
-            <Link to="/" className="flex items-center gap-1 md:gap-2 mt-7">
-              <div className="w-[150px] md:w-[170px]">
-                <img
-                  src="/assets/logo.png"
-                  alt="brand"
-                  className="w-full object-contain"
-                  loading="lazy"
-                />
-              </div>
+      <div className="w-full bg-black flex justify-center items-center py-16 px-4">
+        <div className="w-full md:w-[85%] lg:w-[80%] rounded-2xl grid grid-cols-1 md:grid-cols-2 gap-10">
+          {/* LEFT CONTENT */}
+          <div className="p-8 md:p-12 bg-[#0f0f0f] rounded-2xl flex flex-col gap-8 shadow-lg border border-white/10">
+            {/* Logo */}
+            <Link to="/" className="flex items-center gap-2">
+              <img
+                src="/assets/retenatextB.png"
+                alt="brand"
+                className="w-[160px] md:w-[180px] object-contain"
+              />
             </Link>
-            {/* body */}
-            <div className="text-[18px] md:text-[24px] text-primary-blue font-semibold py-0 md:my-2">
-              From Contact Form to Seamless Collaboration.
+
+            {/* Title */}
+            <div>
+              <h1 className="text-3xl md:text-4xl font-extrabold text-white mb-3">
+                PRO Package Consultation
+              </h1>
+              <p className="text-white/70 text-base md:text-lg">
+                Let’s explore how our high-end AI creative solutions can elevate
+                your fashion brand to a premium, scalable level.
+              </p>
             </div>
-            <div className="flex flex-col gap-5 p-2">
-              <div className="flex gap-2">
-                <BadgeCheck className="text-primary-blue3 flex-[5%] w-full" />
-                <div className="flex-[95%] w-full">
-                  <h2 className="text-[#071E22] font-medium tracking-wide text-[14px] md:text-[16px]">
-                    Engaging Exploration: Crafting Your Blueprint for Success.
+
+            {/* Process */}
+            <div className="flex flex-col gap-6">
+              {/* Step 1 */}
+              <div className="flex gap-3">
+                <BadgeCheck className="text-[#FCA311] mt-1" />
+                <div>
+                  <h2 className="text-white font-semibold text-lg">
+                    Step 1 — Discovery & Strategy Call
                   </h2>
-                  <p className="text-base md:text-[14px] text-[#071E22]">
-                    Fill out our Contact form. Watch for a prompt Carlendly call
-                    invitation via email. Engage in a pivotal conversation where
-                    we delve into your business, revealing unique needs. This
-                    sets the stage for a customized AI solution that seamlessly
-                    aligns with your objectives, optimizing your business
-                    processes.
+                  <p className="text-white/70 text-[15px] leading-relaxed">
+                    Share your goals and current visual challenges. We’ll help
+                    you outline the creative direction, brand tone, and
+                    technical needs for your AI-powered campaign or visual
+                    production.
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-2">
-                <BadgeCheck className="text-primary-blue3 flex-[5%] w-full" />
-                <div className="flex-[95%] w-full">
-                  <h2 className="text-base font-medium tracking-wide text-[14px] md:text-[16px]">
-                    Personalized Pathways: Mapping Your AI Investment.
+              {/* Step 2 */}
+              <div className="flex gap-3">
+                <BadgeCheck className="text-[#FCA311] mt-1" />
+                <div>
+                  <h2 className="text-white font-semibold text-lg">
+                    Step 2 — Tailored Proposal & Investment Plan
                   </h2>
-                  <p className="text-[12px] md:text-[14px] text-[#071E22]">
-                    Post our discussion, you'll get a custom quote detailing AI
-                    solutions and investment. Transparently backed by
-                    comprehensive payment breakdown and detailed contracts,
-                    empowering your informed journey. Review, then confidently
-                    progress to the next step.
+                  <p className="text-white/70 text-[15px] leading-relaxed">
+                    After the consultation, you’ll receive a customized proposal
+                    detailing deliverables, timelines, investment, and a
+                    brand-aligned creative roadmap.
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-2">
-                <BadgeCheck className="text-primary-blue3 flex-[5%] w-full" />
-                <div className="flex-[95%] w-full">
-                  <h2 className="text-base font-medium tracking-wide text-[14px] md:text-[16px]">
-                    Collaborative Fusion: Uniting for Unrivaled Results.
+              {/* Step 3 */}
+              <div className="flex gap-3">
+                <BadgeCheck className="text-[#FCA311] mt-1" />
+                <div>
+                  <h2 className="text-white font-semibold text-lg">
+                    Step 3 — Collaboration & Execution
                   </h2>
-                  <p className="text-[12px] md:text-[14px]  text-[#071E22]">
-                    Upon confirmation, you'll enter an exciting phase. We'll
-                    swiftly welcome you to a dedicated hub, fostering effortless
-                    sharing of details, documents, and insights. Your active
-                    involvement refines the strategy and fuels daily reporting,
-                    propelling your AI-powered vision seamlessly forward.
-                    Together, we ensure its successful realization.
+                  <p className="text-white/70 text-[15px] leading-relaxed">
+                    Once approved, you gain access to your dedicated
+                    collaboration hub. Share references, track progress, and
+                    receive AI-driven visual outputs optimized for campaigns,
+                    catalogs, and ads.
                   </p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="my-9 px-5">
-            <div className="flex flex-col my-4">
-              <p className="text-lg font-medium text-primary-black">
-                Fill in your details below.
+
+          {/* RIGHT PANEL (CALENDLY FORM) */}
+          <div className="rounded-2xl bg-[#0f0f0f] border border-white/10 p-6 md:p-10 shadow-lg">
+            <div className="mb-6">
+              <p className="text-white text-2xl font-bold">
+                Book a Consultation
               </p>
-              <p className="text-sm text-primary-black opacity-50">
-                Let's get started with this contact form
+              <p className="text-white/70 text-sm">
+                Select a time below to schedule your strategy session.
               </p>
             </div>
 
-            <div className="text-[20px] text-[#071E22] font-semibold ">
-              <div className="">
-                <InlineWidget url="https://calendly.com/retenaaistacksorg/30min" />
-              </div>
+            <div className="rounded-xl overflow-hidden">
+              <InlineWidget url="https://calendly.com/retenaaistacksineden/30min" />
             </div>
           </div>
         </div>
@@ -99,3 +102,5 @@ const BrandingRequest = () => {
 };
 
 export default BrandingRequest;
+
+

@@ -79,8 +79,8 @@ const Program = () => {
 
   return (
     <WebLayoutWrapper>
-      <section className="bg-accent">
-        <div className="container bg-hero-bg bg-no-repeat bg-left bg-contain w-full min-h-[500px] md:min-h-[580px] flex flex-col md:flex-row justify-between items-center px-4 md:px-12 py-12 gap-12">
+      <section className="bg-black">
+        <div className="container bg-black w-full min-h-[500px] md:min-h-[580px] flex flex-col md:flex-row justify-between items-center px-4 md:px-12 py-12 gap-12">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -108,7 +108,7 @@ const Program = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-base text-primary-black font-medium"
+              className="text-base text-accent font-medium"
             >
               {programData?.hero_subtext ?? "__ __"}
             </motion.p>
@@ -120,14 +120,14 @@ const Program = () => {
               className="mt-4 flex items-center gap-2 flex-row"
             >
               <Button
-                className="bg-primary-black hover:bg-primary-blue text-white text-base px-4 py-6 transform transition duration-300 hover:scale-90"
+                className="bg-[#FCA311] hover:bg-primary-blue hover:text-white text-black text-base px-4 py-6 transform transition duration-300 hover:scale-90"
                 onClick={() => Navigate("/sign-up")}
               >
                 Enroll Now
-                <ArrowRight className="text-white h-4" />
+                <ArrowRight className="text-black h-4 hover:text-white" />
               </Button>
               <Button
-                className="bg-transparent text-black hover:text-black hover:bg-transparent text-base px-4 py-5 transform transition duration-300 hover:scale-90 border border-black"
+                className="bg-white text-black hover:text-black hover:bg-accent text-base px-4 py-5 transform transition duration-300 hover:scale-90 border border-black"
                 onClick={() => Navigate("/sign-up")}
               >
                 Chat with Us
@@ -157,7 +157,7 @@ const Program = () => {
                   alt="user3"
                 />
               </div>
-              <span className="text-sm text-gray-600 font-medium">
+              <span className="text-sm text-white font-medium">
                 Join the pioneers shaping the future of AI integration.
               </span>
             </motion.div>
@@ -213,7 +213,7 @@ const Program = () => {
               </ul>
 
               <Button
-                className="w-full bg-[#FCA311] text-white font-semibold mb-4 hover:bg-[#e59300]"
+                className="w-full bg-[#FCA311] text-black font-semibold mb-4 hover:bg-[#e59300]"
                 onClick={() => {
                   window.open(programData?.brochure_link ?? "#", "_blank");
                 }}
@@ -247,41 +247,41 @@ const Program = () => {
         <div className="flex items-center py-9 px-7 gap-5 md:gap-28">
           <div className="flex flex-col items-center text-center">
             <Timer className="h-11 w-11 text-[#FCA311]" />
-            <p className="text-primary-black text-lg font-semibold">
+            <p className="text-accent text-lg font-semibold">
               {programData?.cohort_duration ?? "__ __"}
             </p>
           </div>
           <div className="flex flex-col items-center text-center">
             <LaptopMinimal className="h-11 w-11 text-[#FCA311]" />
-            <p className="text-primary-black text-lg font-semibold">
+            <p className="text-accent text-lg font-semibold">
               Virtual Live Classes
             </p>
           </div>
           <div className="flex flex-col items-center text-center">
             <User className="h-11 w-11 text-[#FCA311]" />
-            <p className="text-primary-black text-lg font-semibold">
+            <p className="text-accent text-lg font-semibold">
               Expert Instructors
             </p>
           </div>
         </div>
         <div className="flex items-center py-9 justify-center">
           <Button
-            className="bg-primary-black hover:bg-primary-blue text-white text-base px-4 py-6 transform transition duration-300 hover:scale-90"
+            className="bg-[#FCA311] hover:bg-primary-blue hover:text-white text-black text-base px-4 py-6 transform transition duration-300 hover:scale-90"
             onClick={() => Navigate("/sign-up")}
           >
             Enroll Now
-            <ArrowRight className="text-white h-4" />
+            <ArrowRight className="text-black h-4" />
           </Button>
         </div>
       </section>
 
-      <section className="container mt-10 py-7 bg-accent">
+      <section className="container mt-10 py-7 bg-black">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className=" text-3xl md:text-4xl font-bold text-primary-black"
+          className=" text-3xl md:text-4xl font-bold text-white"
         >
           How you will Learn
         </motion.h2>
@@ -296,10 +296,10 @@ const Program = () => {
               viewport={{ once: true }}
             >
               {card.icon}
-              <p className="text-primary-black text-2xl font-semibold">
+              <p className="text-accent text-2xl font-semibold">
                 {card.title}
               </p>
-              <p className="text-primary-black text-base">{card.text}</p>
+              <p className="text-neutral-300 text-base">{card.text}</p>
             </motion.div>
           ))}
         </div>
@@ -310,18 +310,18 @@ const Program = () => {
           <AnimatedTestimonials testimonials={programData?.testimonials} />
         )}
       </section>
-      <section className="container mt-10 py-7 bg-accent">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary-black my-7">
+      <section className="container mt-10 py-7 bg-black"> 
+        <h2 className="text-3xl md:text-4xl font-bold text-white my-7">
           What you will learn
         </h2>
         <div className="space-y-10">
           {programData?.course_outline?.map((mod, index) => (
             <div
               key={index}
-              className="p-6 border border-gray-200 rounded-2xl shadow-sm bg-gray-50"
+              className="p-6 border border-gray-800 rounded-2xl shadow-sm bg-slate-900"
             >
               <div className="flex justify-between items-start flex-wrap mb-4">
-                <h3 className="text-xl font-semibold text-[#14213D] flex items-center gap-2">
+                <h3 className="text-xl font-semibold text-[#FCA311] flex items-center gap-2">
                   <Star className="w-5 h-5 text-[#FCA311]" />
                   {mod.topic}
                   {mod.is_elective && (
@@ -338,12 +338,12 @@ const Program = () => {
                 )}
               </div>
 
-              <p className="text-[#14213D] mb-4 flex items-start gap-2 text-base">
+              <p className="text-white mb-4 flex items-start gap-2 text-base">
                 <Info className="w-5 md:w-4 h-5 md:h-4 mt-1 text-[#000000]" />
                 {mod.description}
               </p>
 
-              <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300 mb-2 space-y-2">
+              <ul className="list-disc pl-5 text-accent dark:text-gray-300 mb-2 space-y-2">
                 {mod.outcomes.map((outcome, i) => (
                   <li key={i} className="flex gap-2 items-start">
                     <CheckCircle2 className="w-4 h-4 mt-1 text-[#FCA311]" />
@@ -606,16 +606,16 @@ const Program = () => {
         </div>
       </section>
 
-      <section className="w-full bg-[#F9FAFB] py-20 px-6 md:px-12 lg:px-24">
+      <section className="w-full bg-black py-20 px-6 md:px-12 lg:px-24">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: Text Content */}
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#14213D] leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
               Enjoy a{" "}
               <span className="text-[#FCA311]">50% Tuition Discount</span> for a
               Limited Time!
             </h2>
-            <p className="text-lg text-gray-700">
+            <p className="text-lg text-gray-300">
               Invest in your AI career now and take advantage of this special
               limited-time tuition slash. Secure your spot today.
             </p>
@@ -625,10 +625,10 @@ const Program = () => {
               <li className="flex items-start gap-4">
                 <CreditCard className="text-[#FCA311] w-6 h-6 mt-1" />
                 <div>
-                  <h4 className="text-lg font-semibold text-[#14213D]">
+                  <h4 className="text-lg font-semibold text-[#FCA311]">
                     One-Time Payment
                   </h4>
-                  <p className="text-gray-600">
+                  <p className="text-gray-300">
                     Make a single payment of{" "}
                     <span className="font-semibold text-[#c1121f] line-through">
                       {programData?.payment?.total ?? "__ __"}
@@ -645,13 +645,13 @@ const Program = () => {
               <li className="flex items-start gap-4">
                 <CalendarClock className="text-[#FCA311] w-6 h-6 mt-1" />
                 <div>
-                  <h4 className="text-lg font-semibold text-[#14213D]">
+                  <h4 className="text-lg font-semibold text-[#FCA311]">
                     Flexible Installments
                   </h4>
-                  <p className="text-gray-600">
+                  <p className="text-gray-300">
                     Spread your discounted tuition across 3 easy payments:
                   </p>
-                  <ul className="list-disc list-inside text-gray-600 mt-2 ml-4 space-y-1">
+                  <ul className="list-disc list-inside text-gray-300 mt-2 ml-4 space-y-1">
                     <li>
                       <strong className="text-green-600">
                         {programData?.payment?.discounted_first_tranche ??
@@ -680,7 +680,7 @@ const Program = () => {
               {/* No Hidden Fees */}
               <li className="flex items-start gap-4">
                 <Banknote className="text-[#FCA311] w-6 h-6 mt-1" />
-                <p className="text-gray-600">
+                <p className="text-gray-300">
                   No hidden fees. No extra charges. Just a clear, discounted
                   path to launching your AI integration career.
                 </p>
@@ -688,7 +688,7 @@ const Program = () => {
             </ul>
 
             <Button
-              className="bg-[#000000] border-[1.5px] text-sm border-primary-blue2 font-semibold text-white hover:bg-primary-blue hover:text-white items-center gap-2"
+              className="border-[1.5px] bg-[#E5E5E5] border-primary-blue2 text-primary-black hover:bg-primary-blue hover:text-white text-base px-4 py-5 transform transition duration-300 hover:scale-90"
               onClick={() => Navigate("/sign-up")}
             >
               Apply Now
@@ -707,7 +707,7 @@ const Program = () => {
         </div>
       </section>
 
-      <section className="w-full bg-[#F5F7FA] py-20 px-6 md:px-12 lg:px-24">
+      <section className="w-full bg-black py-20 px-6 md:px-12 lg:px-24">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* Left Content */}
           <motion.div
@@ -717,10 +717,10 @@ const Program = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-black leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
               How to Join the Program
             </h2>
-            <p className="text-lg text-gray-700">
+            <p className="text-lg text-gray-300">
               From application to admission—here’s what your journey looks like
               before training begins.
             </p>
@@ -746,10 +746,10 @@ const Program = () => {
                 >
                   <CheckCircle className="w-6 h-6 text-[#FCA311] mt-1" />
                   <div>
-                    <h4 className="font-semibold text-black text-lg">
+                    <h4 className="font-semibold text-white text-lg">
                       {step.title}
                     </h4>
-                    <p className="text-black">{step.description}</p>
+                    <p className="text-gray-300">{step.description}</p>
                   </div>
                 </motion.li>
               ))}
@@ -761,7 +761,7 @@ const Program = () => {
               transition={{ delay: 0.3, duration: 0.5 }}
             >
               <Button
-                className="bg-[#000000] border-[1.5px] text-sm border-primary-blue2 font-semibold text-white hover:bg-primary-blue hover:text-white items-center gap-2"
+                className="border-[1.5px] bg-[#E5E5E5] border-primary-blue2 text-primary-black hover:bg-primary-blue hover:text-white text-base px-4 py-5 transform transition duration-300 hover:scale-90"
                 onClick={() => Navigate("/sign-up")}
               >
                 Apply Now
@@ -787,7 +787,7 @@ const Program = () => {
         </div>
       </section>
 
-      <section className="w-full bg-[#F9FAFB] py-20 px-6 md:px-12 lg:px-24">
+      <section className="w-full bg-black py-20 px-6 md:px-12 lg:px-24">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-primary-black mb-10">
             Frequently Asked Questions
@@ -797,13 +797,13 @@ const Program = () => {
             {programData?.faqs?.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white shadow-md rounded-lg transition duration-300 border border-gray-200"
+                className="bg-slate-900 shadow-md rounded-lg transition duration-300 border border-gray-800"
               >
                 <button
                   onClick={() => toggle(index)}
                   className="w-full flex justify-between items-center px-6 py-4 text-left focus:outline-none"
                 >
-                  <span className="text-lg font-semibold text-gray-800">
+                  <span className="text-lg font-semibold text-accent">
                     {faq.question}
                   </span>
                   {activeIndex === index ? (
@@ -813,7 +813,7 @@ const Program = () => {
                   )}
                 </button>
                 {activeIndex === index && (
-                  <div className="px-6 pb-4 text-gray-600 text-base">
+                  <div className="px-6 pb-4 text-white text-base">
                     {faq.answer}
                   </div>
                 )}

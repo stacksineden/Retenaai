@@ -39,7 +39,7 @@
     "react-hot-toast": "^2.4.1",
     "react-loading-skeleton": "^3.5.0",
     "react-paystack": "^6.0.0",
-    "react-responsive-masonry": "^2.3.0",
+    "react-responsive-masonry": "^2.7.1",
     "react-router-dom": "6.18.0",
     "react-simple-typewriter": "^5.0.1",
     "swiper": "^11.1.14",

@@ -45,7 +45,7 @@ const SideBar = () => {
                 <div className="flex items-center justify-between w-full">
                   <div className="w-[150px] md:w-[170px]">
                     <img
-                      src="/assets/logo.png"
+                      src="/assets/retenatextW.png"
                       alt="brand"
                       className="w-full object-contain cursor-pointer"
                       loading="lazy"
@@ -192,7 +192,8 @@ const SideBar = () => {
                           isProspect || isApplied ? "bg-accent" : ""
                         } hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
                         onClick={() => {
-                          if (!isProspect && !isApplied) navigate("/assessment");
+                          if (!isProspect && !isApplied)
+                            navigate("/assessment");
                         }}
                       >
                         <Blend className="h-6 w-6 text-primary-black" />
@@ -266,7 +267,7 @@ const SideBar = () => {
                     <div className="flex items-center justify-between w-full">
                       <div className="w-[150px]">
                         <img
-                          src="/assets/logo.png"
+                          src="/assets/retenatextW.png"
                           alt="brand"
                           className="w-full object-contain cursor-pointer"
                           loading="lazy"
@@ -424,7 +425,8 @@ const SideBar = () => {
                             } hover:bg-accent transition-all duration-500 p-2 rounded-xl cursor-pointer`}
                             onClick={() => {
                               setMobileOpen(false);
-                              if (!isProspect && !isApplied) navigate("/assessment");
+                              if (!isProspect && !isApplied)
+                                navigate("/assessment");
                             }}
                           >
                             <Blend className="h-6 w-6 text-primary-black" />

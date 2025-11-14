@@ -22,7 +22,7 @@ const CtaCard = ({
 }: CtaCardProps) => {
   const navigate = useNavigate();
   return (
-    <section className="bg-white py-12 px-4">
+    <section className="bg-black py-12 px-4">
       <div className="relative max-w-7xl mx-auto rounded-3xl overflow-hidden shadow-lg">
         {/* Background Image */}
         <div className="absolute inset-0">
@@ -48,11 +48,11 @@ const CtaCard = ({
 
               <div className="flex justify-center">
                 <Button
-                  className="bg-transparent border-[1.5px] border-[#E5E5E5] hover:bg-primary-blue text-white text-sm px-2 md:px-4 py-2 md:py-4 transform transition duration-300 hover:scale-90 mt"
+                  className="bg-accent border-[1.5px] text-sm border-primary-blue2 font-semibold text-primary-black hover:bg-accent hover:primary-black flex items-center gap-2"
                   onClick={() => navigate(ctaUrl)}
                 >
                   {buttonText ?? "Get Started"}
-                  <ArrowRight className="text-white h-4" />
+                  <ArrowRight className="text-black h-4" />
                 </Button>
               </div>
             </div>

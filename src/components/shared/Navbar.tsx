@@ -15,14 +15,14 @@ const Navbar = () => {
   const isAcademyPage = location.pathname.includes("/retenaai-academy");
 
   return (
-    <div className="bg-accent">
-      <nav className="container flex justify-between py-4 md:py-6">
+    <div className="bg-black">
+      <nav className="container flex justify-between py-4">
         <Link
           to={isAcademyPage ? "/retenaai-academy" : "/"}
           className="w-[150px] md:w-[170px]"
         >
           <img
-            src="/assets/logo.png"
+            src="/assets/retenatextB.png"
             alt="brand"
             className="w-full object-contain"
             loading="lazy"
@@ -41,7 +41,7 @@ const Navbar = () => {
 
         {isAcademyPage && (
           <Button
-            className="hidden md:flex bg-transparent border-[1.5px] text-sm border-primary-blue2 font-semibold text-primary-black hover:bg-primary-blue hover:text-white items-center gap-2"
+            className="bg-accent border-[1.5px] text-sm border-primary-blue2 font-semibold text-primary-black hover:bg-accent hover:primary-black flex items-center gap-2"
             onClick={() => Navigate("/sign-up")}
           >
             Apply Now
@@ -52,10 +52,10 @@ const Navbar = () => {
         {!isAcademyPage && (
           <div className="hidden md:flex items-center gap-2">
             <Button
-              className="bg-transparent border-[1.5px] text-sm border-primary-blue2 font-semibold text-primary-black hover:bg-primary-blue hover:text-white flex items-center gap-2"
+              className="bg-accent border-[1.5px] text-sm border-primary-blue2 font-semibold text-primary-black hover:bg-accent hover:primary-black flex items-center gap-2"
               onClick={() => Navigate("/contact")}
             >
-              Book A Call
+              Contact Us
               <ArrowRight className="text-primary-black hover:text-white h-4" />
             </Button>
           </div>
@@ -64,25 +64,25 @@ const Navbar = () => {
         {/* Mobile */}
         {!isAcademyPage && (
           <div className="md:hidden flex items-center gap-1">
-            <Button
+            {/* <Button
               className="bg-accent text-primary-blue3 hover:bg-accent font-semibold text-sm"
               onClick={() => Navigate("/contact")}
             >
               Book A Call
-            </Button>
+            </Button> */}
             <div className="" onClick={() => setOpen(!open)}>
-              <Menu className="flex items-center justify-center text-primary-black h-7 w-7 cursor-pointer" />
+              <Menu className="flex items-center justify-center text-white h-7 w-7 cursor-pointer" />
             </div>
           </div>
         )}
         {isAcademyPage && (
           <div className="md:hidden flex items-center gap-1">
-            <Button
+            {/* <Button
               className="bg-accent text-primary-blue3 hover:bg-accent font-semibold text-sm"
               onClick={() => Navigate("/sign-up")}
             >
               Apply Now
-            </Button>
+            </Button> */}
             <div className="" onClick={() => setOpen(!open)}>
               <Menu className="flex items-center justify-center text-primary-black h-7 w-7 cursor-pointer" />
             </div>

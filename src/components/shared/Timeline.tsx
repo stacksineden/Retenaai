@@ -1,8 +1,4 @@
-import {
-  useScroll,
-  useTransform,
-  motion,
-} from "framer-motion";
+import { useScroll, useTransform, motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 
 interface TimelineEntry {
@@ -38,7 +34,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           Proven System Delivery Process
         </h2>
         <p className="text-white text-base md:text-lg max-w-sm">
-          How We Deliver AI Systems That Help You Grow — Fast and Predictably.
+          → From Photos to High-Performing Ad Visuals — <span className="text-[#FCA311]">in Hours, Not Days.</span>
         </p>
       </div>
 

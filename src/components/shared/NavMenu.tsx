@@ -4,74 +4,31 @@ import { cn } from "@/lib/utils";
 
 import {
   NavigationMenu,
-  NavigationMenuContent,
+  // NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
+  // NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { useNavigate } from "react-router-dom";
-
 
 export function NavMenu() {
   const Navigate = useNavigate();
 
   return (
-    <NavigationMenu>
+    <NavigationMenu className="mt-3">
       <NavigationMenuList>
-
-        <NavigationMenuItem></NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-accent">
-            Solutions
-          </NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] z-[999999]">
-              <li className="row-span-3">
-                <NavigationMenuLink asChild>
-                  <a
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                    href="/solutions"
-                  >
-                    <div className="h-full w-full rounded-lg">
-                      <img
-                        src="/assets/outreach.webp"
-                        alt="heroimage"
-                        className="h-full w-full object-contain rounded-lg"
-                      />
-                    </div>
-                    <div className="mb-2 mt-4 text-lg font-medium">
-                      Client aquisition systems
-                    </div>
-                    <p className="text-sm leading-tight text-muted-foreground">
-                      Let AI fill your pipeline with qualified leads — while you
-                      focus on closing deals, not chasing them.
-                    </p>
-                  </a>
-                </NavigationMenuLink>
-              </li>
-              <ListItem
-                href="/case-study?system=leadpilot"
-                title="Cold Outreach Engine"
-              >
-                Say goodbye to cold DMs — personalize outreach at scale with an
-                AI engine that books meetings while you sleep.
-              </ListItem>
-              <ListItem href="/solutions" title="Modular AI Infrastructure">
-                Turn chaos into clarity — deploy plug-and-play AI systems that
-                streamline operations and scale with your business.
-              </ListItem>
-              <ListItem
-                href="/case-study?system=studiogen"
-                title="AI photoshoot"
-              >
-                Experience the future of photography with a complimeentary
-                session and see the difference AI can make
-              </ListItem>
-            </ul>
-          </NavigationMenuContent>
+          <NavigationMenuLink
+            className={navigationMenuTriggerStyle()}
+            onClick={() => Navigate("/packages")}
+          >
+            Packages
+          </NavigationMenuLink>
+          {/* </Link> */}
         </NavigationMenuItem>
+
         <NavigationMenuItem>
           <NavigationMenuLink
             className={navigationMenuTriggerStyle()}
@@ -92,7 +49,7 @@ export function NavMenu() {
         <NavigationMenuItem>
           <NavigationMenuLink
             className={navigationMenuTriggerStyle()}
-            onClick={() => Navigate("/solutions")}
+            onClick={() => Navigate("/case-study")}
           >
             Case Studies
           </NavigationMenuLink>
@@ -133,3 +90,5 @@ const ListItem = React.forwardRef<
   );
 });
 ListItem.displayName = "ListItem";
+
+

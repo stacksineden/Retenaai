@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const Careers = () => {
   return (
     <WebLayoutWrapper>
-      <div className="bg-gray-50 min-h-screen py-12 px-6">
+      <div className="bg-black min-h-screen py-12 px-6">
         {/* Hero Section */}
         <motion.section
           initial={{ opacity: 0, y: -40 }}
@@ -12,8 +12,8 @@ const Careers = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-4xl mx-auto"
         >
-          <h1 className="text-4xl font-bold text-gray-900">Join Our Team</h1>
-          <p className="mt-4 text-lg text-gray-600">
+          <h1 className="text-4xl font-bold text-white">Join Our Team</h1>
+          <p className="mt-4 text-lg text-gray-300">
             At <strong>RetenaAI</strong>, we’re building the future of AI and
             automation. Be part of it.
           </p>
@@ -27,7 +27,7 @@ const Careers = () => {
 
         {/* Why Work With Us */}
         <section className="mt-16 max-w-5xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-800">
+          <h2 className="text-2xl font-bold text-gray-300">
             Why Work With Us?
           </h2>
           <ul className="mt-4 grid gap-6 md:grid-cols-2">
@@ -43,7 +43,7 @@ const Careers = () => {
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white p-6 rounded-xl shadow"
+                className="bg-gray-800 p-6 rounded-xl shadow text-white"
               >
                 {item}
               </motion.li>
@@ -53,7 +53,7 @@ const Careers = () => {
 
         {/* Job Listings */}
         <section className="mt-20 max-w-5xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-800">Current Openings</h2>
+          <h2 className="text-2xl font-bold text-accent">Current Openings</h2>
           <div className="mt-8 space-y-8">
             {[
               {
@@ -118,7 +118,7 @@ const Careers = () => {
             ].map((job, i) => (
               <motion.div
                 key={i}
-                className="bg-white rounded-xl shadow-lg overflow-hidden"
+                className="bg-gray-800 rounded-xl shadow-lg overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.2 }}
@@ -129,16 +129,16 @@ const Careers = () => {
                   className="w-full h-56 object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold">{job.title}</h3>
-                  <p className="text-gray-600 mt-2">{job.description}</p>
-                  <p className="mt-4 text-sm text-gray-500">
+                  <h3 className="text-xl font-semibold text-white">{job.title}</h3>
+                  <p className="text-accent mt-2">{job.description}</p>
+                  <p className="mt-4 text-sm text-[#FCA311]">
                     📍 {job.location} | 📅 {job.type}
                   </p>
                   <details className="mt-4">
-                    <summary className="cursor-pointer text-blue-600 hover:underline">
+                    <summary className="cursor-pointer text-white hover:underline">
                       View Details
                     </summary>
-                    <pre className="whitespace-pre-wrap text-gray-700 mt-2 text-sm">
+                    <pre className="whitespace-pre-wrap text-gray-300 mt-2 text-sm">
                       {job.details}
                     </pre>
                   </details>

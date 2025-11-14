@@ -13,7 +13,7 @@
   }
 
   body {
-    @apply bg-white text-primary-black font-jost;
+    @apply bg-black text-primary-black font-jost;
   }
   :root {
     --background: 0 0% 100%;

@@ -5,7 +5,7 @@ const Enterprise = () => {
   return (
     <>
       <WebLayoutWrapper>
-        <div className="bg-gray-50 min-h-screen flex flex-col items-center justify-center px-6 text-center">
+        <div className="bg-black min-h-screen flex flex-col items-center justify-center px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -19,9 +19,9 @@ const Enterprise = () => {
               whileHover={{ scale: 1.05 }}
             />
 
-            <h1 className="text-4xl font-bold text-gray-900">Pilot Program</h1>
+            <h1 className="text-4xl font-bold text-white">Pilot Program</h1>
 
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-gray-300">
               🚀 We’re cooking up something exciting! Stay tuned for updates on
               our upcoming Pilot Program — details are on the way.
             </p>

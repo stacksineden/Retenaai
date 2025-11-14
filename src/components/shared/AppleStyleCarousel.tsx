@@ -1,5 +1,4 @@
 import React, { useEffect, useState, createContext } from "react";
-
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
@@ -170,7 +169,7 @@ export const Card = ({
         <div className="relative z-40 p-5 md:p-8">
           <motion.p
             layoutId={layout ? `category-${card.category}` : undefined}
-            className="text-white text-sm md:text-base font-medium  text-left"
+            className="text-[#FCA311] text-sm md:text-base font-medium  text-left"
           >
             {card.category}
           </motion.p>
@@ -186,11 +185,11 @@ export const Card = ({
               navigate(
                 identifier === "academy"
                   ? `/retenaai-academy/program?mode=generative_ai_engineering`
-                  : `/case-study?system=${card.slug}`
+                  : `/packages`
               )
             }
           >
-            Learn More
+            Get Started
             <ArrowRight className="text-white h-4" />
           </Button>
         </div>

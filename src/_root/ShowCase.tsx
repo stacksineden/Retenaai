@@ -29,9 +29,9 @@ const ShowCase = () => {
         }
       },
       {
-        root: null, // Use the viewport as the root
-        rootMargin: "100px", // Load before reaching the bottom
-        threshold: 0.1, // Trigger when 10% of the element is visible
+        root: null,
+        rootMargin: "100px", 
+        threshold: 0.1, 
       }
     );
 

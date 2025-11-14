@@ -9,6 +9,10 @@ import {
   Modules,
   Sessions,
   Assessments,
+  FluxLoraGenerate,
+  DemoTraining,
+  TrainingDatasets,
+  LoraTraining,
 } from "./_root/pages";
 import "./globals.css";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -22,6 +26,7 @@ import ResetPassword from "./_auth/forms/ResetPassword";
 import { Loader2 } from "lucide-react";
 import NotFound from "./_root/NotFound";
 import ProgramResources from "./_root/pages/ProgramResources";
+import PackagesBillings from "./_root/PackagesBillings";
 
 const Landing = lazy(() => import("./_root/Landing"));
 const SolutionPage = lazy(() => import("./_root/Solutions"));
@@ -33,14 +38,16 @@ const ShowCase = lazy(() => import("./_root/ShowCase"));
 const Terms = lazy(() => import("./_root/Terms"));
 const Enterprise = lazy(() => import("./_root/Enterprise"));
 const BrandingRequest = lazy(() => import("./_root/BrandingRequest"));
-const CaseStudyPage = lazy(() => import("./_root/CaseStudy"));
+// const CaseStudyPage = lazy(() => import("./_root/CaseStudy"));
 const AcademyPage = lazy(() => import("./_root/Academy"));
+const PackagesPage = lazy(() => import("./_root/Packages"));
 const ProgramsPage = lazy(() => import("./_root/Programs"));
 const ProgramPage = lazy(() => import("./_root/Program"));
 const CareerPage = lazy(() => import("./_root/Careers"));
 const MasterclassPage = lazy(() => import("./_root/Masterclass"));
 const MasterclassBillingPage = lazy(() => import("./_root/Masterclassbilling"));
 const ConfirmedPage = lazy(() => import("./_root/Confirmed"));
+const PackageConfirmed = lazy(() => import("./_root/PackageConfirmed"));
 
 const App = () => {
   const [showFirstMessage, setShowFirstMessage] = useState(true);
@@ -56,15 +63,15 @@ const App = () => {
     <>
       <Suspense
         fallback={
-          <div className="w-[90%] mx-auto h-screen flex items-center justify-center flex-col gap-2">
-            <Loader2 className="h-10 md:h-20 w-10 md:w-20 text-primary-blue animate-spin" />
+          <div className="w-full mx-auto h-screen flex items-center justify-center flex-col gap-2 bg-black">
+            <Loader2 className="h-10 md:h-20 w-10 md:w-20 text-white animate-spin" />
             <div className="text-center">
               {showFirstMessage ? (
-                <p className="text-base md:text-lg text-primary-black">
+                <p className="text-base md:text-lg text-white">
                   Hang tight! Our servers are doing some heavy lifting.
                 </p>
               ) : (
-                <p className="text-base md:text-lg text-primary-black">
+                <p className="text-base md:text-lg text-white">
                   In the meantime, why not practice your Jedi mind tricks? Try
                   to move the loading spinner with your mind... Almost there...
                 </p>
@@ -85,14 +92,14 @@ const App = () => {
               {/* <Route
                 path="/generations/photo-upscaling"
                 element={<Photoupscaling />}
-              /> */}
-              {/* <Route path="/generations/flux" element={<FluxProGenerate />} /> */}
-              {/* <Route
+              />
+              <Route path="/generations/flux" element={<FluxProGenerate />} /> */}
+              <Route
                 path="/generations/flux/lora"
                 element={<FluxLoraGenerate />}
-              /> */}
-              {/* <Route path="/demotraining" element={<DemoTraining />} />
-              <Route path="/demogenerate" element={<DemoGenerate />} />
+              />
+              <Route path="/demotraining" element={<DemoTraining />} />
+              {/* <Route path="/demogenerate" element={<DemoGenerate />} />
               <Route path="/generations-image" element={<ImageGenerate />} />
               <Route path="/generations/bg-remover" element={<BgRemover />} />
               <Route
@@ -105,8 +112,9 @@ const App = () => {
               <Route
                 path="/photoshoot-gallery"
                 element={<PhotoshootGallery />}
-              />
-              <Route path="/training-dataset" element={<TrainingDatasets />} /> */}
+              /> */}
+               <Route path="/training" element={<LoraTraining />} />
+              <Route path="/training-dataset" element={<TrainingDatasets />} />
               <Route path="/billing" element={<Billing />} />
               <Route path="/credits-billing" element={<CreditsBilling />} />
               <Route path="/study-kits" element={<StudyKits />} />
@@ -123,11 +131,12 @@ const App = () => {
 
             <Route index element={<Landing />} />
             <Route path="/showcase" element={<ShowCase />} />
-            <Route path="/solutions" element={<SolutionPage />} />
-            <Route path="/case-study" element={<CaseStudyPage />} />
+            <Route path="/solutions" element={<SolutionPage />} /> 
+            <Route path="/case-study" element={<SolutionPage />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/enterprise" element={<Enterprise />} />
+            <Route path="/packages" element={<PackagesPage />} />
             <Route path="/contact" element={<BrandingRequest />} />
             <Route path="/retenaai-academy" element={<AcademyPage />} />
             <Route
@@ -143,11 +152,21 @@ const App = () => {
               path="/retenaai-academy/thank-you"
               element={<ConfirmedPage />}
             />
+            <Route
+              path="/package-thank-you"
+              element={<PackageConfirmed />}
+            />
 
             <Route
               path="/retenaai-academy/masterclass-billing"
               element={<MasterclassBillingPage />}
             />
+            
+             <Route
+              path="/packages-billing"
+              element={<PackagesBillings />}
+            />
+            
             <Route path="/careers" element={<CareerPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

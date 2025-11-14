@@ -2,18 +2,19 @@ import { AppleStyleCarousel, Card } from "./AppleStyleCarousel";
 
 export function HighLights() {
   const cards = data.map((card, index) => (
-    <Card key={card.src} card={card} index={index} identifier="agency"/>
+    <Card key={card.src} card={card} index={index} identifier="agency" />
   ));
 
   return (
     <div className="w-full h-full py-4">
       <div className="max-w-7xl pl-4 mx-auto flex flex-col gap-2">
-        <h2 className=" text-2xl md:text-5xl font-bold text-primary-black">
-          RetenaAI Systems
+        <h2 className="text-4xl md:text-5xl font-bold text-white">
+          Transform Fashion.{" "}
+          <span className="text-[#FCA311]">Scale Creatively.</span>
         </h2>
-        <p className="text-base md:text-xl">
-          Ready-to-use AI systems that plug directly into your business — no
-          developers, no complexity. Just subscribe, connect, and grow.
+        <p className="text-base md:text-xl text-white">
+          Our AI-powered creative suite turns your brand visuals into campaigns
+          that sell, grow and scale <br /> — from single product to full collection.
         </p>
       </div>
       <AppleStyleCarousel items={cards} />
@@ -53,39 +54,52 @@ const DummyContent = () => {
 
 const data = [
   {
-    category: "Retena LeadPilot",
-    title: "Personalized Deep Outreach System",  
-    src: "/assets/outreach.webp",
+    category: "Studio-Ready Visuals",
+    title: "High-quality AI-retouched photographs tailored per product.",
+    src: "/assets/mockups/men_kaftan/men_kaftan1.png",
     content: <DummyContent />,
     slug: "leadpilot",
   },
   {
-    category: "Retena StudioGen",
-    title: "AI Product Photography System",
-    src: "/assets/highlights1.webp",
+    category: "Story & Caption Creation",
+    title: "Taglines, captions and social-ready content pinned to each visual.",
+    src: "/assets/mockups/men_tshirt/men_tshirt3.png",
     content: <DummyContent />,
     slug: "studiogen",
   },
   {
-    category: "Retena CloneCast",
-    title: "Content Automation & Deployment System",
-    src: "/assets/content.webp",
-    content: <DummyContent />,
-    slug: "clonecast",
-  },
-
-  {
-    category: "Retena UGCPro",
-    title: "AI UGC Ad Creation & Deployment System",
+    category: "Video & Commercial Production",
+    title: "From stills to motion: ads and commercial visuals made for your brand.",
     src: "/assets/ugc.webp",
     content: <DummyContent />,
     slug: "ugcpro",
   },
   {
-    category: "Retena ConvertFlow",
-    title: "AI Lead Conversion System",
+    category: "Content Posting Automations",
+    title: "Schedule and publish your content automatically, directly to your channels.",
     src: "/assets/lead.webp",
     content: <DummyContent />,
     slug: "convertflow",
+  },
+  {
+    category: "Paid Meta Ads Setup & Creative Services",
+    title: "Full ad campaigns crafted, creatives supplied, and performance driven.",
+    src: "/assets/auth-bg.png",
+    content: <DummyContent />,
+    slug: "convertflow",
+  },
+   {
+    category: "E-Commerce Store Build & Brand Integration",
+    title: "From visuals to storefront: seamless brand presence online.",
+    src: "/assets/dep1.webp",
+    content: <DummyContent />,
+    slug: "convertflow",
+  },
+    {
+    category: "Visual System & Automation",
+    title: "Custom infrastructure built to convert raw images into branded visuals, at scale.",
+    src: "/assets/content.webp",
+    content: <DummyContent />,
+    slug: "clonecast",
   },
 ];

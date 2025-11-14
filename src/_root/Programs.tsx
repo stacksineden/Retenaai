@@ -6,8 +6,6 @@ import { AcademyTimeline } from "@/components/shared/AcademyTimeline";
 import { Lock } from "lucide-react"; 
 import { retenaPrograms } from "@/modelDataset";
 
-
-
 const data = [
   {
     title: "Launch",

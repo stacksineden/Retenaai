@@ -27,7 +27,7 @@ const AcademyHero = ({
 }: CtaCardProps) => {
   const navigate = useNavigate();
   return (
-    <section className="bg-white py-12 px-4">
+    <section className="bg-black py-12 px-4">
       <motion.div
         className="relative max-w-7xl mx-auto rounded-3xl overflow-hidden shadow-lg"
         initial={{ opacity: 0, y: 50 }}

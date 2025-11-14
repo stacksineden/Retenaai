@@ -14,7 +14,7 @@ const DemoVideo = ({ url }: { url: string }) => {
   };
 
   return (
-    <div className="w-full my-6">
+    <div className="w-full my-10 bg-black">
       <div className="w-full md:h-[600px] px-4 md:px-0">
         <div className="max-w-6xl h-full bg-accent mx-auto rounded-3xl">
           <iframe
