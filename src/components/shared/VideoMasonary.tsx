@@ -4,16 +4,25 @@ import { useRef } from "react";
 
 // === Replace this with your video dataset ===
 const videoMockups = [
-  { src: "/assets/mockups/women_gymsuit/vid1.mp4" },
-  { src: "/assets/mockups/men_slippers/vid2.mp4" },
-  { src: "/assets/mockups/men_tshirt/vid2.mp4" },
-  { src: "/assets/mockups/men_shoes/vid1.mp4" },
-  { src: "/assets/mockups/men_senator/vid1.mp4" },
-  { src: "/assets/mockups/men_tshirt/vid3.mp4" },
-  { src: "/assets/mockups/men_agbada/vid1.mp4" },
-  { src: "/assets/mockups/men_tshirt/vid1.mp4" },
-  { src: "/assets/mockups/women_gymsuit/vid2.mp4" },
-  { src: "/assets/mockups/men_sweatshirt/vid1.mp4" },
+  { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763803284/vid1_zdphwh.mp4" },
+  { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802956/vid2_a8pyj6.mp4" },
+  { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763803154/vid2_nsosnm.mp4" },
+  {
+    src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802503/vid1_dmmkuy.mp4",
+  },
+  {
+    src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802698/vid1_g4n5gn.mp4",
+  },
+  { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763803201/vid3_lfrn93.mp4" },
+  {
+    src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802643/vid1_q6wkb8.mp4",
+  },
+  { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763803053/vid1_zezmaw.mp4" },
+  {
+    src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802767/vid1_xxbqb1.mp4",
+  },
+  { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763803339/vid2_zwswld.mp4" },
+  { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802996/vid1_ntmard.mp4" },
 ];
 
 // === Flicker variants (same as your image version) ===
@@ -54,15 +63,17 @@ const VideoMasonry = () => {
     <section>
       <div className="container text-left my-14">
         <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-          You’ve probably seen our work.{" "} <br/>
-          <span className="text-[#FCA311]">You just didn’t know it was AI.</span>
+          You’ve probably seen our work. <br />
+          <span className="text-[#FCA311]">
+            You just didn’t know it was AI.
+          </span>
         </h2>
       </div>
       <section
         ref={containerRef}
         className="relative w-full overflow-hidden isolate"
         style={{
-          height: "950px",
+          height: "1300px",
           backgroundColor: "black",
         }}
       >
