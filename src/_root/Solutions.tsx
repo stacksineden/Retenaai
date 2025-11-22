@@ -184,7 +184,7 @@ const Solutions = () => {
 
           {/* Video Placeholder */}
           <motion.video
-            src="/assets/mockups/men_slippers/Create_an_ultrarealistic_202510162203_j0cl6.mp4"
+            src="/assets/mockups/men_slippers/vid2.mp4"
             autoPlay
             muted
             loop

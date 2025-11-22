@@ -93,6 +93,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         "/packages-billing",
         "/packages",
         "/package-thank-you",
+        "/affiliate-program",
+        "/affiliate-register",
+        "/affiliate-success",
       ];
       if (!currentAccount && !excludedPaths.includes(location.pathname)) {
         navigate("/sign-in");
@@ -131,6 +134,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         location.pathname.includes("/packages-billing") ||
         location.pathname.includes("/packages") ||
         location.pathname.includes("/package-thank-you") ||
+        location.pathname.includes("/affiliate-program") ||
+        location.pathname.includes("/affiliate-register") ||
+        location.pathname.includes("/affiliate-success") ||
         location.pathname === "/"
       ) &&
       (cookieFallback === "[]" ||

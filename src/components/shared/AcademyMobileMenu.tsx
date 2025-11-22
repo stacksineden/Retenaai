@@ -25,7 +25,7 @@ const AcademyMobileMenu = ({
             className={`w-[100vw] h-screen fixed inset-0 z-50 backdrop-blur-sm`}
           >
             <div
-              className={`fixed inset-x-4 top-8 z-50 origin-top rounded-3xl p-8 ring-1 ring-zinc-900/5 bg-accent opacity-100 scale-100`}
+              className={`fixed inset-x-4 top-8 z-50 origin-top rounded-3xl p-8 ring-1 ring-zinc-900/5 bg-black opacity-100 scale-100`}
             >
               <div className="flex flex-row-reverse items-center justify-between">
                 <button
@@ -37,7 +37,7 @@ const AcademyMobileMenu = ({
                   <svg
                     viewBox="0 0 24 24"
                     aria-hidden="true"
-                    className={`h-6 w-6 text-primary-black`}
+                    className={`h-6 w-6 text-accent`}
                   >
                     <path
                       d="m17.25 6.75-10.5 10.5M6.75 6.75l10.5 10.5"
@@ -49,13 +49,13 @@ const AcademyMobileMenu = ({
                     ></path>
                   </svg>
                 </button>
-                <h2 className={`text-sm font-medium text-primary-black`}>
+                <h2 className={`text-sm font-medium text-white`}>
                   Navigation
                 </h2>
               </div>
               <nav className="mt-6 flex flex-col gap-3">
                 <ul
-                  className={`my-2 divide-y text-sm divide-zinc-200 text-primary-black`}
+                  className={`my-2 divide-y text-sm divide-zinc-200 text-white`}
                 >
                   <Link to="/retenaai-academy/program?mode=generative_ai_engineering">
                     <li className="block py-2 font-medium">Program</li>
@@ -93,11 +93,11 @@ const AcademyMobileMenu = ({
                     Get Started
                   </Button> */}
                   <Button
-                    className="bg-primary-blue2 hover:bg-primary-black font-semibold text-white flex items-center gap-2"
+                    className="bg-[#FCA311] hover:bg-primary-black font-semibold text-black flex items-center gap-2"
                     onClick={() => Navigate("/contact")}
                   >
                     Apply Now
-                    <ArrowRight className="text-white h-4" />
+                    <ArrowRight className="text-black h-4" />
                   </Button>
                 </div>
               </nav>

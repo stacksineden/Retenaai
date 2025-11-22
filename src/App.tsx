@@ -48,6 +48,9 @@ const MasterclassPage = lazy(() => import("./_root/Masterclass"));
 const MasterclassBillingPage = lazy(() => import("./_root/Masterclassbilling"));
 const ConfirmedPage = lazy(() => import("./_root/Confirmed"));
 const PackageConfirmed = lazy(() => import("./_root/PackageConfirmed"));
+const AffiliateProgramPage = lazy(() => import("./_root/AffiliateProgram"));
+const AffiliateRegisterPage = lazy(() => import("./_root/AffiliateRegister"));
+const AffiliateSuccessPage = lazy(() => import("./_root/AffiliateSuccess"));
 
 const App = () => {
   const [showFirstMessage, setShowFirstMessage] = useState(true);
@@ -113,7 +116,7 @@ const App = () => {
                 path="/photoshoot-gallery"
                 element={<PhotoshootGallery />}
               /> */}
-               <Route path="/training" element={<LoraTraining />} />
+              <Route path="/training" element={<LoraTraining />} />
               <Route path="/training-dataset" element={<TrainingDatasets />} />
               <Route path="/billing" element={<Billing />} />
               <Route path="/credits-billing" element={<CreditsBilling />} />
@@ -131,7 +134,7 @@ const App = () => {
 
             <Route index element={<Landing />} />
             <Route path="/showcase" element={<ShowCase />} />
-            <Route path="/solutions" element={<SolutionPage />} /> 
+            <Route path="/solutions" element={<SolutionPage />} />
             <Route path="/case-study" element={<SolutionPage />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/terms" element={<Terms />} />
@@ -152,21 +155,27 @@ const App = () => {
               path="/retenaai-academy/thank-you"
               element={<ConfirmedPage />}
             />
-            <Route
-              path="/package-thank-you"
-              element={<PackageConfirmed />}
-            />
+            <Route path="/package-thank-you" element={<PackageConfirmed />} />
 
             <Route
               path="/retenaai-academy/masterclass-billing"
               element={<MasterclassBillingPage />}
             />
-            
-             <Route
-              path="/packages-billing"
-              element={<PackagesBillings />}
+            <Route
+              path="/affiliate-program"
+              element={<AffiliateProgramPage />}
             />
-            
+            <Route
+              path="/affiliate-register"
+              element={<AffiliateRegisterPage />}
+            />
+            <Route
+              path="/affiliate-success"
+              element={<AffiliateSuccessPage />}
+            />
+
+            <Route path="/packages-billing" element={<PackagesBillings />} />
+
             <Route path="/careers" element={<CareerPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

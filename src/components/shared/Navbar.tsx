@@ -40,13 +40,15 @@ const Navbar = () => {
         )}
 
         {isAcademyPage && (
-          <Button
-            className="bg-accent border-[1.5px] text-sm border-primary-blue2 font-semibold text-primary-black hover:bg-accent hover:primary-black flex items-center gap-2"
-            onClick={() => Navigate("/sign-up")}
-          >
-            Apply Now
-            <ArrowRight className="text-primary-black hover:text-white h-4" />
-          </Button>
+          <div className="hidden md:flex items-center gap-2">
+            <Button
+              className="bg-accent border-[1.5px] text-sm border-primary-blue2 font-semibold text-primary-black hover:bg-accent hover:primary-black flex items-center gap-2"
+              onClick={() => Navigate("/sign-up")}
+            >
+              Apply Now
+              <ArrowRight className="text-primary-black hover:text-white h-4" />
+            </Button>
+          </div>
         )}
 
         {!isAcademyPage && (
@@ -84,7 +86,7 @@ const Navbar = () => {
               Apply Now
             </Button> */}
             <div className="" onClick={() => setOpen(!open)}>
-              <Menu className="flex items-center justify-center text-primary-black h-7 w-7 cursor-pointer" />
+              <Menu className="flex items-center justify-center text-white h-7 w-7 cursor-pointer" />
             </div>
           </div>
         )}

@@ -56,9 +56,9 @@ export function NavMenu() {
         </NavigationMenuItem>
         <NavigationMenuLink
           className={navigationMenuTriggerStyle()}
-          onClick={() => Navigate("/careers")}
+          onClick={() => Navigate("/affiliate-program")}
         >
-          Careers
+          Affiliate Program
         </NavigationMenuLink>
       </NavigationMenuList>
     </NavigationMenu>

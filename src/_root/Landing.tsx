@@ -8,6 +8,7 @@ import Hero from "@/components/shared/Hero";
 import { HighLights } from "@/components/shared/HighLights";
 import Masonary from "@/components/shared/Masonary";
 import Showcase from "@/components/shared/Showcase";
+import VideoMasonry from "@/components/shared/VideoMasonary";
 import WebLayoutWrapper from "@/components/shared/WebLayoutWrapper";
 
 const Home = () => {
@@ -15,8 +16,9 @@ const Home = () => {
     <WebLayoutWrapper>
       <Hero />
       <Masonary />
-      <DemoVideo url="https://youtu.be/6dvnHG6UnPI" />
-      <Features /> 
+      <DemoVideo url="https://youtu.be/0VwQVs4b60M" />
+      <VideoMasonry />
+      <Features />
       <Showcase />
       <FeaturedBrand />
       <section className="py-4">
@@ -30,4 +32,3 @@ const Home = () => {
 };
 
 export default Home;
-

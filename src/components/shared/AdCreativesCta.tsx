@@ -33,7 +33,7 @@ const AdCreativesCta = () => {
 
         <p className="text-lg text-[#E5E5E5]/80 mb-10 max-w-2xl mx-auto">
           Turn your ideas into stunning fashion visuals — no studio, no limits.
-          Upload a single photo, and let ArtCreative bring your vision to life.
+          Upload a single photo, and let AdCreative bring your vision to life.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

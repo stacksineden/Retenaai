@@ -37,7 +37,7 @@ const FeaturedBrand = () => {
             className="col-span-2 rounded-2xl overflow-hidden shadow-lg"
           >
             <video
-              src="/assets/mockups/women_gymsuit/Create_a_highenergy_202510160001_dkoqh.mp4"
+              src="/assets/mockups/women_gymsuit/vid1.mp4"
               autoPlay
               muted
               loop

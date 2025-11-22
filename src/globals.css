@@ -153,7 +153,7 @@
   }
 
   .shad-input {
-    @apply h-14 text-primary-black bg-transparent border border-accent placeholder:text-primary-black focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-zinc-200 !important;
+    @apply h-14 text-primary-black bg-transparent border border-zinc-300 placeholder:text-primary-black focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-zinc-200 !important;
   }
 
   .shad-textarea {

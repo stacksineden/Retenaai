@@ -69,8 +69,8 @@ const MobileMenu = ({
                   <Link to="/case-study">
                     <li className="block py-2 font-medium">Case Studies</li>
                   </Link>
-                  <Link to="/careers">
-                    <li className="block py-2 font-medium">Careers</li>
+                  <Link to="/affiliate-program">
+                    <li className="block py-2 font-medium">Affiliate Program</li>
                   </Link>
                 </ul>
 
