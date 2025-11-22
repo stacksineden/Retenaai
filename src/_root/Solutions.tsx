@@ -178,13 +178,13 @@ const Solutions = () => {
 
         {/* Section 4 – Video Block */}
         <div className="mb-24">
-          <h3 className="text-3xl font-bold mb-6 text-center">
+          <h3 className="text-3xl font-bold mb-6 text-center"> 
             Campaign Video
           </h3>
 
           {/* Video Placeholder */}
           <motion.video
-            src="/assets/mockups/men_slippers/vid2.mp4"
+            src="https://res.cloudinary.com/dyryfgjro/video/upload/v1763802956/vid2_a8pyj6.mp4"
             autoPlay
             muted
             loop

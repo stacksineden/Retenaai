@@ -116,7 +116,7 @@ const Showcase = () => {
         {/* Phase 3: Generated Video */} 
         <motion.video
           key="video"
-          src="/assets/mockups/men_slippers/vid2.mp4"
+          src="https://res.cloudinary.com/dyryfgjro/video/upload/v1763802956/vid2_a8pyj6.mp4"
           autoPlay
           muted
           loop
