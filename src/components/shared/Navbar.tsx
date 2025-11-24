@@ -22,7 +22,7 @@ const Navbar = () => {
           className="w-[150px] md:w-[170px]"
         >
           <img
-            src="/assets/retenatextB.png"
+            src="https://res.cloudinary.com/dyryfgjro/image/upload/v1763990958/retenatextB_gku3oo.png"
             alt="brand"
             className="w-full object-contain"
             loading="lazy"

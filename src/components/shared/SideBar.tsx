@@ -45,7 +45,7 @@ const SideBar = () => {
                 <div className="flex items-center justify-between w-full">
                   <div className="w-[150px] md:w-[170px]">
                     <img
-                      src="/assets/retenatextW.png"
+                      src="https://res.cloudinary.com/dyryfgjro/image/upload/v1763991087/retenatextW_ye9xz7.png"
                       alt="brand"
                       className="w-full object-contain cursor-pointer"
                       loading="lazy"
