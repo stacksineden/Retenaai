@@ -47,7 +47,7 @@ const Masonary = () => {
         setSetIndex((prev) => (prev + 1) % mockups.length);
         setIsVisible(true);
       }, 1000);
-    }, 7000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, []);
