@@ -7,7 +7,7 @@ const Hero = () => {
 
   return (
     <section
-      className="bg-black relative overflow-hidden flex items-center justify-center min-h-[35vh] md:min-h-[50vh]"
+      className="relative overflow-hidden flex items-center justify-center min-h-[35vh] md:min-h-[50vh]"
       // style={{ minHeight: "50vh" }}
     >
       <motion.div
@@ -44,7 +44,7 @@ const Hero = () => {
       {/* === Content === */}
       <div className="relative z-10 flex flex-col items-center text-center w-full h-full">
         <motion.div
-          className="pt-28 pb-10 w-[90%] md:w-[80%]"
+          className="pt-16 md:pt-28 pb-10 w-[90%] md:w-[80%]"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
