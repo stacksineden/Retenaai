@@ -9,12 +9,12 @@ const transformations = [
   },
   {
     before: "/assets/mockups/men_tshirt/men_tshirt5.png",
-    after: "/assets/mockups/men_tshirt/proto_men_tshirt.webp",
+    after: "https://res.cloudinary.com/dyryfgjro/image/upload/v1764853767/men_tshirt_Before1_c7bikg.png",
     label: "",
   },
   {
     before: "/assets/mockups/women_jumpsuit/women_jumpsuit6.png",
-    after: "/assets/mockups/women_jumpsuit/women_jumpsuit3.png",
+    after: "https://res.cloudinary.com/dyryfgjro/image/upload/v1764854797/Gemini_Generated_Image_aa0730aa0730aa07_1_fwks4x.png",
     label: "",
   },
 ];
