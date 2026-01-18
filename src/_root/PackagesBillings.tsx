@@ -163,7 +163,7 @@ const PackagesBillings = () => {
 
           closePaymentModal();
         },
-        onClose: () => {},
+        onClose: () => { },
       });
     } catch (error) {
       console.log(error);
@@ -202,6 +202,28 @@ const PackagesBillings = () => {
           <p className="text-white/70 mb-10">
             Fill in your details to start your AdCreatives delivery process.
           </p>
+
+          <div className="mb-8 p-4 rounded-lg border border-white/20 bg-white/5">
+            <p className="text-base text-white/70 mb-3">
+              Not comfortable filling forms?
+            </p>
+
+            <a
+              href={`https://wa.me/2348022211241?text=Hello%20RetenaAI%2C%20I%20want%20to%20order%20the%20${encodeURIComponent(
+                pkg.name
+              )}%20package.%20Please%20guide%20me.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center w-full gap-2 rounded-md bg-[#25D366] px-4 py-3 text-black font-semibold hover:opacity-90 transition"
+            >
+              Continue on WhatsApp
+            </a>
+
+            <p className="text-sm text-white/60 mt-2 text-center">
+              We’ll guide you step-by-step and help upload your assets.
+            </p>
+          </div>
+
 
           <Form {...form}>
             <form
