@@ -58,9 +58,10 @@ const PackageConfirmed = () => {
           <div className="flex items-start gap-3">
             <Folder className="w-6 h-6 text-blue-500 mt-1" />
             <p className="text-white">
-              Your creatives will be uploaded to the{" "}
-              <strong>Google Drive link</strong> you provided. You can access
-              them once ready within the agreed delivery window.
+              Your creatives will be delivered directly to you via{" "}
+              <strong>WhatsApp</strong> and uploaded to your{" "}
+              <strong>Google Drive link</strong> (if provided). You can access
+              them as soon as they are ready within the agreed delivery window.
             </p>
           </div>
 
