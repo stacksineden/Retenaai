@@ -86,9 +86,9 @@ const Hero = () => {
           >
             <Button
               className="bg-[#FCA311] text-black hover:text-black hover:bg-[#E5E5E5] text-lg px-4 py-5 transform transition duration-300 hover:scale-95 border border-black font-semibold"
-              onClick={() => navigate("/packages-billing?mode=starter_pack")}
+              onClick={() => navigate("/packages-billing?mode=essentials_pack")}
             >
-              🔥 Get 10 AI Studio Visuals for ₦7,500
+              🔥 Get Your First 10 Studio Visuals in 24 Hours 
             </Button>
 
             <Button

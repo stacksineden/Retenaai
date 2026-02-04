@@ -60,9 +60,9 @@ const MobileMenu = ({
                    <Link to="/packages">
                     <li className="block py-2 font-medium">Packages</li>
                   </Link>
-                  <Link to="/retenaai-academy">
+                  {/* <Link to="/retenaai-academy">
                     <li className="block py-2 font-medium">Academy</li>
-                  </Link>
+                  </Link> */}
                   <Link to="/enterprise">
                     <li className="block py-2 font-medium">Pilot Program</li>
                   </Link>

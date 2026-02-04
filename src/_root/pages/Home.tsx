@@ -35,6 +35,7 @@ const Home = () => {
           window.location.replace("/app");
           return toast.success("Stage updated successfully.");
         } catch (error) {
+          console.error(error);
           return toast.error("Stage update failed.");
         }
       }

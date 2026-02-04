@@ -29,15 +29,14 @@ export function NavMenu() {
           {/* </Link> */}
         </NavigationMenuItem>
 
-        <NavigationMenuItem>
+        {/* <NavigationMenuItem>
           <NavigationMenuLink
             className={navigationMenuTriggerStyle()}
             onClick={() => Navigate("/retenaai-academy")}
           >
             Academy
           </NavigationMenuLink>
-          {/* </Link> */}
-        </NavigationMenuItem>
+        </NavigationMenuItem> */}
         <NavigationMenuItem>
           <NavigationMenuLink
             className={navigationMenuTriggerStyle()}
