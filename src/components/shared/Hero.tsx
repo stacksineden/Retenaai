@@ -85,14 +85,14 @@ const Hero = () => {
             transition={{ delay: 1.2, duration: 0.8 }}
           >
             <Button
-              className="bg-[#FCA311] text-black hover:text-black hover:bg-[#E5E5E5] text-lg px-4 py-5 transform transition duration-300 hover:scale-95 border border-black font-semibold"
+              className="bg-[#FCA311] text-black hover:text-black hover:bg-[#E5E5E5] text-base md:text-lg px-4 py-5 transform transition duration-300 hover:scale-95 border border-black font-semibold"
               onClick={() => navigate("/packages-billing?mode=essentials_pack")}
             >
               🔥 Get Your First 10 Studio Visuals in 24 Hours 
             </Button>
 
             <Button
-              className="bg-[#E5E5E5] text-black hover:text-black hover:bg-[#E5E5E5] text-lg px-4 py-5 transform transition duration-300 hover:scale-95 border border-black w-full md:w-[200px]"
+              className="bg-[#E5E5E5] text-black hover:text-black hover:bg-[#E5E5E5] text-base md:text-lg px-4 py-5 transform transition duration-300 hover:scale-95 border border-black w-full md:w-[200px]"
               onClick={() => navigate("/packages")}
             >
               View Packages
