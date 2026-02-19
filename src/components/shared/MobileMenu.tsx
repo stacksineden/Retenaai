@@ -3,8 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
 import { ArrowRight } from "lucide-react";
-
-
+import { useUserCountry } from "@/hooks/useUserLocation";
 
 const MobileMenu = ({
   open,
@@ -14,6 +13,10 @@ const MobileMenu = ({
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const Navigate = useNavigate();
+  const { country } = useUserCountry();
+
+  const isNigeria = country === "NG";
+
   return (
     <>
       {open && (
@@ -57,7 +60,7 @@ const MobileMenu = ({
                 <ul
                   className={`my-2 divide-y text-sm divide-zinc-200 text-white`}
                 >
-                   <Link to="/packages">
+                  <Link to={isNigeria ? "/packages" : "/contact"}>
                     <li className="block py-2 font-medium">Packages</li>
                   </Link>
                   {/* <Link to="/retenaai-academy">
@@ -69,9 +72,13 @@ const MobileMenu = ({
                   <Link to="/case-study">
                     <li className="block py-2 font-medium">Case Studies</li>
                   </Link>
-                  <Link to="/affiliate-program">
-                    <li className="block py-2 font-medium">Affiliate Program</li>
-                  </Link>
+                  {isNigeria && (
+                    <Link to="/affiliate-program">
+                      <li className="block py-2 font-medium">
+                        Affiliate Program
+                      </li>
+                    </Link>
+                  )}
                 </ul>
 
                 <div className="flex items-center justify-center gap-2">
@@ -93,4 +100,3 @@ const MobileMenu = ({
 };
 
 export default MobileMenu;
-

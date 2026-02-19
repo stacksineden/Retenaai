@@ -22,6 +22,7 @@ import { uploadToCloudinary } from "@/lib/cloudinary";
 import { closePaymentModal, useFlutterwave } from "flutterwave-react-v3";
 import { packages } from "@/modelDataset";
 import { Switch } from "@/components/ui/switch";
+import { useNavigate } from "react-router-dom";
 
 const BillingFormSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -36,6 +37,7 @@ const BillingFormSchema = z.object({
 });
 
 const PackagesBillings = () => {
+  const navigate = useNavigate();
   const urlParams = new URLSearchParams(window.location.search);
   const pkgSlug = urlParams.get("mode");
   const pkg = packages.find((p) => p.slug === pkgSlug) ?? packages[0];
@@ -108,7 +110,7 @@ const PackagesBillings = () => {
     setUploadedUrls((prev) => prev.filter((u) => u !== url));
     form.setValue(
       "assetUrls",
-      form.getValues("assetUrls").filter((u) => u !== url)
+      form.getValues("assetUrls").filter((u) => u !== url),
     );
   };
 
@@ -136,7 +138,7 @@ const PackagesBillings = () => {
             // 1️⃣ SEND MAIN ORDER WEBHOOK
             await axios.post(
               "https://hook.eu2.make.com/rs5giohqwtiy25hpxiu0g8643wm7u3tc",
-              payload
+              payload,
             );
 
             const promoCode = values.promoCode?.toUpperCase()?.trim() || "N/A";
@@ -153,7 +155,7 @@ const PackagesBillings = () => {
 
               await axios.post(
                 "https://hook.eu2.make.com/m8vvjgbd6dcgheusttjyp8s63vprbvkh",
-                affiliatePayload
+                affiliatePayload,
               );
             }
 
@@ -163,7 +165,7 @@ const PackagesBillings = () => {
 
           closePaymentModal();
         },
-        onClose: () => { },
+        onClose: () => {},
       });
     } catch (error) {
       console.log(error);
@@ -187,13 +189,22 @@ const PackagesBillings = () => {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* ========================== LEFT SIDE ========================== */}
         <div>
-          <Button
-            variant="outline"
-            className="mb-6 flex items-center gap-2 border-white/20 text-white hover:bg-white/10 hover:text-white bg-black"
-            onClick={() => window.history.back()}
-          >
-            ← Back
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              className="mb-6 flex items-center gap-2 border-white/20 text-white hover:bg-white/10 hover:text-white bg-black"
+              onClick={() => window.history.back()}
+            >
+              ← Back
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => navigate("/packages")}
+              className="mb-6 text-sm font-semibold text-[#FCA311] hover:text-[#000000] bg-transparent border border-white/20"
+            >
+              View all packages
+            </Button>
+          </div>
 
           <h2 className="text-4xl font-extrabold mb-3">
             Complete Your <span className="text-[#FCA311]">Order</span>
@@ -210,7 +221,7 @@ const PackagesBillings = () => {
 
             <a
               href={`https://wa.me/2348022211241?text=Hello%20RetenaAI%2C%20I%20want%20to%20order%20the%20${encodeURIComponent(
-                pkg.name
+                pkg.name,
               )}%20package.%20Please%20guide%20me.`}
               target="_blank"
               rel="noopener noreferrer"
@@ -223,7 +234,6 @@ const PackagesBillings = () => {
               We’ll guide you step-by-step and help upload your assets.
             </p>
           </div>
-
 
           <Form {...form}>
             <form

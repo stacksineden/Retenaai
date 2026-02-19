@@ -2880,8 +2880,8 @@ export const packages = [
   {
     name: "Starter Pack",
     slug: "starter_pack",
-    price: "₦7,500",
-    amount: 7500,
+    price: "₦17,500",
+    amount: 17500,
     highlight: false,
     features: [
       "5 High-Quality, AI-Retouched Studio-Ready Images",

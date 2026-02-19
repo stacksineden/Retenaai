@@ -1,9 +1,14 @@
 import { motion } from "framer-motion";
 import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
+import { useUserCountry } from "@/hooks/useUserLocation";
 
 const FeaturedBrand = () => {
   const navigate = useNavigate();
+  const { country } = useUserCountry();
+
+  const isNigeria = country === "NG";
+
   return (
     <section className="w-full bg-black py-20 px-6 md:px-16">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
@@ -88,9 +93,9 @@ const FeaturedBrand = () => {
             </p>
             <Button
               className="bg-[#E5E5E5] text-black hover:text-black hover:bg-[#E5E5E5] text-lg px-4 py-5 transform transition duration-300 hover:scale-90 border border-black"
-              onClick={() => navigate("/packages")}
+              onClick={() => navigate(isNigeria ? "/packages" : "/contact")}
             >
-              View Packages
+              {isNigeria ? "View Packages" : "Book a Discovery Call"}
             </Button>
           </div>
           <div className="grid grid-cols-2 gap-4">

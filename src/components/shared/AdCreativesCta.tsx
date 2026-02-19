@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
 import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
+import { useUserCountry } from "@/hooks/useUserLocation";
 
 const AdCreativesCta = () => {
   const navigate = useNavigate();
+  const { country } = useUserCountry();
+
+  const isNigeria = country === "NG";
   return (
     <section className="relative bg-black text-white py-32 overflow-hidden">
       {/* Background Gradient Animation */}
@@ -36,20 +40,31 @@ const AdCreativesCta = () => {
           Upload a single photo, and let AdCreative bring your vision to life.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button
-            className="bg-gradient-to-r from-[#FCA311] to-[#E5E5E5] text-black px-4 py-6 text-base hover:scale-105 transition-transform duration-300"
-            onClick={() => navigate("/packages-billing?mode=starter_pack")}
-          >
-            Upload Image
-          </Button>
-          <Button
-            className="border border-[#E5E5E5]/40 text-[#E5E5E5] px-4 py-6 text-base hover:bg-[#14213D] transition-colors duration-300"
-            onClick={() => navigate("/packages")}
-          >
-            View Packages
-          </Button>
-        </div>
+        {isNigeria ? (
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              className="bg-gradient-to-r from-[#FCA311] to-[#E5E5E5] text-black px-4 py-6 text-base hover:scale-105 transition-transform duration-300"
+              onClick={() => navigate("/packages-billing?mode=starter_pack")}
+            >
+              Upload Image
+            </Button>
+            <Button
+              className="border border-[#E5E5E5]/40 text-[#E5E5E5] px-4 py-6 text-base hover:bg-[#14213D] transition-colors duration-300"
+              onClick={() => navigate("/packages")}
+            >
+              View Packages
+            </Button>
+          </div>
+        ) : (
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              className="bg-gradient-to-r from-[#FCA311] to-[#E5E5E5] text-black px-4 py-6 text-base hover:scale-105 transition-transform duration-300"
+              onClick={() => navigate("/contact")}
+            >
+              Book a Discovery Call Today
+            </Button>
+          </div>
+        )}
       </div>
 
       {/* Decorative floating orbs (brand-toned, subtle) */}

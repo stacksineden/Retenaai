@@ -12,9 +12,14 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { useNavigate } from "react-router-dom";
+import { useUserCountry } from "@/hooks/useUserLocation";
 
 export function NavMenu() {
   const Navigate = useNavigate();
+
+  const { country } = useUserCountry();
+
+  const isNigeria = country === "NG";
 
   return (
     <NavigationMenu className="mt-3">
@@ -22,7 +27,7 @@ export function NavMenu() {
         <NavigationMenuItem>
           <NavigationMenuLink
             className={navigationMenuTriggerStyle()}
-            onClick={() => Navigate("/packages")}
+            onClick={() => Navigate(isNigeria ? "/packages" : "/contact")}
           >
             Packages
           </NavigationMenuLink>
@@ -53,12 +58,14 @@ export function NavMenu() {
             Case Studies
           </NavigationMenuLink>
         </NavigationMenuItem>
-        <NavigationMenuLink
-          className={navigationMenuTriggerStyle()}
-          onClick={() => Navigate("/affiliate-program")}
-        >
-          Affiliate Program
-        </NavigationMenuLink>
+        {isNigeria && (
+          <NavigationMenuLink
+            className={navigationMenuTriggerStyle()}
+            onClick={() => Navigate("/affiliate-program")}
+          >
+            Affiliate Program
+          </NavigationMenuLink>
+        )}
       </NavigationMenuList>
     </NavigationMenu>
   );
@@ -75,7 +82,7 @@ const ListItem = React.forwardRef<
           ref={ref}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
+            className,
           )}
           {...props}
         >
@@ -89,5 +96,3 @@ const ListItem = React.forwardRef<
   );
 });
 ListItem.displayName = "ListItem";
-
-

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
+import { useUserCountry } from "@/hooks/useUserLocation";
 
 interface CarouselProps {
   items: JSX.Element[];
@@ -91,14 +92,14 @@ export const AppleStyleCarousel = ({
         >
           <div
             className={cn(
-              "absolute right-0  z-[1000] h-auto  w-[5%] overflow-hidden bg-gradient-to-l"
+              "absolute right-0  z-[1000] h-auto  w-[5%] overflow-hidden bg-gradient-to-l",
             )}
           ></div>
 
           <div
             className={cn(
               "flex flex-row justify-start gap-4 pl-4",
-              "max-w-7xl mx-auto" // remove max-w-4xl if you want the carousel to span the full width of its container
+              "max-w-7xl mx-auto", // remove max-w-4xl if you want the carousel to span the full width of its container
             )}
           >
             {items.map((item, index) => (
@@ -158,6 +159,9 @@ export const Card = ({
   identifier?: string;
 }) => {
   const navigate = useNavigate();
+  const { country } = useUserCountry();
+
+  const isNigeria = country === "NG";
 
   return (
     <>
@@ -181,13 +185,16 @@ export const Card = ({
           </motion.p>
           <Button
             className="bg-primary-black hover:bg-primary-blue text-white text-sm px-2 md:px-4 py-2 md:py-4 transform transition duration-300 hover:scale-90 mt-2 md:mt-4"
-            onClick={() =>
-              navigate(
-                identifier === "academy"
-                  ? `/retenaai-academy/program?mode=generative_ai_engineering`
-                  : `/packages`
-              )
-            }
+            onClick={() => {
+              // FIX: Clean, readable routing logic
+              if (identifier === "academy") {
+                navigate(
+                  "/retenaai-academy/program?mode=generative_ai_engineering",
+                );
+              } else {
+                navigate(isNigeria ? "/packages" : "/contact");
+              }
+            }}
           >
             Get Started
             <ArrowRight className="text-white h-4" />
@@ -218,7 +225,7 @@ export const BlurImage = ({
       alt={alt}
       className={cn(
         "transition-all duration-200 scale-100 blur-0 group-hover:scale-110 group-hover:blur-sm h-full",
-        className
+        className,
       )}
     />
   );
