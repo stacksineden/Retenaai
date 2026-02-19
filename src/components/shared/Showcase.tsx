@@ -16,7 +16,7 @@ const GALLERY_IMAGES = [
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1771536266/men_slippers_After2_cyre6a.png",
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1771536457/men_slippers_After8_ygyjpz.png",
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1771536766/men_slippers_After9_qvn7sl.png",
-  "https://www.retenaai.com/assets/mockups/men_slippers/men_slippers7.png", // Non-cloudinary link will bypass optimization safely
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1771533835/men_slippers_After6_m8wjty.png"
 ];
 
 const Showcase = () => {
