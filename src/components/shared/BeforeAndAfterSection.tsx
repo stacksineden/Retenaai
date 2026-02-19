@@ -1,19 +1,23 @@
+import { optimizeUrl } from "@/lib/utils";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
+
+
+
 const transformations = [
   {
-    before: "/assets/mockups/men_slippers/men_slippers4.png",
-    after: "/assets/mockups/men_slippers/men_slippers_proto.JPG",
+    before: "https://res.cloudinary.com/dyryfgjro/image/upload/v1771533901/men_slippers_After3_vjz6ly.png",
+    after: "https://res.cloudinary.com/dyryfgjro/image/upload/v1771533575/men_slippers_A_Before_qy44y1.jpg",
     label: "",
   },
   {
-    before: "/assets/mockups/men_tshirt/men_tshirt5.png",
+    before: "https://res.cloudinary.com/dyryfgjro/image/upload/v1763818430/men_tshirt5_hd7kmk.png",
     after: "https://res.cloudinary.com/dyryfgjro/image/upload/v1764853767/men_tshirt_Before1_c7bikg.png",
     label: "",
   },
   {
-    before: "/assets/mockups/women_jumpsuit/women_jumpsuit6.png",
+    before: "https://res.cloudinary.com/dyryfgjro/image/upload/v1771538588/women_jumpsuit6_xhinio.png",
     after: "https://res.cloudinary.com/dyryfgjro/image/upload/v1764854797/Gemini_Generated_Image_aa0730aa0730aa07_1_fwks4x.png",
     label: "",
   },
@@ -21,6 +25,7 @@ const transformations = [
 
 const BeforeAndAfterSection = () => {
   const ref = useRef(null);
+  // Triggers animation only when 30% of the component is visible in the viewport
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
@@ -45,14 +50,16 @@ const BeforeAndAfterSection = () => {
             key={i}
             className="relative overflow-hidden rounded-2xl shadow-xl aspect-[4/5] bg-gray-800"
           >
-            {/* ✅ Ensure container has height via aspect ratio */}
+            {/* BASE IMAGE (The "Before" / Generated Visual) */}
             <img
-              src={item.before}
-              alt="Before"
+              src={optimizeUrl(item.before)}
+              alt="Final Campaign Visual"
+              loading="lazy"
+              decoding="async"
               className="absolute top-0 left-0 w-full h-full object-cover"
-              //   onError={(e) => {}}
             />
 
+            {/* OVERLAY IMAGE (The "After" / Raw Input) */}
             <motion.div
               initial={{ clipPath: "inset(0 100% 0 0)" }}
               animate={
@@ -76,13 +83,15 @@ const BeforeAndAfterSection = () => {
               className="absolute top-0 left-0 w-full h-full"
             >
               <img
-                src={item.after}
-                alt="After"
+                src={optimizeUrl(item.after)}
+                alt="Raw Phone Input"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
-                // onError={(e) => {}}
               />
             </motion.div>
 
+            {/* THE SWIPE BAR */}
             <motion.div
               initial={{ x: "-100%" }}
               animate={
@@ -99,7 +108,7 @@ const BeforeAndAfterSection = () => {
                     }
                   : {}
               }
-              className="absolute top-0 h-full w-[3px] bg-white/80 z-10"
+              className="absolute top-0 h-full w-[3px] bg-white/80 z-10 shadow-[0_0_10px_rgba(255,255,255,0.5)]"
             />
           </div>
         ))}

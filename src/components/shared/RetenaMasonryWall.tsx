@@ -1,3 +1,4 @@
+import { optimizeUrl } from "@/lib/utils";
 import { useMemo } from "react";
 
 // === FULL ASSET LIST (Raw Data) ===
@@ -40,7 +41,7 @@ const ALL_ASSETS = [
   "https://www.retenaai.com/assets/mockups/men_slippers/men_slippers11.png",
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1771411002/ads14_ibcrxk.png",
   "https://res.cloudinary.com/dyryfgjro/video/upload/v1771410814/izzy-vid2_wenfcs.mp4",
-    "https://res.cloudinary.com/dyryfgjro/image/upload/v1763985617/men_kaftan4_y1sgkv.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1763985617/men_kaftan4_y1sgkv.png",
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1771410999/ads3_xtw1iv.png",
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1771431431/gb-demo10_zvdmze.png",
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1771431475/gb-demo7_dpppmg.png",
@@ -55,6 +56,8 @@ const shuffleArray = (array: string[]) => {
   }
   return shuffled;
 };
+
+
 
 const RetenaMasonryWall = () => {
   // === DATA PREPARATION ===
@@ -80,28 +83,32 @@ const RetenaMasonryWall = () => {
 
   // === ASSET RENDERER ===
   const renderAsset = (src: string, index: number) => {
-    // Check for mp4 or mov
-    const isVideo =
-      src.endsWith(".mp4") || src.endsWith(".mov") || src.includes("/video/");
+    const isVideo = src.endsWith(".mp4") || src.endsWith(".mov") || src.includes("/video/");
+    const optimizedSrc = optimizeUrl(src);
 
     return (
       <div
         key={`${src}-${index}`}
-        className="w-full shrink-0 rounded-xl overflow-hidden border border-[#14213D] shadow-lg bg-[#14213D]/20"
+        className="w-full shrink-0 rounded-xl overflow-hidden border border-[#14213D] shadow-lg bg-[#14213D]/20 relative"
       >
         {isVideo ? (
           <video
-            src={src}
+            src={optimizedSrc}
+            // Auto-generate poster to prevent black screens
+            poster={optimizedSrc.replace(".mp4", ".jpg").replace(".mov", ".jpg")}
             className="w-full h-auto block object-cover opacity-90"
             autoPlay
             muted
             loop
             playsInline
+            preload="none" // Essential for pages with many videos
           />
         ) : (
           <img
-            src={src}
-            alt="Asset"
+            src={optimizedSrc}
+            alt={`Asset ${index}`}
+            loading="lazy" // Ensures images off-screen don't bog down initial load
+            decoding="async" // Prepares image decoding off the main thread
             className="w-full h-auto block object-cover opacity-90 hover:opacity-100 transition-opacity duration-300"
           />
         )}
@@ -160,10 +167,10 @@ const RetenaMasonryWall = () => {
           100% { transform: translateY(0); }
         }
         .animate-scroll-up {
-          animation: scroll-up 40s linear infinite; /* Adjusted to 40s (Faster) */
+          animation: scroll-up 40s linear infinite;
         }
         .animate-scroll-down {
-          animation: scroll-down 40s linear infinite; /* Adjusted to 40s (Faster) */
+          animation: scroll-down 40s linear infinite;
         }
       `}</style>
     </div>

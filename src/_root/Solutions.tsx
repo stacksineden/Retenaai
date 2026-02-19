@@ -1,7 +1,14 @@
 import { motion } from "framer-motion";
 import WebLayoutWrapper from "@/components/shared/WebLayoutWrapper";
+import { optimizeUrl } from "@/lib/utils";
+
+
 
 const Solutions = () => {
+  // Extracting video URL to generate poster cleanly
+  const rawVideoUrl = "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802956/vid2_a8pyj6.mp4";
+  const optimizedVideoUrl = optimizeUrl(rawVideoUrl);
+
   return (
     <WebLayoutWrapper>
       <section className="bg-black text-white py-24 px-6 md:px-16">
@@ -34,20 +41,22 @@ const Solutions = () => {
             </p>
           </div>
 
-          {/* Placeholder – Raw Image */}
+          {/* Raw Image */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative w-full rounded-2xl overflow-hidden"
+            className="relative w-full rounded-2xl overflow-hidden shadow-lg"
           >
             <img
-              src="/assets/mockups/men_slippers/men_slippers_proto.JPG"
+              src={optimizeUrl("https://res.cloudinary.com/dyryfgjro/image/upload/v1771533575/men_slippers_A_Before_qy44y1.jpg")}
               alt="Raw Phone Image"
+              loading="lazy"
+              decoding="async"
               className="w-full h-auto object-cover"
             />
-            <div className="absolute bottom-3 left-3 bg-black/60 px-3 py-1 rounded-md text-sm">
+            <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm px-3 py-1 rounded-md text-sm">
               Raw Phone Image (Before)
             </div>
           </motion.div>
@@ -64,73 +73,83 @@ const Solutions = () => {
           </p>
 
           {/* Before & After Reveal Animation */}
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-12">
             {/* Before */}
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 1 }}
-              className="relative rounded-2xl overflow-hidden"
+              className="relative rounded-2xl overflow-hidden shadow-md"
             >
               <img
-                src="/assets/mockups/men_slippers/men_slippers_proto.JPG"
+                src={optimizeUrl("https://res.cloudinary.com/dyryfgjro/image/upload/v1771533575/men_slippers_A_Before_qy44y1.jpg")}
+                alt="Before Setup"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto object-cover"
               />
-              <div className="absolute bottom-3 left-3 bg-black/60 px-3 py-1 rounded-md text-sm">
+              <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm px-3 py-1 rounded-md text-sm border border-white/10">
                 Before
               </div>
             </motion.div>
 
-            {/* After Reveal (AI Generated) */}
+            {/* After Reveal 1 */}
             <motion.div
               initial={{ clipPath: "inset(0 100% 0 0)" }}
-              whileInView={{
-                clipPath: "inset(0 0 0 0)",
-              }}
+              whileInView={{ clipPath: "inset(0 0 0 0)" }}
               viewport={{ once: true }}
               transition={{ duration: 1.5, ease: "easeInOut" }}
-              className="relative rounded-2xl overflow-hidden"
+              className="relative rounded-2xl overflow-hidden shadow-md"
             >
               <img
-                src="/assets/mockups/men_slippers/men_slippers2.png"
+                src={optimizeUrl("https://res.cloudinary.com/dyryfgjro/image/upload/v1771535784/men_slippers_After1_ktpmuw.png")}
+                alt="AI Generated Iteration 1"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto object-cover"
               />
-              <div className="absolute bottom-3 left-3 bg-black/60 px-3 py-1 rounded-md text-sm">
+              <div className="absolute bottom-3 left-3 bg-[#FCA311]/90 text-black font-semibold backdrop-blur-sm px-3 py-1 rounded-md text-sm">
                 AI Generated (After)
               </div>
             </motion.div>
+
+            {/* After Reveal 2 */}
             <motion.div
               initial={{ clipPath: "inset(0 100% 0 0)" }}
-              whileInView={{
-                clipPath: "inset(0 0 0 0)",
-              }}
+              whileInView={{ clipPath: "inset(0 0 0 0)" }}
               viewport={{ once: true }}
               transition={{ duration: 1.5, ease: "easeInOut" }}
-              className="relative rounded-2xl overflow-hidden"
+              className="relative rounded-2xl overflow-hidden shadow-md"
             >
               <img
-                src="/assets/mockups/men_slippers/men_slippers4.png"
+                src={optimizeUrl("https://res.cloudinary.com/dyryfgjro/image/upload/v1771533901/men_slippers_After3_vjz6ly.png")}
+                alt="AI Generated Iteration 2"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto object-cover"
               />
-              <div className="absolute bottom-3 left-3 bg-black/60 px-3 py-1 rounded-md text-sm">
+              <div className="absolute bottom-3 left-3 bg-[#FCA311]/90 text-black font-semibold backdrop-blur-sm px-3 py-1 rounded-md text-sm">
                 AI Generated (After)
               </div>
             </motion.div>
+
+            {/* After Reveal 3 */}
             <motion.div
               initial={{ clipPath: "inset(0 100% 0 0)" }}
-              whileInView={{
-                clipPath: "inset(0 0 0 0)",
-              }}
+              whileInView={{ clipPath: "inset(0 0 0 0)" }}
               viewport={{ once: true }}
               transition={{ duration: 1.5, ease: "easeInOut" }}
-              className="relative rounded-2xl overflow-hidden"
+              className="relative rounded-2xl overflow-hidden shadow-md"
             >
               <img
-                src="/assets/mockups/men_slippers/men_slippers6.png"
+                src={optimizeUrl("https://res.cloudinary.com/dyryfgjro/image/upload/v1771535439/men_slippers_After5_hnsta3.png")}
+                alt="AI Generated Iteration 3"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto object-cover"
               />
-              <div className="absolute bottom-3 left-3 bg-black/60 px-3 py-1 rounded-md text-sm">
+              <div className="absolute bottom-3 left-3 bg-[#FCA311]/90 text-black font-semibold backdrop-blur-sm px-3 py-1 rounded-md text-sm">
                 AI Generated (After)
               </div>
             </motion.div>
@@ -150,24 +169,33 @@ const Solutions = () => {
           {/* Images Grid */}
           <div className="grid md:grid-cols-3 gap-6">
             <motion.img
-              src="/assets/mockups/men_slippers/men_slippers9.png"
-              className="rounded-xl w-full h-auto object-cover"
+              src={optimizeUrl("https://res.cloudinary.com/dyryfgjro/image/upload/v1771536457/men_slippers_After8_ygyjpz.png")}
+              alt="Campaign Asset 1"
+              loading="lazy"
+              decoding="async"
+              className="rounded-xl w-full h-auto object-cover shadow-lg"
               whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: 20 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             />
             <motion.img
-              src="/assets/mockups/men_slippers/men_slippers11.png"
-              className="rounded-xl w-full h-auto object-cover"
+              src={optimizeUrl("https://res.cloudinary.com/dyryfgjro/image/upload/v1771533278/men_slippers_After7_swtfla.png")}
+              alt="Campaign Asset 2"
+              loading="lazy"
+              decoding="async"
+              className="rounded-xl w-full h-auto object-cover shadow-lg"
               whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: 20 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
             />
             <motion.img
-              src="/assets/mockups/men_slippers/men_slippers8.png"
-              className="rounded-xl w-full h-auto object-cover"
+              src={optimizeUrl("https://res.cloudinary.com/dyryfgjro/image/upload/v1771535661/men_slippers_After10_ew3ysx.png")}
+              alt="Campaign Asset 3"
+              loading="lazy"
+              decoding="async"
+              className="rounded-xl w-full h-auto object-cover shadow-lg"
               whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: 20 }}
               viewport={{ once: true }}
@@ -184,11 +212,13 @@ const Solutions = () => {
 
           {/* Video Placeholder */}
           <motion.video
-            src="https://res.cloudinary.com/dyryfgjro/video/upload/v1763802956/vid2_a8pyj6.mp4"
+            src={optimizedVideoUrl}
+            poster={optimizedVideoUrl.replace(".mp4", ".jpg")} // Auto-generated poster
             autoPlay
             muted
             loop
             playsInline
+            preload="metadata" // Conserves bandwidth until needed
             className="mx-auto w-full md:w-3/4 rounded-2xl shadow-xl"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

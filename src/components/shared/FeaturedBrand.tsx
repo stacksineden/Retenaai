@@ -3,11 +3,23 @@ import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
 import { useUserCountry } from "@/hooks/useUserLocation";
 
+// === PERFORMANCE OPTIMIZER ===
+const optimizeUrl = (url: string) => {
+  if (url.includes("cloudinary.com") && !url.includes("f_auto")) {
+    return url.replace("/upload/", "/upload/f_auto,q_auto/");
+  }
+  return url;
+};
+
 const FeaturedBrand = () => {
   const navigate = useNavigate();
   const { country } = useUserCountry();
 
   const isNigeria = country === "NG";
+
+  // Pre-process the video URL for cleaner JSX
+  const rawVideoUrl = "https://res.cloudinary.com/dyryfgjro/video/upload/v1763803284/vid1_zdphwh.mp4";
+  const optimizedVideoUrl = optimizeUrl(rawVideoUrl);
 
   return (
     <section className="w-full bg-black py-20 px-6 md:px-16">
@@ -20,8 +32,10 @@ const FeaturedBrand = () => {
             className="rounded-2xl overflow-hidden shadow-md"
           >
             <img
-              src="/assets/mockups/women_gymsuit/gym4.png"
+              src={optimizeUrl("https://res.cloudinary.com/dyryfgjro/image/upload/v1763819973/gym4_wfqbb1.png")}
               alt="AI Fashion Visual 1"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover"
             />
           </motion.div>
@@ -30,8 +44,10 @@ const FeaturedBrand = () => {
             className="rounded-2xl overflow-hidden shadow-md"
           >
             <img
-              src="/assets/mockups/women_gymsuit/gym5.png"
+              src={optimizeUrl("https://res.cloudinary.com/dyryfgjro/image/upload/v1763820036/gym5_zra0oq.png")}
               alt="AI Fashion Visual 2"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover"
             />
           </motion.div>
@@ -42,10 +58,13 @@ const FeaturedBrand = () => {
             className="col-span-2 rounded-2xl overflow-hidden shadow-lg"
           >
             <video
-              src="https://res.cloudinary.com/dyryfgjro/video/upload/v1763803284/vid1_zdphwh.mp4"
+              src={optimizedVideoUrl}
+              poster={optimizedVideoUrl.replace(".mp4", ".jpg")} // Auto-generated placeholder
               autoPlay
               muted
               loop
+              playsInline // Critical for iOS autoplay
+              preload="metadata" // Saves initial bandwidth
               className="w-full h-[360px] object-cover"
             />
           </motion.div>
@@ -56,8 +75,10 @@ const FeaturedBrand = () => {
             className="rounded-2xl overflow-hidden shadow-md"
           >
             <img
-              src="/assets/mockups/women_gymsuit/gym5.png"
-              alt="AI Fashion Visual 2"
+              src={optimizeUrl("https://res.cloudinary.com/dyryfgjro/image/upload/v1763820036/gym5_zra0oq.png")}
+              alt="AI Fashion Visual 3"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover"
             />
           </motion.div>
@@ -68,8 +89,10 @@ const FeaturedBrand = () => {
             className="rounded-2xl overflow-hidden shadow-md"
           >
             <img
-              src="/assets/mockups/women_gymsuit/gym8.png"
-              alt="AI Fashion Visual 2"
+              src={optimizeUrl("https://res.cloudinary.com/dyryfgjro/image/upload/v1763820099/gym8_jyertv.png")}
+              alt="AI Fashion Visual 4"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover"
             />
           </motion.div>
@@ -104,8 +127,10 @@ const FeaturedBrand = () => {
               className="rounded-2xl overflow-hidden shadow-md"
             >
               <img
-                src="/assets/mockups/women_gymsuit/gym14.png"
-                alt="AI Fashion Visual 1"
+                src={optimizeUrl("https://res.cloudinary.com/dyryfgjro/image/upload/v1771537658/gym14_rznllc.png")}
+                alt="AI Fashion Visual 5"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -114,8 +139,10 @@ const FeaturedBrand = () => {
               className="rounded-2xl overflow-hidden shadow-md"
             >
               <img
-                src="/assets/mockups/women_gymsuit/gym13.png"
-                alt="AI Fashion Visual 2"
+                src={optimizeUrl("https://res.cloudinary.com/dyryfgjro/image/upload/v1763820320/gym13_tkdqpf.png")}
+                alt="AI Fashion Visual 6"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -124,8 +151,10 @@ const FeaturedBrand = () => {
               className="rounded-2xl overflow-hidden shadow-md"
             >
               <img
-                src="/assets/mockups/women_gymsuit/gym1.png"
-                alt="AI Fashion Visual 1"
+                src={optimizeUrl("https://res.cloudinary.com/dyryfgjro/image/upload/v1763819886/gym1_fz0u4q.png")}
+                alt="AI Fashion Visual 7"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -134,8 +163,10 @@ const FeaturedBrand = () => {
               className="rounded-2xl overflow-hidden shadow-md"
             >
               <img
-                src="/assets/mockups/women_gymsuit/gym12.png"
-                alt="AI Fashion Visual 2"
+                src={optimizeUrl("https://res.cloudinary.com/dyryfgjro/image/upload/v1763820275/gym12_avweup.png")}
+                alt="AI Fashion Visual 8"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </motion.div>

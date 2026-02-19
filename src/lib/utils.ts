@@ -19,3 +19,10 @@ export function getTrainingDetails(status: string) {
   const statusData = training_status?.find((item) => item?.value === status);
   return statusData;
 }
+
+export const optimizeUrl = (url: string) => {
+  if (url.includes("cloudinary.com") && !url.includes("f_auto")) {
+    return url.replace("/upload/", "/upload/f_auto,q_auto/");
+  }
+  return url;
+};
