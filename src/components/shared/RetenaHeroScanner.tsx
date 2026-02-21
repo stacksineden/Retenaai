@@ -45,7 +45,7 @@ const CAMPAIGN_SETS = [
     id: 4,
     category: "2PIECE",
     rawImage:
-      "https://res.cloudinary.com/dyryfgjro/image/upload/v1771331901/mvp2_kvhi9s.jpg",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1771672919/mv-before_ufdi9g.png",
     assets: [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1771332215/mv-demo9_x6ptiu.png",
       "https://res.cloudinary.com/dyryfgjro/video/upload/v1771409217/mv-vid1_uunsvg.mp4",
