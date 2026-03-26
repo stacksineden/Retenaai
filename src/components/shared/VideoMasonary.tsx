@@ -16,7 +16,6 @@ const videoMockups = [
   { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763803339/vid2_zwswld.mp4" },
   { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802996/vid1_ntmard.mp4" },
   { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1771431785/archive5_kyn25y.mov" },
-  { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1771431785/archive5_kyn25y.mov" }, 
   { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1771409217/mv-vid1_uunsvg.mp4" }
 ];
 

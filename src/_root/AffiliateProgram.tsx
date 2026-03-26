@@ -47,7 +47,7 @@ const AffiliateProgram = () => {
         <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto mb-32">
           {[
             {
-              title: "7% Commission (₦4,500 – ₦20,000 Per Referral)",
+              title: "20% Commission (₦3,500 – ₦45,000 Per Referral)",
               text: "Earn a stable 7% commission** on every successful referral. Earnings typically range from ₦4,500 to ₦20,000 depending on the package the referred user purchases. The 7% commission will be paid to your account when the user purchases any of our packages and uses your unique promo code on their transaction.",
             },
             {

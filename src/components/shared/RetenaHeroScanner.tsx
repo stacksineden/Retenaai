@@ -65,6 +65,18 @@ const CAMPAIGN_SETS = [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1771410999/ads3_xtw1iv.png",
     ],
   },
+   {
+    id: 6,
+    category: "HOODIE",
+    rawImage:
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774516071/vg-proto_nfqqkd.png",
+    assets: [
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774515885/ads10_clqrp7.png",
+      "https://res.cloudinary.com/dyryfgjro/video/upload/v1774514481/vidland1_uj4iok.mp4",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774516030/ads16_adyqmu.png",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774515112/ads4_v0gl0e.png",
+    ],
+  },
 ];
 
 const RetenaInfinityEngine = () => {

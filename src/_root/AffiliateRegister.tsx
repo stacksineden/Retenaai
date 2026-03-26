@@ -113,7 +113,7 @@ const AffiliateRegister = () => {
           </h2>
 
           <p className="text-white/70 mb-10">
-            Fill in your details to register and start earning 7% commission on every referral.
+            Fill in your details to register and start earning 20% commission on every referral.
           </p>
 
           <Form {...form}>
@@ -241,9 +241,9 @@ const AffiliateRegister = () => {
             <div className="flex items-start gap-3">
               <Sparkles className="text-[#FCA311] h-6 w-6 shrink-0" />
               <div>
-                <p className="text-lg font-semibold">High 7% Commission</p>
+                <p className="text-lg font-semibold">High 20% Commission</p>
                 <p className="text-white/70 text-sm">
-                  Earn up to ₦20,000 per referral, depending on the package purchased.
+                  Earn up to ₦45,000 per referral, depending on the package purchased.
                 </p>
               </div>
             </div>
