@@ -42,12 +42,20 @@ export function NavMenu() {
             Academy
           </NavigationMenuLink>
         </NavigationMenuItem> */}
-        <NavigationMenuItem>
+        {/* <NavigationMenuItem>
           <NavigationMenuLink
             className={navigationMenuTriggerStyle()}
             onClick={() => Navigate("/enterprise")}
           >
             Pilot Program
+          </NavigationMenuLink>
+        </NavigationMenuItem> */}
+         <NavigationMenuItem>
+          <NavigationMenuLink
+            className={navigationMenuTriggerStyle()}
+            onClick={() => Navigate("/look-book")}
+          >
+            The Lookbook
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>

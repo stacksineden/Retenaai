@@ -27,6 +27,7 @@ import { Loader2 } from "lucide-react";
 import NotFound from "./_root/NotFound";
 import ProgramResources from "./_root/pages/ProgramResources";
 import PackagesBillings from "./_root/PackagesBillings";
+import LookBook from "./_root/LookBook";
 
 const Landing = lazy(() => import("./_root/Landing"));
 const SolutionPage = lazy(() => import("./_root/Solutions"));
@@ -173,6 +174,8 @@ const App = () => {
               path="/affiliate-success"
               element={<AffiliateSuccessPage />}
             />
+
+            <Route path="/look-book" element={<LookBook />}/>
 
             <Route path="/packages-billing" element={<PackagesBillings />} />
 

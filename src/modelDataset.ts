@@ -2984,7 +2984,7 @@ export const pin_cat = [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1771536457/men_slippers_After8_ygyjpz.png",
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1771536766/men_slippers_After9_qvn7sl.png",
       "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802767/vid1_xxbqb1.mp4",
-      "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802956/vid2_a8pyj6.mp4"
+      "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802956/vid2_a8pyj6.mp4",
     ],
     twopieces: [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1771332039/mv-demo4_dxuwgy.png",
@@ -2999,7 +2999,7 @@ export const pin_cat = [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1774510063/mv-demo10_kmhaca.png",
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1774510096/mv-demo11_gntm3x.png",
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1774510129/mv-land1_blf6vb.jpg",
-      "https://res.cloudinary.com/dyryfgjro/video/upload/v1774510214/mv-ig_eyl4se.mov"
+      "https://res.cloudinary.com/dyryfgjro/video/upload/v1774510214/mv-ig_eyl4se.mov",
     ],
     bubu: [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1771431590/cp-demo19_du1jbc.png",
@@ -3019,7 +3019,7 @@ export const pin_cat = [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1774511832/cp-demo14_lrxqiq.png",
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1774511866/cp-demo15_mfqxvt.png",
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1774511903/cp-demo16_tywktr.png",
-      ""
+      "",
     ],
     shoe: [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1771410999/ads3_xtw1iv.png",
@@ -3034,7 +3034,7 @@ export const pin_cat = [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1774513837/ads13_jeqsau.png",
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1774513875/ads15_ypfxye.png",
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1774513890/ads16_mrrzk6.png",
-      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774513936/ads17_eiohyh.png"
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774513936/ads17_eiohyh.png",
     ],
     hoodie: [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1774514630/ads2_otf951.png",
@@ -3052,14 +3052,156 @@ export const pin_cat = [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1774515975/ads14_bahazi.png",
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1774516003/ads15_jiz4fh.png",
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1774516030/ads16_adyqmu.png",
-      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774516071/vg-proto_nfqqkd.png",
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1774516109/vg-landscape_opjmje.jpg",
       "https://res.cloudinary.com/dyryfgjro/video/upload/v1774516143/viding1_hkga82.mp4",
-      "https://res.cloudinary.com/dyryfgjro/video/upload/v1774516173/viding8_epmmid.mp4"
-    ]
-    //men-agbada
+      "https://res.cloudinary.com/dyryfgjro/video/upload/v1774516173/viding8_epmmid.mp4",
+    ],
+    men_agbada: [
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774546500/fa-demo3_hzzqrg.png",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774546500/fa-demo1_anaykq.png",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774546500/fa-demo5_o78an6.png",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774546511/fa-demo8_aibwnz.png",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774546516/fa-demo11_k7apxa.png",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774546525/fa-demo6_tvrphb.png",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774546526/fa-demo9_ejucgf.png",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774546535/fa-demo10_budnlp.png",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774546606/fa-demo2_sppo7f.png",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774546629/fa-demo4_g4svgn.png",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774546636/fa-demo7_kxsizu.png",
+    ],
+    men_senatorr: [
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774546636/fa-demo7_kxsizu.png",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774547123/gb-demo3_knm6jp.png",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774547129/gb-demo2_uxcv95.png",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774547130/gb-demo5_r4elsl.png",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774547135/gb-demo1_wyooko.png",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774547136/gb-demo4_b2nm4i.png",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774547145/gb-demo8_rml5kz.png",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774547147/gb-demo7_d4vduo.png",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774547152/gb-demo11_rsk89t.png",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774547154/gb-demo9_owohli.png",
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1774547157/gb-demo10_slb8wf.png",
+    ],
     //female-suit
-    //men-senator2
-    //
+  },
+];
+
+export const masonary_assets = [
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1771332039/mv-demo4_dxuwgy.png",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1771409217/mv-vid1_uunsvg.mp4",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1774514991/ads4_iyfvrn.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1763818840/men_tshirt14_vfkq4z.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1771431630/cp-demo9_w4l62q.png",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1774516143/viding1_hkga82.mp4",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1774546500/fa-demo3_hzzqrg.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1774513875/ads15_ypfxye.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1763818633/men_tshirt9_arkh9p.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1763819948/gym3_uxiaj9.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1771533901/men_slippers_After3_vjz6ly.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1763985584/men_kaftan1_gguhz7.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1763818686/men_tshirt10_uqmnnn.png",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1774516173/viding8_epmmid.mp4",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1763812732/men_tshirt3_aaax15.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1774510129/mv-land1_blf6vb.jpg",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1774546636/fa-demo7_kxsizu.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1774546500/fa-demo5_o78an6.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1771411010/ads17_vkkisd.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1771431590/cp-demo19_du1jbc.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1771535439/men_slippers_After5_hnsta3.png",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1774514481/vidland1_uj4iok.mp4",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1763818720/men_tshirt11_lo97qu.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1763818803/men_tshirt13_hto4hl.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1771411002/ads14_ibcrxk.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1774547154/gb-demo9_owohli.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1771332287/mv-demo12_bnrhcy.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1774546525/fa-demo6_tvrphb.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1771431661/cp-demo13_z3ywy1.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1763818633/men_tshirt9_arkh9p.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1774514630/ads2_otf951.png",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1763803284/vid1_zdphwh.mp4",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1771331077/Input_based_on_1080p_202602131227_tmgh1s.mp4",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1763987185/men_agbada4_umycvr.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1774546629/fa-demo4_g4svgn.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1774511522/cp-demo5_psaddr.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1763819461/men_tshirtad1_ejs88w.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1771535439/men_slippers_After5_hnsta3.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1771410999/ads3_xtw1iv.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1774510063/mv-demo10_kmhaca.png",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1771431785/archive5_kyn25y.mov",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1774547129/gb-demo2_uxcv95.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1774514776/ads3_qiziur.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1763812732/men_tshirt3_aaax15.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1763818582/men_tshirt8_ln4k4c.png",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1771409217/mv-vid1_uunsvg.mp4",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1774547147/gb-demo7_d4vduo.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1774514043/izzy-land_iwdkga.jpg",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802767/vid1_xxbqb1.mp4",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1771431519/gb-demo11_aw9yge.png",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1774510214/mv-ig_eyl4se.mov",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1771431558/gb-demo4_cp2udu.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1774511438/cp-demo2_ggirpy.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1774515885/ads10_clqrp7.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1774547136/gb-demo4_b2nm4i.png",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802956/vid2_a8pyj6.mp4",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1774515586/ads7_vydhpr.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1771411002/ads14_ibcrxk.png",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1771410814/izzy-vid2_wenfcs.mp4",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1774511648/cp-demo8_mtwf3m.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1771410999/ads3_xtw1iv.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1771431431/gb-demo10_zvdmze.png",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1771431475/gb-demo7_dpppmg.png",
+];
+
+export const videoMockups = [
+  {
+    src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763803284/vid1_zdphwh.mp4",
+  },
+  {
+    src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802956/vid2_a8pyj6.mp4",
+  },
+  {
+    src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763803053/vid1_zezmaw.mp4",
+  },
+  {
+    src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1771409217/mv-vid1_uunsvg.mp4",
+  },
+  {
+    src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1771331077/Input_based_on_1080p_202602131227_tmgh1s.mp4",
+  },
+  {
+    src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1774516173/viding8_epmmid.mp4",
+  },
+  {
+    src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802503/vid1_dmmkuy.mp4",
+  },
+  {
+    src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802698/vid1_g4n5gn.mp4",
+  },
+  {
+    src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1774514481/vidland1_uj4iok.mp4",
+  },
+  {
+    src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1771410814/izzy-vid2_wenfcs.mp4",
+  },
+  {
+    src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763803201/vid3_lfrn93.mp4",
+  },
+  {
+    src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802643/vid1_q6wkb8.mp4",
+  },
+  {
+    src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802767/vid1_xxbqb1.mp4",
+  },
+  {
+    src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763803339/vid2_zwswld.mp4",
+  },
+  {
+    src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1774510214/mv-ig_eyl4se.mov",
+  },
+  {
+    src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802996/vid1_ntmard.mp4",
+  },
+  {
+    src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1771431785/archive5_kyn25y.mov",
   },
 ];

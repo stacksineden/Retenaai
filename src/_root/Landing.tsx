@@ -29,7 +29,7 @@ const Home = () => {
       <section className="py-4">
         <HighLights />
       </section>
-      <BeforeAndAfterSection /> 
+      <BeforeAndAfterSection />
       {/* <Reviews /> */}
       {/* <AcademyCta /> */}
       <AdCreativesCta />

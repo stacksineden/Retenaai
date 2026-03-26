@@ -1,23 +1,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { useRef } from "react";
+import { videoMockups } from "@/modelDataset";
 
-// === Replace this with your video dataset ===
-const videoMockups = [
-  { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763803284/vid1_zdphwh.mp4" },
-  { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802956/vid2_a8pyj6.mp4" },
-  { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763803053/vid1_zezmaw.mp4" },
-  { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1771331077/Input_based_on_1080p_202602131227_tmgh1s.mp4" },
-  { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802503/vid1_dmmkuy.mp4" },
-  { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802698/vid1_g4n5gn.mp4" },
-  { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763803201/vid3_lfrn93.mp4" },
-  { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802643/vid1_q6wkb8.mp4" },
-  { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802767/vid1_xxbqb1.mp4" },
-  { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763803339/vid2_zwswld.mp4" },
-  { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802996/vid1_ntmard.mp4" },
-  { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1771431785/archive5_kyn25y.mov" },
-  { src: "https://res.cloudinary.com/dyryfgjro/video/upload/v1771409217/mv-vid1_uunsvg.mp4" }
-];
+
 
 // === PERFORMANCE OPTIMIZER ===
 const optimizeUrl = (url: string) => {
@@ -75,7 +61,7 @@ const VideoMasonry = () => {
         ref={containerRef}
         className="relative w-full overflow-hidden isolate"
         style={{
-          height: "1300px",
+          height: "1900px",
           backgroundColor: "black",
         }}
       >

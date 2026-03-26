@@ -45,7 +45,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isEmailVerified, setIsEmailVerified] = useState(
-    INITIAL_STATE.isEmailVerified
+    INITIAL_STATE.isEmailVerified,
   );
 
   const checkAuthUser = async () => {
@@ -96,12 +96,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         "/affiliate-program",
         "/affiliate-register",
         "/affiliate-success",
+        "/look-book",
       ];
       if (!currentAccount && !excludedPaths.includes(location.pathname)) {
         navigate("/sign-in");
       }
       return false;
     } catch (err) {
+      console.error(err)
       navigate("/sign-in");
       return false;
     } finally {
@@ -137,6 +139,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         location.pathname.includes("/affiliate-program") ||
         location.pathname.includes("/affiliate-register") ||
         location.pathname.includes("/affiliate-success") ||
+        location.pathname.includes("/look-book") ||
         location.pathname === "/"
       ) &&
       (cookieFallback === "[]" ||

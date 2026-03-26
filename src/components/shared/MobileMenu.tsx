@@ -66,8 +66,11 @@ const MobileMenu = ({
                   {/* <Link to="/retenaai-academy">
                     <li className="block py-2 font-medium">Academy</li>
                   </Link> */}
-                  <Link to="/enterprise">
+                  {/* <Link to="/enterprise">
                     <li className="block py-2 font-medium">Pilot Program</li>
+                  </Link> */}
+                  <Link to="/look-book">
+                    <li className="block py-2 font-medium">The Lookbook</li>
                   </Link>
                   <Link to="/case-study">
                     <li className="block py-2 font-medium">Case Studies</li>
