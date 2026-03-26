@@ -21,7 +21,8 @@ const CAMPAIGN_SETS = [
   {
     id: 2,
     category: "SLIPPERS",
-    rawImage: "https://res.cloudinary.com/dyryfgjro/image/upload/v1771533575/men_slippers_A_Before_qy44y1.jpg",
+    rawImage:
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1771533575/men_slippers_A_Before_qy44y1.jpg",
     assets: [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1771533278/men_slippers_After7_swtfla.png",
       "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802767/vid1_xxbqb1.mp4",
@@ -65,7 +66,7 @@ const CAMPAIGN_SETS = [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1771410999/ads3_xtw1iv.png",
     ],
   },
-   {
+  {
     id: 6,
     category: "HOODIE",
     rawImage:
@@ -88,50 +89,39 @@ const RetenaInfinityEngine = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isFading, setIsFading] = useState(false);
 
-  // === TIMING FIX ===
   useEffect(() => {
     const cycleTime = 6000;
     const interval = setInterval(() => {
-      // Step 1: Contract the satellites back to center
-      setIsExpanded(false); 
-      
-      setTimeout(() => {
-        // Step 2: Fade out the center image completely
-        setIsFading(true); 
-        
-        setTimeout(() => {
-          // Step 3: Swap the data WHILE it is invisible
-          setCurrentIndex((prev) => (prev + 1) % CAMPAIGN_SETS.length);
-          
-          // Step 4: The Silent Loading Buffer (Wait 500ms before fading back in)
-          // This gives the browser time to download the new assets in the background
-          setTimeout(() => {
-            setIsFading(false); // Reveal the new center image
-            setTimeout(() => {
-              setIsExpanded(true); // Explode the new satellites outward
-            }, 500);
-          }, 500); 
+      setIsExpanded(false);
 
+      setTimeout(() => {
+        setIsFading(true);
+
+        setTimeout(() => {
+          setCurrentIndex((prev) => (prev + 1) % CAMPAIGN_SETS.length);
+
+          setTimeout(() => {
+            setIsFading(false);
+            setTimeout(() => {
+              setIsExpanded(true);
+            }, 500);
+          }, 500);
         }, 500);
       }, 1000);
     }, cycleTime);
 
-    // Initial Trigger
     setTimeout(() => setIsExpanded(true), 500);
     return () => clearInterval(interval);
   }, []);
 
   const currentSet = CAMPAIGN_SETS[currentIndex];
 
-  // === KEY REMOUNT FIX ===
-  // Added an 'assetIndex' parameter to generate strictly unique keys for React
   const renderAsset = (url: string, className: string, assetIndex: number) => {
     const optimizedUrl = optimizeUrl(url);
 
     if (url.endsWith(".mp4")) {
       return (
         <video
-          // FIX: Adding a unique key forces React to destroy the old video completely
           key={`video-${currentSet.id}-${assetIndex}`}
           src={optimizedUrl}
           poster={optimizedUrl.replace(".mp4", ".jpg")}
@@ -146,7 +136,6 @@ const RetenaInfinityEngine = () => {
     }
     return (
       <img
-        // FIX: Unique key forces the old image to disappear instantly
         key={`img-${currentSet.id}-${assetIndex}`}
         src={optimizedUrl}
         alt="Asset"
@@ -157,12 +146,10 @@ const RetenaInfinityEngine = () => {
   };
 
   return (
-    <div className="relative w-full min-h-[850px] md:min-h-[950px] bg-[#000000] overflow-hidden flex flex-col items-center justify-center pt-14 md:pt-16 pb-4 md:pb-32">
-      {/* BACKGROUND GRID */}
+    <div className="relative w-full max-w-[100vw] min-h-[850px] md:min-h-[950px] bg-[#000000] overflow-hidden overflow-x-hidden flex flex-col items-center justify-center pt-14 md:pt-16 pb-4 md:pb-32">
       <div className="absolute inset-0 bg-[linear-gradient(rgba(229,229,229,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(229,229,229,0.1)_1px,transparent_1px)] bg-[size:40px_40px] md:bg-[size:60px_60px] opacity-20 pointer-events-none"></div>
 
-      {/* === HERO TEXT SECTION === */}
-      <div className="relative z-40 text-center px-4 mb-4 md:mb-16 max-w-4xl mx-auto">
+      <div className="relative z-40 text-center px-4 w-full mb-4 md:mb-16 max-w-4xl mx-auto">
         <div className="inline-block bg-[#FCA311]/10 backdrop-blur-md border border-[#FCA311]/30 rounded-full px-3 py-1 md:px-4 md:py-1.5 mb-4 md:mb-6">
           <span className="text-[10px] md:text-xs font-mono text-[#FCA311] tracking-widest uppercase">
             ● The Future of Fashion Production
@@ -183,9 +170,9 @@ const RetenaInfinityEngine = () => {
           No models. No logistics. Just world-class visuals.
         </p>
 
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4 w-full my-7 px-4">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 w-full my-7">
           <Button
-            className="bg-[#FCA311] text-black hover:text-black hover:bg-[#E5E5E5] text-sm md:text-lg px-6 py-4 rounded md:rounded-lg transform transition duration-300 hover:scale-95 border border-black font-semibold shadow-[0_0_20px_rgba(252,163,17,0.3)] w-full md:w-auto"
+            className="bg-[#FCA311] text-black hover:text-black hover:bg-[#E5E5E5] text-sm md:text-lg px-4 md:px-6 py-3 md:py-1 h-auto whitespace-normal leading-snug rounded md:rounded-lg transform transition duration-300 hover:scale-95 border border-black font-semibold shadow-[0_0_20px_rgba(252,163,17,0.3)] w-full md:w-auto"
             onClick={() =>
               navigate(
                 isNigeria
@@ -197,6 +184,7 @@ const RetenaInfinityEngine = () => {
             🔥 Get Your First 10 Studio Visuals in 24 Hours
           </Button>
         </div>
+
         <div
           className={`transition-all duration-500 ${isFading ? "opacity-0" : "opacity-100"}`}
         >
@@ -211,19 +199,39 @@ const RetenaInfinityEngine = () => {
         {/* SVG Lines */}
         <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] h-[90vw] md:w-[1200px] md:h-[1200px] pointer-events-none z-0 opacity-30 md:opacity-50">
           <line
-            x1="50%" y1="50%" x2="15%" y2="15%" stroke="#E5E5E5" strokeWidth="2"
+            x1="50%"
+            y1="50%"
+            x2="15%"
+            y2="15%"
+            stroke="#E5E5E5"
+            strokeWidth="2"
             className={`transition-all duration-1000 ease-out ${isExpanded ? "opacity-100" : "opacity-0"}`}
           />
           <line
-            x1="50%" y1="50%" x2="85%" y2="15%" stroke="#E5E5E5" strokeWidth="2"
+            x1="50%"
+            y1="50%"
+            x2="85%"
+            y2="15%"
+            stroke="#E5E5E5"
+            strokeWidth="2"
             className={`transition-all duration-1000 ease-out ${isExpanded ? "opacity-100" : "opacity-0"}`}
           />
           <line
-            x1="50%" y1="50%" x2="15%" y2="85%" stroke="#E5E5E5" strokeWidth="2"
+            x1="50%"
+            y1="50%"
+            x2="15%"
+            y2="85%"
+            stroke="#E5E5E5"
+            strokeWidth="2"
             className={`transition-all duration-1000 ease-out ${isExpanded ? "opacity-100" : "opacity-0"}`}
           />
           <line
-            x1="50%" y1="50%" x2="85%" y2="85%" stroke="#E5E5E5" strokeWidth="2"
+            x1="50%"
+            y1="50%"
+            x2="85%"
+            y2="85%"
+            stroke="#E5E5E5"
+            strokeWidth="2"
             className={`transition-all duration-1000 ease-out ${isExpanded ? "opacity-100" : "opacity-0"}`}
           />
         </svg>
@@ -236,7 +244,6 @@ const RetenaInfinityEngine = () => {
         `}
         >
           <img
-            // FIX: Unique key for the raw center image
             key={`raw-${currentSet.id}`}
             src={optimizeUrl(currentSet.rawImage)}
             alt="Raw Input"
@@ -249,7 +256,6 @@ const RetenaInfinityEngine = () => {
         </div>
 
         {/* === SATELLITES === */}
-        {/* Notice the third parameter (0, 1, 2, 3) passed to renderAsset. This is the index for the unique Key. */}
         <div
           className={`absolute w-28 md:w-64 aspect-[9/16] bg-[#14213D]/30 rounded-lg md:rounded-xl border border-[#14213D] shadow-xl overflow-hidden z-10 transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]
           ${isExpanded && !isFading ? "-translate-x-[95%] -translate-y-[85%] md:-translate-x-[160%] md:-translate-y-[60%] opacity-100 rotate-[-6deg]" : "translate-x-0 translate-y-0 opacity-0 scale-50"}
