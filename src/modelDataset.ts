@@ -2875,16 +2875,17 @@ export const mockups = [
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1763988919/men_senator28_wevk0y.png",
 ];
 
+
 export const packages = [
   {
-    name: "Starter Pack",
+    name: "The A/B Test Pilot", // Sells the outcome (testing ads)
     slug: "starter_pack",
     price: "₦17,500",
     amount: 17500,
     highlight: false,
     features: [
       "5 High-Quality, AI-Retouched Studio Images",
-      "Perfect for testing 1 product item",
+      "Perfect for testing 1 product item in ads",
       "Natural lighting, realistic textures, and professional finishing",
       "Delivery in 24 hours",
       "Optimized for Meta & TikTok ads",
@@ -2892,28 +2893,27 @@ export const packages = [
     ],
   },
   {
-    name: "Essentials Pack",
+    name: "The Campaign Builder", // Sells the outcome (building a campaign)
     slug: "essentials_pack",
     price: "₦35,000",
     amount: 35000,
-    highlight: true,
+    highlight: false, // Turned off so the focus goes to the 150k pack
     features: [
-      "15 High-Quality AI Studio Images (Your content for the week)",
-      "Up to 3 product items processed",
-      "3 high-performing ad creatives ready for launch",
+      "10 High-Quality AI Studio Images", // Reduced from 15 to widen the gap
+      "Up to 2 product items processed",
+      "2 high-performing ad creatives ready for launch",
       "1 AI product video (8–30s) per product item",
       "Creative captions & story-based copy included",
       "Delivery in 48 hours",
       "1 free revision",
-      "Full priority support",
     ],
   },
   {
-    name: "Growth Pack",
+    name: "The Scaling Engine", // Sells the outcome (scaling revenue)
     slug: "growth_pack",
-    price: "₦65,000",
-    amount: 65000,
-    highlight: false,
+    price: "₦150,000", // FIXED PRICING. This is your core April target.
+    amount: 150000,
+    highlight: true, // This draws their eyes immediately to your target package
     features: [
       "30 High-Quality AI Studio Images (The Ultimate Content Vault)",
       "Up to 6 product items processed",
@@ -2930,6 +2930,7 @@ export const packages = [
     name: "Brand Pro Custom",
     slug: "pro_pack",
     price: "Starting from ₦450,000",
+    amount: 450000,
     highlight: false,
     features: [
       "1-Month Intensive Agency Partnership",
@@ -2945,6 +2946,7 @@ export const packages = [
     ],
   },
 ];
+
 
 export const pin_cat = [
   {

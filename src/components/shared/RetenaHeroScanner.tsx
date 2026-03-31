@@ -152,22 +152,24 @@ const RetenaInfinityEngine = () => {
       <div className="relative z-40 text-center px-4 w-full mb-4 md:mb-16 max-w-4xl mx-auto">
         <div className="inline-block bg-[#FCA311]/10 backdrop-blur-md border border-[#FCA311]/30 rounded-full px-3 py-1 md:px-4 md:py-1.5 mb-4 md:mb-6">
           <span className="text-[10px] md:text-xs font-mono text-[#FCA311] tracking-widest uppercase">
-            ● The Future of Fashion Production
+            ● PERFORMANCE-DRIVEN VISUALS
           </span>
         </div>
 
         <h1 className="text-4xl md:text-7xl font-bold text-[#FFFFFF] mb-4 tracking-tight leading-tight">
-          The Virtual Studio <br className="hidden md:block" />
-          for{" "}
+          Ad Creatives <br className="hidden md:block" />
+          Engineered to{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FCA311] to-[#E5E5E5]">
-            Modern Brands.
+            Convert.
           </span>
         </h1>
 
         <p className="text-[#E5E5E5] text-sm md:text-lg max-w-xl mx-auto leading-relaxed mb-6 opacity-80">
-          Turn a single phone photo into a global campaign.{" "}
+          Stop bleeding ad spend on campaigns that get ignored.{" "}
           <br className="hidden md:block" />
-          No models. No logistics. Just world-class visuals.
+          We transform everyday product photos into premium, scroll-stopping
+          assets in 48 hours—lowering your acquisition costs and scaling your
+          revenue.
         </p>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 w-full my-7">
@@ -176,12 +178,12 @@ const RetenaInfinityEngine = () => {
             onClick={() =>
               navigate(
                 isNigeria
-                  ? "/packages-billing?mode=essentials_pack"
+                  ? "/packages"
                   : "/contact",
               )
             }
           >
-            🔥 Get Your First 10 Studio Visuals in 24 Hours
+            🔥 View Campaign Packages
           </Button>
         </div>
 

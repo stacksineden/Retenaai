@@ -44,15 +44,15 @@ const AdCreativesCta = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               className="bg-gradient-to-r from-[#FCA311] to-[#E5E5E5] text-black px-4 py-6 text-base hover:scale-105 transition-transform duration-300"
-              onClick={() => navigate("/packages-billing?mode=starter_pack")}
+              onClick={() => navigate("/contact")}
             >
-              Upload Image
+              🔥 Request Free Spec Demo
             </Button>
             <Button
               className="border border-[#E5E5E5]/40 text-[#E5E5E5] px-4 py-6 text-base hover:bg-[#14213D] transition-colors duration-300"
               onClick={() => navigate("/packages")}
             >
-              View Packages
+              View Campaign Packages
             </Button>
           </div>
         ) : (
@@ -61,7 +61,7 @@ const AdCreativesCta = () => {
               className="bg-gradient-to-r from-[#FCA311] to-[#E5E5E5] text-black px-4 py-6 text-base hover:scale-105 transition-transform duration-300"
               onClick={() => navigate("/contact")}
             >
-              Book a Discovery Call Today
+              🔥 Request Free Spec Demo
             </Button>
           </div>
         )}

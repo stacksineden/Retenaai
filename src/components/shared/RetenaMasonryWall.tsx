@@ -80,12 +80,10 @@ const RetenaMasonryWall = () => {
       {/* === HEADER === */}
       <div className="relative z-20 text-center mb-16 px-4">
         <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-          <span className="text-[#FCA311]">5,000+</span> Fashion Assets
-          Generated.
+          <span className="text-[#FCA311]">5,000+</span> High-Converting Assets Built.
         </h2>
         <p className="text-[#E5E5E5] text-sm md:text-lg max-w-2xl mx-auto opacity-70">
-          From Lagos to London. We are powering the visual identity of modern
-          African brands.
+          From Lagos to London. We engineer the premium visuals that scale modern African brands.
         </p>
       </div>
 

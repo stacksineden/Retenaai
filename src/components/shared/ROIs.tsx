@@ -1,12 +1,10 @@
-
-
 const ROIs = () => {
   const metrics = [
     {
       id: 1,
       title: "Production Cost",
       stat: "-85%",
-      description: "Average reduction in campaign costs. Zero model fees, zero studio rentals, zero logistics.",
+      description: "Slash your creative budget. Get studio-grade assets without paying for model day-rates, location rentals, or logistical headaches.",
       icon: (
         <svg className="w-6 h-6 text-[#FCA311]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -15,9 +13,9 @@ const ROIs = () => {
     },
     {
       id: 2,
-      title: "Turnaround Time",
-      stat: "24hrs",
-      description: "From raw phone photo to billboard-ready campaign. Skip the 3-week editing queue.",
+      title: "Speed to Market",
+      stat: "48hrs",
+      description: "Turn a raw phone photo into a high-end, ready-to-launch campaign in two days. Skip the three-week studio editing queue.",
       icon: (
         <svg className="w-6 h-6 text-[#FCA311]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -26,9 +24,9 @@ const ROIs = () => {
     },
     {
       id: 3,
-      title: "Ad Performance",
+      title: "Ad Conversions",
       stat: "3x",
-      description: "Higher click-through rates (CTR) and drastically reduced Cost Per Lead (CPL) on Meta Ads.",
+      description: "Beat ad fatigue. Drastically lower your Cost Per Acquisition (CPA) on Meta and TikTok with fresh, scroll-stopping variations.",
       icon: (
         <svg className="w-6 h-6 text-[#FCA311]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -56,7 +54,7 @@ const ROIs = () => {
             Your <span className="text-[#FCA311]">Unfair Advantage.</span>
           </h2>
           <p className="text-[#E5E5E5] text-base md:text-xl max-w-2xl mx-auto opacity-80 leading-relaxed">
-            Why top brands are abandoning traditional photoshoots for the RetenaAI Engine.
+            Why modern fashion brands use RetenaAI to launch high-converting ad campaigns faster and cheaper than the competition.
           </p>
         </div>
 
