@@ -225,6 +225,7 @@ const AffiliateRegister = () => {
               <Button
                 type="submit"
                 className="shad-button_primary md:w-[100%] mt-3"
+                disabled
               >
                 <Sparkles className="text-white h-6 w-6" />
                 Register & Get Promo Code
