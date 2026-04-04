@@ -2878,28 +2878,13 @@ export const mockups = [
 
 export const packages = [
   {
-    name: "The A/B Test Pilot", // Sells the outcome (testing ads)
-    slug: "starter_pack",
-    price: "₦17,500",
-    amount: 17500,
-    highlight: false,
-    features: [
-      "5 High-Quality, AI-Retouched Studio Images",
-      "Perfect for testing 1 product item in ads",
-      "Natural lighting, realistic textures, and professional finishing",
-      "Delivery in 24 hours",
-      "Optimized for Meta & TikTok ads",
-      "One-time pilot project",
-    ],
-  },
-  {
     name: "The Campaign Builder", // Sells the outcome (building a campaign)
     slug: "essentials_pack",
     price: "₦35,000",
     amount: 35000,
-    highlight: false, // Turned off so the focus goes to the 150k pack
+    highlight: false,
     features: [
-      "10 High-Quality AI Studio Images", // Reduced from 15 to widen the gap
+      "10 High-Quality AI Studio Images",
       "Up to 2 product items processed",
       "2 high-performing ad creatives ready for launch",
       "1 AI product video (8–30s) per product item",
@@ -2909,9 +2894,27 @@ export const packages = [
     ],
   },
   {
+    name: "The Growth Launcher", // Sells the outcome (launching growth)
+    slug: "growth_launcher",
+    price: "₦75,000",
+    amount: 75000,
+    highlight: false,
+    features: [
+      "20 High-Quality AI Studio Images",
+      "Up to 4 product items processed",
+      "3 high-performing ad creatives ready for launch",
+      "2 AI product videos (8–45s) per product item",
+      "Creative captions & story-based copy included",
+      "1 A/B Test Strategy Guide (PDF)",
+      "Priority 48-hour batch delivery",
+      "2 free revisions",
+      "Priority support",
+    ],
+  },
+  {
     name: "The Scaling Engine", // Sells the outcome (scaling revenue)
     slug: "growth_pack",
-    price: "₦150,000", // FIXED PRICING. This is your core April target.
+    price: "₦150,000",
     amount: 150000,
     highlight: true, // This draws their eyes immediately to your target package
     features: [
