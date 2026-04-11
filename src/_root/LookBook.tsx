@@ -50,6 +50,13 @@ const getVideoPoster = (url: string) => {
   );
 };
 
+const formatCategory = (key: string) =>
+  key
+    .replace(/_/g, " ") // underscores → spaces
+    .replace(/\s*\d+\s*$/g, "") // strip trailing number (e.g. "1", "2")
+    .trim()
+    .toUpperCase();
+
 const LookBook = () => {
   const navigate = useNavigate();
   const [selectedItem, setSelectedItem] = useState<ArchiveItem | null>(null);
@@ -73,7 +80,7 @@ const LookBook = () => {
             url: url,
             category: categoryKey,
             type: getMediaType(url),
-            title: categoryKey.replace(/_/g, " ").toUpperCase() + " CAMPAIGN",
+            title: formatCategory(categoryKey) + " CAMPAIGN",
           });
         }
       });
@@ -220,7 +227,7 @@ const LookBook = () => {
               {/* Hover Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                 <span className="text-white text-xs font-bold uppercase tracking-wider mb-1">
-                  {item.category.replace(/_/g, " ")}
+                  {formatCategory(item.category)}
                 </span>
               </div>
             </div>
@@ -268,7 +275,7 @@ const LookBook = () => {
 
               <div className="md:w-2/5 p-8 flex flex-col bg-neutral-950 border-l border-white/5 overflow-hidden">
                 <span className="text-xs font-bold uppercase tracking-wider text-[#FCA311] mb-2">
-                  {selectedItem.category.replace(/_/g, " ")} Series
+                  {formatCategory(selectedItem.category)} Series
                 </span>
                 <h2 className="text-3xl font-black mb-4 text-white">
                   Campaign Concept
