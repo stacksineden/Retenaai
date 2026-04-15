@@ -1,4 +1,5 @@
 import { AppleStyleCarousel, Card } from "./AppleStyleCarousel";
+import { motion } from "framer-motion";
 
 export function HighLights() {
   const cards = data.map((card, index) => (
@@ -6,19 +7,33 @@ export function HighLights() {
   ));
 
   return (
-    <div className="w-full h-full py-4">
-      <div className="max-w-7xl pl-4 mx-auto flex flex-col gap-2">
-        <h2 className="text-4xl md:text-5xl font-bold text-white">
-          Transform Fashion.{" "}
-          <span className="text-[#FCA311]">Scale Creatively.</span>
-        </h2>
-        <p className="text-base md:text-xl text-white">
-          Our AI-powered creative suite turns your brand visuals into campaigns
-          that sell, grow and scale <br /> — from single product to full collection.
-        </p>
+    <section className="relative w-full bg-black py-9 md:py-32 overflow-hidden border-t border-white/5">
+      
+      {/* ── ALIGNED PREMIUM HEADER ── */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 mb-12 md:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <h2 className="text-4xl md:text-5xl font-black text-white leading-tight tracking-tight mb-4">
+            Transform Fashion.{" "}
+            <span className="text-[#FCA311]">Scale Creatively.</span>
+          </h2>
+          <p className="text-[#E5E5E5]/70 text-base md:text-lg font-medium leading-relaxed max-w-2xl">
+            Our AI-powered creative suite turns your brand visuals into campaigns
+            that sell, grow and scale — from single product to full collection.
+          </p>
+        </motion.div>
       </div>
-      <AppleStyleCarousel items={cards} />
-    </div>
+
+      {/* ── UNTOUCHED CAROUSEL SETUP ── */}
+      <div className="w-full">
+        <AppleStyleCarousel items={cards} />
+      </div>
+      
+    </section>
   );
 }
 
@@ -34,7 +49,7 @@ const DummyContent = () => {
             <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl max-w-3xl mx-auto">
               <span className="font-bold text-neutral-700 dark:text-neutral-200">
                 RetenaAI Systems
-              </span>
+              </span>{" "}
               Ready-to-use AI systems that plug directly into your business — no
               developers, no complexity. Just subscribe, connect, and grow.
             </p>

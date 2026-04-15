@@ -2878,74 +2878,51 @@ export const mockups = [
 
 export const packages = [
   {
-    name: "The Campaign Builder", // Sells the outcome (building a campaign)
-    slug: "essentials_pack",
-    price: "₦35,000",
-    amount: 35000,
+    name: "The Campaign Catalyst", 
+    slug: "catalyst_pack",
+    originalPrice: "₦150,000", // Renders with a strikethrough for urgency
+    price: "₦85,000",
+    amount: 85000,
     highlight: false,
     features: [
-      "10 High-Quality AI Studio Images",
-      "Up to 2 product items processed",
-      "2 high-performing ad creatives ready for launch",
-      "1 AI product video (8–30s) per product item",
-      "Creative captions & story-based copy included",
-      "Delivery in 48 hours",
-      "1 free revision",
+      "2 to 3 Ready-to-Launch Video Ads (15s-30s)",
+      "AI UGC Visual Synthesis (Hyper-realistic models)",
+      "Done-For-You Copywriting & Scripts",
+      "5 Complementary High-Fidelity Static Images",
+      "Delivery in 5 Days",
+      "1 Free Revision",
     ],
   },
   {
-    name: "The Growth Launcher", // Sells the outcome (launching growth)
-    slug: "growth_launcher",
-    price: "₦75,000",
-    amount: 75000,
-    highlight: false,
+    name: "The Scaling Engine", 
+    slug: "scaling_pack",
+    price: "₦250,000 / month",
+    amount: 250000,
+    highlight: true, 
     features: [
-      "20 High-Quality AI Studio Images",
-      "Up to 4 product items processed",
-      "3 high-performing ad creatives ready for launch",
-      "2 AI product videos (8–45s) per product item",
-      "Creative captions & story-based copy included",
-      "1 A/B Test Strategy Guide (PDF)",
-      "Priority 48-hour batch delivery",
-      "2 free revisions",
-      "Priority support",
+      "6 to 8 Ready-to-Launch Video Ads per month",
+      "Priority Veo3 Motion Engine Access",
+      "Dynamic Vibe Adjustment across campaigns",
+      "A/B Test Strategy Guide (PDF Blueprint)",
+      "The Content Vault: 20+ Cohesive Static Assets",
+      "Priority 72-Hour Batch Delivery",
+      "Priority Support Channel",
     ],
   },
   {
-    name: "The Scaling Engine", // Sells the outcome (scaling revenue)
-    slug: "growth_pack",
-    price: "₦150,000",
-    amount: 150000,
-    highlight: true, // This draws their eyes immediately to your target package
-    features: [
-      "30 High-Quality AI Studio Images (The Ultimate Content Vault)",
-      "Up to 6 product items processed",
-      "5 high-performing ad creatives ready for launch",
-      "3 AI product videos (8–60s) for your best sellers",
-      "Creative captions & story-based copy included",
-      "1 Meta Ad Campaign Strategy Guide (PDF)",
-      "Priority 72-hour batch delivery",
-      "2 free revisions",
-      "Full priority support",
-    ],
-  },
-  {
-    name: "Brand Pro Custom",
+    name: "The Brand Pro",
     slug: "pro_pack",
-    price: "Starting from ₦450,000",
-    amount: 450000,
+    price: "Starting from ₦500,000 / month",
+    amount: 500000,
     highlight: false,
     features: [
-      "1-Month Intensive Agency Partnership",
-      "Complete Visual Rebranding (Ground-up transformation)",
-      "50+ premium AI-retouched studio images delivered over 30 days",
-      "Dedicated Creative Direction & Weekly Strategy Calls",
-      "Custom AI product videos using Veo3 motion technology",
-      "Studio, lifestyle & high-fashion conceptual visual sets",
-      "1 fully managed Meta ad campaign setup",
-      "Custom AI Visual System built specifically for your brand",
-      "AI UGC Creation (AI-generated user videos)",
-      "Direct VIP WhatsApp access to the founding team",
+      "12 to 15 Ready-to-Launch Video Ads per month",
+      "Raw AI B-Roll folder for your organic social team",
+      "Custom Brand AI Architecture & Persistent Cast",
+      "4x Weekly Zoom Strategy Calls",
+      "Monthly Creative Roadmap Planning",
+      "Direct VIP WhatsApp Access to founders",
+      "Optional: Managed Meta/TikTok Ad Setup",
     ],
   },
 ];
@@ -3196,6 +3173,20 @@ export const masonary_assets = [
   "https://res.cloudinary.com/dyryfgjro/video/upload/v1775896819/rove-vid2_gwpglb.mp4",
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1771431475/gb-demo7_dpppmg.png",
 ];
+
+
+export const proofAssets = [
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1775821123/rove-reel-3-min_m2hohq.mov",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1775896941/omolara-reel1_x87yo3.mov",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1771411010/ads17_vkkisd.png",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1774516173/viding8_epmmid.mp4",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1771331077/Input_based_on_1080p_202602131227_tmgh1s.mp4",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1775897427/arike-reel2_dba6zd.mov",
+  "https://res.cloudinary.com/dyryfgjro/image/upload/v1771533278/men_slippers_After7_swtfla.png",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1776165739/vg-hype-reel-updated_kc4q0l.mov",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1776166225/hero-hype_xraeo0.mov"
+];
+
 
 export const videoMockups = [
   {
