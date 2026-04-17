@@ -2905,7 +2905,7 @@ export const packages = [
       "Dynamic Vibe Adjustment across campaigns",
       "A/B Test Strategy Guide (PDF Blueprint)",
       "The Content Vault: 20+ Cohesive Static Assets",
-      "Rolling 72-Hour Batch Deliverie",
+      "Rolling 72-Hour Batch Deliveries",
       "Priority Support Channel",
     ],
   },
