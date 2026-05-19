@@ -2875,7 +2875,6 @@ export const mockups = [
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1763988919/men_senator28_wevk0y.png",
 ];
 
-
 export const packages = [
   {
     name: "The Campaign Catalyst",
@@ -2933,7 +2932,6 @@ export const packages = [
   },
 ];
 
-
 export const pin_cat = [
   {
     tshirts: [
@@ -2960,6 +2958,11 @@ export const pin_cat = [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1763988958/men_senator14_l5nl3k.png",
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1763988216/men_senator33_ghusdd.png",
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1763988152/men_senator16_jfyydn.png",
+    ],
+    chilli_sauce: [
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779200376/Generated_Image_September_05_2025_-_7_09PM_xeizaf.jpg",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779200377/Generated_Image_September_05_2025_-_7_26PM_jqmfqv.jpg",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779200378/Generated_Image_September_05_2025_-_7_19PM_lzw8wr.jpg",
     ],
     slippers: [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1771533835/men_slippers_After6_m8wjty.png",
@@ -2988,6 +2991,18 @@ export const pin_cat = [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1774510096/mv-demo11_gntm3x.png",
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1774510129/mv-land1_blf6vb.jpg",
       "https://res.cloudinary.com/dyryfgjro/video/upload/v1774510214/mv-ig_eyl4se.mov",
+    ],
+    sauce: [
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779199735/c3tgzxhbypxjue7trzu7_rhvmko.webp",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779199736/d6gkk0rdh88e5xqkgy1j_aursf0.webp",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779199765/dlvgndhysd0eap95esdu_q9j2lv.webp",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779199787/fpzfavmphhthxccpdsrw_olt3uz.webp",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779199788/fxkxvwpr9ikievdddy7m_fxd1mr.webp",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779199890/goods1_ycdnnc.webp",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779199904/goods2_ca9usk.webp",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779199904/goods3_t1lwyo.webp",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779199905/pfzlhz8lyfqjxrnskfug_icx18j.webp",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779199947/rqowvumntjhcyqcixrec_tjcjjo.webp",
     ],
     bubu: [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1771431590/cp-demo19_du1jbc.png",
@@ -3057,6 +3072,11 @@ export const pin_cat = [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1774546629/fa-demo4_g4svgn.png",
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1774546636/fa-demo7_kxsizu.png",
     ],
+    home_decor: [
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779200161/decor1_exmbv0.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779200178/decor3_rgpjzx.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779200179/decor2_abyozz.png",
+    ],
     men_senator1: [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1774546636/fa-demo7_kxsizu.png",
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1774547123/gb-demo3_knm6jp.png",
@@ -3070,7 +3090,7 @@ export const pin_cat = [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1774547154/gb-demo9_owohli.png",
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1774547157/gb-demo10_slb8wf.png",
     ],
-    female_gymwear:[
+    female_gymwear: [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1775807371/rove-demo1_ydq0w2.jpg",
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1775807376/rove-demo4_dn4jbq.jpg",
       "https://res.cloudinary.com/dyryfgjro/video/upload/v1775896819/rove-vid2_gwpglb.mp4",
@@ -3085,9 +3105,9 @@ export const pin_cat = [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1775807399/rove-landp_nz9hsh.jpg",
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1775807400/rove-demo7_ri28ha.jpg",
       "https://res.cloudinary.com/dyryfgjro/video/upload/v1775821123/rove-reel-3-min_m2hohq.mov",
-      ""
+      "",
     ],
-    female_gown1:[
+    female_gown1: [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1775896869/omo-demo4_o9wan9.jpg",
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1775896870/omo-demo3_waxyam.jpg",
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1775896871/omo-demo2_zzq2pt.jpg",
@@ -3100,9 +3120,64 @@ export const pin_cat = [
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1775896935/omo-demo9_l0t00e.jpg",
       "https://res.cloudinary.com/dyryfgjro/image/upload/v1775896939/omo-demo10_fbltey.jpg",
       "https://res.cloudinary.com/dyryfgjro/video/upload/v1775896941/omolara-reel1_x87yo3.mov",
-      "https://res.cloudinary.com/dyryfgjro/image/upload/v1775896953/omo-demo-add-on1_rbkc66.jpg"
-    ]
-  }, 
+      "https://res.cloudinary.com/dyryfgjro/image/upload/v1775896953/omo-demo-add-on1_rbkc66.jpg",
+    ],
+    men_slide: [
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779197401/ad4_uifb2d.png",
+      "https://res.cloudinary.com/dast35q6f/video/upload/v1779197401/ad2_grirmf.mp4",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779197402/ad3_ci9xgk.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779197402/ad9_lo7lx4.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779197404/ad1_q1xs0f.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779197407/ad7_fs1bi0.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779197407/ad8_jmwuzg.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779197408/ad6_zbn8eq.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779197461/ad5_kbrtwm.png",
+    ],
+    food_cusine: [
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779200260/food1_fdtoil.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779200268/food2_dhp0ry.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779200275/food3_d0klxy.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779200278/food4_ibbgrd.png",
+    ],
+    jersey: [
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779197847/wrth3_mtkyat.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779197853/wrth8_ys1vxg.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779197857/wrth7_cedazq.png",
+      "https://res.cloudinary.com/dast35q6f/video/upload/v1779190666/wrth-ad2_vnqekn.mp4",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779197857/wrth2_slxdql.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779197863/wrth6_le0l56.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779197895/wrth5_u73eud.png",
+      "https://res.cloudinary.com/dast35q6f/video/upload/v1779190216/wrth-ad1_rdbexo.mov",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779197956/wrth4_g4fxwt.png",
+    ],
+    varsity_jacket: [
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779197872/wrth9_dhnss2.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779197876/wrth14_psdhcn.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779197877/wrth12_gdfr1l.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779197882/wrth10_zhodmd.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779197887/wrth15_hiodyu.png",
+      "https://res.cloudinary.com/dast35q6f/video/upload/v1779190943/wrth-set-ugc_b3orw8.mov",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779197886/wrth18_bwmos5.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779197891/wrth17_ciqxut.png",
+    ],
+    face_serum: [
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779190171/face-facts-asset2_u8sjim.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779190171/face-facts-assets3_zsg9aa.png",
+      "https://res.cloudinary.com/dast35q6f/video/upload/v1779190107/face-facts-ad1_hds0vl.mp4",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779190166/face-facts-asset1_tflbn6.png",
+      "https://res.cloudinary.com/dast35q6f/video/upload/v1779190140/face-facts-ugc1_msgmcs.mov",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779195053/face-facts-assets5_vwzz4b.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779194724/face-facts-assets4_qoxzfj.png",
+    ],
+    men_supplements: [
+      "https://res.cloudinary.com/dast35q6f/video/upload/v1779191359/wellman-ad1_kdx73g.mp4",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779198612/wellman-asset3_m9mylo.png",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779198601/wellman-asset1_q7btle.png",
+      "https://res.cloudinary.com/dast35q6f/video/upload/v1779191693/wellman-ugc1_k9mhfp.mp4",
+      "https://res.cloudinary.com/dast35q6f/image/upload/v1779198663/wellman-asset2_yk8kmk.png",
+      "https://res.cloudinary.com/dast35q6f/video/upload/v1779191948/wellman-ugc-1-chineese_u6zyaq.mp4",
+    ],
+  },
 ];
 
 export const masonary_assets = [
@@ -3180,19 +3255,23 @@ export const masonary_assets = [
   "https://res.cloudinary.com/dyryfgjro/image/upload/v1771431475/gb-demo7_dpppmg.png",
 ];
 
-
 export const proofAssets = [
+  "https://res.cloudinary.com/dast35q6f/video/upload/v1779190107/face-facts-ad1_hds0vl.mp4",
+  "https://res.cloudinary.com/dast35q6f/video/upload/v1779191359/wellman-ad1_kdx73g.mp4",
   "https://res.cloudinary.com/dyryfgjro/video/upload/v1775821123/rove-reel-3-min_m2hohq.mov",
-  "https://res.cloudinary.com/dyryfgjro/video/upload/v1775896941/omolara-reel1_x87yo3.mov",
-  "https://res.cloudinary.com/dyryfgjro/image/upload/v1771411010/ads17_vkkisd.png",
-  "https://res.cloudinary.com/dyryfgjro/video/upload/v1774516173/viding8_epmmid.mp4",
-  "https://res.cloudinary.com/dyryfgjro/video/upload/v1771331077/Input_based_on_1080p_202602131227_tmgh1s.mp4",
-  "https://res.cloudinary.com/dyryfgjro/video/upload/v1775897427/arike-reel2_dba6zd.mov",
-  "https://res.cloudinary.com/dyryfgjro/image/upload/v1771533278/men_slippers_After7_swtfla.png",
+  "https://res.cloudinary.com/dast35q6f/video/upload/v1779190216/wrth-ad1_rdbexo.mov",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1763802767/vid1_xxbqb1.mp4",
+  "https://res.cloudinary.com/dast35q6f/video/upload/v1779190140/face-facts-ugc1_msgmcs.mov",
   "https://res.cloudinary.com/dyryfgjro/video/upload/v1776165739/vg-hype-reel-updated_kc4q0l.mov",
-  "https://res.cloudinary.com/dyryfgjro/video/upload/v1776166225/hero-hype_xraeo0.mov"
+  "https://res.cloudinary.com/dast35q6f/video/upload/v1779190943/wrth-set-ugc_b3orw8.mov",
+  "https://res.cloudinary.com/dast35q6f/video/upload/v1779191693/wellman-ugc1_k9mhfp.mp4",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1776166225/hero-hype_xraeo0.mov",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1771431785/archive5_kyn25y.mov",
+  "https://res.cloudinary.com/dast35q6f/video/upload/v1779191948/wellman-ugc-1-chineese_u6zyaq.mp4",
+  "https://res.cloudinary.com/dast35q6f/video/upload/v1779190666/wrth-ad2_vnqekn.mp4",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1763803053/vid1_zezmaw.mp4",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1776165876/viding4_r7pdgt.mp4",
 ];
-
 
 export const videoMockups = [
   {

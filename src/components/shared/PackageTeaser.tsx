@@ -51,7 +51,7 @@ export const PackagesTeaser = () => {
             </h2>
             
             <p className="text-[#E5E5E5]/70 text-base md:text-lg max-w-xl mx-auto mb-10">
-              Explore our tiered monthly packages designed for scaling fashion and footwear brands. One transparent price, zero hidden studio fees.
+              Explore our tiered monthly packages designed for DTC brands that run on Meta. One transparent price, zero hidden studio fees.
             </p>
 
             <Button 

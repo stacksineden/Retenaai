@@ -16,7 +16,6 @@ const getVideoPoster = (url: string) => {
   return optimizeMedia(posterUrl);
 };
 
-
 // ── MEDIA CARD ──────────────────────────────────────────────────────────────
 const MediaCard = ({ src, index }: { src: string; index: number }) => {
   const isVideo = src.endsWith(".mp4") || src.endsWith(".mov");
@@ -36,7 +35,7 @@ const MediaCard = ({ src, index }: { src: string; index: number }) => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     observer.observe(videoRef.current);
@@ -71,7 +70,7 @@ const MediaCard = ({ src, index }: { src: string; index: number }) => {
           onLoad={(e) => e.currentTarget.classList.remove("opacity-0")}
         />
       )}
-      
+
       <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
       <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
     </div>
@@ -92,7 +91,7 @@ export const WallOfProof = () => {
           observer.disconnect(); // Only animate once
         }
       },
-      { threshold: 0.2 } // Triggers when 20% of the header is visible
+      { threshold: 0.2 }, // Triggers when 20% of the header is visible
     );
 
     if (headerRef.current) observer.observe(headerRef.current);
@@ -122,40 +121,47 @@ export const WallOfProof = () => {
       `}</style>
 
       <section className="relative w-full bg-black py-24 md:py-32 px-4 sm:px-6 overflow-hidden">
-        
         {/* Ambient Glow */}
-        <div 
+        <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] pointer-events-none opacity-[0.04] blur-[100px] rounded-full"
           style={{
-            background: "radial-gradient(circle, #FCA311 0%, transparent 70%)"
+            background: "radial-gradient(circle, #FCA311 0%, transparent 70%)",
           }}
         />
 
         <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center">
-          
           {/* Header wrapper with scroll ref */}
-          <div ref={headerRef} className="text-center max-w-4xl mb-16 md:mb-24 px-2">
+          <div
+            ref={headerRef}
+            className="text-center max-w-4xl mb-16 md:mb-24 px-2"
+          >
             <h2
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight mb-6 opacity-0"
-              style={{ 
-                animation: isHeaderVisible ? "cinematicBlur 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards" : "none" 
+              style={{
+                animation: isHeaderVisible
+                  ? "cinematicBlur 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards"
+                  : "none",
               }}
             >
               You've probably seen our work.
               <br className="hidden sm:block" />
               {/* Added the animate-shimmer class for continuous background motion */}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FCA311] via-[#FFD166] to-[#FCA311] animate-shimmer inline-block mt-2">
-                {" "}You just didn't know it was AI.
+                {" "}
+                You just didn't know it was AI.
               </span>
             </h2>
             <p
               className="text-[#E5E5E5]/70 text-base md:text-xl font-medium leading-relaxed max-w-2xl mx-auto opacity-0"
-              style={{ 
-                animation: isHeaderVisible ? "cinematicBlur 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards" : "none" 
+              style={{
+                animation: isHeaderVisible
+                  ? "cinematicBlur 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards"
+                  : "none",
               }}
             >
-              We engineer hyper-realistic, cinematic motion that stops the scroll. 
-              Perfect garment preservation. Zero studio time.
+              We engineer hyper-realistic, cinematic video ads that stop the
+              scroll. Built for DTC brands that can't afford weak creative. Zero
+              studio time.
             </p>
           </div>
 
@@ -164,7 +170,6 @@ export const WallOfProof = () => {
               <MediaCard key={`${src}-${index}`} src={src} index={index} />
             ))}
           </div>
-          
         </div>
       </section>
     </>

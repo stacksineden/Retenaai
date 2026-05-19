@@ -43,8 +43,7 @@ const AdCreativesCta = () => {
           </h2>
 
           <p className="text-[#E5E5E5]/70 text-base md:text-xl font-medium leading-relaxed max-w-2xl mx-auto mb-12">
-            Turn your ideas into stunning fashion visuals — no studio, no limits.
-            Upload a single photo, and let RetenaAI engineer your next viral campaign.
+           Turn your product photo into a full Meta campaign — no studio, no limits. Upload one image, and let RetenaAI engineer your next high-converting ad.
           </p>
 
           {/* Button Logic (Untouched) */}

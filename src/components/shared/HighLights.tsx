@@ -8,7 +8,6 @@ export function HighLights() {
 
   return (
     <section className="relative w-full bg-black py-9 md:py-32 overflow-hidden border-t border-white/5">
-      
       {/* ── ALIGNED PREMIUM HEADER ── */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 mb-12 md:mb-16">
         <motion.div
@@ -18,12 +17,13 @@ export function HighLights() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
           <h2 className="text-4xl md:text-5xl font-black text-white leading-tight tracking-tight mb-4">
-            Transform Fashion.{" "}
+            Transform Your Brand.{" "}
             <span className="text-[#FCA311]">Scale Creatively.</span>
           </h2>
           <p className="text-[#E5E5E5]/70 text-base md:text-lg font-medium leading-relaxed max-w-2xl">
-            Our AI-powered creative suite turns your brand visuals into campaigns
-            that sell, grow and scale — from single product to full collection.
+            Our AI-powered creative suite turns a single product photo into
+            campaigns that sell, grow and scale — across every DTC vertical, on
+            every platform that matters.
           </p>
         </motion.div>
       </div>
@@ -32,7 +32,6 @@ export function HighLights() {
       <div className="w-full">
         <AppleStyleCarousel items={cards} />
       </div>
-      
     </section>
   );
 }
@@ -84,35 +83,39 @@ const data = [
   },
   {
     category: "Video & Commercial Production",
-    title: "From stills to motion: ads and commercial visuals made for your brand.",
+    title:
+      "From stills to motion: ads and commercial visuals made for your brand.",
     src: "/assets/ugc.webp",
     content: <DummyContent />,
     slug: "ugcpro",
   },
   {
     category: "Content Posting Automations",
-    title: "Schedule and publish your content automatically, directly to your channels.",
+    title:
+      "Schedule and publish your content automatically, directly to your channels.",
     src: "/assets/lead.webp",
     content: <DummyContent />,
     slug: "convertflow",
   },
   {
     category: "Paid Meta Ads Setup & Creative Services",
-    title: "Full ad campaigns crafted, creatives supplied, and performance driven.",
+    title:
+      "Full ad campaigns crafted, creatives supplied, and performance driven.",
     src: "/assets/auth-bg.png",
     content: <DummyContent />,
     slug: "convertflow",
   },
-   {
+  {
     category: "E-Commerce Store Build & Brand Integration",
     title: "From visuals to storefront: seamless brand presence online.",
     src: "/assets/dep1.webp",
     content: <DummyContent />,
     slug: "convertflow",
   },
-    {
+  {
     category: "Visual System & Automation",
-    title: "Custom infrastructure built to convert raw images into branded visuals, at scale.",
+    title:
+      "Custom infrastructure built to convert raw images into branded visuals, at scale.",
     src: "/assets/content.webp",
     content: <DummyContent />,
     slug: "clonecast",

@@ -21,7 +21,7 @@ const steps = [
     title: "Cinematic Engineering",
     icon: <Clapperboard className="w-6 h-6 text-[#FCA311]" />,
     description:
-      "Our creative team takes over. We map your garment's texture and silhouette with pixel-perfect accuracy, then generate cinematic video flows and high-fidelity static assets.",
+      "Our creative team takes over. We map your product with pixel-perfect accuracy, then generate cinematic video ads and high-fidelity static assets — engineered to stop the scroll and lower your CPA.",
   },
   {
     id: "04",
@@ -45,23 +45,21 @@ const containerVariants = {
 
 const stepVariants = {
   hidden: { opacity: 0, y: 40, filter: "blur(10px)" },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
+  visible: {
+    opacity: 1,
+    y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.8, ease: [0.25, 0.4, 0.25, 1] } 
+    transition: { duration: 0.8, ease: [0.25, 0.4, 0.25, 1] },
   },
 };
 
 export const DeliveryProcess = () => {
   return (
     <section className="relative w-full bg-black py-24 md:py-40 px-4 sm:px-6 overflow-hidden border-t border-white/5">
-      
       {/* Subtle Background Glow */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#FCA311]/5 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 relative z-10">
-        
         {/* ── LEFT SIDE: STICKY HEADER ── */}
         <div className="w-full lg:w-5/12 lg:sticky lg:top-40 h-fit">
           <motion.div
@@ -76,14 +74,16 @@ export const DeliveryProcess = () => {
                 How It Works
               </span>
             </div>
-            
+
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-[1.1] tracking-tight mb-6">
               From Idea <br />
               <span className="text-[#FCA311]">to Impact.</span>
             </h2>
-            
+
             <p className="text-[#E5E5E5]/60 text-base md:text-lg font-medium leading-relaxed max-w-md">
-              We stripped away the friction of traditional photoshoots. Our streamlined system delivers studio-grade ad campaigns without the studio.
+              We stripped away the friction of traditional production. Our
+              streamlined system delivers studio-grade video ads — built to
+              convert on Meta — without the studio.
             </p>
           </motion.div>
         </div>
@@ -125,7 +125,7 @@ export const DeliveryProcess = () => {
                     {step.description}
                   </p>
                 </div>
-                
+
                 {/* Subtle connecting line (hidden on last item) */}
                 {index !== steps.length - 1 && (
                   <div className="hidden sm:block absolute left-[4.5rem] top-32 bottom-[-3rem] w-[1px] bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
@@ -134,7 +134,6 @@ export const DeliveryProcess = () => {
             ))}
           </motion.div>
         </div>
-
       </div>
     </section>
   );

@@ -14,12 +14,12 @@ const optimizeUrl = (url: string) => {
 // Now mapped to Raw Input (Image) -> Generated Output (Video)
 const transformations = [
   {
-    rawImage: "https://res.cloudinary.com/dyryfgjro/image/upload/v1776267068/ar-before1_dvfyzb.png",
-    outputVideo: "https://res.cloudinary.com/dyryfgjro/video/upload/v1776165398/arike-reel2_clyipu.mov",
+    rawImage: "https://res.cloudinary.com/dast35q6f/image/upload/v1779193947/face-facts-mockup_j4rql4.webp",
+    outputVideo: "https://res.cloudinary.com/dast35q6f/video/upload/v1779190107/face-facts-ad1_hds0vl.mp4", 
   },
   {
-    rawImage: "https://res.cloudinary.com/dyryfgjro/image/upload/v1776267341/mv-before_cggoxo.png",
-    outputVideo: "https://res.cloudinary.com/dyryfgjro/video/upload/v1776166225/hero-hype_xraeo0.mov",
+    rawImage: "https://res.cloudinary.com/dast35q6f/image/upload/v1779196610/wrth-tshirt-mockup_twnjaq.webp",
+    outputVideo: "https://res.cloudinary.com/dast35q6f/video/upload/w_600,f_auto,q_auto/v1779190216/wrth-ad1_rdbexo.mov",
   },
   {
     rawImage: "https://res.cloudinary.com/dyryfgjro/image/upload/v1776265995/rove-before_veaieo.png",
