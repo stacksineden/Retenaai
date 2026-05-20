@@ -18,7 +18,7 @@ const Packages = () => {
         {/* Header */}
         <motion.div {...fadeUp} className="text-center max-w-4xl mx-auto mb-20">
           <h1 className="text-3xl md:text-6xl font-extrabold mb-6">
-            High-Converting Video Creatives.<br /> Built for Fashion Brands.
+            High-Converting Video Creatives.<br /> Built for DTC Brands.
           </h1>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
             Choose a package that meets your brand’s goals — from single-product 
