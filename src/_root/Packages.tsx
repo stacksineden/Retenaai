@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { packages } from "@/modelDataset";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useUserCountry } from "@/hooks/useUserLocation";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -12,24 +13,30 @@ const fadeUp = {
 
 const Packages = () => {
   const navigate = useNavigate();
+
+  const { country } = useUserCountry();
+  const isNigeria = country === "NG";
+
   return (
     <WebLayoutWrapper>
       <section className="bg-black text-white py-24 px-6 md:px-16">
         {/* Header */}
         <motion.div {...fadeUp} className="text-center max-w-4xl mx-auto mb-20">
           <h1 className="text-3xl md:text-6xl font-extrabold mb-6">
-            High-Converting Video Creatives.<br /> Built for DTC Brands.
+            High-Converting Video Creatives.
+            <br /> Built for DTC Brands.
           </h1>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            Choose a package that meets your brand’s goals — from single-product 
+            Choose a package that meets your brand’s goals — from single-product
             launch tests to complete, monthly performance-driven partnerships.
           </p>
         </motion.div>
 
         {/* Packages Grid - Constrained to max-w-6xl so the 3 cards don't get too wide */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {packages.map((pkg, i) => {
-            const isPro = (pkg.slug ?? "").toString().toLowerCase() === "pro_pack";
+            const isRetainer =
+              (pkg.slug ?? "").toString().toLowerCase() === "growth_retainer";
             return (
               <motion.div
                 key={i}
@@ -45,16 +52,11 @@ const Packages = () => {
               >
                 <div className="flex-grow">
                   <h3 className="text-2xl font-bold mb-3">{pkg.name}</h3>
-                  
+
                   {/* Price Display with optional strikethrough for urgency */}
                   <div className="mb-6 flex flex-col justify-center">
-                    {pkg.originalPrice && (
-                      <span className="text-white/40 text-lg line-through font-semibold -mb-1">
-                        {pkg.originalPrice}
-                      </span>
-                    )}
                     <p className="text-[#FCA311] text-3xl font-extrabold">
-                      {pkg.price}
+                      {isNigeria ? pkg.priceNGN : pkg.priceUSD}
                     </p>
                   </div>
 
@@ -69,23 +71,28 @@ const Packages = () => {
                       </li>
                     ))}
                   </ul>
+                  {pkg.guarantee && (
+                    <p className="text-sm text-white/60 italic mb-4">
+                      {pkg.guarantee}
+                    </p>
+                  )}
                 </div>
 
                 <Button
                   className={`w-full py-6 text-base font-semibold mt-auto ${
-                     pkg.highlight 
-                     ? "bg-[#FCA311] text-black hover:bg-[#E5E5E5]" 
-                     : "bg-white/10 text-white hover:bg-white/20"
+                    pkg.highlight
+                      ? "bg-[#FCA311] text-black hover:bg-[#E5E5E5]"
+                      : "bg-white/10 text-white hover:bg-white/20"
                   }`}
                   onClick={() => {
-                    if (isPro) {
+                    if (isRetainer) {
                       navigate("/contact");
                     } else {
                       navigate(`/packages-billing?mode=${pkg?.slug ?? ""}`);
                     }
                   }}
                 >
-                  {isPro ? "Request Bespoke Proposal" : "Choose Package"}
+                  {isRetainer ? "Request a Strategy Call" : "Order Now"}
                 </Button>
               </motion.div>
             );
@@ -93,10 +100,11 @@ const Packages = () => {
         </div>
 
         {/* Add-ons Section */}
-        <motion.div {...fadeUp} className="mt-32 max-w-4xl mx-auto text-center">
+        {/* <motion.div {...fadeUp} className="mt-32 max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-4">Add-Ons & Extras</h2>
           <p className="text-white/70 mb-12">
-            Scale your package with precision upgrades designed for ad performance.
+            Scale your package with precision upgrades designed for ad
+            performance.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
@@ -120,7 +128,7 @@ const Packages = () => {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* Final CTA */}
         <motion.div {...fadeUp} className="mt-32 text-center max-w-2xl mx-auto">
@@ -128,16 +136,21 @@ const Packages = () => {
             Ready to Level Up Your Brand?
           </h3>
           <p className="text-white/70 mb-10 text-lg">
-            Stop losing money on ad fatigue. Let us build your high-converting visual engine.
+            Stop losing money on ad fatigue. Let us build your high-converting
+            visual engine.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-[#FCA311] text-black px-8 py-6 text-lg font-bold hover:bg-[#E5E5E5] transition-colors"
-             onClick={() => navigate("/packages-billing?mode=catalyst_pack")}>
+            <Button
+              className="bg-[#FCA311] text-black px-8 py-6 text-lg font-bold hover:bg-[#E5E5E5] transition-colors"
+              onClick={() => navigate("/packages-billing?mode=campaign_pack")}
+            >
               Launch Your First Campaign
             </Button>
-            <Button className="border border-white/20 text-white px-8 py-6 text-lg hover:bg-[#14213D] transition-colors"
-             onClick={() => navigate("/contact")}>
+            <Button
+              className="border border-white/20 text-white px-8 py-6 text-lg hover:bg-[#14213D] transition-colors"
+              onClick={() => navigate("/contact")}
+            >
               Talk to Our Strategy Team
             </Button>
           </div>

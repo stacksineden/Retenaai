@@ -47,10 +47,10 @@ const Footer = () => {
             Terms
           </p>
           <a
-            href="mailto:retenaaistacksorg@gmail.com"
+            href="mailto:hello@retenaai.com"
             className="text-sm text-white font-bold cursor-pointer"
           >
-            Email@ retenaaistacksorg@gmail.com
+            Email@ hello@retenaai.com
           </a>
           <p className="text-xs font-semibold text-white">
             &copy; {new Date().getFullYear()} RetenaAI inc

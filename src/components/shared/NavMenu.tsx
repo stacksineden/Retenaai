@@ -27,7 +27,7 @@ export function NavMenu() {
         <NavigationMenuItem>
           <NavigationMenuLink
             className={navigationMenuTriggerStyle()}
-            onClick={() => Navigate(isNigeria ? "/packages" : "/contact")}
+            onClick={() => Navigate("/packages")}
           >
             Packages
           </NavigationMenuLink>

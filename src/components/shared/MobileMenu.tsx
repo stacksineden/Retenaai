@@ -60,7 +60,7 @@ const MobileMenu = ({
                 <ul
                   className={`my-2 divide-y text-sm divide-zinc-200 text-white`}
                 >
-                  <Link to={isNigeria ? "/packages" : "/contact"}>
+                  <Link to="/packages">
                     <li className="block py-2 font-medium">Packages</li>
                   </Link>
                   {/* <Link to="/retenaai-academy">
