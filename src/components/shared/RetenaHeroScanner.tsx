@@ -47,7 +47,7 @@ const COL4 = [
  "https://res.cloudinary.com/dast35q6f/video/upload/v1779190666/wrth-ad2_vnqekn.mp4",
  "https://res.cloudinary.com/dast35q6f/video/upload/v1779191693/wellman-ugc1_k9mhfp.mp4",
  "https://res.cloudinary.com/dyryfgjro/video/upload/v1776165739/vg-hype-reel-updated_kc4q0l.mov",
- "https://res.cloudinary.com/dyryfgjro/video/upload/v1776166225/hero-hype_xraeo0.mov"
+ "https://res.cloudinary.com/dyryfgjro/video/upload/v1781595420/curlumi-ugc_kwuf0o.mov"
 ];
 
 // ── MEDIA TILE ───────────────────────────────────────────────────────────────

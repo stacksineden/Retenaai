@@ -2938,7 +2938,7 @@ export const pin_cat = [
        "https://res.cloudinary.com/dyryfgjro/image/upload/v1781594835/curlumi-ad2_mnwekb.png",
        "https://res.cloudinary.com/dyryfgjro/image/upload/v1781594840/curlumi-ad1_nbt6px.png",
        "https://res.cloudinary.com/dyryfgjro/image/upload/v1781594917/curlumi-ad4_ovqs8x.png",
-       ""
+       "https://res.cloudinary.com/dyryfgjro/video/upload/v1781595420/curlumi-ugc_kwuf0o.mov"
     ],
     jersey: [
       "https://res.cloudinary.com/dast35q6f/image/upload/v1779197847/wrth3_mtkyat.png",
@@ -3135,6 +3135,7 @@ export const proofAssets = [
   "https://res.cloudinary.com/dast35q6f/video/upload/v1779190666/wrth-ad2_vnqekn.mp4",
   "https://res.cloudinary.com/dyryfgjro/video/upload/v1763803053/vid1_zezmaw.mp4",
   "https://res.cloudinary.com/dyryfgjro/video/upload/v1776165876/viding4_r7pdgt.mp4",
+  "https://res.cloudinary.com/dyryfgjro/video/upload/v1781595420/curlumi-ugc_kwuf0o.mov"
 ];
 
 export const videoMockups = [
