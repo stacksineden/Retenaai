@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 import { Sparkles, ArrowRight, CheckCircle2 } from "lucide-react";
 import WebLayoutWrapper from "@/components/shared/WebLayoutWrapper";
 import DemoVideo from "@/components/shared/DemoVideo";
@@ -12,7 +11,7 @@ const fadeUp = {
 };
 
 const AffiliateProgram = () => {
-  const navigate = useNavigate();
+
 
   return (
     <WebLayoutWrapper>
@@ -20,7 +19,7 @@ const AffiliateProgram = () => {
         {/* ====================== HERO SECTION ====================== */}
         <motion.div {...fadeUp} className="max-w-4xl mx-auto text-center mb-24">
           <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
-            Earn Big by Helping Fashion Brands
+            Earn Big by Helping DTC Brands
             <span className="text-[#FCA311] block mt-1">
               Scale Their Visual Content.
             </span>
@@ -28,16 +27,16 @@ const AffiliateProgram = () => {
 
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
             Join our Affiliate Network and get paid every time a brand
-            subscribes to our AI-Driven AdCreatives service through your
+            signs on to our AI-powered ad creative service through your
             referral. Zero stress. Zero learning curve. Unlimited earning
             potential.
           </p>
 
           <Button
-            onClick={() => navigate("/affiliate-register")}
-            className="mt-10 bg-[#FCA311] text-black px-10 py-6 text-lg font-semibold hover:bg-[#E5E5E5]"
+            disabled
+            className="mt-10 bg-white/10 text-white/50 px-10 py-6 text-lg font-semibold cursor-not-allowed"
           >
-            Join The Affiliate Program <ArrowRight className="ml-2 w-5 h-5" />
+            Coming Soon <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </motion.div>
 
@@ -47,8 +46,8 @@ const AffiliateProgram = () => {
         <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto mb-32">
           {[
             {
-              title: "20% Commission (₦3,500 – ₦45,000 Per Referral)",
-              text: "Earn a stable 7% commission** on every successful referral. Earnings typically range from ₦4,500 to ₦20,000 depending on the package the referred user purchases. The 7% commission will be paid to your account when the user purchases any of our packages and uses your unique promo code on their transaction.",
+              title: "Earn On Every Referral",
+              text: "Get a commission on every successful referral when a brand purchases one of our packages using your unique promo code. Full details on rates will be shared at launch.",
             },
             {
               title: "Automatic Tracking & Dashboard",
@@ -91,12 +90,12 @@ const AffiliateProgram = () => {
               {
                 step: "02",
                 title: "Share Your Code",
-                text: "Promote your code to fashion designers, brands, tailors, boutiques, and influencers.",
+                text: "Promote your code to DTC brand founders, marketers, and creators across beauty, supplements, fashion, and more.",
               },
               {
                 step: "03",
                 title: "Earn Commission",
-                text: "You get paid a 7% commission when the referred user purchases any of our packages and uses your unique promo code on their transaction.",
+                text: "Get paid a commission when the referred brand purchases any of our packages using your unique promo code.",
               },
             ].map((item, i) => (
               <motion.div
@@ -125,10 +124,10 @@ const AffiliateProgram = () => {
 
           <div className="grid md:grid-cols-2 gap-8">
             {[
-              "Fashion brands always need images — high recurring commissions.",
-              "Easy to promote: visuals are irresistible and brands convert fast.",
-              "Monthly payouts. Transparent analytics. Real-time tracking.",
-              "You don’t need to convince — the product sells itself.",
+              "DTC brands always need fresh creatives — high recurring referral potential.",
+              "Easy to promote: the work speaks for itself and brands convert fast.",
+              "Transparent tracking with a unique promo code per affiliate.",
+              "You don't need to convince — the product sells itself.",
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -148,16 +147,17 @@ const AffiliateProgram = () => {
         {/* ====================== FINAL CTA ====================== */}
         <motion.div {...fadeUp} className="text-center mb-10">
           <h2 className="text-4xl font-extrabold mb-6">
-            Ready to Start Earning?
+            Coming Soon
           </h2>
           <p className="text-white/70 max-w-xl mx-auto mb-10">
-            Get your unique affiliate promo code today and start earning
-            instantly from brands using our AI-Powered Content Engine.
+            Our Affiliate Program is launching soon. Check back to get your
+            unique referral code and start earning from brands using
+            RetenaAI's AI-powered creative engine.
           </p>
 
           <Button
-            onClick={() => navigate("/affiliate-register")}
-            className="bg-[#FCA311] text-black px-10 py-6 text-lg font-semibold hover:bg-[#E5E5E5]"
+            disabled
+            className="bg-white/10 text-white/50 px-10 py-6 text-lg font-semibold cursor-not-allowed"
           >
             Register As An Affiliate
             <Sparkles className="w-5 h-5 ml-2" />
