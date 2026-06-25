@@ -33,10 +33,13 @@ const Packages = () => {
         </motion.div>
 
         {/* Packages Grid - Constrained to max-w-6xl so the 3 cards don't get too wide */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {packages.map((pkg, i) => {
             const isRetainer =
               (pkg.slug ?? "").toString().toLowerCase() === "growth_retainer";
+            const isOrderable =
+              pkg.slug === "campaign_pack" || pkg.slug === "static_pack";
+
             return (
               <motion.div
                 key={i}
@@ -87,7 +90,7 @@ const Packages = () => {
                   onClick={() => {
                     if (isRetainer) {
                       navigate("/contact");
-                    } else {
+                    } else if (isOrderable) {
                       navigate(`/packages-billing?mode=${pkg?.slug ?? ""}`);
                     }
                   }}
@@ -136,8 +139,11 @@ const Packages = () => {
             Ready to Level Up Your Brand?
           </h3>
           <p className="text-white/70 mb-10 text-lg">
-            Stop losing money on ad fatigue. Let us build your high-converting
-            visual engine.
+            <p className="text-white/70 mb-10 text-lg">
+              From your first video ad to a full monthly creative engine —
+              everything built from a single product photo, delivered in 48
+              hours.
+            </p>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -2894,6 +2894,23 @@ export const packages = [
     ],
   },
   {
+    name: "The Static Refresh Pack",
+    slug: "static_pack",
+    priceNGN: "₦120,000",
+    priceUSD: "$97",
+    amount: 120000,
+    highlight: false,
+    badge: "Feed The Algorithm",
+    guarantee: "Genuinely distinct creatives — not variations of the same concept.",
+    features: [
+      "10 High-Fidelity Static Ad Creatives",
+      "Distinct Visual Hooks & Messaging Angles",
+      "Done-For-You Ad Copy for Each Creative",
+      "Optimized for Meta Feed & Story Placements",
+      "48-Hour Delivery",
+    ],
+  },
+  {
     name: "The Growth Retainer",
     slug: "growth_retainer",
     priceNGN: "Custom — Built Around Your Goals",
@@ -2904,7 +2921,7 @@ export const packages = [
     guarantee: "Cancel anytime. No lock-in.",
     features: [
       "4 Video Ads per Month (15-30s, UGC + Cinematic Mix)",
-      "10-12 Static Creatives per Month",
+      "20 Static Creatives per Month",
       "Done-For-You Scripts & Copy",
       "Delivered Weekly — Fresh Creatives Every Week",
       "Revisions Included on Every Asset",
