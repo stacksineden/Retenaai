@@ -1,8 +1,8 @@
 import WebLayoutWrapper from "@/components/shared/WebLayoutWrapper";
 import { Button } from "@/components/ui/button";
 import { pin_cat } from "@/modelDataset";
-import { useState, useMemo, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useMemo, useEffect, useRef, useCallback } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 interface ArchiveItem {
   id: number;
@@ -11,6 +11,28 @@ interface ArchiveItem {
   type: "video" | "image" | null;
   title: string;
 }
+
+// --- SEARCHABLE TAGS PER CATEGORY ---
+// Lets outreach links use natural words ("skincare") even though
+// the internal category key is different ("face_serum").
+// Add new categories here whenever you add them to pin_cat.
+const CATEGORY_TAGS: Record<string, string> = {
+  face_serum: "skincare beauty serum face facial cosmetics",
+  men_supplements: "supplements wellness health vitamins men fitness",
+  hair_curler: "hair curler styling beauty haircare tools",
+  jersey: "jersey sportswear football fashion apparel clothing",
+  varsity_jacket: "varsity jacket streetwear fashion apparel clothing",
+  tshirts: "tshirt t-shirt tee shirts apparel fashion clothing",
+  chilli_sauce: "chilli sauce hot pepper food condiment",
+  twopieces: "two piece set women fashion apparel clothing",
+  sauce: "sauce food condiment cooking",
+  shoe: "shoes sneakers footwear",
+  hoodie: "hoodie streetwear apparel fashion clothing",
+  home_decor: "home decor interior furniture lifestyle",
+  female_gymwear: "gymwear gym activewear fitness women sportswear leggings",
+  men_slide: "slides slippers sandals footwear men",
+  food_cusine: "food cuisine restaurant meals dining",
+};
 
 const getMediaType = (
   url: string | null | undefined,
@@ -63,8 +85,33 @@ const LookBook = () => {
 
   // --- STATE ---
   const [visibleCount, setVisibleCount] = useState(12);
-  const [searchQuery, setSearchQuery] = useState("");
   const loaderRef = useRef<HTMLDivElement>(null);
+
+  // --- URL-SYNCED SEARCH ---
+  // The search query lives in the URL (?search=skincare) so the
+  // lookbook can be shared pre-filtered in outreach messages.
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchQuery = searchParams.get("search") ?? "";
+
+  // Track whether the visitor ARRIVED with a search param (shared link)
+  // so we can show the "curated for you" banner. Typing later won't trigger it.
+  const [arrivedWithFilter] = useState(() => Boolean(searchQuery.trim()));
+  const [bannerDismissed, setBannerDismissed] = useState(false);
+
+  const setSearchQuery = useCallback(
+    (value: string) => {
+      // replace: true keeps the browser back button clean while typing
+      setSearchParams(value.trim() ? { search: value } : {}, {
+        replace: true,
+      });
+    },
+    [setSearchParams],
+  );
+
+  const clearSearch = () => {
+    setBannerDismissed(true);
+    setSearchQuery("");
+  };
 
   // 1. Flatten and shuffle the base archive once on load
   const flatArchive = useMemo<ArchiveItem[]>(() => {
@@ -90,15 +137,20 @@ const LookBook = () => {
   }, []);
 
   // 2. Filter the archive based on the search query
+  //    Matches category key, title, AND the tags map, so
+  //    ?search=skincare finds face_serum content.
   const filteredArchive = useMemo(() => {
     if (!searchQuery.trim()) return flatArchive;
 
-    const query = searchQuery.toLowerCase();
-    return flatArchive.filter(
-      (item) =>
+    const query = searchQuery.toLowerCase().trim();
+    return flatArchive.filter((item) => {
+      const tags = CATEGORY_TAGS[item.category] || "";
+      return (
         item.category.toLowerCase().includes(query) ||
-        item.title.toLowerCase().includes(query),
-    );
+        item.title.toLowerCase().includes(query) ||
+        tags.toLowerCase().includes(query)
+      );
+    });
   }, [flatArchive, searchQuery]);
 
   // 3. Apply the infinite scroll slice to the FILTERED results
@@ -138,6 +190,9 @@ const LookBook = () => {
     };
   }, [filteredArchive.length]);
 
+  const showCuratedBanner =
+    arrivedWithFilter && !bannerDismissed && searchQuery.trim() !== "";
+
   return (
     <WebLayoutWrapper>
       <div className="min-h-screen bg-black text-white p-4 md:p-8 selection:bg-orange-500 selection:text-white">
@@ -170,13 +225,34 @@ const LookBook = () => {
             </svg>
             <input
               type="text"
-              placeholder="Search by keyword (e.g., Hoodie, Senator)..."
+              placeholder="Search by keyword (e.g., Hoodie, Skincare)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full bg-neutral-900 border border-white/10 text-white placeholder-neutral-500 text-sm rounded-lg pl-11 pr-4 py-3 focus:outline-none focus:ring-1 focus:ring-white/30 focus:border-white/30 transition-all"
             />
           </div>
         </div>
+
+        {/* CURATED VIEW BANNER (shown when visitor arrives via a shared filtered link) */}
+        {showCuratedBanner && (
+          <div className="max-w-7xl mx-auto mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-neutral-900 border border-white/10 rounded-xl px-5 py-4">
+            <p className="text-sm text-neutral-300">
+              <span className="text-[#FCA311] font-bold uppercase tracking-wider mr-2">
+                Curated for you:
+              </span>
+              Showing looks for{" "}
+              <span className="text-white font-bold uppercase">
+                {searchQuery}
+              </span>
+            </p>
+            <button
+              onClick={clearSearch}
+              className="text-xs font-bold uppercase tracking-wider text-white border border-white/20 rounded-lg px-4 py-2 hover:bg-white hover:text-black transition-all whitespace-nowrap"
+            >
+              View Full Lookbook
+            </button>
+          </div>
+        )}
 
         {/* Empty State Fallback (If they search for something that doesn't exist) */}
         {visibleArchive.length === 0 && (
@@ -185,10 +261,10 @@ const LookBook = () => {
               No assets found matching "{searchQuery}".
             </p>
             <button
-              onClick={() => setSearchQuery("")}
+              onClick={clearSearch}
               className="mt-4 text-white underline hover:text-neutral-300"
             >
-              Clear Search
+              View Full Lookbook
             </button>
           </div>
         )}
