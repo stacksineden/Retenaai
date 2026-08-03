@@ -1,56 +1,83 @@
-import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
-import { cva, type VariantProps } from "class-variance-authority"
+import type { ReactNode } from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
-import { cn } from "@/lib/utils"
+type Variant = "primary" | "secondary" | "amber" | "ghost-dark";
+type Size = "md" | "lg";
 
-const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-  {
-    variants: {
-      variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-      },
-      size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
-  }
-)
+const BASE =
+  "group relative inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-300 focus-ring will-change-transform hover:-translate-y-0.5 active:translate-y-0";
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  asChild?: boolean
-}
+const VARIANTS: Record<Variant, string> = {
+  primary:
+    "bg-navy text-white shadow-premium hover:bg-navy-700 hover:shadow-[0_16px_40px_rgba(20,33,61,0.22)]",
+  secondary:
+    "border border-navy/15 bg-white text-navy hover:border-navy/35 hover:shadow-premium",
+  amber:
+    "bg-amber text-ink shadow-amber-glow hover:bg-amber-400 hover:shadow-[0_16px_44px_rgba(252,163,17,0.4)]",
+  "ghost-dark":
+    "border border-white/20 bg-white/5 text-white backdrop-blur hover:border-white/40 hover:bg-white/10",
+};
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
+const SIZES: Record<Size, string> = {
+  md: "px-6 py-3 text-sm",
+  lg: "px-7 py-3.5 text-sm md:text-base",
+};
+
+type ButtonProps = {
+  children: ReactNode;
+  /** Internal route ("/pricing"), hash ("/#work") or external/mailto URL. */
+  to?: string;
+  href?: string;
+  variant?: Variant;
+  size?: Size;
+  className?: string;
+  withArrow?: boolean;
+  onClick?: () => void;
+};
+
+export function Button({
+  children,
+  to,
+  href,
+  variant = "primary",
+  size = "lg",
+  className = "",
+  withArrow = false,
+  onClick,
+}: ButtonProps) {
+  const classes = `${BASE} ${VARIANTS[variant]} ${SIZES[size]} ${className}`;
+
+  const inner = (
+    <>
+      <span className="relative z-10">{children}</span>
+      {withArrow && (
+        <ArrowRight
+          size={16}
+          className="relative z-10 transition-transform duration-300 group-hover:translate-x-1"
+        />
+      )}
+      {/* Shimmer sweep on hover */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-0 overflow-hidden rounded-full"
+      >
+        <span className="absolute inset-y-0 -left-full w-1/2 bg-gradient-to-r from-transparent via-white/25 to-transparent transition-all duration-700 group-hover:left-full" />
+      </span>
+    </>
+  );
+
+  if (to) {
     return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
-    )
+      <Link to={to} className={classes} onClick={onClick}>
+        {inner}
+      </Link>
+    );
   }
-)
-Button.displayName = "Button"
 
-export { Button, buttonVariants }
+  return (
+    <a href={href} className={classes} onClick={onClick}>
+      {inner}
+    </a>
+  );
+}

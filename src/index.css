@@ -1,0 +1,196 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
+
+  /* Brand palette */
+  --color-ink: #000000;
+  --color-navy: #14213d;
+  --color-navy-50: #eef1f6;
+  --color-navy-100: #dbe1ec;
+  --color-navy-700: #1c2c50;
+  --color-amber: #fca311;
+  --color-amber-400: #ffb84d;
+  --color-amber-600: #e08e00;
+  --color-mist: #e5e5e5;
+  --color-paper: #ffffff;
+
+  --shadow-premium: 0 1px 2px rgba(20, 33, 61, 0.04), 0 8px 24px rgba(20, 33, 61, 0.06), 0 24px 64px rgba(20, 33, 61, 0.08);
+  --shadow-amber-glow: 0 8px 30px rgba(252, 163, 17, 0.25);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    color: var(--color-navy);
+  }
+
+  ::selection {
+    background: var(--color-amber);
+    color: var(--color-ink);
+  }
+}
+
+@layer utilities {
+  .container-page {
+    width: 100%;
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-page {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-hero {
+    background:
+      radial-gradient(60% 50% at 85% 0%, rgba(252, 163, 17, 0.16) 0%, rgba(252, 163, 17, 0) 60%),
+      radial-gradient(50% 40% at 10% 10%, rgba(20, 33, 61, 0.08) 0%, rgba(20, 33, 61, 0) 60%),
+      #ffffff;
+  }
+
+  .gradient-dark {
+    background: linear-gradient(160deg, #14213d 0%, #0a1226 65%, #000000 100%);
+  }
+
+  .gradient-amber {
+    background: linear-gradient(135deg, #fca311 0%, #ff8f00 100%);
+  }
+
+  .text-gradient-amber {
+    background: linear-gradient(135deg, #fca311 0%, #e08e00 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .noise-overlay {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .noise-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .focus-ring {
+    outline: none;
+  }
+
+  .focus-ring:focus-visible {
+    outline: 2px solid var(--color-amber);
+    outline-offset: 2px;
+  }
+
+  /* --- Pricing calculator sliders -------------------------------------- */
+  /* `--range-progress` is set inline per input to fill the track. */
+  .range-brand {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 999px;
+    background: linear-gradient(
+      to right,
+      var(--color-amber) 0%,
+      var(--color-amber) var(--range-progress, 50%),
+      rgba(20, 33, 61, 0.12) var(--range-progress, 50%),
+      rgba(20, 33, 61, 0.12) 100%
+    );
+    outline: none;
+    cursor: pointer;
+    touch-action: pan-y;
+  }
+
+  .range-brand::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 26px;
+    width: 26px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 3px solid var(--color-amber);
+    box-shadow: 0 2px 10px rgba(20, 33, 61, 0.22);
+    cursor: grab;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  .range-brand::-webkit-slider-thumb:hover {
+    transform: scale(1.12);
+    box-shadow: 0 4px 16px rgba(252, 163, 17, 0.45);
+  }
+
+  .range-brand:active::-webkit-slider-thumb {
+    cursor: grabbing;
+    transform: scale(1.05);
+  }
+
+  .range-brand::-moz-range-thumb {
+    height: 20px;
+    width: 20px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 3px solid var(--color-amber);
+    box-shadow: 0 2px 10px rgba(20, 33, 61, 0.22);
+    cursor: grab;
+  }
+
+  .range-brand::-moz-range-track {
+    height: 6px;
+    border-radius: 999px;
+    background: transparent;
+  }
+
+  .range-brand:focus-visible {
+    outline: 2px solid var(--color-amber);
+    outline-offset: 6px;
+  }
+}
+
+/* Respect users who ask the OS to reduce motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
