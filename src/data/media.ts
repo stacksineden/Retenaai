@@ -62,8 +62,8 @@ export const HERO_REEL: MediaAsset = {
  * ------------------------------------------------------------------------- */
 export const HERO_FAN: MediaAsset[] = [
   {
-    src: "https://res.cloudinary.com/dast35q6f/video/upload/w_600,f_auto,q_auto/v1779191359/wellman-ad1_kdx73g.mp4",
-    alt: "Supplement ad concept",
+    src: "https://res.cloudinary.com/dyryfgjro/video/upload/w_600,f_auto,q_auto/v1785833096/Uplift-pro-ugc_epeuhs.mov",
+    alt: "Skincare cleanser creator-style ad concept",
   },
   {
     src: "https://res.cloudinary.com/dast35q6f/video/upload/w_600,f_auto,q_auto/v1779190140/face-facts-ugc1_msgmcs.mov",
