@@ -212,7 +212,30 @@ Static build, so any host works (Vercel, Netlify, Cloudflare Pages):
 - Build command: `npm run build`
 - Output directory: `dist`
 
-Because this is a single-page app, the host must rewrite all routes to
-`index.html`, or `/pricing` will 404 on a hard refresh. On Netlify add a
-`public/_redirects` file containing `/* /index.html 200`. Vercel and Cloudflare
-Pages detect it automatically.
+### SPA routing — why `vercel.json` exists
+
+This is a single-page app using `BrowserRouter`, so the **server** must return
+`index.html` for any path it doesn't recognise. Without that, `/pricing` works
+when you click to it (React Router handles it in the browser) but returns a
+hard 404 on refresh or direct visit — the server is being asked for a file that
+was never built.
+
+`vercel.json` handles this:
+
+```json
+{ "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }] }
+```
+
+Vercel checks the filesystem *before* applying rewrites, so real files —
+`/assets/*.js`, `/brand/*.png` — still serve normally with their own MIME
+types. Only unmatched paths fall through to the app.
+
+**Do not delete this file.** Vercel does not do SPA fallback on its own for
+Vite builds; removing it silently breaks every route except `/`.
+
+On other hosts: Netlify needs `public/_redirects` containing
+`/* /index.html 200`. Cloudflare Pages needs the same file.
+
+One side effect, and it's normal: a genuinely bad URL returns HTTP 200 with the
+app's 404 page rather than a 404 status, because the server can't know the route
+is invalid. Every client-routed SPA behaves this way.
