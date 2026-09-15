@@ -3,10 +3,12 @@ import { DROP, formatMoney } from "../data/pricing";
 import { Button } from "./ui/Button";
 
 const INCLUDED = [
-  `${DROP.concepts} concepts — video and static, your mix`,
+  `${DROP.concepts} concepts — video and static`,
   `Delivered in ${DROP.workingDays} working days`,
   "No retainer, no minimum, no contract",
   "Paid in full up front",
+  // Explains why 5 concepts once can cost the same as 12 a month on the retainer.
+  "No Monday cadence, no hook variants, no monthly log — that's the retainer",
 ];
 
 /** The one-off product, kept separate from the monthly configurator. */
@@ -25,7 +27,6 @@ export function DropCard() {
             {DROP.name}
           </h3>
           <div className="mt-4 flex flex-wrap items-end gap-x-1.5">
-            <span className="pb-1.5 text-sm text-navy/45">from</span>
             <span className="font-display text-4xl font-semibold tabular-nums text-navy">
               {formatMoney(DROP.price)}
             </span>
