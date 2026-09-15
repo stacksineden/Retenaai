@@ -14,8 +14,8 @@ import { ROUTE_META } from "../data/seo";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-/** Market columns are US dollars, so the RetenaAI column is too. */
-const DEFAULT_MONTHLY = monthlyTotal(RETAINER.defaultMix, "founding", "USD")!;
+/** Our column in the comparison table, from the same data as the configurator. */
+const DEFAULT_MONTHLY = monthlyTotal(RETAINER.defaultConcepts, "founding");
 
 type ComparisonRow = {
   label: string;
@@ -85,8 +85,8 @@ export function Pricing() {
               transition={{ duration: 0.7, delay: 0.08, ease: EASE }}
               className="text-balance mt-6 font-display text-4xl font-semibold leading-[1.08] text-navy sm:text-5xl md:text-6xl"
             >
-              Pick your mix.{" "}
-              <span className="text-gradient-amber">See your price.</span>
+              Your price is a function of{" "}
+              <span className="text-gradient-amber">how much you want to test.</span>
             </motion.h1>
 
             <motion.p
@@ -95,9 +95,9 @@ export function Pricing() {
               transition={{ duration: 0.7, delay: 0.18, ease: EASE }}
               className="text-balance mx-auto mt-6 max-w-xl text-lg leading-relaxed text-navy/65"
             >
-              Choose how many video and static concepts you want each month and
-              the total updates as you slide. Month-to-month, with hook variants
-              on winners included.
+              Slide to how many concepts you want each month and the total
+              updates as you go. Month-to-month, with hook variants on winners
+              included.
             </motion.p>
           </div>
         </div>
@@ -153,7 +153,7 @@ export function Pricing() {
                         RetenaAI
                       </span>
                       <span className="mt-1 block text-[11px] font-normal text-amber-600">
-                        {formatMoney(DEFAULT_MONTHLY, "USD")}/mo, recommended mix
+                        {formatMoney(DEFAULT_MONTHLY)}/mo, {RETAINER.defaultConcepts} concepts
                       </span>
                     </th>
                     <th className="w-32 py-4 text-center">

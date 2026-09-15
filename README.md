@@ -174,8 +174,6 @@ of POST. Change `ENDPOINT` in `src/data/forms.ts` and the payload shape in
       whether a formal DPO is needed, and whether governing law is sensible.
 - [ ] **Governing law** — defaults to Nigeria via `LEGAL.governingLaw`. Switch
       to Delaware/Wyoming if you form the US LLC.
-- [ ] **Naira price grid** — set the `NGN` values in `src/data/pricing.ts`, then
-      flip `NAIRA_PRICING_LIVE` to `true`.
 - [x] ~~Form access key~~ — set. The form posts live to Web3Forms.
       (This key is meant to be public — it's a client-side form endpoint, not a
       secret, so it's fine sitting in source.)
@@ -207,41 +205,40 @@ Home page sections live in `src/components/sections/` and are composed in
 
 Two products, both in `src/data/pricing.ts`. **Nothing is tied to ad spend.**
 
-**Monthly retainer — the configurator.** Two sliders, videos and statics, 12–30
-concepts a month combined. It loads on the recommended 4 video / 8 static mix
-and shows the monthly total. Price is flat per unit (no volume discount):
+**Monthly retainer.** One slider: concepts a month, 12–30, default 12. Flat
+price per concept, no bulk discount, no tiers:
 
-| Rate | Video | Static | Default mix (4 + 8) |
+| Rate | 12 concepts | 20 | 30 |
 |---|---|---|---|
-| Founding (first three clients) | $250 | $65 | $1,520 |
-| Standard | $400 | $110 | $2,480 |
+| Founding (first three clients) | $1,200 | $2,000 | $3,000 |
+| Standard | $2,400 | $4,000 | $6,000 |
 
-**Display rule:** those unit prices are internal. Never show a unit or
+The video/static mix is **stated, not chosen** — "typically 4 video and 8
+static", set by us — so nobody can configure an all-video month.
+
+**Display rule:** the per-concept rate is internal. Never show a unit or
 per-concept price anywhere on the site — the monthly total only.
 
 **Creative Drop — one-off.** 5 concepts, 5 working days, from $1,200. A separate
-card below the configurator, not part of it.
+card below the configurator.
 
-The "why the math works" section and the pricing comparison table compute our
-figure from the same data, so they can't drift from the configurator.
+"Why the math works" and the pricing comparison table compute our figure from
+the same data, so they can't drift from the configurator.
 
-## Currency (USD / NGN)
+## Visitors in Nigeria
 
-Currency follows the visitor's location. **There is no toggle.**
+No naira prices are published. When a visitor is in Nigeria, the configurator's
+price panel becomes **"Let's talk"** with a **Request a quote** button (the
+slider still works). The button opens the form with the chosen concept count,
+and those submissions arrive with the subject "New quote request".
 
-**Naira is switched off** (`NAIRA_PRICING_LIVE = false` in `src/data/pricing.ts`)
-until a naira price grid is set. Until then **every visitor, including in Nigeria,
-sees dollars**. Location detection is still wired: `api/geo.js` reads the
-visitor's country from Vercel's `x-vercel-ip-country` header.
+Location comes from `api/geo.js`, which reads Vercel's `x-vercel-ip-country`
+header. The price waits for that lookup (up to 2.5s) so a Nigerian visitor never
+sees a dollar figure flash first.
 
-- **To confirm detection on a deployment**, open `/api/geo` on that URL. From
-  Nigeria it should return `{"country":"NG"}`.
-- **To launch naira:** fill the `NGN` values in `src/data/pricing.ts` (retainer
-  unit prices and the Drop), then set `NAIRA_PRICING_LIVE` to `true`.
-- Naira prices are set by hand for the Nigerian market. Never convert them from
-  the dollar figures.
-
-`/api/geo` only exists on Vercel, so local development always shows dollars.
+- **To confirm detection on a deployment**, open `/api/geo` on that URL — from
+  Nigeria it returns `{"country":"NG"}`.
+- `/api/geo` only exists on Vercel. Locally the lookup fails fast and prices show.
 
 ## Link previews (WhatsApp, iMessage, Slack, X)
 

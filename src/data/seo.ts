@@ -43,7 +43,7 @@ export const ROUTE_META = {
     file: "pricing.html",
     title: "Pricing — RetenaAI | Ad creative, one-off or monthly",
     description:
-      "Monthly ad creative priced by your mix of video and static concepts, or a one-off Creative Drop from $1,200. Pick your mix and see your price.",
+      "Monthly ad creative priced by how much you want to test — 12 to 30 concepts a month — or a one-off Creative Drop from $1,200.",
   },
   freeAd: {
     path: "/free-ad",

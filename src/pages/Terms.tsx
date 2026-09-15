@@ -66,8 +66,8 @@ export function Terms() {
             <>
               <p>
                 We supply advertising creative concepts on a recurring monthly
-                basis. The number of video and static concepts you choose determines the
-                volume. A standard engagement
+                basis. The number of concepts you choose each month determines the volume;
+                we set the mix of video and static. A standard engagement
                 includes:
               </p>
               <ul>

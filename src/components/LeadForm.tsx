@@ -56,7 +56,21 @@ export function LeadForm() {
   const [params] = useSearchParams();
   // Tier cards send ?interest=drop from "Order a Drop".
   const isDrop = params.get("interest") === "drop";
-  const subject = isDrop ? "New Creative Drop order — RetenaAI" : FORM.SUBJECT;
+  // "Request a quote" (visitors in Nigeria) sends ?interest=quote&concepts=N.
+  const isQuote = params.get("interest") === "quote";
+  const quoteConcepts = Number(params.get("concepts")) || null;
+  type Intent = "drop" | "quote" | "free";
+  const intent: Intent = isDrop ? "drop" : isQuote ? "quote" : "free";
+  const subject = {
+    drop: "New Creative Drop order — RetenaAI",
+    quote: "New quote request — RetenaAI",
+    free: FORM.SUBJECT,
+  }[intent];
+  const interestLabel = {
+    drop: "Creative Drop",
+    quote: quoteConcepts ? `Quote — ${quoteConcepts} concepts a month` : "Quote",
+    free: "Free ad",
+  }[intent];
 
   const [fields, setFields] = useState<Fields>(EMPTY);
   const [status, setStatus] = useState<Status>("idle");
@@ -90,7 +104,7 @@ export function LeadForm() {
       `New creatives per week: ${labelFor(PACE_OPTIONS, fields.pace)}`,
       `Who runs the account: ${labelFor(OWNER_OPTIONS, fields.owner)}`,
       `What should we make: ${fields.make ? labelFor(MAKE_OPTIONS, fields.make) : "—"}`,
-      isDrop ? "Interested in: Creative Drop" : "",
+      `Interested in: ${interestLabel}`,
       "",
       fields.notes ? `Notes: ${fields.notes}` : "",
     ].join("\n");
@@ -133,7 +147,7 @@ export function LeadForm() {
           who_runs_the_account: labelFor(OWNER_OPTIONS, fields.owner),
           notes: fields.notes || "—",
           what_to_make: fields.make ? labelFor(MAKE_OPTIONS, fields.make) : "—",
-          interested_in: isDrop ? "Creative Drop" : "Free ad",
+          interested_in: interestLabel,
         }),
       });
 
@@ -153,7 +167,7 @@ export function LeadForm() {
 
   if (status === "success") {
     return (
-      <SuccessState mode={successMode} isDrop={isDrop} />
+      <SuccessState mode={successMode} intent={intent} />
     );
   }
 
@@ -168,6 +182,13 @@ export function LeadForm() {
           <strong className="font-semibold text-navy">Ordering a Creative Drop.</strong>{" "}
           5 concepts, delivered in 5 working days, paid in full up front. Send the
           details and we'll confirm the brief and payment before anything starts.
+        </p>
+      )}
+      {isQuote && (
+        <p className="mb-7 rounded-2xl bg-amber/10 p-4 text-sm leading-relaxed text-navy/70 ring-1 ring-amber/30">
+          <strong className="font-semibold text-navy">Requesting a quote</strong>
+          {quoteConcepts ? ` for ${quoteConcepts} concepts a month` : ""}. Tell us
+          what you're running and we'll come back with a number.
         </p>
       )}
 
@@ -299,7 +320,7 @@ export function LeadForm() {
           </>
         ) : (
           <>
-            {isDrop ? "Send Drop order" : "Claim the free ad"}
+            {isDrop ? "Send Drop order" : isQuote ? "Request a quote" : "Claim the free ad"}
             <ArrowRight
               size={16}
               className="transition-transform group-hover:translate-x-1"
@@ -423,7 +444,13 @@ function Select({
   );
 }
 
-function SuccessState({ mode, isDrop }: { mode: SuccessMode; isDrop: boolean }) {
+function SuccessState({
+  mode,
+  intent,
+}: {
+  mode: SuccessMode;
+  intent: "drop" | "quote" | "free";
+}) {
   // No confirmation email goes out automatically, so this screen must never
   // tell them to check their inbox — it says what actually happens next.
   const heading =
@@ -434,9 +461,11 @@ function SuccessState({ mode, isDrop }: { mode: SuccessMode; isDrop: boolean }) 
   const body =
     mode === "handoff"
       ? "We've opened your mail app with all your answers filled in. Press send and it's with us — then we'll review it and come straight back to you."
-      : isDrop
+      : intent === "drop"
         ? "We'll review it on our end and come back to confirm the brief, your concept mix and payment details. The 5 working days start once we have your product assets. Usually the same day."
-        : "We'll review it on our end straight away — pulling your ads from the Meta library and picking the angle already working hardest for you. Then we come back to you with exactly what we'd build and what happens next. Usually the same day.";
+        : intent === "quote"
+          ? "We'll look at what you're running and come back with a number. Usually the same day."
+          : "We'll review it on our end straight away — pulling your ads from the Meta library and picking the angle already working hardest for you. Then we come back to you with exactly what we'd build and what happens next. Usually the same day.";
 
   return (
     <motion.div

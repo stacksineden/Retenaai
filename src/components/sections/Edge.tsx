@@ -10,11 +10,10 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 /** Relative bar widths for the cost comparison. */
 const MAX = 5000;
 
-// Market figures are US dollars, so ours are shown in dollars too. Computed from
-// the pricing data so they can't drift from the configurator.
-const MIX = RETAINER.defaultMix;
-const OURS_FOUNDING = monthlyTotal(MIX, "founding", "USD")!;
-const OURS_STANDARD = monthlyTotal(MIX, "standard", "USD")!;
+// Computed from the pricing data so it can't drift from the configurator.
+const OUR_CONCEPTS = RETAINER.defaultConcepts;
+const OURS_FOUNDING = monthlyTotal(OUR_CONCEPTS, "founding");
+const OURS_STANDARD = monthlyTotal(OUR_CONCEPTS, "standard");
 
 const ROWS = [
   { label: "12 UGC videos, market average", value: 2376, display: "$2,376" },
@@ -96,10 +95,10 @@ export function Edge() {
                 <div className="rounded-2xl bg-white p-5 ring-1 ring-amber/30">
                   <div className="flex items-baseline justify-between gap-4">
                     <p className="text-sm font-semibold text-navy">
-                      RetenaAI, {MIX.video} video + {MIX.static} static
+                      RetenaAI, {OUR_CONCEPTS} concepts
                     </p>
                     <p className="font-display text-lg font-semibold tabular-nums text-amber-600">
-                      {formatMoney(OURS_FOUNDING, "USD")}
+                      {formatMoney(OURS_FOUNDING)}
                     </p>
                   </div>
                   <div className="mt-2 h-2 overflow-hidden rounded-full bg-navy/8">
@@ -114,7 +113,7 @@ export function Edge() {
                   <p className="mt-3 flex items-center gap-1.5 text-[11px] text-navy/45">
                     <TrendingUp size={12} className="text-amber-600" />
                     Founding rate, first three clients. Standard{" "}
-                    {formatMoney(OURS_STANDARD, "USD")}.
+                    {formatMoney(OURS_STANDARD)}.
                   </p>
                 </div>
               </div>

@@ -1,5 +1,4 @@
 import { Check } from "lucide-react";
-import { useCurrency } from "../context/currency";
 import { DROP, formatMoney } from "../data/pricing";
 import { Button } from "./ui/Button";
 
@@ -12,9 +11,6 @@ const INCLUDED = [
 
 /** The one-off product, kept separate from the monthly configurator. */
 export function DropCard() {
-  const { currency } = useCurrency();
-  const price = DROP.price[currency];
-
   return (
     <div
       id="tier-drop"
@@ -29,19 +25,11 @@ export function DropCard() {
             {DROP.name}
           </h3>
           <div className="mt-4 flex flex-wrap items-end gap-x-1.5">
-            {price === null ? (
-              <span className="font-display text-3xl font-semibold text-navy">
-                On request
-              </span>
-            ) : (
-              <>
-                <span className="pb-1.5 text-sm text-navy/45">from</span>
-                <span className="font-display text-4xl font-semibold tabular-nums text-navy">
-                  {formatMoney(price, currency)}
-                </span>
-                <span className="pb-1.5 text-sm text-navy/45">one-off</span>
-              </>
-            )}
+            <span className="pb-1.5 text-sm text-navy/45">from</span>
+            <span className="font-display text-4xl font-semibold tabular-nums text-navy">
+              {formatMoney(DROP.price)}
+            </span>
+            <span className="pb-1.5 text-sm text-navy/45">one-off</span>
           </div>
           <p className="mt-4 text-sm leading-relaxed text-navy/55">
             For brands testing us, launching something, or not ready for monthly.

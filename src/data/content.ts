@@ -156,7 +156,7 @@ export const FAQ = [
   },
   {
     q: "How is pricing determined?",
-    a: "Two ways. Monthly supply is priced by the mix you choose — how many video and static concepts you want each month, from 12 to 30 — and the pricing page shows your total as you slide. A Creative Drop is a fixed price for 5 concepts, one-off.",
+    a: "By volume, not by your ad spend. Monthly supply is priced on how many concepts you want each month, from 12 to 30 — slide on the pricing page and the total updates as you go. A Creative Drop is a fixed price for 5 concepts, one-off.",
   },
   {
     q: "What's the 'founding rate'?",
