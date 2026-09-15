@@ -18,8 +18,7 @@ npm run preview  # preview the production build
 | `src/data/media.ts` | **All videos, images and logo paths.** Every asset slot on the site. |
 | `src/data/content.ts` | **All copy.** Headlines, body text, FAQ, nav labels. |
 
-Pricing numbers live in `src/data/pricing.ts`. Change a tier there and it updates
-the tier cards, the calculator, and the comparison table at once.
+Pricing lives in `src/data/pricing.ts` — see "Pricing" below.
 
 ---
 
@@ -140,9 +139,10 @@ user's mail client with every answer pre-written into the body. Nothing is
 broken while you set it up, but add the key before launch: the fallback has the
 same delivery problem as a plain `mailto:` link.
 
-The form asks exactly the three screening questions and nothing else. Clicking
-a CTA from the pricing calculator or a tier card carries the answers through as
-URL parameters, so those questions arrive already selected.
+The form asks for brand, email, current creative pace, who runs the account,
+optional notes, and what to make. It deliberately doesn't ask for ad spend.
+"Order a Drop" on the pricing page opens the same form with `?interest=drop`,
+which adds a Drop banner and a separate email subject.
 
 **Optional — booking step.** Set `BOOKING_URL` in `src/data/forms.ts` to a
 Calendly or Cal.com link and the success screen offers a 15-minute call. Leave
@@ -174,10 +174,8 @@ of POST. Change `ENDPOINT` in `src/data/forms.ts` and the payload shape in
       whether a formal DPO is needed, and whether governing law is sensible.
 - [ ] **Governing law** — defaults to Nigeria via `LEGAL.governingLaw`. Switch
       to Delaware/Wyoming if you form the US LLC.
-- [ ] **Founding rate** — the "$1,500, first three clients" founding rate is shown
-      publicly on the home page, the pricing page and the calculator. If that was
-      meant to stay private, set `founding: null` in `src/data/pricing.ts` and the
-      toggle disappears.
+- [ ] **Naira price grid** — set the `NGN` values in `src/data/pricing.ts`, then
+      flip `NAIRA_PRICING_LIVE` to `true`.
 - [x] ~~Form access key~~ — set. The form posts live to Web3Forms.
       (This key is meant to be public — it's a client-side form endpoint, not a
       secret, so it's fine sitting in source.)
@@ -205,6 +203,57 @@ of POST. Change `ENDPOINT` in `src/data/forms.ts` and the payload shape in
 Home page sections live in `src/components/sections/` and are composed in
 `Home.tsx` — reorder or remove by editing that one file.
 
+## Pricing
+
+Two products, both in `src/data/pricing.ts`. **Nothing is tied to ad spend.**
+
+**Monthly retainer — the configurator.** Two sliders, videos and statics, 12–30
+concepts a month combined. It loads on the recommended 4 video / 8 static mix
+and shows the monthly total. Price is flat per unit (no volume discount):
+
+| Rate | Video | Static | Default mix (4 + 8) |
+|---|---|---|---|
+| Founding (first three clients) | $250 | $65 | $1,520 |
+| Standard | $400 | $110 | $2,480 |
+
+**Display rule:** those unit prices are internal. Never show a unit or
+per-concept price anywhere on the site — the monthly total only.
+
+**Creative Drop — one-off.** 5 concepts, 5 working days, from $1,200. A separate
+card below the configurator, not part of it.
+
+The "why the math works" section and the pricing comparison table compute our
+figure from the same data, so they can't drift from the configurator.
+
+## Currency (USD / NGN)
+
+Currency follows the visitor's location. **There is no toggle.**
+
+**Naira is switched off** (`NAIRA_PRICING_LIVE = false` in `src/data/pricing.ts`)
+until a naira price grid is set. Until then **every visitor, including in Nigeria,
+sees dollars**. Location detection is still wired: `api/geo.js` reads the
+visitor's country from Vercel's `x-vercel-ip-country` header.
+
+- **To confirm detection on a deployment**, open `/api/geo` on that URL. From
+  Nigeria it should return `{"country":"NG"}`.
+- **To launch naira:** fill the `NGN` values in `src/data/pricing.ts` (retainer
+  unit prices and the Drop), then set `NAIRA_PRICING_LIVE` to `true`.
+- Naira prices are set by hand for the Nigerian market. Never convert them from
+  the dollar figures.
+
+`/api/geo` only exists on Vercel, so local development always shows dollars.
+
+## Link previews (WhatsApp, iMessage, Slack, X)
+
+Preview bots read raw HTML and never run JavaScript, so a title set by React is
+invisible to them. At build time, `vite.config.ts` writes one HTML file per
+route — `dist/pricing.html`, `dist/free-ad.html`, … — with its own `<title>`,
+description and Open Graph tags from `src/data/seo.ts`. `cleanUrls` in
+`vercel.json` serves `dist/pricing.html` at `/pricing`.
+
+**Adding a route?** Add it to `ROUTE_META` in `src/data/seo.ts` or its link
+previews will show the homepage.
+
 ## Deploying
 
 Static build, so any host works (Vercel, Netlify, Cloudflare Pages):
@@ -223,12 +272,12 @@ was never built.
 `vercel.json` handles this:
 
 ```json
-{ "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }] }
+{ "cleanUrls": true, "rewrites": [{ "source": "/((?!api/).*)", "destination": "/index.html" }] }
 ```
 
 Vercel checks the filesystem *before* applying rewrites, so real files —
 `/assets/*.js`, `/brand/*.png` — still serve normally with their own MIME
-types. Only unmatched paths fall through to the app.
+types. Only unmatched paths fall through to the app. The `(?!api/)` exclusion keeps `/api/geo` reachable.
 
 **Do not delete this file.** Vercel does not do SPA fallback on its own for
 Vite builds; removing it silently breaks every route except `/`.

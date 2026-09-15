@@ -11,9 +11,9 @@ import {
 } from "lucide-react";
 import {
   FORM,
+  MAKE_OPTIONS,
   OWNER_OPTIONS,
   PACE_OPTIONS,
-  SPEND_BANDS,
 } from "../data/forms";
 import { SITE } from "../data/content";
 
@@ -32,19 +32,19 @@ type SuccessMode = "sent" | "handoff";
 type Fields = {
   brand: string;
   email: string;
-  spend: string;
   pace: string;
   owner: string;
   notes: string;
+  make: string;
 };
 
 const EMPTY: Fields = {
   brand: "",
   email: "",
-  spend: "",
   pace: "",
   owner: "",
   notes: "",
+  make: "",
 };
 
 const labelFor = (
@@ -53,15 +53,12 @@ const labelFor = (
 ) => options.find((o) => o.value === value)?.label ?? value;
 
 export function LeadForm() {
-  // The pricing calculator links here with ?spend=&pace= so the two questions
-  // they already answered arrive pre-selected.
   const [params] = useSearchParams();
+  // Tier cards send ?interest=drop from "Order a Drop".
+  const isDrop = params.get("interest") === "drop";
+  const subject = isDrop ? "New Creative Drop order — RetenaAI" : FORM.SUBJECT;
 
-  const [fields, setFields] = useState<Fields>({
-    ...EMPTY,
-    spend: params.get("spend") ?? "",
-    pace: params.get("pace") ?? "",
-  });
+  const [fields, setFields] = useState<Fields>(EMPTY);
   const [status, setStatus] = useState<Status>("idle");
   const [successMode, setSuccessMode] = useState<SuccessMode>("sent");
   const [errors, setErrors] = useState<Partial<Record<keyof Fields, string>>>({});
@@ -80,7 +77,6 @@ export function LeadForm() {
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email.trim())) {
       next.email = "That doesn't look like a valid email address.";
     }
-    if (!fields.spend) next.spend = "Pick the closest band.";
     if (!fields.pace) next.pace = "Pick the closest band.";
     if (!fields.owner) next.owner = "Pick whichever is closest.";
     setErrors(next);
@@ -91,15 +87,16 @@ export function LeadForm() {
   const mailtoFallback = () => {
     const body = [
       `Brand / website: ${fields.brand}`,
-      `Monthly Meta spend: ${labelFor(SPEND_BANDS, fields.spend)}`,
       `New creatives per week: ${labelFor(PACE_OPTIONS, fields.pace)}`,
       `Who runs the account: ${labelFor(OWNER_OPTIONS, fields.owner)}`,
+      `What should we make: ${fields.make ? labelFor(MAKE_OPTIONS, fields.make) : "—"}`,
+      isDrop ? "Interested in: Creative Drop" : "",
       "",
       fields.notes ? `Notes: ${fields.notes}` : "",
     ].join("\n");
 
     window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(
-      FORM.SUBJECT
+      subject
     )}&body=${encodeURIComponent(body)}`;
     setSuccessMode("handoff");
     setStatus("success");
@@ -127,15 +124,16 @@ export function LeadForm() {
         },
         body: JSON.stringify({
           access_key: FORM.ACCESS_KEY,
-          subject: FORM.SUBJECT,
+          subject,
           from_name: "RetenaAI website",
           // Human-readable labels so the email is readable at a glance.
           brand: fields.brand,
           email: fields.email,
-          monthly_meta_spend: labelFor(SPEND_BANDS, fields.spend),
           new_creatives_per_week: labelFor(PACE_OPTIONS, fields.pace),
           who_runs_the_account: labelFor(OWNER_OPTIONS, fields.owner),
           notes: fields.notes || "—",
+          what_to_make: fields.make ? labelFor(MAKE_OPTIONS, fields.make) : "—",
+          interested_in: isDrop ? "Creative Drop" : "Free ad",
         }),
       });
 
@@ -155,10 +153,7 @@ export function LeadForm() {
 
   if (status === "success") {
     return (
-      <SuccessState
-        mode={successMode}
-        belowMinimum={fields.spend === "under-20k"}
-      />
+      <SuccessState mode={successMode} isDrop={isDrop} />
     );
   }
 
@@ -168,6 +163,14 @@ export function LeadForm() {
       noValidate
       className="rounded-3xl border border-navy/10 bg-white p-7 shadow-premium sm:p-9"
     >
+      {isDrop && (
+        <p className="mb-7 rounded-2xl bg-amber/10 p-4 text-sm leading-relaxed text-navy/70 ring-1 ring-amber/30">
+          <strong className="font-semibold text-navy">Ordering a Creative Drop.</strong>{" "}
+          5 concepts, delivered in 5 working days, paid in full up front. Send the
+          details and we'll confirm the brief and payment before anything starts.
+        </p>
+      )}
+
       <div className="space-y-6">
         <Field
           id="brand"
@@ -198,21 +201,6 @@ export function LeadForm() {
           />
         </Field>
 
-        <Field
-          id="spend"
-          label="Monthly Meta spend"
-          error={errors.spend}
-          hint="Used to size your creative volume — roughly one new ad per $3,000."
-        >
-          <Select
-            id="spend"
-            value={fields.spend}
-            onChange={(v) => set("spend", v)}
-            options={SPEND_BANDS}
-            placeholder="Select a band"
-            invalid={!!errors.spend}
-          />
-        </Field>
 
         <Field
           id="pace"
@@ -254,22 +242,36 @@ export function LeadForm() {
             className={`${inputClass(false)} resize-y`}
           />
         </Field>
+
+        <fieldset>
+          <legend className="flex w-full items-baseline justify-between gap-3 text-sm font-medium text-navy">
+            What should we make?
+            <span className="text-xs font-normal text-navy/35">Optional</span>
+          </legend>
+          <div role="radiogroup" className="mt-2 grid grid-cols-3 gap-2">
+            {MAKE_OPTIONS.map((opt) => {
+              const active = fields.make === opt.value;
+              return (
+                <button
+                  key={opt.value}
+                  type="button"
+                  role="radio"
+                  aria-checked={active}
+                  onClick={() => set("make", active ? "" : opt.value)}
+                  className={`rounded-xl border px-3 py-3 text-sm font-medium transition-colors focus-ring ${
+                    active
+                      ? "border-amber bg-amber/10 text-navy"
+                      : "border-navy/15 text-navy/60 hover:border-navy/30 hover:text-navy"
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              );
+            })}
+          </div>
+        </fieldset>
       </div>
 
-      {/* Honest note rather than a silent disqualification. */}
-      {fields.spend === "under-20k" && (
-        <motion.p
-          initial={{ opacity: 0, y: -6 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, ease: EASE }}
-          className="mt-6 rounded-2xl bg-navy-50 p-4 text-xs leading-relaxed text-navy/60"
-        >
-          Worth being upfront: under $20k/month you probably don't have the
-          budget to give enough creative a fair test, so this usually isn't
-          worth your money yet. Send it anyway if you'd like — we'll tell you
-          honestly what we'd do in your position.
-        </motion.p>
-      )}
 
       {status === "error" && (
         <div className="mt-6 flex items-start gap-3 rounded-2xl bg-red-50 p-4 text-sm text-red-700">
@@ -297,7 +299,7 @@ export function LeadForm() {
           </>
         ) : (
           <>
-            Claim the free ad
+            {isDrop ? "Send Drop order" : "Claim the free ad"}
             <ArrowRight
               size={16}
               className="transition-transform group-hover:translate-x-1"
@@ -421,13 +423,7 @@ function Select({
   );
 }
 
-function SuccessState({
-  mode,
-  belowMinimum,
-}: {
-  mode: SuccessMode;
-  belowMinimum: boolean;
-}) {
+function SuccessState({ mode, isDrop }: { mode: SuccessMode; isDrop: boolean }) {
   // No confirmation email goes out automatically, so this screen must never
   // tell them to check their inbox — it says what actually happens next.
   const heading =
@@ -438,8 +434,8 @@ function SuccessState({
   const body =
     mode === "handoff"
       ? "We've opened your mail app with all your answers filled in. Press send and it's with us — then we'll review it and come straight back to you."
-      : belowMinimum
-        ? "We review every one of these by hand. We'll come back to you honestly about whether this is worth doing at your current spend, and what we'd do in your position. Usually the same day."
+      : isDrop
+        ? "We'll review it on our end and come back to confirm the brief, your concept mix and payment details. The 5 working days start once we have your product assets. Usually the same day."
         : "We'll review it on our end straight away — pulling your ads from the Meta library and picking the angle already working hardest for you. Then we come back to you with exactly what we'd build and what happens next. Usually the same day.";
 
   return (

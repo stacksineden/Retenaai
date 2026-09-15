@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { Check, Minus } from "lucide-react";
-import { PricingCalculator } from "../components/PricingCalculator";
-import { PricingTiers } from "../components/PricingTiers";
+import { PricingConfigurator } from "../components/PricingConfigurator";
+import { DropCard } from "../components/DropCard";
+import { RETAINER, formatMoney, monthlyTotal } from "../data/pricing";
 import { Reveal } from "../components/Reveal";
 import { SectionHeading } from "../components/ui/SectionHeading";
 import { Button } from "../components/ui/Button";
@@ -9,10 +10,23 @@ import { Faq } from "../components/sections/Faq";
 import { FinalCta } from "../components/sections/FinalCta";
 
 import { usePageMeta } from "../hooks/usePageMeta";
+import { ROUTE_META } from "../data/seo";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-const COMPARISON = [
+/** Market columns are US dollars, so the RetenaAI column is too. */
+const DEFAULT_MONTHLY = monthlyTotal(RETAINER.defaultMix, "founding", "USD")!;
+
+type ComparisonRow = {
+  label: string;
+  us: boolean;
+  ugc: boolean;
+  agency: boolean;
+  usNote?: string;
+  agencyNote?: string;
+};
+
+const COMPARISON: ComparisonRow[] = [
   {
     label: "12 concepts a month",
     us: true,
@@ -25,15 +39,18 @@ const COMPARISON = [
   { label: "New hooks on winners in 48h", us: true, ugc: false, agency: false },
   { label: "Monthly written testing log", us: true, ugc: false, agency: false },
   { label: "Month-to-month, no minimum", us: true, ugc: true, agency: false },
+  {
+    label: "One-off, no commitment",
+    us: true,
+    usNote: "Drop, from $1,200",
+    ugc: true,
+    agency: false,
+  },
   { label: "Real people on camera", us: false, ugc: true, agency: true },
 ];
 
 export function Pricing() {
-  usePageMeta({
-    title: "Pricing — RetenaAI",
-    description:
-      "Pricing scales with your Meta spend, not a plan name. Use the calculator to size your creative volume, see your tier and your cost per concept.",
-  });
+  usePageMeta(ROUTE_META.pricing);
 
   return (
     <>
@@ -68,8 +85,8 @@ export function Pricing() {
               transition={{ duration: 0.7, delay: 0.08, ease: EASE }}
               className="text-balance mt-6 font-display text-4xl font-semibold leading-[1.08] text-navy sm:text-5xl md:text-6xl"
             >
-              Your price is a function of{" "}
-              <span className="text-gradient-amber">your spend.</span>
+              Pick your mix.{" "}
+              <span className="text-gradient-amber">See your price.</span>
             </motion.h1>
 
             <motion.p
@@ -78,15 +95,15 @@ export function Pricing() {
               transition={{ duration: 0.7, delay: 0.18, ease: EASE }}
               className="text-balance mx-auto mt-6 max-w-xl text-lg leading-relaxed text-navy/65"
             >
-              A brand spending $22k needs a different volume of creative than one
-              spending $90k. So the tier follows the benchmark — one new ad per
-              $3,000 of monthly spend — rather than an arbitrary plan name.
+              Choose how many video and static concepts you want each month and
+              the total updates as you slide. Month-to-month, with hook variants
+              on winners included.
             </motion.p>
           </div>
         </div>
       </section>
 
-      {/* Calculator */}
+      {/* Monthly retainer configurator */}
       <section className="relative bg-white pb-24 md:pb-32">
         <div className="container-page">
           <motion.div
@@ -94,36 +111,28 @@ export function Pricing() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.28, ease: EASE }}
           >
-            <PricingCalculator />
+            <PricingConfigurator />
           </motion.div>
-
-          <Reveal delay={0.1}>
-            <p className="mx-auto mt-6 max-w-2xl text-center text-xs leading-relaxed text-navy/40">
-              Volume benchmarks and the ~5% win rate come from the Motion
-              Creative Benchmarks 2026 report. Projections are illustrative
-              models based on creative volume — not a forecast of your results.
-            </p>
-          </Reveal>
         </div>
       </section>
 
-      {/* Tiers */}
-      <section className="relative bg-navy-50/40 py-24 md:py-32">
+      {/* One-off */}
+      <section id="drop" className="relative scroll-mt-20 bg-navy-50/40 py-24 md:py-32">
         <div className="container-page">
           <SectionHeading
-            eyebrow="Tiers"
-            title="Three ways in. All month-to-month."
-            body="Half up front, half on day 15. No minimum term, no setup fee, no per-asset charges."
+            eyebrow="One-off"
+            title="Not ready for a retainer?"
+            body="A Creative Drop is a single batch of concepts, paid once, with no monthly commitment."
           />
 
-          <div className="mt-14">
-            <PricingTiers />
+          <div className="mx-auto mt-14 max-w-4xl">
+            <DropCard />
           </div>
         </div>
       </section>
 
       {/* What it replaces */}
-      <section className="relative bg-white py-24 md:py-32">
+      <section id="compare" className="relative scroll-mt-20 bg-white py-24 md:py-32">
         <div className="container-page">
           <SectionHeading
             eyebrow="What it replaces"
@@ -144,7 +153,7 @@ export function Pricing() {
                         RetenaAI
                       </span>
                       <span className="mt-1 block text-[11px] font-normal text-amber-600">
-                        from $1,500/mo
+                        {formatMoney(DEFAULT_MONTHLY, "USD")}/mo, recommended mix
                       </span>
                     </th>
                     <th className="w-32 py-4 text-center">
@@ -183,7 +192,7 @@ export function Pricing() {
                         {row.label}
                       </td>
                       <td className="py-4 text-center">
-                        <Mark on={row.us} />
+                        <Mark on={row.us} note={row.usNote} />
                       </td>
                       <td className="py-4 text-center">
                         <Mark on={row.ugc} />
@@ -230,8 +239,11 @@ export function Pricing() {
 function Mark({ on, note }: { on: boolean; note?: string }) {
   if (on) {
     return (
-      <span className="mx-auto grid h-7 w-7 place-items-center rounded-full bg-amber/15 text-amber-600">
-        <Check size={14} strokeWidth={3} />
+      <span className="flex flex-col items-center gap-1">
+        <span className="grid h-7 w-7 place-items-center rounded-full bg-amber/15 text-amber-600">
+          <Check size={14} strokeWidth={3} />
+        </span>
+        {note && <span className="text-[10px] text-amber-600">{note}</span>}
       </span>
     );
   }

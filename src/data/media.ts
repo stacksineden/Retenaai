@@ -148,7 +148,7 @@ export const WORK_SAMPLES: WorkSample[] = [
 {
     src: "https://res.cloudinary.com/dast35q6f/video/upload/w_600,f_auto,q_auto/v1779191948/wellman-ugc-1-chineese_u6zyaq.mp4",
     ratio: "9:16",
-    title: "Same script, Mandarin market",
+    title: "Same script, rebuilt for a non-English market. Localisation costs nothing extra; there's no reshoot.",
     angle: "Localised variant",
     alt: "Mandarin-language supplement ad concept",
   },

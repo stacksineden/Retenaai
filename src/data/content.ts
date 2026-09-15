@@ -4,6 +4,10 @@ export const SITE = {
   email: "hello@retenaai.com",
 };
 
+/** Footer description, shown on every page. */
+export const FOOTER_DESCRIPTION =
+  "Creative supply for brands that test fast. New Meta ad concepts — video and static — delivered on a schedule, at any spend level.";
+
 /* ---------------------------------------------------------------------------
  * LEGAL ENTITY DETAILS
  *
@@ -49,10 +53,11 @@ export const NAV_LINKS = [
 
 export const HERO = {
   eyebrow: "Creative supply, not creative testing",
-  headline: "You're not shipping enough ads to find a winner.",
-  sub: "RetenaAI supplies DTC beauty, skincare and wellness brands with 12+ new Meta ad concepts a month — so the brands beating you on the same budget stop beating you.",
+  headline: "Never run out of ads to test.",
+  sub: "New Meta ad concepts every week — video and static — so your testing calendar never runs dry and one tired control ad stops carrying the whole account.",
   ctaPrimary: "Get one ad free",
   ctaSecondary: "See pricing",
+  note: "No retainer to claim it. Run it 7 days, send the numbers.",
 };
 
 export const STATS = [
@@ -63,13 +68,6 @@ export const STATS = [
     source: "Motion Creative Benchmarks 2026, 578,750 creatives",
   },
   {
-    value: 0.25,
-    decimals: 2,
-    prefix: "",
-    label: "winners/month at the average small-account pace of 4.1 creatives/week",
-    source: "6,015 accounts, $1.29B in tracked spend",
-  },
-  {
     value: 2,
     suffix: "x",
     label: "more winners for accounts shipping top-quartile volume — same budget",
@@ -77,19 +75,14 @@ export const STATS = [
   },
 ];
 
-export const ANCHOR = {
-  headline: "One new ad per $3,000 of monthly spend.",
-  body: "That's the benchmark. It converts your budget into a number — how many concepts you need in market to keep finding winners instead of running the same six ads since spring.",
-};
-
 export const OFFER = {
   eyebrow: "The offer",
-  headline: "12 net-new concepts a month. 3 delivered every Monday.",
+  headline: "New concepts every week. Video and static, mixed to your call.",
   body: "No briefs to write, no creator calendars to manage, no waiting on a production company's queue. A batch lands in your inbox every Monday, ready to upload.",
   points: [
     {
       title: "3 new concepts, every Monday",
-      body: "52 weeks a year, non-negotiable. Your testing calendar never runs dry.",
+      body: "Every week, without a gap. Your testing calendar never runs dry.",
     },
     {
       title: "Free hook variants on winners",
@@ -97,7 +90,7 @@ export const OFFER = {
     },
     {
       title: "A one-page monthly log",
-      body: "What tested, what won, what we're trying next. The read the whole account, not a spreadsheet of file names.",
+      body: "What tested, what won, what we're trying next. The read on the whole account, not a list of file names.",
     },
   ],
 };
@@ -105,7 +98,7 @@ export const OFFER = {
 export const EDGE = {
   eyebrow: "Why the math works",
   headline: "We carry zero usage rights. Creator agencies can't say that.",
-  body: "A single UGC video with paid usage rights runs about $3,500 on the open market. A full production agency runs $5,000+ a month for a fraction of the volume. Our cost structure doesn't climb as your ad spend climbs — creator costs do, ours don't. That gap is the business.",
+  body: "Twelve UGC videos with paid usage rights run about $3,500 on the open market. A full production agency runs $5,000+ a month for a fraction of the volume. Our cost structure doesn't climb as your ad spend climbs — creator costs do, ours don't. That gap is the business.",
   comparisons: [
     { label: "12 UGC videos, market average", value: "$2,376" },
     { label: "Same 12, with paid usage rights", value: "~$3,500" },
@@ -119,8 +112,8 @@ export const PROCESS = {
   steps: [
     {
       step: "01",
-      title: "We size your volume",
-      body: "Tell us your monthly Meta spend. We use the $3,000-per-ad benchmark to size your batch and quote the right tier.",
+      title: "You send your brand",
+      body: "Your page and what you sell. No brief to write — we go through what's already live in your ad library ourselves.",
     },
     {
       step: "02",
@@ -144,7 +137,7 @@ export const LEAD_MAGNET = {
   eyebrow: "No upfront cost",
   headline: "I'll build you one ad, free.",
   body: "The only condition: run it for 7 days against your current best performer and send me the numbers. If it wins, we talk about monthly supply. If it loses, you've lost nothing and I've learned something about your account.",
-  fineprint: "Built on your existing best-performing angle from the ad library — not a generic template. Limited to the first four brands.",
+  fineprint: "Built on your existing best-performing angle from the ad library — not a generic template. One per brand. We build it before we quote you anything.",
   cta: "Claim your free ad",
 };
 
@@ -159,11 +152,11 @@ export const FAQ = [
   },
   {
     q: "Who is this actually for?",
-    a: "DTC beauty, skincare and wellness brands spending $20k+/month on Meta, running 15+ active ads, and launching 8 or fewer new creatives in the last 30 days. Where you're based doesn't matter — we work from your ad library and deliver to your inbox, so we supply brands in any market. If your account doesn't run on Meta, or your team already ships 15+ new concepts a week, we're probably not the right fit.",
+    a: "Brands that sell physical products and run Meta ads — or are about to start. Any spend level, any market: we work from your ad library and deliver to your inbox, so where you're based doesn't matter.",
   },
   {
     q: "How is pricing determined?",
-    a: "By your monthly Meta spend, using the benchmark of one new ad per $3,000 spent. Higher spend means more concepts needed to keep pace, which is why tiers scale with volume, not with arbitrary plan names. Use the calculator on the pricing page to see exactly where you land.",
+    a: "Two ways. Monthly supply is priced by the mix you choose — how many video and static concepts you want each month, from 12 to 30 — and the pricing page shows your total as you slide. A Creative Drop is a fixed price for 5 concepts, one-off.",
   },
   {
     q: "What's the 'founding rate'?",
@@ -171,7 +164,7 @@ export const FAQ = [
   },
   {
     q: "Is there a minimum commitment?",
-    a: "No. Month-to-month, no minimum term. Half the fee is due up front, half on day 15.",
+    a: "No. Monthly supply is month-to-month with no minimum term — half the fee up front, half on day 15. A Creative Drop is one-off and paid in full up front.",
   },
   {
     q: "Do you need access to my ad account?",
@@ -180,10 +173,10 @@ export const FAQ = [
 ];
 
 export const WORK_SAMPLES_NOTE =
-  "Concepts produced for skincare and beauty brands. Shown as work samples — not case studies with implied performance.";
+  "Work samples across skincare, beauty, supplements and haircare — shown as examples of concepts produced, not case studies with implied performance.";
 
 export const FINAL_CTA = {
   headline: "Your next Monday batch could already be in production.",
-  body: "Send your monthly Meta spend and we'll size your volume, quote your tier, and tell you exactly what a free ad on your best angle would look like.",
+  body: "Send your brand and we'll tell you exactly what a free ad on your best angle would look like.",
   cta: "Get one ad free",
 };

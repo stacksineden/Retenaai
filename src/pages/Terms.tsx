@@ -15,15 +15,12 @@
 import { LegalLayout } from "../components/LegalLayout";
 import { HAS_REGISTERED_ENTITY, LEGAL, SITE } from "../data/content";
 import { usePageMeta } from "../hooks/usePageMeta";
+import { ROUTE_META } from "../data/seo";
 
 const UPDATED = "3 August 2026";
 
 export function Terms() {
-  usePageMeta({
-    title: "Terms of Service — RetenaAI",
-    description:
-      "The terms governing RetenaAI's creative supply engagements — deliverables, payment, ownership, the winner definition, and cancellation.",
-  });
+  usePageMeta(ROUTE_META.terms);
 
   return (
     <LegalLayout
@@ -69,7 +66,8 @@ export function Terms() {
             <>
               <p>
                 We supply advertising creative concepts on a recurring monthly
-                basis. Your tier determines the volume. A standard engagement
+                basis. The number of video and static concepts you choose determines the
+                volume. A standard engagement
                 includes:
               </p>
               <ul>
@@ -87,6 +85,14 @@ export function Terms() {
                 <strong>What we do not do:</strong> we do not manage your ad
                 account, set budgets, run tests, or make media-buying decisions.
                 We supply the creative; you run it.
+              </p>
+              <p>
+                <strong>One-off Drops.</strong> Where you purchase a Creative
+                Drop rather than monthly supply, we deliver the agreed number of
+                concepts within 5 working days of receiving your product assets
+                and brief. Drops are paid in full in advance, are not subject to
+                the monthly terms below, and do not include hook variants or a
+                monthly log.
               </p>
             </>
           ),
@@ -139,9 +145,8 @@ export function Terms() {
               </ul>
               <p>
                 There is no obligation to purchase anything afterwards, and no
-                charge if the creative underperforms. The offer is limited in
-                number and may be withdrawn at any time before production
-                begins.
+                charge if the creative underperforms. One free concept per brand.
+                The offer may be withdrawn at any time before production begins.
               </p>
             </>
           ),
@@ -160,8 +165,15 @@ export function Terms() {
                   and the remaining 50% on day 15 of the service month.
                 </li>
                 <li>
-                  Fees are quoted in US dollars and are exclusive of any
-                  applicable taxes, which you are responsible for.
+                  Fees are quoted in US dollars or, where stated, Nigerian naira,
+                  and are exclusive of any applicable taxes, which you are
+                  responsible for.
+                </li>
+                <li>
+                  Creative Drops are payable in full in advance. Where prices are
+                  quoted in Nigerian naira, the naira price is the price — it is
+                  not an exchange-rate conversion of the dollar figure and does
+                  not move with the rate.
                 </li>
                 <li>
                   Founding rates, where offered, are limited to the first three

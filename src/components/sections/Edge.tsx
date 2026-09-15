@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Check, TrendingUp } from "lucide-react";
 import { EDGE } from "../../data/content";
+import { RETAINER, formatMoney, monthlyTotal } from "../../data/pricing";
 import { Reveal } from "../Reveal";
 import { SectionHeading } from "../ui/SectionHeading";
 
@@ -8,6 +9,12 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 
 /** Relative bar widths for the cost comparison. */
 const MAX = 5000;
+
+// Market figures are US dollars, so ours are shown in dollars too. Computed from
+// the pricing data so they can't drift from the configurator.
+const MIX = RETAINER.defaultMix;
+const OURS_FOUNDING = monthlyTotal(MIX, "founding", "USD")!;
+const OURS_STANDARD = monthlyTotal(MIX, "standard", "USD")!;
 
 const ROWS = [
   { label: "12 UGC videos, market average", value: 2376, display: "$2,376" },
@@ -89,24 +96,25 @@ export function Edge() {
                 <div className="rounded-2xl bg-white p-5 ring-1 ring-amber/30">
                   <div className="flex items-baseline justify-between gap-4">
                     <p className="text-sm font-semibold text-navy">
-                      RetenaAI, 12 concepts
+                      RetenaAI, {MIX.video} video + {MIX.static} static
                     </p>
                     <p className="font-display text-lg font-semibold tabular-nums text-amber-600">
-                      from $1,500
+                      {formatMoney(OURS_FOUNDING, "USD")}
                     </p>
                   </div>
                   <div className="mt-2 h-2 overflow-hidden rounded-full bg-navy/8">
                     <motion.div
                       className="h-full rounded-full gradient-amber"
                       initial={{ width: 0 }}
-                      whileInView={{ width: `${(1500 / MAX) * 100}%` }}
+                      whileInView={{ width: `${(OURS_FOUNDING / MAX) * 100}%` }}
                       viewport={{ once: true, amount: 0.5 }}
                       transition={{ duration: 1, delay: 0.55, ease: EASE }}
                     />
                   </div>
                   <p className="mt-3 flex items-center gap-1.5 text-[11px] text-navy/45">
                     <TrendingUp size={12} className="text-amber-600" />
-                    Founding rate, first three clients. Standard rate $2,500.
+                    Founding rate, first three clients. Standard{" "}
+                    {formatMoney(OURS_STANDARD, "USD")}.
                   </p>
                 </div>
               </div>

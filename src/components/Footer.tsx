@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import { Mail } from "lucide-react";
 import { Logo } from "./Logo";
-import { HAS_REGISTERED_ENTITY, LEGAL, SITE } from "../data/content";
+import {
+  FOOTER_DESCRIPTION,
+  HAS_REGISTERED_ENTITY,
+  LEGAL,
+  SITE,
+} from "../data/content";
 
 const SITE_LINKS = [
   { label: "How it works", to: "/#how-it-works" },
@@ -27,8 +32,7 @@ export function Footer() {
           <div>
             <Logo dark />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/55">
-              {SITE.tagline} Creative supply for DTC beauty, skincare and
-              wellness brands running $20k+/month on Meta.
+              {FOOTER_DESCRIPTION}
             </p>
 
             <a

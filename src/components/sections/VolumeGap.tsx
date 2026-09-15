@@ -15,8 +15,8 @@ const BARS = [
     tone: "muted" as const,
   },
   {
-    label: "The brands beating you",
-    sub: "Small-tier top quartile",
+    label: "Top quartile",
+    sub: "Same spend",
     value: 8.09,
     max: 8.09,
     tone: "amber" as const,
@@ -31,8 +31,8 @@ export function VolumeGap() {
           eyebrow="The gap"
           title={
             <>
-              The brands beating you at the same budget aren't smarter.{" "}
-              <span className="text-navy/40">They're testing more.</span>
+              Winners are a volume problem{" "}
+              <span className="text-navy/40">before they're a quality problem.</span>
             </>
           }
           body="Most advertisers blame the platform. The published data says something simpler and far more fixable: winners are a volume problem before they're a creative-quality problem."
@@ -101,14 +101,14 @@ export function VolumeGap() {
         </Reveal>
 
         {/* Stats */}
-        <StaggerGroup className="mt-16 grid gap-6 md:grid-cols-3">
+        <StaggerGroup className="mx-auto mt-16 grid max-w-3xl gap-6 md:grid-cols-2">
           {STATS.map((stat) => (
             <StaggerItem key={stat.label}>
               <div className="group h-full rounded-2xl border border-navy/8 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-amber/40 hover:shadow-premium">
                 <p className="font-display text-4xl font-semibold text-navy md:text-5xl">
                   <CountUp
                     value={stat.value}
-                    decimals={stat.decimals ?? 0}
+                    decimals={0}
                     suffix={stat.suffix ?? ""}
                   />
                 </p>

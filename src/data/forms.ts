@@ -41,11 +41,11 @@ export const FORM = {
  * whatever someone types into an empty box.
  * ------------------------------------------------------------------------ */
 
-export const SPEND_BANDS = [
-  { value: "under-20k", label: "Under $20k / month" },
-  { value: "20-40k", label: "$20k – $40k / month" },
-  { value: "40-75k", label: "$40k – $75k / month" },
-  { value: "75k-plus", label: "$75k+ / month" },
+/** "What should we make?" — asked after the notes field. */
+export const MAKE_OPTIONS = [
+  { value: "video", label: "Video" },
+  { value: "static", label: "Static" },
+  { value: "either", label: "Either, you decide" },
 ] as const;
 
 export const PACE_OPTIONS = [
@@ -62,20 +62,3 @@ export const OWNER_OPTIONS = [
   { value: "agency", label: "An external agency" },
   { value: "nobody", label: "Nobody consistently" },
 ] as const;
-
-/** Maps a calculator spend value to the matching band, for pre-filling. */
-export function bandForSpend(spend: number): string {
-  if (spend < 20_000) return "under-20k";
-  if (spend < 40_000) return "20-40k";
-  if (spend < 75_000) return "40-75k";
-  return "75k-plus";
-}
-
-/** Maps a calculator creatives-per-week value to the matching option. */
-export function bandForPace(pace: number): string {
-  if (pace <= 2) return "0-2";
-  if (pace <= 4) return "3-4";
-  if (pace <= 8) return "5-8";
-  if (pace <= 15) return "9-15";
-  return "15-plus";
-}

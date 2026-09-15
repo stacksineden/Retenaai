@@ -3,6 +3,7 @@ import { Check } from "lucide-react";
 import { LeadForm } from "../components/LeadForm";
 import { Reveal } from "../components/Reveal";
 import { usePageMeta } from "../hooks/usePageMeta";
+import { ROUTE_META } from "../data/seo";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -25,11 +26,7 @@ const TERMS = [
 ];
 
 export function FreeAd() {
-  usePageMeta({
-    title: "Claim your free ad — RetenaAI",
-    description:
-      "We'll build one Meta ad concept free, on your best-performing angle. Run it for 7 days against your control and send us the numbers.",
-  });
+  usePageMeta(ROUTE_META.freeAd);
 
   return (
     <section className="gradient-hero relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32">
@@ -113,9 +110,9 @@ export function FreeAd() {
                 </p>
                 <ul className="mt-3 space-y-2">
                   {[
-                    "DTC skincare, beauty or wellness",
-                    "$20k+/month on Meta, in any market",
-                    "Shipping fewer than 8 new creatives a month",
+                    "Any brand selling a physical product",
+                    "Running Meta ads now, or about to start",
+                    "Any spend level, any market",
                   ].map((item) => (
                     <li
                       key={item}
@@ -129,8 +126,7 @@ export function FreeAd() {
                   ))}
                 </ul>
                 <p className="mt-4 border-t border-navy/8 pt-3 text-[11px] leading-relaxed text-navy/40">
-                  Limited to the first four brands. Tracked by name — when it's
-                  done, it stops.
+                  One per brand. We build it before we quote you anything.
                 </p>
               </div>
             </Reveal>
