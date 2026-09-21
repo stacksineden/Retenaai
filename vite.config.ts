@@ -30,7 +30,13 @@ function routeHeadTags(): Plugin {
         const description = escapeAttr(meta.description)
         const url = `${SITE_URL}${meta.path === '/' ? '' : meta.path}`
 
+        const robots =
+          'robots' in meta && meta.robots
+            ? [`<meta name="robots" content="${escapeAttr(meta.robots)}" />`]
+            : []
+
         const social = [
+          ...robots,
           `<meta property="og:type" content="website" />`,
           `<meta property="og:site_name" content="RetenaAI" />`,
           `<meta property="og:title" content="${title}" />`,

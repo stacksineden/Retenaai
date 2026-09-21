@@ -240,6 +240,26 @@ sees a dollar figure flash first.
   Nigeria it returns `{"country":"NG"}`.
 - `/api/geo` only exists on Vercel. Locally the lookup fails fast and prices show.
 
+## /implementations (unlisted)
+
+A separate offer for a different buyer: websites, WhatsApp ordering, lead
+capture, booking, creative and monthly care. Content lives in
+`src/data/implementations.ts`.
+
+- **Unlisted.** Not in the nav, footer or any sitemap, and never linked from the
+  main site. `noindex, nofollow` is baked into its HTML, and `public/robots.txt`
+  disallows it.
+- **Own header and footer** (`src/components/ImplementationsChrome.tsx`), so none
+  of the main site's product, pricing or "Get one ad free" appears on it.
+- **Quote-only.** No price, range or "from" figure in any currency. **Never put
+  this arm's internal pricing anywhere in the repo** — anything in a Vite build
+  ships to the browser.
+- **Empty sections render nothing:** `HOW_IT_WORKS`, `WHO_FOR` (copy not supplied
+  yet) and `PROOF` (stays empty until real case studies exist).
+- **Form:** name, business name, "Closest to what you need", WhatsApp number,
+  "What's not working". No email field. Submissions arrive with the subject
+  "New implementations enquiry" and `interest: implementations`.
+
 ## Link previews (WhatsApp, iMessage, Slack, X)
 
 Preview bots read raw HTML and never run JavaScript, so a title set by React is

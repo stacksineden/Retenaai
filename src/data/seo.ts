@@ -28,6 +28,8 @@ export type RouteMeta = {
   file: string;
   title: string;
   description: string;
+  /** e.g. "noindex, nofollow" — baked into the route's HTML at build time. */
+  robots?: string;
 };
 
 export const ROUTE_META = {
@@ -65,5 +67,17 @@ export const ROUTE_META = {
     title: "Terms of Service — RetenaAI",
     description:
       "The terms governing RetenaAI's creative engagements — Drops, monthly supply, payment, ownership, the winner definition, and cancellation.",
+  },
+  /**
+   * Unlisted: not in the nav, footer or any sitemap, and not linked from the
+   * main site. noindex here + Disallow in public/robots.txt.
+   */
+  implementations: {
+    path: "/implementations",
+    file: "implementations.html",
+    title: "Implementations — RetenaAI",
+    description:
+      "Creative gets attention. The system catches it. Websites, WhatsApp ordering, lead capture and creative — built so the sale doesn't get lost after the hard part.",
+    robots: "noindex, nofollow",
   },
 } satisfies Record<string, RouteMeta>;
