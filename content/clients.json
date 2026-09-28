@@ -4,7 +4,7 @@
     "[CONFIRM] Naming a client publicly is theirs to agree to. These are published on Samuel's say-so that they are our clients; flip any to false if one would rather not be listed."
   ],
   "clients": [
-    { "name": "TFYQ", "published": true },
+    { "name": "TYFQ", "published": true },
     { "name": "Macbite", "published": true },
     { "name": "Arike", "published": true },
     { "name": "IzzyCrafts", "published": true },
