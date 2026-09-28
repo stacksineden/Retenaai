@@ -1,0 +1,12 @@
+{
+  "_note": "Labels for the lookbook, keyed on the Cloudinary asset key from docs/ads-labelling.csv. An ad shows on the site ONLY if it appears here with published: true. Everything else stays hidden. See docs/HOW-TO-LABEL-ADS.md.",
+  "_example": {
+    "asset-key-from-the-sheet": {
+      "client_or_sample": "sample",
+      "client_name": null,
+      "ai_presenter": false,
+      "published": true
+    }
+  },
+  "labels": {}
+}

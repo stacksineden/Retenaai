@@ -30,12 +30,27 @@ export type RouteMeta = {
   description: string;
   /** e.g. "noindex, nofollow" — baked into the route's HTML at build time. */
   robots?: string;
+  /** Link-preview overrides, where the shared title should differ from the tab title. */
+  ogTitle?: string;
+  ogDescription?: string;
 };
 
 export const ROUTE_META = {
   home: {
     path: "/",
     file: "index.html",
+    title:
+      "RetenaAI: Ads, pages and WhatsApp systems that turn enquiries into sales",
+    description:
+      "We make the ads, build where customers land, and set up WhatsApp so every enquiry gets answered and tracked. Start with a free business audit.",
+    ogTitle: "Stop losing customers in your DMs",
+    ogDescription:
+      "Ads, landing pages and WhatsApp systems for Nigerian businesses. Free audit.",
+  },
+  /** The creative-supply site for international brands — moved here from "/". */
+  creative: {
+    path: "/creative",
+    file: "creative.html",
     title: "RetenaAI — Creative Supply for Brands That Test Fast",
     description:
       "New Meta ad concepts every week — video and static — for brands that sell physical products. One-off or monthly, at any spend level.",

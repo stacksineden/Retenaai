@@ -1,0 +1,17 @@
+{
+  "slug": "macbite",
+  "client_name": "MacBite",
+  "city": "Ibadan",
+  "layers": ["branding", "pages", "systems"],
+  "problem": "Customers ordering through long chats.",
+  "what_we_built": "Branding, then an online ordering platform for breakfast, lunch and dinner.",
+  "screenshots": [
+    { "src": "/work/macbite.jpg", "alt": "MacBite home page with the menu and ordering options", "caption": "Home page — order for delivery or pickup" }
+  ],
+  "video": null,
+  "result": null,
+  "quote_id": null,
+  "featured": true,
+  "published": false,
+  "_todo": "[CONFIRM permission for homepage use] · [CONFIRM wording] · phone-width screenshots · set published to true"
+}

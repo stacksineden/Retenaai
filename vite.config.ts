@@ -35,17 +35,24 @@ function routeHeadTags(): Plugin {
             ? [`<meta name="robots" content="${escapeAttr(meta.robots)}" />`]
             : []
 
+        const ogTitle = escapeAttr(
+          ('ogTitle' in meta && meta.ogTitle) || meta.title
+        )
+        const ogDescription = escapeAttr(
+          ('ogDescription' in meta && meta.ogDescription) || meta.description
+        )
+
         const social = [
           ...robots,
           `<meta property="og:type" content="website" />`,
           `<meta property="og:site_name" content="RetenaAI" />`,
-          `<meta property="og:title" content="${title}" />`,
-          `<meta property="og:description" content="${description}" />`,
+          `<meta property="og:title" content="${ogTitle}" />`,
+          `<meta property="og:description" content="${ogDescription}" />`,
           `<meta property="og:url" content="${url}" />`,
           `<meta property="og:image" content="${OG_IMAGE}" />`,
           `<meta name="twitter:card" content="summary" />`,
-          `<meta name="twitter:title" content="${title}" />`,
-          `<meta name="twitter:description" content="${description}" />`,
+          `<meta name="twitter:title" content="${ogTitle}" />`,
+          `<meta name="twitter:description" content="${ogDescription}" />`,
           `<meta name="twitter:image" content="${OG_IMAGE}" />`,
           `<link rel="canonical" href="${url}" />`,
         ].join('\n    ')
