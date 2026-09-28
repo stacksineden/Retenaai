@@ -17,15 +17,12 @@
 import { LegalLayout } from "../components/LegalLayout";
 import { HAS_REGISTERED_ENTITY, LEGAL, SITE } from "../data/content";
 import { usePageMeta } from "../hooks/usePageMeta";
+import { ROUTE_META } from "../data/seo";
 
 const UPDATED = "3 August 2026";
 
 export function Privacy() {
-  usePageMeta({
-    title: "Privacy Policy — RetenaAI",
-    description:
-      "How RetenaAI collects, uses and protects personal data belonging to prospects, clients and website visitors.",
-  });
+  usePageMeta(ROUTE_META.privacy);
 
   return (
     <LegalLayout
@@ -40,7 +37,7 @@ export function Privacy() {
             <>
               <p>
                 RetenaAI ("we", "us") provides advertising creative production
-                services to direct-to-consumer brands.{" "}
+                services to brands that sell physical products.{" "}
                 {HAS_REGISTERED_ENTITY
                   ? "We are a Nigerian company and our operations are based in Nigeria."
                   : "Our operations are based in Nigeria."}

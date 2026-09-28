@@ -49,7 +49,7 @@ export function FinalCta() {
                   {FINAL_CTA.cta}
                 </Button>
                 <Button to="/pricing" variant="ghost-dark">
-                  Size your volume
+                  See pricing
                 </Button>
               </div>
             </Reveal>

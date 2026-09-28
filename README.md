@@ -18,8 +18,7 @@ npm run preview  # preview the production build
 | `src/data/media.ts` | **All videos, images and logo paths.** Every asset slot on the site. |
 | `src/data/content.ts` | **All copy.** Headlines, body text, FAQ, nav labels. |
 
-Pricing numbers live in `src/data/pricing.ts`. Change a tier there and it updates
-the tier cards, the calculator, and the comparison table at once.
+Pricing lives in `src/data/pricing.ts` — see "Pricing" below.
 
 ---
 
@@ -140,9 +139,10 @@ user's mail client with every answer pre-written into the body. Nothing is
 broken while you set it up, but add the key before launch: the fallback has the
 same delivery problem as a plain `mailto:` link.
 
-The form asks exactly the three screening questions and nothing else. Clicking
-a CTA from the pricing calculator or a tier card carries the answers through as
-URL parameters, so those questions arrive already selected.
+The form asks for brand, email, current creative pace, who runs the account,
+optional notes, and what to make. It deliberately doesn't ask for ad spend.
+"Order a Drop" on the pricing page opens the same form with `?interest=drop`,
+which adds a Drop banner and a separate email subject.
 
 **Optional — booking step.** Set `BOOKING_URL` in `src/data/forms.ts` to a
 Calendly or Cal.com link and the success screen offers a 15-minute call. Leave
@@ -174,10 +174,6 @@ of POST. Change `ENDPOINT` in `src/data/forms.ts` and the payload shape in
       whether a formal DPO is needed, and whether governing law is sensible.
 - [ ] **Governing law** — defaults to Nigeria via `LEGAL.governingLaw`. Switch
       to Delaware/Wyoming if you form the US LLC.
-- [ ] **Founding rate** — the "$1,500, first three clients" founding rate is shown
-      publicly on the home page, the pricing page and the calculator. If that was
-      meant to stay private, set `founding: null` in `src/data/pricing.ts` and the
-      toggle disappears.
 - [x] ~~Form access key~~ — set. The form posts live to Web3Forms.
       (This key is meant to be public — it's a client-side form endpoint, not a
       secret, so it's fine sitting in source.)
@@ -205,6 +201,76 @@ of POST. Change `ENDPOINT` in `src/data/forms.ts` and the payload shape in
 Home page sections live in `src/components/sections/` and are composed in
 `Home.tsx` — reorder or remove by editing that one file.
 
+## Pricing
+
+Two products, both in `src/data/pricing.ts`. **Nothing is tied to ad spend.**
+
+**Monthly retainer.** One slider: concepts a month, 12–30, default 12. Flat
+price per concept, no bulk discount, no tiers:
+
+| Rate | 12 concepts | 20 | 30 |
+|---|---|---|---|
+| Founding (first three clients) | $1,200 | $2,000 | $3,000 |
+| Standard | $2,400 | $4,000 | $6,000 |
+
+The video/static mix is **stated, not chosen** — "typically 4 video and 8
+static", set by us — so nobody can configure an all-video month.
+
+**Display rule:** the per-concept rate is internal. Never show a unit or
+per-concept price anywhere on the site — the monthly total only.
+
+**Creative Drop — one-off.** 5 concepts, 5 working days, from $1,200. A separate
+card below the configurator.
+
+"Why the math works" and the pricing comparison table compute our figure from
+the same data, so they can't drift from the configurator.
+
+## Visitors in Nigeria
+
+No naira prices are published. When a visitor is in Nigeria, the configurator's
+price panel becomes **"Let's talk"** with a **Request a quote** button (the
+slider still works). The button opens the form with the chosen concept count,
+and those submissions arrive with the subject "New quote request".
+
+Location comes from `api/geo.js`, which reads Vercel's `x-vercel-ip-country`
+header. The price waits for that lookup (up to 2.5s) so a Nigerian visitor never
+sees a dollar figure flash first.
+
+- **To confirm detection on a deployment**, open `/api/geo` on that URL — from
+  Nigeria it returns `{"country":"NG"}`.
+- `/api/geo` only exists on Vercel. Locally the lookup fails fast and prices show.
+
+## /implementations (unlisted)
+
+A separate offer for a different buyer: websites, WhatsApp ordering, lead
+capture, booking, creative and monthly care. Content lives in
+`src/data/implementations.ts`.
+
+- **Unlisted.** Not in the nav, footer or any sitemap, and never linked from the
+  main site. `noindex, nofollow` is baked into its HTML, and `public/robots.txt`
+  disallows it.
+- **Own header and footer** (`src/components/ImplementationsChrome.tsx`), so none
+  of the main site's product, pricing or "Get one ad free" appears on it.
+- **Quote-only.** No price, range or "from" figure in any currency. **Never put
+  this arm's internal pricing anywhere in the repo** — anything in a Vite build
+  ships to the browser.
+- **Empty sections render nothing:** `HOW_IT_WORKS`, `WHO_FOR` (copy not supplied
+  yet) and `PROOF` (stays empty until real case studies exist).
+- **Form:** name, business name, "Closest to what you need", WhatsApp number,
+  "What's not working". No email field. Submissions arrive with the subject
+  "New implementations enquiry" and `interest: implementations`.
+
+## Link previews (WhatsApp, iMessage, Slack, X)
+
+Preview bots read raw HTML and never run JavaScript, so a title set by React is
+invisible to them. At build time, `vite.config.ts` writes one HTML file per
+route — `dist/pricing.html`, `dist/free-ad.html`, … — with its own `<title>`,
+description and Open Graph tags from `src/data/seo.ts`. `cleanUrls` in
+`vercel.json` serves `dist/pricing.html` at `/pricing`.
+
+**Adding a route?** Add it to `ROUTE_META` in `src/data/seo.ts` or its link
+previews will show the homepage.
+
 ## Deploying
 
 Static build, so any host works (Vercel, Netlify, Cloudflare Pages):
@@ -223,12 +289,12 @@ was never built.
 `vercel.json` handles this:
 
 ```json
-{ "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }] }
+{ "cleanUrls": true, "rewrites": [{ "source": "/((?!api/).*)", "destination": "/index.html" }] }
 ```
 
 Vercel checks the filesystem *before* applying rewrites, so real files —
 `/assets/*.js`, `/brand/*.png` — still serve normally with their own MIME
-types. Only unmatched paths fall through to the app.
+types. Only unmatched paths fall through to the app. The `(?!api/)` exclusion keeps `/api/geo` reachable.
 
 **Do not delete this file.** Vercel does not do SPA fallback on its own for
 Vite builds; removing it silently breaks every route except `/`.

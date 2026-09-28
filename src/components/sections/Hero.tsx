@@ -10,13 +10,11 @@ import { Button } from "../ui/Button";
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 const TICKER = [
-  "DTC skincare",
-  "Beauty",
-  "Wellness",
+  "Video + static",
+  "Any spend level",
   "Any market",
-  "$20k+/mo Meta spend",
-  "12 concepts a month",
-  "3 every Monday",
+  "Delivered weekly",
+  "One-off or monthly",
 ];
 
 /** Fanned card angles — centre card upright, outer cards tilted away. */
@@ -88,9 +86,9 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
             className="text-balance mt-6 font-display text-4xl font-semibold leading-[1.06] text-navy sm:text-5xl md:text-[4rem]"
           >
-            You're not shipping enough ads to{" "}
+            Never run out of{" "}
             <span className="relative inline-block">
-              <span className="text-gradient-amber">find a winner.</span>
+              <span className="text-gradient-amber">ads to test.</span>
               <motion.span
                 aria-hidden
                 className="absolute -bottom-1 left-0 h-[3px] w-full origin-left rounded-full gradient-amber"
@@ -130,7 +128,7 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.5 }}
             className="mt-5 text-xs text-navy/45"
           >
-            No retainer to claim it. Run it for 7 days, send the numbers.
+            {HERO.note}
           </motion.p>
         </div>
 
