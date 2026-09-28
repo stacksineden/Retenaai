@@ -1,15 +1,13 @@
 {
-  "_note": "Businesses we've worked with. Shown as a name strip in the hero and above the work section. Names only — we have no logo files, and a wordmark we typed ourselves is not their logo. Set published: false to take a name down; it disappears everywhere at once.",
+  "_note": "Businesses we've worked with. Shown as a name strip in the hero and above the work section. Names only — we have no logo files, and a wordmark we typed ourselves is not their logo. Set published: false to take a name down; it disappears everywhere at once. Spellings confirmed by Samuel, 2026-09-28.",
   "_todo": [
-    "[CONFIRM] Display names are spelled exactly as Samuel typed them. Four are abbreviations we have not expanded: TFYQ, Magba, KH, DKG. Send the full trading names and we'll swap them in.",
-    "[CONFIRM] Naming a client publicly needs their nod. These are published on Samuel's say-so that they are our clients; flip any to false if one would rather not be listed."
+    "[CONFIRM] Naming a client publicly is theirs to agree to. These are published on Samuel's say-so that they are our clients; flip any to false if one would rather not be listed."
   ],
   "clients": [
-    { "name": "EZ Craft", "published": true },
-    { "name": "Arike", "published": true },
     { "name": "TFYQ", "published": true },
-    { "name": "Magba", "published": true },
-    { "name": "KH", "published": true },
-    { "name": "DKG", "published": true }
+    { "name": "Macbite", "published": true },
+    { "name": "Arike", "published": true },
+    { "name": "IzzyCrafts", "published": true },
+    { "name": "H&D Kitchen", "published": true }
   ]
 }

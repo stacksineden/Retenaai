@@ -1,6 +1,6 @@
 {
   "slug": "macbite",
-  "client_name": "MacBite",
+  "client_name": "Macbite",
   "city": "Ibadan",
   "layers": ["branding", "pages", "systems"],
   "problem": "Customers ordering through long chats.",
