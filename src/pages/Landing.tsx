@@ -3,6 +3,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { AdReel } from "../components/site/AdReel";
 import { AuditForm } from "../components/site/AuditForm";
 import { CaseStudyCards } from "../components/site/CaseStudyCards";
+import { ClientStrip } from "../components/site/ClientStrip";
 import { DashboardFunnel } from "../components/site/DashboardFunnel";
 import { HeroProofStrip, Reviews } from "../components/site/Reviews";
 import { WhatsAppCta } from "../components/site/WhatsAppCta";
@@ -62,11 +63,8 @@ export function Landing() {
 
             {/* Renders nothing until a review has confirmed permission. */}
             <HeroProofStrip />
-            {reviews.length > 0 && (
-              <p className="mt-6 text-xs font-semibold uppercase tracking-[0.16em] text-navy/40">
-                {HERO.proofLabel}
-              </p>
-            )}
+
+            <ClientStrip label={HERO.proofLabel} className="mt-12" />
           </div>
         </div>
       </section>
@@ -214,6 +212,12 @@ export function Landing() {
               Case studies go live here as clients approve them.
             </p>
           )}
+
+          {/* Names carry the section until the case studies land. */}
+          <ClientStrip
+            label={HERO.proofLabel}
+            className="mt-12 border-t border-navy/8 pt-10"
+          />
         </div>
       </section>
 

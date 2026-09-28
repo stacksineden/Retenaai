@@ -40,6 +40,8 @@ export type Review = {
   permission_confirmed: boolean;
 };
 
+export type Client = { name: string; published: boolean };
+
 export type AdLabel = {
   client_or_sample: "client" | "sample";
   client_name: string | null;
@@ -54,6 +56,11 @@ const caseStudyFiles = import.meta.glob<{ default: CaseStudy }>(
 
 const reviewFiles = import.meta.glob<{ default: Review }>(
   "../../content/reviews/*.json",
+  { eager: true }
+);
+
+const clientFile = import.meta.glob<{ default: { clients: Client[] } }>(
+  "../../content/clients.json",
   { eager: true }
 );
 
@@ -74,6 +81,11 @@ export const reviews: Review[] = Object.values(reviewFiles)
   .map((m) => m.default)
   .filter((r) => r.permission_confirmed)
   .sort((a, b) => Number(Boolean(b.video_url)) - Number(Boolean(a.video_url)));
+
+/** Businesses we've worked with, in the order they're listed. */
+export const clients: Client[] = (
+  Object.values(clientFile)[0]?.default?.clients ?? []
+).filter((c) => c.published);
 
 export const adLabels: Record<string, AdLabel> =
   Object.values(adLabelFile)[0]?.default?.labels ?? {};
