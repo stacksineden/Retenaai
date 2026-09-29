@@ -47,6 +47,16 @@ export const ROUTE_META = {
     ogDescription:
       "Ads, landing pages and WhatsApp systems for Nigerian businesses. Free audit.",
   },
+  work: {
+    path: "/work",
+    file: "work.html",
+    title: "Our work — RetenaAI",
+    description:
+      "Ads we've made, pages we've built and systems we've set up for Nigerian businesses. Case studies, ad creative and reviews in one place.",
+    ogTitle: "Work we've shipped",
+    ogDescription:
+      "Ads, landing pages and WhatsApp systems for Nigerian businesses.",
+  },
   /** The creative-supply site for international brands — moved here from "/". */
   creative: {
     path: "/creative",
@@ -96,3 +106,32 @@ export const ROUTE_META = {
     robots: "noindex, nofollow",
   },
 } satisfies Record<string, RouteMeta>;
+
+/**
+ * Meta for one case study. Structurally typed rather than importing the
+ * CaseStudy type, because this file is loaded by the Vite config in Node and
+ * must stay free of imports.
+ *
+ * og_image is a 1200x630 image per case study; without one it falls back to
+ * the site mark, which previews correctly but generically.
+ */
+export function caseStudyMeta(study: {
+  slug: string;
+  client_name: string;
+  city: string;
+  problem: string;
+  what_we_built: string;
+  og_image?: string | null;
+}): RouteMeta & { ogImage: string } {
+  const where = study.city ? `${study.client_name}, ${study.city}` : study.client_name;
+  return {
+    path: `/work/${study.slug}`,
+    file: `work/${study.slug}.html`,
+    title: `${where} — RetenaAI`,
+    description:
+      study.what_we_built || study.problem || `What we built for ${where}.`,
+    ogTitle: `${where} — what we built`,
+    ogDescription: study.problem || study.what_we_built || "",
+    ogImage: study.og_image || OG_IMAGE,
+  };
+}

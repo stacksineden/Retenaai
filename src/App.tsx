@@ -1,6 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { Landing } from "./pages/Landing";
+import { Work } from "./pages/Work";
+import { CaseStudy } from "./pages/CaseStudy";
 import { Home as CreativeHome } from "./pages/Home";
 import { Pricing } from "./pages/Pricing";
 import { FreeAd } from "./pages/FreeAd";
@@ -15,6 +17,8 @@ function App() {
       <Routes>
         {/* The Nigerian site */}
         <Route path="/" element={<Landing />} />
+        <Route path="/work" element={<Work />} />
+        <Route path="/work/:slug" element={<CaseStudy />} />
 
         {/* The creative-supply site for international brands.
             Stage 4 moves its remaining routes under /creative and adds redirects. */}

@@ -2,15 +2,22 @@
   "slug": "yemi-farounbi-colloquium",
   "client_name": "The Yemi Farounbi Colloquium",
   "city": "",
-  "layers": ["pages"],
+  "layers": [
+    "pages"
+  ],
   "problem": "",
   "what_we_built": "",
   "screenshots": [
-    { "src": "/work/tyf-colloquium.jpg", "alt": "The Yemi Farounbi Colloquium home page", "caption": "" }
+    {
+      "src": "/work/tyf-colloquium.jpg",
+      "alt": "The Yemi Farounbi Colloquium home page",
+      "caption": ""
+    }
   ],
   "video": null,
   "result": null,
   "quote_id": null,
+  "og_image": null,
   "featured": true,
   "published": false,
   "_todo": "[CONFIRM permission for homepage use] · [CONFIRM the problem, what was built, city] · phone-width screenshots · set published to true"

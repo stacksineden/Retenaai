@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { Play } from "lucide-react";
 import { PhoneFrame } from "./PhoneFrame";
-import { adBadges, publishedAds, type Ad } from "../../data/ads";
+import {
+  adBadges,
+  optimize,
+  publishedAds,
+  videoPoster,
+  type Ad,
+} from "../../data/ads";
 import { track } from "../../lib/track";
 
 /**
@@ -54,7 +60,7 @@ function AdCard({ ad }: { ad: Ad }) {
             aria-label={ad.type === "video" ? `Play ${ad.title}` : ad.title}
           >
             <img
-              src={ad.poster ?? ad.url}
+              src={ad.type === "video" ? videoPoster(ad.url) : optimize(ad.url, "grid")}
               alt={ad.title}
               loading="lazy"
               decoding="async"

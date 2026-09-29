@@ -23,6 +23,8 @@ export type CaseStudy = {
   /** A measured figure from the client's own data, or null. Never estimated. */
   result: string | null;
   quote_id: string | null;
+  /** 1200x630 link-preview image for this case study, or null for the site mark. */
+  og_image: string | null;
   featured: boolean;
   published: boolean;
 };
