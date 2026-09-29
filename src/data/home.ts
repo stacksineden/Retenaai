@@ -126,6 +126,9 @@ export const HOMEPAGE_ADS = [
   "wellman-asset1_q7btle",
   "uplift-pro-ad1_tru0pd",
   "uplift-pro-ad2_xfjsjk",
+  // Two more niches, so the strip isn't all skincare and supplements.
+  "Generated_Image_September_05_2025_-_7_09PM_xeizaf", // chilli sauce
+  "wrth3_mtkyat", // jersey
 ] as const;
 
 /** Caption for the layer-3 demo, once Samuel's own system is recorded. */

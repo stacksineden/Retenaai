@@ -4,6 +4,7 @@ import { AdReel } from "../components/site/AdReel";
 import { AuditForm } from "../components/site/AuditForm";
 import { CaseStudyCards } from "../components/site/CaseStudyCards";
 import { ClientStrip } from "../components/site/ClientStrip";
+import { LandingPagePreview } from "../components/site/LandingPagePreview";
 import { DashboardFunnel } from "../components/site/DashboardFunnel";
 import { HeroProofStrip, Reviews } from "../components/site/Reviews";
 import { WhatsAppCta } from "../components/site/WhatsAppCta";
@@ -147,6 +148,9 @@ export function Landing() {
                       <AdReel />
                     </div>
                   )}
+
+                  {/* Proof: a page we actually built, on layer 2. */}
+                  {layer.id === "somewhere-to-land" && <LandingPagePreview />}
 
                   {layer.note && (
                     <p className="mt-6 rounded-2xl bg-navy-50 p-4 text-sm leading-relaxed text-navy/60">
