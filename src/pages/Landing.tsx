@@ -5,6 +5,7 @@ import { AuditForm } from "../components/site/AuditForm";
 import { CaseStudyCards } from "../components/site/CaseStudyCards";
 import { ClientStrip } from "../components/site/ClientStrip";
 import { LandingPagePreview } from "../components/site/LandingPagePreview";
+import { HeroShowcase } from "../components/site/HeroShowcase";
 import { DashboardFunnel } from "../components/site/DashboardFunnel";
 import { HeroProofStrip, Reviews } from "../components/site/Reviews";
 import { WhatsAppCta } from "../components/site/WhatsAppCta";
@@ -40,32 +41,39 @@ export function Landing() {
       {/* 1. Hero */}
       <section className="gradient-hero relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
         <div className="container-page">
-          <div className="max-w-3xl">
-            <h1 className="text-balance font-display text-[2.1rem] font-semibold leading-[1.08] text-navy sm:text-5xl md:text-6xl">
-              Stop losing customers in{" "}
-              <span className="text-gradient-amber">your DMs.</span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-navy/65 md:text-lg">
-              {HERO.subhead}
-            </p>
+          <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)]">
+            <div className="max-w-3xl">
+              <h1 className="text-balance font-display text-[2.1rem] font-semibold leading-[1.08] text-navy sm:text-5xl md:text-6xl">
+                Stop losing customers in{" "}
+                <span className="text-gradient-amber">your DMs.</span>
+              </h1>
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-navy/65 md:text-lg">
+                {HERO.subhead}
+              </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-              <WhatsAppCta message={WHATSAPP_MESSAGES.audit} event="audit_click_hero">
-                {HERO.primaryButton}
-              </WhatsAppCta>
-              <a
-                href="#our-work"
-                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-navy/15 bg-white px-7 text-sm font-semibold text-navy transition-all hover:-translate-y-0.5 hover:border-navy/35 focus-ring md:text-base"
-              >
-                {HERO.secondaryLink}
-                <ArrowRight size={16} />
-              </a>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+                <WhatsAppCta
+                  message={WHATSAPP_MESSAGES.audit}
+                  event="audit_click_hero"
+                >
+                  {HERO.primaryButton}
+                </WhatsAppCta>
+                <a
+                  href="#our-work"
+                  className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-navy/15 bg-white px-7 text-sm font-semibold text-navy transition-all hover:-translate-y-0.5 hover:border-navy/35 focus-ring md:text-base"
+                >
+                  {HERO.secondaryLink}
+                  <ArrowRight size={16} />
+                </a>
+              </div>
+
+              {/* Renders nothing until a review has confirmed permission. */}
+              <HeroProofStrip />
+
+              <ClientStrip label={HERO.proofLabel} className="mt-12" />
             </div>
 
-            {/* Renders nothing until a review has confirmed permission. */}
-            <HeroProofStrip />
-
-            <ClientStrip label={HERO.proofLabel} className="mt-12" />
+            <HeroShowcase />
           </div>
         </div>
       </section>
@@ -76,14 +84,17 @@ export function Landing() {
           <h2 className="text-balance font-display text-2xl font-semibold leading-tight text-navy sm:text-3xl md:text-4xl">
             {PROBLEM.heading}
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-navy/65">{PROBLEM.body}</p>
+          <p className="mt-5 text-base leading-relaxed text-navy/65">
+            {PROBLEM.body}
+          </p>
 
           <ul className="mt-8 space-y-5">
             {PROBLEM.points.map((p) => (
               <li key={p.title} className="flex gap-3">
                 <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-amber" />
                 <p className="text-base leading-relaxed text-navy/70">
-                  <strong className="font-semibold text-navy">{p.title}</strong> {p.body}
+                  <strong className="font-semibold text-navy">{p.title}</strong>{" "}
+                  {p.body}
                 </p>
               </li>
             ))}
@@ -96,7 +107,10 @@ export function Landing() {
       </section>
 
       {/* 3. How it works — the three layers */}
-      <section id="how-it-works" className="scroll-mt-20 bg-navy-50/40 py-20 md:py-28">
+      <section
+        id="how-it-works"
+        className="scroll-mt-20 bg-navy-50/40 py-20 md:py-28"
+      >
         <div className="container-page">
           <div className="max-w-3xl">
             <h2 className="text-balance font-display text-2xl font-semibold leading-tight text-navy sm:text-3xl md:text-4xl">
@@ -122,13 +136,18 @@ export function Landing() {
                   </p>
 
                   {layer.listIntro && (
-                    <p className="mt-4 text-sm font-medium text-navy/70">{layer.listIntro}</p>
+                    <p className="mt-4 text-sm font-medium text-navy/70">
+                      {layer.listIntro}
+                    </p>
                   )}
 
                   {layer.points.length > 0 && (
                     <ul className="mt-3 space-y-2.5">
                       {layer.points.map((point) => (
-                        <li key={point} className="flex items-start gap-2.5 text-sm text-navy/70">
+                        <li
+                          key={point}
+                          className="flex items-start gap-2.5 text-sm text-navy/70"
+                        >
                           <span className="mt-0.5 grid h-4.5 w-4.5 shrink-0 place-items-center rounded-full bg-amber/15 text-amber-600">
                             <Check size={11} strokeWidth={3} />
                           </span>
@@ -139,7 +158,9 @@ export function Landing() {
                   )}
 
                   {layer.closing && (
-                    <p className="mt-4 text-base leading-relaxed text-navy/65">{layer.closing}</p>
+                    <p className="mt-4 text-base leading-relaxed text-navy/65">
+                      {layer.closing}
+                    </p>
                   )}
 
                   {/* Proof: ad reel on layer 1. Nothing renders until ads are labelled. */}
@@ -171,7 +192,9 @@ export function Landing() {
             <h2 className="text-balance font-display text-2xl font-semibold leading-tight text-navy sm:text-3xl md:text-4xl">
               {DASHBOARD.heading}
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-navy/65">{DASHBOARD.body}</p>
+            <p className="mt-5 text-base leading-relaxed text-navy/65">
+              {DASHBOARD.body}
+            </p>
           </div>
           <DashboardFunnel />
         </div>
@@ -226,17 +249,27 @@ export function Landing() {
       </section>
 
       {/* 7. The free audit */}
-      <section id="free-audit" className="scroll-mt-20 bg-navy py-20 text-white md:py-28">
+      <section
+        id="free-audit"
+        className="scroll-mt-20 bg-navy py-20 text-white md:py-28"
+      >
         <div className="container-page max-w-3xl">
           <h2 className="text-balance font-display text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-4xl">
             {AUDIT.heading}
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-white/65">{AUDIT.body}</p>
+          <p className="mt-5 text-base leading-relaxed text-white/65">
+            {AUDIT.body}
+          </p>
 
-          <p className="mt-8 text-sm font-semibold text-amber">{AUDIT.getLabel}</p>
+          <p className="mt-8 text-sm font-semibold text-amber">
+            {AUDIT.getLabel}
+          </p>
           <ul className="mt-4 space-y-3">
             {AUDIT.get.map((item) => (
-              <li key={item} className="flex items-start gap-3 text-base leading-relaxed text-white/80">
+              <li
+                key={item}
+                className="flex items-start gap-3 text-base leading-relaxed text-white/80"
+              >
                 <span className="mt-1 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-amber/20 text-amber">
                   <Check size={12} strokeWidth={3} />
                 </span>
@@ -246,11 +279,15 @@ export function Landing() {
           </ul>
 
           <p className="mt-8 text-base leading-relaxed text-white/70">
-            <span className="font-semibold text-white">{AUDIT.isntLabel}</span> {AUDIT.isnt}
+            <span className="font-semibold text-white">{AUDIT.isntLabel}</span>{" "}
+            {AUDIT.isnt}
           </p>
 
           <div className="mt-10">
-            <WhatsAppCta message={WHATSAPP_MESSAGES.audit} event="audit_click_section">
+            <WhatsAppCta
+              message={WHATSAPP_MESSAGES.audit}
+              event="audit_click_section"
+            >
               {AUDIT.button}
             </WhatsAppCta>
           </div>
@@ -276,14 +313,23 @@ export function Landing() {
             <h2 className="text-balance font-display text-2xl font-semibold leading-tight text-navy sm:text-3xl md:text-4xl">
               {WHO_ITS_FOR.heading}
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-navy/65">{WHO_ITS_FOR.body}</p>
+            <p className="mt-5 text-base leading-relaxed text-navy/65">
+              {WHO_ITS_FOR.body}
+            </p>
           </div>
 
           <ul className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {WHO_ITS_FOR.points.map((p) => (
-              <li key={p.title} className="rounded-2xl border border-navy/10 bg-white p-5">
-                <h3 className="font-display text-base font-semibold text-navy">{p.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-navy/60">{p.body}</p>
+              <li
+                key={p.title}
+                className="rounded-2xl border border-navy/10 bg-white p-5"
+              >
+                <h3 className="font-display text-base font-semibold text-navy">
+                  {p.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-navy/60">
+                  {p.body}
+                </p>
               </li>
             ))}
           </ul>
@@ -304,7 +350,10 @@ export function Landing() {
                   {i + 1}
                 </span>
                 <p className="pt-1.5 text-base leading-relaxed text-navy/70">
-                  <strong className="font-semibold text-navy">{step.title}</strong> {step.body}
+                  <strong className="font-semibold text-navy">
+                    {step.title}
+                  </strong>{" "}
+                  {step.body}
                 </p>
               </li>
             ))}
@@ -313,7 +362,9 @@ export function Landing() {
           <p className="mt-8 rounded-2xl bg-white p-5 text-base font-medium text-navy">
             {HOW_WE_WORK.below}
           </p>
-          <p className="mt-4 text-sm leading-relaxed text-navy/60">{HOW_WE_WORK.oneLayer}</p>
+          <p className="mt-4 text-sm leading-relaxed text-navy/60">
+            {HOW_WE_WORK.oneLayer}
+          </p>
         </div>
       </section>
 
@@ -323,7 +374,9 @@ export function Landing() {
           <h2 className="font-display text-2xl font-semibold text-navy sm:text-3xl md:text-4xl">
             {WONT_DO.heading}
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-navy/65">{WONT_DO.body}</p>
+          <p className="mt-5 text-base leading-relaxed text-navy/65">
+            {WONT_DO.body}
+          </p>
         </div>
       </section>
 
@@ -333,9 +386,15 @@ export function Landing() {
           <h2 className="text-balance font-display text-2xl font-semibold leading-tight text-navy sm:text-3xl md:text-4xl">
             {REFER.heading}
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-navy/65">{REFER.body}</p>
+          <p className="mt-5 text-base leading-relaxed text-navy/65">
+            {REFER.body}
+          </p>
           <div className="mt-8">
-            <WhatsAppCta message={WHATSAPP_MESSAGES.refer} event="refer_click" variant="primary">
+            <WhatsAppCta
+              message={WHATSAPP_MESSAGES.refer}
+              event="refer_click"
+              variant="primary"
+            >
               {REFER.button}
             </WhatsAppCta>
           </div>
@@ -352,9 +411,14 @@ export function Landing() {
           <h2 className="text-balance font-display text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-4xl">
             {FINAL_CTA.heading}
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-white/65">{FINAL_CTA.body}</p>
+          <p className="mt-5 text-base leading-relaxed text-white/65">
+            {FINAL_CTA.body}
+          </p>
           <div className="mt-8 flex justify-center">
-            <WhatsAppCta message={WHATSAPP_MESSAGES.audit} event="audit_click_final">
+            <WhatsAppCta
+              message={WHATSAPP_MESSAGES.audit}
+              event="audit_click_final"
+            >
               {FINAL_CTA.button}
             </WhatsAppCta>
           </div>
