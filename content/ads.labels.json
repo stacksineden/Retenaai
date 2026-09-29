@@ -306,7 +306,7 @@
     "mv-ig_eyl4se": {
       "client_or_sample": "sample",
       "client_name": null,
-      "ai_presenter": false,
+      "ai_presenter": true,
       "published": true
     },
     "d6gkk0rdh88e5xqkgy1j_aursf0": {
@@ -568,6 +568,36 @@
       "published": true
     },
     "food4_ibbgrd": {
+      "client_or_sample": "sample",
+      "client_name": null,
+      "ai_presenter": false,
+      "published": true
+    },
+    "a-uplift-pro-ugc-final_dbarsd": {
+      "client_or_sample": "sample",
+      "client_name": null,
+      "ai_presenter": false,
+      "published": true
+    },
+    "uplift-pro-ad1_tru0pd": {
+      "client_or_sample": "sample",
+      "client_name": null,
+      "ai_presenter": false,
+      "published": true
+    },
+    "uplift-pro-ad2_xfjsjk": {
+      "client_or_sample": "sample",
+      "client_name": null,
+      "ai_presenter": false,
+      "published": true
+    },
+    "uplift-pro-ad3_mdnsau": {
+      "client_or_sample": "sample",
+      "client_name": null,
+      "ai_presenter": false,
+      "published": true
+    },
+    "Uplift-pro-ugc_epeuhs": {
       "client_or_sample": "sample",
       "client_name": null,
       "ai_presenter": false,

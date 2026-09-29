@@ -148,6 +148,13 @@ const ALL_ADS: Omit<Ad, "label">[] = [
   { key: "food2_dhp0ry", url: "https://res.cloudinary.com/dast35q6f/image/upload/v1779200268/food2_dhp0ry.png", category: "food_cusine", title: "FOOD CUSINE CAMPAIGN", type: "image" },
   { key: "food3_d0klxy", url: "https://res.cloudinary.com/dast35q6f/image/upload/v1779200275/food3_d0klxy.png", category: "food_cusine", title: "FOOD CUSINE CAMPAIGN", type: "image" },
   { key: "food4_ibbgrd", url: "https://res.cloudinary.com/dast35q6f/image/upload/v1779200278/food4_ibbgrd.png", category: "food_cusine", title: "FOOD CUSINE CAMPAIGN", type: "image" },
+
+  // uplift_pro
+  { key: "a-uplift-pro-ugc-final_dbarsd", url: "https://res.cloudinary.com/dyryfgjro/video/upload/v1790668307/a-uplift-pro-ugc-final_dbarsd.mov", category: "uplift_pro", title: "UPLIFT PRO CAMPAIGN", type: "video" },
+  { key: "uplift-pro-ad1_tru0pd", url: "https://res.cloudinary.com/dyryfgjro/image/upload/v1790668353/uplift-pro-ad1_tru0pd.png", category: "uplift_pro", title: "UPLIFT PRO CAMPAIGN", type: "image" },
+  { key: "uplift-pro-ad2_xfjsjk", url: "https://res.cloudinary.com/dyryfgjro/image/upload/v1790668365/uplift-pro-ad2_xfjsjk.png", category: "uplift_pro", title: "UPLIFT PRO CAMPAIGN", type: "image" },
+  { key: "uplift-pro-ad3_mdnsau", url: "https://res.cloudinary.com/dyryfgjro/image/upload/v1790668376/uplift-pro-ad3_mdnsau.png", category: "uplift_pro", title: "UPLIFT PRO CAMPAIGN", type: "image" },
+  { key: "Uplift-pro-ugc_epeuhs", url: "https://res.cloudinary.com/dyryfgjro/video/upload/v1785833096/Uplift-pro-ugc_epeuhs.mov", category: "uplift_pro", title: "UPLIFT PRO CAMPAIGN", type: "video" },
 ];
 
 /**
@@ -159,6 +166,20 @@ export function optimize(url: string, context: "grid" | "full"): string {
   const [base, rest] = url.split("/upload/");
   if (context === "grid") return `${base}/upload/w_600,f_auto,q_auto/${rest}`;
   return `${base}/upload/w_1600,f_auto,q_auto/${rest}`;
+}
+
+/**
+ * Playable video URL, at a chosen width.
+ *
+ * Autoplaying tiles ask for a small render (w_600 is plenty for a grid cell),
+ * so a homepage with three looping videos stays light. q_auto lets Cloudinary
+ * pick the bitrate.
+ */
+export function adVideoSrc(url: string, width = 600): string {
+  const mp4 = url.replace(/\.mov$/i, ".mp4");
+  if (!mp4.includes("/upload/")) return mp4;
+  const [base, rest] = mp4.split("/upload/");
+  return `${base}/upload/w_${width},q_auto/${rest}`;
 }
 
 /**

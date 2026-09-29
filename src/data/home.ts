@@ -103,6 +103,31 @@ export const LAYERS = [
   },
 ];
 
+/**
+ * The ads on the homepage, in this order — Samuel's pick, not an algorithm's.
+ * Keys are asset_key from docs/ads-labelling.csv. An ad still has to be
+ * labelled and published to appear; the full set lives on /work.
+ *
+ * Videos first, then at most two stills per brand: a third still of the same
+ * product reads as filler rather than range.
+ */
+export const HOMEPAGE_ADS = [
+  // The five from the creative site's hero reel — our strongest work.
+  "Uplift-pro-ugc_epeuhs",
+  "face-facts-ugc1_msgmcs",
+  "face-facts-ad1_hds0vl",
+  "curlumi-ugc_kwuf0o",
+  "wellman-ugc1_k9mhfp",
+  "a-uplift-pro-ugc-final_dbarsd",
+  // Two stills per brand, no more.
+  "face-facts-assets5_vwzz4b",
+  "face-facts-asset1_tflbn6",
+  "wellman-asset3_m9mylo",
+  "wellman-asset1_q7btle",
+  "uplift-pro-ad1_tru0pd",
+  "uplift-pro-ad2_xfjsjk",
+] as const;
+
 /** Caption for the layer-3 demo, once Samuel's own system is recorded. */
 export const OWN_SYSTEM_CAPTION =
   "Our own WhatsApp, running the same system we set up for clients.";
