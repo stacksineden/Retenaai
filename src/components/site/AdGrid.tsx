@@ -1,15 +1,10 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Play, X } from "lucide-react";
-import {
-  adBadges,
-  optimize,
-  publishedAds,
-  videoPoster,
-  type Ad,
-} from "../../data/ads";
+import { publishedAds } from "../../data/ads";
+import { AdTile } from "./AdTile";
+import { AdLightbox } from "./AdLightbox";
 import { categoryLabel, WORK_PAGE } from "../../data/work";
-import { track } from "../../lib/track";
+import type { Ad } from "../../data/ads";
 
 /**
  * The full ad portfolio, filtered by category.
@@ -76,15 +71,14 @@ export function AdGrid() {
         {WORK_PAGE.ads.countLabel(shown.length)}
       </p>
 
-      <ul className="mt-6 grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
+      {/* Columns, not a grid: every ad keeps its own shape and nothing is cropped. */}
+      <div className="mt-6 columns-2 gap-4 sm:gap-5 md:columns-3 lg:columns-4">
         {shown.map((ad) => (
-          <li key={ad.key}>
-            <AdTile ad={ad} onOpen={() => setOpen(ad)} />
-          </li>
+          <AdTile key={ad.key} ad={ad} onOpen={() => setOpen(ad)} />
         ))}
-      </ul>
+      </div>
 
-      {open && <Lightbox ad={open} onClose={() => setOpen(null)} />}
+      {open && <AdLightbox ad={open} onClose={() => setOpen(null)} />}
     </>
   );
 }
@@ -111,103 +105,5 @@ function FilterChip({
     >
       {children}
     </button>
-  );
-}
-
-function AdTile({ ad, onOpen }: { ad: Ad; onOpen: () => void }) {
-  const badges = adBadges(ad.label);
-  const poster = ad.type === "video" ? videoPoster(ad.url) : optimize(ad.url, "grid");
-
-  return (
-    <figure>
-      <button
-        type="button"
-        onClick={() => {
-          onOpen();
-          if (ad.type === "video") track("video_play", { ad: ad.key });
-        }}
-        className="group relative block aspect-[4/5] w-full overflow-hidden rounded-2xl bg-navy/5 focus-ring"
-        aria-label={ad.type === "video" ? `Play ${ad.title}` : `View ${ad.title}`}
-      >
-        <img
-          src={poster}
-          alt={ad.title}
-          loading="lazy"
-          decoding="async"
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-        />
-        {ad.type === "video" && (
-          <span className="absolute inset-0 grid place-items-center bg-ink/20">
-            <span className="grid h-12 w-12 place-items-center rounded-full bg-amber text-ink shadow-amber-glow transition-transform group-hover:scale-110">
-              <Play size={18} fill="currentColor" className="translate-x-[1px]" />
-            </span>
-          </span>
-        )}
-      </button>
-
-      <figcaption className="mt-2.5 flex flex-wrap gap-1.5">
-        {badges.map((b) => (
-          <span
-            key={b}
-            className="rounded-full bg-navy/6 px-2.5 py-1 text-[11px] font-medium text-navy/60"
-          >
-            {b}
-          </span>
-        ))}
-      </figcaption>
-    </figure>
-  );
-}
-
-function Lightbox({ ad, onClose }: { ad: Ad; onClose: () => void }) {
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-    document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
-  }, [onClose]);
-
-  return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-label={ad.title}
-      className="fixed inset-0 z-50 grid place-items-center bg-ink/85 p-4 backdrop-blur-sm"
-      onClick={onClose}
-    >
-      <button
-        type="button"
-        onClick={onClose}
-        aria-label="Close"
-        className="absolute right-4 top-4 grid h-12 w-12 place-items-center rounded-full bg-white/10 text-white hover:bg-white/20 focus-ring"
-      >
-        <X size={22} />
-      </button>
-
-      <div
-        className="max-h-[85vh] w-full max-w-lg overflow-hidden rounded-2xl"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {ad.type === "video" ? (
-          <video
-            src={ad.url}
-            controls
-            autoPlay
-            playsInline
-            className="max-h-[85vh] w-full object-contain"
-            aria-label={ad.title}
-          />
-        ) : (
-          <img
-            src={optimize(ad.url, "full")}
-            alt={ad.title}
-            className="max-h-[85vh] w-full object-contain"
-          />
-        )}
-      </div>
-    </div>
   );
 }

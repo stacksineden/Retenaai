@@ -161,6 +161,17 @@ export function optimize(url: string, context: "grid" | "full"): string {
   return `${base}/upload/w_1600,f_auto,q_auto/${rest}`;
 }
 
+/**
+ * Playable video URL.
+ *
+ * Seven of these are .mov, which Safari plays and Chrome often won't. Asking
+ * Cloudinary for .mp4 makes it transcode on delivery, so every ad plays
+ * everywhere without re-uploading anything.
+ */
+export function videoSrc(url: string): string {
+  return url.replace(/\.mov$/i, ".mp4");
+}
+
 /** First frame of a video, for a poster image. */
 export function videoPoster(url: string): string {
   if (!url.includes("/upload/")) return "";

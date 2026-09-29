@@ -29,7 +29,7 @@ export const WORK_PAGE = {
   ads: {
     heading: "Ad creative",
     intro:
-      "Made in-house. Samples are made to show a format; client ads ran on a client's account.",
+      "Made in-house. Samples are made to show a format; client ads ran on a client's account. Some use AI-generated presenters — where we know which, the ad says so.",
     empty: "Ads go live here once they're labelled.",
     all: "All",
     countLabel: (n: number) => `${n} ${n === 1 ? "ad" : "ads"}`,

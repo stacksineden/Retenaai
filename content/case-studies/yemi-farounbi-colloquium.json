@@ -6,7 +6,7 @@
     "pages"
   ],
   "problem": "",
-  "what_we_built": "",
+  "what_we_built": "A landing page for the colloquium.",
   "screenshots": [
     {
       "src": "/work/tyf-colloquium.jpg",
@@ -19,6 +19,6 @@
   "quote_id": null,
   "og_image": null,
   "featured": true,
-  "published": false,
-  "_todo": "[CONFIRM permission for homepage use] · [CONFIRM the problem, what was built, city] · phone-width screenshots · set published to true"
+  "published": true,
+  "_todo": "[CONFIRM] problem, the fuller what_we_built, and city — these are Samuel's to write; the page renders only the fields that are filled. Also: phone-width screenshots, and a 1200x630 og_image."
 }
