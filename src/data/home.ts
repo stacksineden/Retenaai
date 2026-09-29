@@ -112,13 +112,13 @@ export const LAYERS = [
  * product reads as filler rather than range.
  */
 export const HOMEPAGE_ADS = [
-  // The five from the creative site's hero reel — our strongest work.
-  "Uplift-pro-ugc_epeuhs",
+  // The five from the creative site's hero reel — our strongest work — with
+  // the final Uplift Pro cut in place of the earlier one.
+  "a-uplift-pro-ugc-final_dbarsd",
   "face-facts-ugc1_msgmcs",
   "face-facts-ad1_hds0vl",
   "curlumi-ugc_kwuf0o",
   "wellman-ugc1_k9mhfp",
-  "a-uplift-pro-ugc-final_dbarsd",
   // Two stills per brand, no more.
   "face-facts-assets5_vwzz4b",
   "face-facts-asset1_tflbn6",
