@@ -120,13 +120,21 @@ export const LAYERS = [
  * Keys are asset_key from docs/ads-labelling.csv. An ad still has to be
  * labelled and published to appear; the full set lives on /work.
  *
- * One card per campaign — a campaign repeated across cards reads as filler
- * rather than range, and the titles would repeat too.
+ * A campaign can appear more than once: showing the range of the work matters
+ * more here than avoiding a repeated title.
  */
 export const HOMEPAGE_ADS = [
+  // The videos from the creative site's hero reel — our strongest work.
   "a-uplift-pro-ugc-final_dbarsd",
   "face-facts-ugc1_msgmcs",
+  "face-facts-ad1_hds0vl",
   "curlumi-ugc_kwuf0o",
+  // Two stills per brand.
+  "face-facts-assets5_vwzz4b",
+  "face-facts-asset1_tflbn6",
+  "uplift-pro-ad1_tru0pd",
+  "uplift-pro-ad2_xfjsjk",
+  // Two more niches, so the strip isn't all skincare.
   "Generated_Image_September_05_2025_-_7_09PM_xeizaf", // chilli sauce
   "wrth3_mtkyat", // jersey
 ] as const;

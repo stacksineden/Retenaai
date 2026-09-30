@@ -90,21 +90,40 @@ export const caseStudies: CaseStudy[] = Object.values(caseStudyFiles)
 
 export const featuredCaseStudies: CaseStudy[] = caseStudies.filter((c) => c.featured);
 
+/* ---------------------------------------------------------------------------
+ * REVIEWS ARE SWITCHED OFF
+ * ---------------------------------------------------------------------------
+ * Nothing about reviews renders anywhere while this is false: the "In their
+ * words" section on the homepage, the quote strip under the hero, the reviews
+ * section on /work, and the quote on a case study all disappear on their own,
+ * because every one of them reads from `reviews` below.
+ *
+ * TO TURN REVIEWS BACK ON, when real ones exist:
+ *   1. add each review as its own file in content/reviews/ — see the README
+ *      there for the template and the permission rule
+ *   2. set REVIEWS_ENABLED to true
+ *
+ * Nothing else needs touching. Leaving it false is safe: it's a switch, not a
+ * deletion, and all the markup is still here.
+ * ------------------------------------------------------------------------- */
+export const REVIEWS_ENABLED = false;
+
 /**
  * Reviews with written permission only. Video testimonials first.
  *
- * `npm run dev` also shows the unconfirmed placeholders in content/reviews,
- * so the layout can be checked before any real review exists. Every build —
- * including Vercel previews — drops them, so a placeholder can't reach a
- * visitor. With nothing confirmed this is empty, and both the reviews section
- * and the hero strip render nothing at all.
+ * `npm run dev` also shows the unconfirmed placeholders in
+ * content/reviews/_placeholders, so the layout can be checked before a real
+ * review exists. Builds drop them — their text isn't in the bundle at all —
+ * so a placeholder can't reach a visitor.
  */
-export const reviews: Review[] = [
-  ...Object.values(reviewFiles).map((m) => m.default),
-  ...Object.values(placeholderFiles).map((m) => m.default),
-]
-  .filter((r) => r.permission_confirmed || import.meta.env.DEV)
-  .sort((a, b) => Number(Boolean(b.video_url)) - Number(Boolean(a.video_url)));
+export const reviews: Review[] = !REVIEWS_ENABLED
+  ? []
+  : [
+      ...Object.values(reviewFiles).map((m) => m.default),
+      ...Object.values(placeholderFiles).map((m) => m.default),
+    ]
+      .filter((r) => r.permission_confirmed || import.meta.env.DEV)
+      .sort((a, b) => Number(Boolean(b.video_url)) - Number(Boolean(a.video_url)));
 
 /** Businesses we've worked with, in the order they're listed. */
 export const clients: Client[] = (

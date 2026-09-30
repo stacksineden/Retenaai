@@ -4,7 +4,7 @@ import { ClientStrip } from "../components/site/ClientStrip";
 import { Reviews } from "../components/site/Reviews";
 import { WhatsAppCta } from "../components/site/WhatsAppCta";
 import { Reveal } from "../components/Reveal";
-import { caseStudies, reviews } from "../content";
+import { caseStudies, reviews, REVIEWS_ENABLED } from "../content";
 import { HERO } from "../data/home";
 import { ROUTE_META } from "../data/seo";
 import { WORK_PAGE } from "../data/work";
@@ -71,22 +71,25 @@ export function Work() {
         </div>
       </section>
 
-      <section className="border-t border-navy/8 bg-white py-20 md:py-24">
-        <div className="container-page">
-          <h2 className="font-display text-2xl font-semibold text-navy sm:text-3xl">
-            {WORK_PAGE.reviews.heading}
-          </h2>
-          {reviews.length > 0 ? (
-            <div className="mt-10">
-              <Reviews limit={12} />
-            </div>
-          ) : (
-            <p className="mt-6 max-w-xl text-base text-navy/55">
-              {WORK_PAGE.reviews.empty}
-            </p>
-          )}
-        </div>
-      </section>
+      {/* Off entirely while REVIEWS_ENABLED is false — no heading, no empty state. */}
+      {REVIEWS_ENABLED && (
+        <section className="border-t border-navy/8 bg-white py-20 md:py-24">
+          <div className="container-page">
+            <h2 className="font-display text-2xl font-semibold text-navy sm:text-3xl">
+              {WORK_PAGE.reviews.heading}
+            </h2>
+            {reviews.length > 0 ? (
+              <div className="mt-10">
+                <Reviews limit={12} />
+              </div>
+            ) : (
+              <p className="mt-6 max-w-xl text-base text-navy/55">
+                {WORK_PAGE.reviews.empty}
+              </p>
+            )}
+          </div>
+        </section>
+      )}
 
       <section className="bg-navy py-20 text-white md:py-24">
         <div className="container-page max-w-2xl text-center">
