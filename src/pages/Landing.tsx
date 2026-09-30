@@ -44,8 +44,8 @@ export function Landing() {
           <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)]">
             <div className="max-w-3xl">
               <h1 className="text-balance font-display text-[2.1rem] font-semibold leading-[1.08] text-navy sm:text-5xl md:text-6xl">
-                Stop losing customers in{" "}
-                <span className="text-gradient-amber">your DMs.</span>
+                Get seen. Get chosen.{" "}
+                <span className="text-gradient-amber">Get paid.</span>
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-relaxed text-navy/65 md:text-lg">
                 {HERO.subhead}

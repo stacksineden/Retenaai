@@ -43,7 +43,7 @@ export const ROUTE_META = {
       "RetenaAI: Ads, pages and WhatsApp systems that turn enquiries into sales",
     description:
       "We make the ads, build where customers land, and set up WhatsApp so every enquiry gets answered and tracked. Start with a free business audit.",
-    ogTitle: "Stop losing customers in your DMs",
+    ogTitle: "Get seen. Get chosen. Get paid.",
     ogDescription:
       "Ads, landing pages and WhatsApp systems for Nigerian businesses. Free audit.",
   },

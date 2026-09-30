@@ -10,13 +10,19 @@ export const HOME_META = {
     "RetenaAI: Ads, pages and WhatsApp systems that turn enquiries into sales",
   description:
     "We make the ads, build where customers land, and set up WhatsApp so every enquiry gets answered and tracked. Start with a free business audit.",
-  ogTitle: "Stop losing customers in your DMs",
+  ogTitle: "Get seen. Get chosen. Get paid.",
   ogDescription:
     "Ads, landing pages and WhatsApp systems for Nigerian businesses. Free audit.",
 };
 
 export const HERO = {
-  headline: "Stop losing customers in your DMs.",
+  /*
+   * Three layers, three verbs: seen = the ads, chosen = the page where they
+   * decide, paid = the close. The old line ("Stop losing customers in your
+   * DMs") named the leak rather than the journey, so the ads and the page
+   * read as an afterthought.
+   */
+  headline: "Get seen. Get chosen. Get paid.",
   subhead:
     "We make the ads that get you seen, build the page they land on, and set up your WhatsApp so every enquiry gets answered, followed up and tracked, down to which ad brought which sale.",
   primaryButton: "Book a free business audit",
