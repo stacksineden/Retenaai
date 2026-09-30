@@ -8,10 +8,10 @@
 import { getRef } from "./ref";
 
 /** Digits only, for wa.me. */
-export const WHATSAPP_NUMBER = "2347062837954";
+export const WHATSAPP_NUMBER = "2348022211241";
 
 /** How the number is written when it's shown to a visitor. */
-export const WHATSAPP_DISPLAY = "+234 706 283 7954";
+export const WHATSAPP_DISPLAY = "+234 802 221 1241";
 
 export const WHATSAPP_MESSAGES = {
   audit: "Hi RetenaAI, I'd like a free business audit. My business is: ",
