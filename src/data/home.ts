@@ -72,13 +72,19 @@ export const LAYERS = [
     body: "Ads made for your business and the platforms your customers actually use: Instagram, Facebook, TikTok and WhatsApp Status.",
     listIntro: "The format follows the business:",
     points: [
-      "Walkthroughs for property",
       "Cinematic or creator-style videos for fashion and beauty",
       "Food that makes people hungry, for restaurants",
       "Clear motion graphics for software",
+      "Walkthroughs for property",
     ],
-    closing: "We shoot on location and produce everything in-house.",
-    note: "Property is always filmed for real. We polish footage; we never invent a building.",
+    closing:
+      "You send us photos of the real thing. Everything after that is produced in-house.",
+    /*
+     * We don't shoot, and property walkthroughs are generated — so the old
+     * "always filmed for real" line was untrue. This says the same protective
+     * thing accurately, and without singling out property.
+     */
+    note: "Whatever we generate is built from photos of the real thing you send us. We never invent a place or a product that doesn't exist.",
   },
   {
     id: "somewhere-to-land",
@@ -271,7 +277,7 @@ export const FAQ = [
   },
   {
     q: "I'm not in Lagos. Can you still help?",
-    a: "Yes. We work with businesses across Nigeria. Shoots outside Lagos include travel, quoted upfront.",
+    a: "Yes. We work with businesses across Nigeria. Nothing gets filmed on site — you send us the photos and we produce from here — so being outside Lagos costs you nothing extra.",
   },
 ];
 
