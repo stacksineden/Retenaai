@@ -155,6 +155,10 @@ const ALL_ADS: Omit<Ad, "label">[] = [
   { key: "uplift-pro-ad2_xfjsjk", url: "https://res.cloudinary.com/dyryfgjro/image/upload/v1790668365/uplift-pro-ad2_xfjsjk.png", category: "uplift_pro", title: "UPLIFT PRO CAMPAIGN", type: "image" },
   { key: "uplift-pro-ad3_mdnsau", url: "https://res.cloudinary.com/dyryfgjro/image/upload/v1790668376/uplift-pro-ad3_mdnsau.png", category: "uplift_pro", title: "UPLIFT PRO CAMPAIGN", type: "image" },
   { key: "Uplift-pro-ugc_epeuhs", url: "https://res.cloudinary.com/dyryfgjro/video/upload/v1785833096/Uplift-pro-ugc_epeuhs.mov", category: "uplift_pro", title: "UPLIFT PRO CAMPAIGN", type: "video" },
+
+  // macbite
+  { key: "kiosk-front_kya2pn", url: "https://res.cloudinary.com/dyryfgjro/image/upload/v1790773126/kiosk-front_kya2pn.png", category: "macbite", title: "MACBITE CAMPAIGN", type: "image" },
+  { key: "ChatGPT_Image_Sep_9_2026_01_07_07_PM_lqs0kh", url: "https://res.cloudinary.com/dyryfgjro/image/upload/v1790773155/ChatGPT_Image_Sep_9_2026_01_07_07_PM_lqs0kh.png", category: "macbite", title: "MACBITE CAMPAIGN", type: "image" },
 ];
 
 /**

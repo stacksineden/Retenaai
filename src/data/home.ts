@@ -137,6 +137,9 @@ export const HOMEPAGE_ADS = [
   // Two more niches, so the strip isn't all skincare.
   "Generated_Image_September_05_2025_-_7_09PM_xeizaf", // chilli sauce
   "wrth3_mtkyat", // jersey
+  // Macbite — a real client, so these badge as "Client ad".
+  "kiosk-front_kya2pn",
+  "ChatGPT_Image_Sep_9_2026_01_07_07_PM_lqs0kh",
 ] as const;
 
 /** Caption for the layer-3 demo, once Samuel's own system is recorded. */

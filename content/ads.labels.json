@@ -602,6 +602,18 @@
       "client_name": null,
       "ai_presenter": false,
       "published": true
+    },
+    "kiosk-front_kya2pn": {
+      "client_or_sample": "client",
+      "client_name": "Macbite",
+      "ai_presenter": false,
+      "published": true
+    },
+    "ChatGPT_Image_Sep_9_2026_01_07_07_PM_lqs0kh": {
+      "client_or_sample": "client",
+      "client_name": "Macbite",
+      "ai_presenter": false,
+      "published": true
     }
   }
 }

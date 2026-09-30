@@ -64,6 +64,7 @@ export const CATEGORY_LABELS: Record<string, string> = {
   female_gymwear: "Gymwear",
   men_slide: "Slides",
   food_cusine: "Food",
+  macbite: "Macbite",
 };
 
 export const categoryLabel = (key: string): string =>
