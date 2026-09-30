@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { Logo } from "../Logo";
+import { SITE } from "../../data/content";
 import { FOOTER } from "../../data/home";
 import { WHATSAPP_DISPLAY, WHATSAPP_MESSAGES, whatsappUrl } from "../../lib/whatsapp";
 
-/** [EMAIL] is unfilled — the email line appears once it's set. */
-const EMAIL = "";
+/** Same address the creative site uses, so it's only written down once. */
+const EMAIL = SITE.email;
 
 export function SiteFooter() {
   return (
