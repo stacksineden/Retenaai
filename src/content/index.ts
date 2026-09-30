@@ -61,6 +61,18 @@ const reviewFiles = import.meta.glob<{ default: Review }>(
   { eager: true }
 );
 
+/**
+ * Placeholders live in their own directory so the real glob never matches
+ * them, and this glob is behind a statically-false branch in a build — so
+ * their text isn't merely hidden at runtime, it isn't shipped at all.
+ */
+const placeholderFiles = import.meta.env.DEV
+  ? import.meta.glob<{ default: Review }>(
+      "../../content/reviews/_placeholders/*.json",
+      { eager: true }
+    )
+  : {};
+
 const clientFile = import.meta.glob<{ default: { clients: Client[] } }>(
   "../../content/clients.json",
   { eager: true }
@@ -78,10 +90,20 @@ export const caseStudies: CaseStudy[] = Object.values(caseStudyFiles)
 
 export const featuredCaseStudies: CaseStudy[] = caseStudies.filter((c) => c.featured);
 
-/** Reviews with written permission only. Video testimonials first. */
-export const reviews: Review[] = Object.values(reviewFiles)
-  .map((m) => m.default)
-  .filter((r) => r.permission_confirmed)
+/**
+ * Reviews with written permission only. Video testimonials first.
+ *
+ * `npm run dev` also shows the unconfirmed placeholders in content/reviews,
+ * so the layout can be checked before any real review exists. Every build —
+ * including Vercel previews — drops them, so a placeholder can't reach a
+ * visitor. With nothing confirmed this is empty, and both the reviews section
+ * and the hero strip render nothing at all.
+ */
+export const reviews: Review[] = [
+  ...Object.values(reviewFiles).map((m) => m.default),
+  ...Object.values(placeholderFiles).map((m) => m.default),
+]
+  .filter((r) => r.permission_confirmed || import.meta.env.DEV)
   .sort((a, b) => Number(Boolean(b.video_url)) - Number(Boolean(a.video_url)));
 
 /** Businesses we've worked with, in the order they're listed. */

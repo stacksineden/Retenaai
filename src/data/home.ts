@@ -75,7 +75,7 @@ export const LAYERS = [
       "Cinematic or creator-style videos for fashion and beauty",
       "Food that makes people hungry, for restaurants",
       "Clear motion graphics for software",
-      "Walkthroughs for property",
+      "Walkthroughs for property, made from real photos of the actual property",
     ],
     closing:
       "You send us photos of the real thing. Everything after that is produced in-house.",
@@ -84,7 +84,7 @@ export const LAYERS = [
      * "always filmed for real" line was untrue. This says the same protective
      * thing accurately, and without singling out property.
      */
-    note: "Whatever we generate is built from photos of the real thing you send us. We never invent a place or a product that doesn't exist.",
+    note: "Whatever we generate is built from photos of the real thing you send us. We never invent a place or a product that doesn't exist. Property videos only show what's in your photos.",
   },
   {
     id: "somewhere-to-land",
@@ -100,7 +100,7 @@ export const LAYERS = [
     id: "close-the-sale",
     label: "Layer 3",
     name: "Close the sale",
-    body: "Your WhatsApp, set up to sell:",
+    body: "Your WhatsApp and DMs, set up to sell:",
     listIntro: null,
     points: [
       "An instant reply to every message, even at midnight",
@@ -120,25 +120,13 @@ export const LAYERS = [
  * Keys are asset_key from docs/ads-labelling.csv. An ad still has to be
  * labelled and published to appear; the full set lives on /work.
  *
- * Videos first, then at most two stills per brand: a third still of the same
- * product reads as filler rather than range.
+ * One card per campaign — a campaign repeated across cards reads as filler
+ * rather than range, and the titles would repeat too.
  */
 export const HOMEPAGE_ADS = [
-  // The five from the creative site's hero reel — our strongest work — with
-  // the final Uplift Pro cut in place of the earlier one.
   "a-uplift-pro-ugc-final_dbarsd",
   "face-facts-ugc1_msgmcs",
-  "face-facts-ad1_hds0vl",
   "curlumi-ugc_kwuf0o",
-  "wellman-ugc1_k9mhfp",
-  // Two stills per brand, no more.
-  "face-facts-assets5_vwzz4b",
-  "face-facts-asset1_tflbn6",
-  "wellman-asset3_m9mylo",
-  "wellman-asset1_q7btle",
-  "uplift-pro-ad1_tru0pd",
-  "uplift-pro-ad2_xfjsjk",
-  // Two more niches, so the strip isn't all skincare and supplements.
   "Generated_Image_September_05_2025_-_7_09PM_xeizaf", // chilli sauce
   "wrth3_mtkyat", // jersey
 ] as const;
@@ -276,8 +264,12 @@ export const FAQ = [
     a: "Yes. Many clients start with ads. If we spot something along the way that's costing you sales, we'll tell you.",
   },
   {
+    q: "Are your property videos real?",
+    a: "Every property video is made from real photos of the actual property, and only shows what's in them. If a project isn't built yet, we label it as an artist's impression.",
+  },
+  {
     q: "I'm not in Lagos. Can you still help?",
-    a: "Yes. We work with businesses across Nigeria. Nothing gets filmed on site — you send us the photos and we produce from here — so being outside Lagos costs you nothing extra.",
+    a: "Yes. We work with businesses across Nigeria. You send us photos, and everything else happens online and on WhatsApp.",
   },
 ];
 

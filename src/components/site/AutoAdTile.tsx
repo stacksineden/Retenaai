@@ -111,15 +111,20 @@ export function AutoAdTile({ ad }: { ad: Ad }) {
         )}
       </div>
 
-      <figcaption className="mt-2 flex flex-wrap gap-1.5">
-        {badges.map((b) => (
-          <span
-            key={b}
-            className="rounded-full bg-navy/6 px-2 py-0.5 text-[10px] font-medium text-navy/55"
-          >
-            {b}
-          </span>
-        ))}
+      <figcaption className="mt-2.5">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-navy/55">
+          {ad.title}
+        </p>
+        <span className="mt-1.5 flex flex-wrap gap-1.5">
+          {badges.map((b) => (
+            <span
+              key={b}
+              className="rounded-full bg-navy/6 px-2 py-0.5 text-[10px] font-medium text-navy/55"
+            >
+              {b}
+            </span>
+          ))}
+        </span>
       </figcaption>
     </figure>
   );

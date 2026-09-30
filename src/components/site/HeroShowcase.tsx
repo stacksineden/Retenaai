@@ -120,6 +120,10 @@ export function HeroShowcase() {
           Answered in seconds, 11:42pm
         </p>
       </div>
+
+      <p className="absolute -bottom-6 right-0 text-[10px] font-medium uppercase tracking-[0.14em] text-navy/35">
+        Illustration
+      </p>
     </div>
   );
 }

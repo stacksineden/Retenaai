@@ -1,0 +1,13 @@
+{
+  "id": "placeholder-1",
+  "quote": "[PLACEHOLDER - NOT A REAL REVIEW] This text stands in for a real client review so the layout can be checked. It is not something anybody said.",
+  "name": "[PLACEHOLDER - NOT A REAL REVIEW]",
+  "role": "[PLACEHOLDER - NOT A REAL REVIEW]",
+  "business": "[PLACEHOLDER - NOT A REAL REVIEW]",
+  "city": "[PLACEHOLDER - NOT A REAL REVIEW]",
+  "month": "[PLACEHOLDER - NOT A REAL REVIEW]",
+  "screenshot": null,
+  "video_url": null,
+  "permission_confirmed": false,
+  "_note": "Placeholder. Never set permission_confirmed to true on this file \u2014 delete it and add a real review instead. Visible in `npm run dev` only; production builds drop it."
+}

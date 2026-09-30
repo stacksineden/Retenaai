@@ -3,8 +3,8 @@ import { Logo } from "../Logo";
 import { FOOTER } from "../../data/home";
 import { WHATSAPP_DISPLAY, WHATSAPP_MESSAGES, whatsappUrl } from "../../lib/whatsapp";
 
-/** [CONTACT_EMAIL] is unfilled — the email line appears once it's set. */
-const CONTACT_EMAIL = "";
+/** [EMAIL] is unfilled — the email line appears once it's set. */
+const EMAIL = "";
 
 export function SiteFooter() {
   return (
@@ -29,16 +29,16 @@ export function SiteFooter() {
             >
               WhatsApp: {WHATSAPP_DISPLAY}
             </a>
-            {CONTACT_EMAIL ? (
+            {EMAIL ? (
               <a
-                href={`mailto:${CONTACT_EMAIL}`}
+                href={`mailto:${EMAIL}`}
                 className="inline-flex min-h-[44px] items-center text-white/70 transition-colors hover:text-amber"
               >
-                {CONTACT_EMAIL}
+                {EMAIL}
               </a>
             ) : (
               <span className="inline-flex min-h-[44px] items-center text-white/30">
-                Email: [CONTACT_EMAIL]
+                Email: [EMAIL]
               </span>
             )}
             <a

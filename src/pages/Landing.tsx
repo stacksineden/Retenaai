@@ -239,12 +239,6 @@ export function Landing() {
               Case studies go live here as clients approve them.
             </p>
           )}
-
-          {/* Names carry the section until the case studies land. */}
-          <ClientStrip
-            label={HERO.proofLabel}
-            className="mt-12 border-t border-navy/8 pt-10"
-          />
         </div>
       </section>
 
