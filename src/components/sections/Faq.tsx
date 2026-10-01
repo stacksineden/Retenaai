@@ -7,19 +7,29 @@ import { SectionHeading } from "../ui/SectionHeading";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-export function Faq() {
+type FaqItem = { q: string; a: string };
+
+export function Faq({
+  items = FAQ,
+  heading = "The questions worth asking first.",
+  eyebrow = "FAQ",
+  contactNote = true,
+}: {
+  items?: readonly FaqItem[];
+  heading?: string;
+  eyebrow?: string;
+  /** The "email us directly" line — creative site only; not in the v2 homepage copy. */
+  contactNote?: boolean;
+} = {}) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
     <section id="faq" className="relative bg-white py-24 md:py-32">
       <div className="container-page">
-        <SectionHeading
-          eyebrow="FAQ"
-          title="The questions worth asking first."
-        />
+        <SectionHeading eyebrow={eyebrow} title={heading} />
 
         <div className="mx-auto mt-14 max-w-3xl">
-          {FAQ.map((item, i) => {
+          {items.map((item, i) => {
             const isOpen = open === i;
 
             return (
@@ -75,6 +85,7 @@ export function Faq() {
           })}
         </div>
 
+        {contactNote && (
         <Reveal delay={0.1}>
           <p className="mt-12 text-center text-sm text-navy/50">
             Something not covered?{" "}
@@ -87,6 +98,7 @@ export function Faq() {
             .
           </p>
         </Reveal>
+        )}
       </div>
     </section>
   );
