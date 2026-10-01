@@ -43,6 +43,9 @@ export function ReviewCard({ review }: { review: Review }) {
         <span className="block text-navy/55">
           {[review.role, review.business].filter(Boolean).join(", ")}
         </span>
+        {review.credential && (
+          <span className="block text-navy/45">{review.credential}</span>
+        )}
         <span className="block text-xs text-navy/40">
           {[review.city, review.month].filter(Boolean).join(" · ")}
         </span>
@@ -61,17 +64,25 @@ export function ReviewCard({ review }: { review: Review }) {
   );
 }
 
-/** One short quote under the hero buttons. Nothing when no reviews exist. */
+/**
+ * One short quote under the hero buttons. Nothing when no reviews exist.
+ *
+ * Uses `pull_quote` where a review has one — a long testimonial swamps the
+ * hero — falling back to the full quote. Either way the words are theirs.
+ */
 export function HeroProofStrip() {
   const review = reviews[0];
   if (!review) return null;
 
   return (
-    <p className="mt-8 max-w-xl text-sm text-navy/60">
-      <span className="text-navy/80">“{review.quote}”</span>{" "}
-      <span className="whitespace-nowrap font-medium text-navy/50">
-        — {review.name}, {review.business}
-      </span>
-    </p>
+    <figure className="mt-8 max-w-xl">
+      <blockquote className="text-sm leading-relaxed text-navy/80">
+        “{review.pull_quote || review.quote}”
+      </blockquote>
+      <figcaption className="mt-2 text-sm font-medium text-navy/50">
+        — {review.name}
+        {review.business && `, ${review.business}`}
+      </figcaption>
+    </figure>
   );
 }

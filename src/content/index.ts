@@ -32,9 +32,17 @@ export type CaseStudy = {
 export type Review = {
   id: string;
   quote: string;
+  /**
+   * A short extract for the strip under the hero, where the full quote would
+   * run too long. Must be words lifted from `quote` exactly — never a
+   * paraphrase, and never something they didn't write.
+   */
+  pull_quote?: string | null;
   name: string;
   role: string;
   business: string;
+  /** Standing worth naming, e.g. a former ambassadorship. Shown under the role. */
+  credential?: string | null;
   city: string;
   month: string;
   screenshot: string | null;
@@ -61,18 +69,6 @@ const reviewFiles = import.meta.glob<{ default: Review }>(
   { eager: true }
 );
 
-/**
- * Placeholders live in their own directory so the real glob never matches
- * them, and this glob is behind a statically-false branch in a build — so
- * their text isn't merely hidden at runtime, it isn't shipped at all.
- */
-const placeholderFiles = import.meta.env.DEV
-  ? import.meta.glob<{ default: Review }>(
-      "../../content/reviews/_placeholders/*.json",
-      { eager: true }
-    )
-  : {};
-
 const clientFile = import.meta.glob<{ default: { clients: Client[] } }>(
   "../../content/clients.json",
   { eager: true }
@@ -91,38 +87,29 @@ export const caseStudies: CaseStudy[] = Object.values(caseStudyFiles)
 export const featuredCaseStudies: CaseStudy[] = caseStudies.filter((c) => c.featured);
 
 /* ---------------------------------------------------------------------------
- * REVIEWS ARE SWITCHED OFF
+ * REVIEWS
  * ---------------------------------------------------------------------------
- * Nothing about reviews renders anywhere while this is false: the "In their
- * words" section on the homepage, the quote strip under the hero, the reviews
- * section on /work, and the quote on a case study all disappear on their own,
- * because every one of them reads from `reviews` below.
+ * Set this to false to pull every review off the site at once — the homepage
+ * section, the strip under the hero, the section on /work and the quote on a
+ * case study all read from `reviews` below, so they appear and disappear
+ * together.
  *
- * TO TURN REVIEWS BACK ON, when real ones exist:
- *   1. add each review as its own file in content/reviews/ — see the README
- *      there for the template and the permission rule
- *   2. set REVIEWS_ENABLED to true
- *
- * Nothing else needs touching. Leaving it false is safe: it's a switch, not a
- * deletion, and all the markup is still here.
+ * Add a review by dropping a file in content/reviews/ — see the README there
+ * for the template and the permission rule.
  * ------------------------------------------------------------------------- */
-export const REVIEWS_ENABLED = false;
+export const REVIEWS_ENABLED = true;
 
 /**
- * Reviews with written permission only. Video testimonials first.
+ * Reviews with confirmed permission only. Video testimonials first.
  *
- * `npm run dev` also shows the unconfirmed placeholders in
- * content/reviews/_placeholders, so the layout can be checked before a real
- * review exists. Builds drop them — their text isn't in the bundle at all —
- * so a placeholder can't reach a visitor.
+ * The placeholders that stood in before a real review existed are deleted —
+ * there's a real one now, and a fake quote sitting next to it helps nobody.
  */
 export const reviews: Review[] = !REVIEWS_ENABLED
   ? []
-  : [
-      ...Object.values(reviewFiles).map((m) => m.default),
-      ...Object.values(placeholderFiles).map((m) => m.default),
-    ]
-      .filter((r) => r.permission_confirmed || import.meta.env.DEV)
+  : Object.values(reviewFiles)
+      .map((m) => m.default)
+      .filter((r) => r.permission_confirmed)
       .sort((a, b) => Number(Boolean(b.video_url)) - Number(Boolean(a.video_url)));
 
 /** Businesses we've worked with, in the order they're listed. */
