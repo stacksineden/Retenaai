@@ -30,18 +30,12 @@ export function SiteFooter() {
             >
               WhatsApp: {WHATSAPP_DISPLAY}
             </a>
-            {EMAIL ? (
-              <a
-                href={`mailto:${EMAIL}`}
-                className="inline-flex min-h-[44px] items-center text-white/70 transition-colors hover:text-amber"
-              >
-                {EMAIL}
-              </a>
-            ) : (
-              <span className="inline-flex min-h-[44px] items-center text-white/30">
-                Email: [EMAIL]
-              </span>
-            )}
+            <a
+              href={`mailto:${EMAIL}`}
+              className="inline-flex min-h-[44px] items-center text-white/70 transition-colors hover:text-amber"
+            >
+              {EMAIL}
+            </a>
             <a
               href="/#refer"
               className="inline-flex min-h-[44px] items-center text-white/70 transition-colors hover:text-amber"

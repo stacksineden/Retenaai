@@ -12,7 +12,9 @@ import { usePageMeta } from "../hooks/usePageMeta";
 import { ROUTE_META } from "../data/seo";
 
 export function Home() {
-  usePageMeta(ROUTE_META.home);
+  // This page is the creative site at /creative — not the homepage, which is
+  // Landing. Using ROUTE_META.home here gave it the Nigerian site's title.
+  usePageMeta(ROUTE_META.creative);
 
   return (
     <>
