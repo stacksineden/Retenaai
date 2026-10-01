@@ -181,16 +181,12 @@ export const WHO_ITS_FOR = {
   body: "If your customers find you on Instagram, message you on WhatsApp, or come from your ads, this is for you. We work with businesses across Nigeria:",
   points: [
     {
-      title: "Property developers and shortlet operators",
-      body: "more serious enquiries, faster inspections, and buyers who can see you're real",
-    },
-    {
-      title: "Schools",
-      body: "admissions enquiries answered and followed up before parents choose somewhere else",
-    },
-    {
       title: "Product brands",
       body: "fashion, beauty, footwear and more, turning DMs into paid orders",
+    },
+    {
+      title: "Property developers and shortlet operators",
+      body: "more serious enquiries, faster inspections, and buyers who can see you're real",
     },
     {
       title: "Restaurants and food businesses",
