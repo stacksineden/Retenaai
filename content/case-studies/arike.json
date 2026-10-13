@@ -1,0 +1,23 @@
+{
+  "slug": "arike",
+  "client_name": "ARÍKẸ́",
+  "city": "",
+  "layers": ["ads"],
+  "problem": "",
+  "what_we_built": "Ad creative for the slides line — video and stills, made for Instagram.",
+  "screenshots": [
+    {
+      "src": "https://res.cloudinary.com/dast35q6f/video/upload/so_2,w_1200,f_jpg,q_auto/v1779197401/ad2_grirmf.jpg",
+      "alt": "Still from the ARÍKẸ́ slides ad: a black cross-strap slide with a gold motif, worn on a marble floor",
+      "caption": "A frame from the slides campaign"
+    }
+  ],
+  "live_url": null,
+  "video": "https://res.cloudinary.com/dast35q6f/video/upload/w_1000,q_auto/v1779197401/ad2_grirmf.mp4",
+  "result": "3 orders from the campaign — ARÍKẸ́'s own count.",
+  "quote_id": "arike",
+  "og_image": null,
+  "featured": true,
+  "published": true,
+  "_todo": "[CONFIRM] the problem line and the city — Samuel's to write. The result is stated at campaign level on purpose: the creative that actually drew those orders (cream outfit on pale steps) is NOT on the site — Samuel confirmed it. Every men_slide asset we hold is the black-on-marble shoot. Upload that video to Cloudinary, add it to docs/ads-labelling.csv, and it can lead this case study with the result naming it directly. Customer DM screenshots are NOT included: they carry a real Instagram handle and a customer's profile photo, and those people did not consent — they go in only once redacted."
+}
