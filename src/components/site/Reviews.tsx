@@ -1,4 +1,5 @@
 import { reviews, type Review } from "../../content";
+import { HERO_REVIEW } from "../../data/home";
 
 /**
  * Client reviews. Renders nothing when none have confirmed permission — the
@@ -71,7 +72,7 @@ export function ReviewCard({ review }: { review: Review }) {
  * hero — falling back to the full quote. Either way the words are theirs.
  */
 export function HeroProofStrip() {
-  const review = reviews[0];
+  const review = reviews.find((r) => r.id === HERO_REVIEW) ?? reviews[0];
   if (!review) return null;
 
   return (

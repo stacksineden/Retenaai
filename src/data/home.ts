@@ -143,6 +143,14 @@ export const HOMEPAGE_ADS = [
 ] as const;
 
 /**
+ * Which review shows in the strip under the hero — its id, from
+ * content/reviews/. Falls back to the first confirmed review if this doesn't
+ * match anything. Set explicitly so adding a review can't quietly change what
+ * leads the page.
+ */
+export const HERO_REVIEW = "yemi-farounbi";
+
+/**
  * Which case study shows under layer 2. Its slug, from content/case-studies/.
  * Falls back to the first published one with a screenshot if this doesn't
  * match anything.
