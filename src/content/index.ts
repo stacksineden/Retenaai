@@ -19,6 +19,11 @@ export type CaseStudy = {
   problem: string;
   what_we_built: string;
   screenshots: Screenshot[];
+  /**
+   * The live site, where one exists and the client has agreed to us linking
+   * it. Null means no link is shown — never guess a URL.
+   */
+  live_url: string | null;
   video: string | null;
   /** A measured figure from the client's own data, or null. Never estimated. */
   result: string | null;

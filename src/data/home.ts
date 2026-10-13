@@ -142,6 +142,13 @@ export const HOMEPAGE_ADS = [
   "ChatGPT_Image_Sep_9_2026_01_07_07_PM_lqs0kh",
 ] as const;
 
+/**
+ * Which case study shows under layer 2. Its slug, from content/case-studies/.
+ * Falls back to the first published one with a screenshot if this doesn't
+ * match anything.
+ */
+export const LAYER_2_CASE_STUDY = "izzycrafts";
+
 /** Caption for the layer-3 demo, once Samuel's own system is recorded. */
 export const OWN_SYSTEM_CAPTION =
   "Our own WhatsApp, running the same system we set up for clients.";

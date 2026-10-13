@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { featuredCaseStudies, reviewById, type CaseStudy } from "../../content";
 import { track } from "../../lib/track";
 
@@ -22,18 +22,25 @@ export function CaseStudyCards({ limit = 3 }: { limit?: number }) {
   );
 }
 
+/**
+ * The card is a container rather than one big link, because it holds two
+ * destinations: the case study, and the live site itself. Nesting an anchor
+ * inside an anchor isn't valid, and a visitor who wants to walk around the
+ * real site shouldn't have to go through us first.
+ */
 export function CaseStudyCard({ study }: { study: CaseStudy }) {
   const shot = study.screenshots[0];
   const quote = reviewById(study.quote_id);
 
   return (
-    <Link
-      to={`/work/${study.slug}`}
-      onClick={() => track("case_study_view", { slug: study.slug })}
-      className="group flex h-full flex-col overflow-hidden rounded-3xl border border-navy/10 bg-white transition-all duration-400 hover:-translate-y-1.5 hover:shadow-premium focus-ring"
-    >
+    <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-navy/10 bg-white transition-all duration-400 hover:-translate-y-1.5 hover:shadow-premium">
       {shot && (
-        <div className="aspect-[16/10] overflow-hidden bg-navy">
+        <Link
+          to={`/work/${study.slug}`}
+          onClick={() => track("case_study_view", { slug: study.slug })}
+          className="block aspect-[16/10] overflow-hidden bg-navy focus-ring"
+          aria-label={`${study.client_name} — what we built`}
+        >
           <img
             src={shot.src}
             alt={shot.alt}
@@ -41,14 +48,20 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
             decoding="async"
             className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
           />
-        </div>
+        </Link>
       )}
 
       <div className="flex flex-1 flex-col p-6">
         <div className="flex items-start justify-between gap-3">
           <h3 className="font-display text-lg font-semibold text-navy">
-            {study.client_name}
-            {study.city && <span className="text-navy/50">, {study.city}</span>}
+            <Link
+              to={`/work/${study.slug}`}
+              onClick={() => track("case_study_view", { slug: study.slug })}
+              className="focus-ring rounded-sm hover:text-amber-600"
+            >
+              {study.client_name}
+              {study.city && <span className="text-navy/50">, {study.city}</span>}
+            </Link>
           </h3>
           <ArrowUpRight
             size={18}
@@ -77,7 +90,20 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
             “{quote.quote}”
           </p>
         )}
+
+        {study.live_url && (
+          <a
+            href={study.live_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => track("live_site_click", { slug: study.slug })}
+            className="mt-auto inline-flex min-h-[44px] items-center gap-1.5 pt-4 text-sm font-semibold text-navy hover:text-amber-600 focus-ring rounded-sm"
+          >
+            Visit the live site
+            <ExternalLink size={14} />
+          </a>
+        )}
       </div>
-    </Link>
+    </div>
   );
 }

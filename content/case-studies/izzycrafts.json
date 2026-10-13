@@ -1,0 +1,23 @@
+{
+  "slug": "izzycrafts",
+  "client_name": "IzzyCrafts",
+  "city": "",
+  "layers": ["pages"],
+  "problem": "",
+  "what_we_built": "An online store for handmade footwear, with a catalogue by style and a made-to-order custom pair flow.",
+  "screenshots": [
+    {
+      "src": "/work/izzycrafts.jpg",
+      "alt": "IzzyCrafts home page, showing handmade leather loafers and the shop navigation",
+      "caption": ""
+    }
+  ],
+  "live_url": "https://www.izzycrafts.com/",
+  "video": null,
+  "result": null,
+  "quote_id": null,
+  "og_image": null,
+  "featured": true,
+  "published": true,
+  "_todo": "[CONFIRM] the problem, the city, and a fuller what_we_built — these are Samuel's to write; the page renders only the fields that are filled. what_we_built here describes only what's visible on the live site. Also: a 1200x630 og_image."
+}
