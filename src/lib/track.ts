@@ -22,7 +22,8 @@ export type TrackEvent =
   | "refer_click"
   | "form_submit"
   | "video_play"
-  | "case_study_view";
+  | "case_study_view"
+  | "live_site_click";
 
 type Props = Record<string, string | number | boolean | null>;
 

@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import { ReviewCard } from "../components/site/Reviews";
 import { WhatsAppCta } from "../components/site/WhatsAppCta";
 import { Reveal } from "../components/Reveal";
@@ -7,6 +7,7 @@ import { caseStudies, reviewById } from "../content";
 import { caseStudyMeta } from "../data/seo";
 import { WORK_PAGE } from "../data/work";
 import { usePageMeta } from "../hooks/usePageMeta";
+import { track } from "../lib/track";
 import { WHATSAPP_MESSAGES } from "../lib/whatsapp";
 import { NotFound } from "./NotFound";
 
@@ -47,6 +48,19 @@ function CaseStudyBody({ slug }: { slug: string }) {
           <p className="mt-4 text-sm font-medium text-navy/50">
             {[study.city, ...study.layers].filter(Boolean).join(" · ")}
           </p>
+
+          {study.live_url && (
+            <a
+              href={study.live_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => track("live_site_click", { slug: study.slug })}
+              className="mt-6 inline-flex min-h-[48px] items-center gap-2 rounded-full border border-navy/15 bg-white px-6 text-sm font-semibold text-navy transition-all hover:-translate-y-0.5 hover:border-navy/35 focus-ring"
+            >
+              Visit the live site
+              <ExternalLink size={15} />
+            </a>
+          )}
         </div>
       </section>
 
