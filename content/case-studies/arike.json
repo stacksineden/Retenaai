@@ -10,6 +10,16 @@
       "src": "https://res.cloudinary.com/dast35q6f/video/upload/so_2,w_1200,f_jpg,q_auto/v1779197401/ad2_grirmf.jpg",
       "alt": "Still from the ARÍKẸ́ slides ad: a black cross-strap slide with a gold motif, worn on a marble floor",
       "caption": "A frame from the slides campaign"
+    },
+    {
+      "src": "/work/arike-enquiry-1.jpg",
+      "alt": "A WhatsApp conversation: a customer sends the ARÍKẸ́ slides ad and asks whether it is still available and whether it can be delivered to Akure",
+      "caption": "A customer brings the ad into WhatsApp and asks for delivery to Akure. Shared with ARÍKẸ́'s permission; the customer's details are masked."
+    },
+    {
+      "src": "/work/arike-enquiry-2.jpg",
+      "alt": "An Instagram message thread: a customer replies to the ARÍKẸ́ slides ad saying they need it and asking whether it can be delivered to Lagos",
+      "caption": "The same ad in Instagram DMs: \"Please I need this. And can it be delivered to Lagos?\""
     }
   ],
   "live_url": null,
@@ -19,5 +29,5 @@
   "og_image": null,
   "featured": true,
   "published": true,
-  "_todo": "[CONFIRM] the problem line and the city — Samuel's to write. The result is stated at campaign level on purpose: the creative that actually drew those orders (cream outfit on pale steps) is NOT on the site — Samuel confirmed it. Every men_slide asset we hold is the black-on-marble shoot. Upload that video to Cloudinary, add it to docs/ads-labelling.csv, and it can lead this case study with the result naming it directly. Customer DM screenshots are NOT included: they carry a real Instagram handle and a customer's profile photo, and those people did not consent — they go in only once redacted."
+  "_todo": "[CONFIRM] the problem line and the city — Samuel's to write. The enquiry screenshots are published with ARÍKẸ́'s permission, masked before use: the customer's Instagram handle and both profile photos are painted out, and no customer name appears anywhere in them. Keep it that way — ARÍKẸ́'s consent covers ARÍKẸ́, not their customers. The creative visible in those screenshots (cream outfit on pale steps) is not on the site; every men_slide asset we hold is the black-on-marble shoot, which is why the result reads 'from the campaign'. Upload that video and it can lead the case study with the result naming it directly."
 }
