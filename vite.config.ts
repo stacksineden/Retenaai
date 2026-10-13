@@ -3,7 +3,7 @@ import { resolve } from 'node:path'
 import { defineConfig, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
-import { caseStudyMeta, OG_IMAGE, ROUTE_META, SITE_URL } from './src/data/seo.ts'
+import { caseStudyMeta, OG_IMAGE, ROUTE_META, SITE_URL, SOCIAL_PROFILES } from './src/data/seo.ts'
 import type { RouteMeta } from './src/data/seo.ts'
 
 const escapeAttr = (s: string) =>
@@ -82,6 +82,15 @@ function routeHeadTags(): Plugin {
                   areaServed: { '@type': 'Country', name: 'Nigeria' },
                   logo: OG_IMAGE,
                   image: OG_IMAGE,
+                  ...(SOCIAL_PROFILES.length ? { sameAs: SOCIAL_PROFILES } : {}),
+                })}</script>`,
+                // Tells Google the site is called "RetenaAI", so results show
+                // the name rather than the bare domain.
+                `<script type="application/ld+json">${JSON.stringify({
+                  '@context': 'https://schema.org',
+                  '@type': 'WebSite',
+                  name: 'RetenaAI',
+                  url: SITE_URL,
                 })}</script>`,
               ]
             : []

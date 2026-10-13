@@ -21,6 +21,16 @@
 export const SITE_URL = "https://retenaai.com";
 export const OG_IMAGE = `${SITE_URL}/brand/mark-light.png`;
 
+/**
+ * Profiles Google should treat as the same business — Instagram, LinkedIn,
+ * Facebook, X. They go into the homepage's structured data as `sameAs`, which
+ * is how Google ties the website, the social accounts and the Business Profile
+ * together into one entity instead of three strangers.
+ *
+ * Add the full URLs. Left empty, no sameAs is emitted at all.
+ */
+export const SOCIAL_PROFILES: string[] = [];
+
 export type RouteMeta = {
   /** URL path. */
   path: string;
