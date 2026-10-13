@@ -9,7 +9,16 @@
  *   - a review shows only when `permission_confirmed` is true
  * ========================================================================== */
 
-export type Screenshot = { src: string; alt: string; caption?: string };
+export type Screenshot = {
+  src: string;
+  alt: string;
+  caption?: string;
+  /**
+   * "phone" holds a tall screenshot to roughly phone width and centres it.
+   * Without it a 760x1645 phone grab renders full-bleed and swamps the page.
+   */
+  display?: "wide" | "phone";
+};
 
 export type CaseStudy = {
   slug: string;

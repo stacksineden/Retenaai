@@ -94,7 +94,7 @@ function CaseStudyBody({ slug }: { slug: string }) {
             <ul className="mt-12 space-y-8">
               {study.screenshots.map((shot) => (
                 <li key={shot.src}>
-                  <figure>
+                  <figure className={shot.display === "phone" ? "mx-auto max-w-[340px]" : ""}>
                     <img
                       src={shot.src}
                       alt={shot.alt}
