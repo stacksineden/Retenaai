@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: /implementations
+
+Sitemap: https://retenaai.com/sitemap.xml
