@@ -57,7 +57,37 @@ function routeHeadTags(): Plugin {
         const ogDescription = escapeAttr(meta.ogDescription || meta.description)
         const image = escapeAttr(meta.ogImage || OG_IMAGE)
 
+        /*
+         * Organization markup, homepage only. Tells Google what RetenaAI is,
+         * where it operates and how to reach it — the same facts a Business
+         * Profile carries, so the two corroborate each other. Every value here
+         * is one already shown on the site; nothing is invented for the robot.
+         */
+        const jsonLd =
+          meta.path === '/'
+            ? [
+                `<script type="application/ld+json">${JSON.stringify({
+                  '@context': 'https://schema.org',
+                  '@type': 'ProfessionalService',
+                  name: 'RetenaAI',
+                  url: SITE_URL,
+                  description: meta.description,
+                  email: 'hello@retenaai.com',
+                  telephone: '+2348022211241',
+                  address: {
+                    '@type': 'PostalAddress',
+                    addressLocality: 'Lagos',
+                    addressCountry: 'NG',
+                  },
+                  areaServed: { '@type': 'Country', name: 'Nigeria' },
+                  logo: OG_IMAGE,
+                  image: OG_IMAGE,
+                })}</script>`,
+              ]
+            : []
+
         const social = [
+          ...jsonLd,
           ...robots,
           `<meta property="og:type" content="website" />`,
           `<meta property="og:site_name" content="RetenaAI" />`,
@@ -82,6 +112,21 @@ function routeHeadTags(): Plugin {
 
         writeFileSync(resolve(outDir, meta.file), html)
       }
+
+      // Sitemap from the same route list, so it can't drift. Anything marked
+      // noindex is left out — listing a page we've asked Google to ignore
+      // just sends mixed signals.
+      const urls = pages
+        .filter((m) => !m.robots?.includes('noindex'))
+        .map((m) => `${SITE_URL}${m.path === '/' ? '/' : m.path}`)
+
+      writeFileSync(
+        resolve(outDir, 'sitemap.xml'),
+        `<?xml version="1.0" encoding="UTF-8"?>\n` +
+          `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+          urls.map((u) => `  <url><loc>${u}</loc></url>`).join('\n') +
+          `\n</urlset>\n`
+      )
     },
   }
 }
