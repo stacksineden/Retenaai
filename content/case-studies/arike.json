@@ -2,7 +2,9 @@
   "slug": "arike",
   "client_name": "ARÍKẸ́",
   "city": "",
-  "layers": ["ads"],
+  "layers": [
+    "ads"
+  ],
   "problem": "",
   "what_we_built": "Ad creative for the slides line — video and stills, made for Instagram.",
   "screenshots": [
@@ -14,12 +16,14 @@
     {
       "src": "/work/arike-enquiry-1.jpg",
       "alt": "A WhatsApp conversation: a customer sends the ARÍKẸ́ slides ad and asks whether it is still available and whether it can be delivered to Akure",
-      "caption": "A customer brings the ad into WhatsApp and asks for delivery to Akure. Shared with ARÍKẸ́'s permission; the customer's details are masked."
+      "caption": "A customer brings the ad into WhatsApp and asks for delivery to Akure. Shared with ARÍKẸ́'s permission; the customer's details are masked.",
+      "display": "phone"
     },
     {
       "src": "/work/arike-enquiry-2.jpg",
       "alt": "An Instagram message thread: a customer replies to the ARÍKẸ́ slides ad saying they need it and asking whether it can be delivered to Lagos",
-      "caption": "The same ad in Instagram DMs: \"Please I need this. And can it be delivered to Lagos?\""
+      "caption": "The same ad in Instagram DMs: \"Please I need this. And can it be delivered to Lagos?\"",
+      "display": "phone"
     }
   ],
   "live_url": null,
